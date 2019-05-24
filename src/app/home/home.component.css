@@ -1,0 +1,19 @@
+.card-first {
+    float: left;
+    width: 25%;
+    position: absolute;
+}
+
+.card-second {
+    float: right;
+    width: 40%;
+    position: absolute;
+    right: 35%;
+}
+
+.card-third {
+    float: right;
+    width: 35%;
+    position: absolute;
+    right: 0;
+}

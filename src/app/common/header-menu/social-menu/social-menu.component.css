@@ -1,0 +1,16 @@
+.social-menu li {
+    display: inline;
+    margin: 3px;
+    list-style-type: none;
+    line-height: 4em;
+}
+
+.social-menu .mat-raised-button {
+    line-height: 28px !important;
+    border-radius: 10px !important;
+}
+
+.social-menu {
+    margin-left: -39px;
+    margin-top: -30px;
+}

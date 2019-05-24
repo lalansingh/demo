@@ -1,0 +1,62 @@
+.header-col1 {
+    width: 50%;
+    float: left;
+}
+
+.header-sub-col1 {
+    width: 30%;
+    float: left;
+    margin-top: 2px;
+    position: absolute;
+}
+
+.header-prof-col1 {
+    float: left;
+    float: left;
+    width: 0%;
+    margin-left: 45px;
+    margin-right: -41px;
+}
+
+.header-prof-col2 {
+    float: left;
+    width: 48%
+}
+
+.header-prof-h3 {
+    padding-left: 80px;
+}
+
+.header-sub-col2 {
+    width: 30%;
+    float: right;
+}
+
+.header-sub-col2-icon {
+    font-size: 20px;
+    color: #c5c5c5;
+}
+
+.header-col2 {
+    width: 50%;
+    float: right;
+}
+
+.header-sec1 {
+    width: 58%
+}
+
+.header-sec2 {
+    position: absolute;
+    right: 0;
+    width: 42%;
+    margin-top: -22px;
+}
+
+.edit-bottom-text {
+    margin-left: -58px;
+    margin-top: 17px;
+    position: absolute;
+    font-size: 10px;
+    text-align: center;
+}

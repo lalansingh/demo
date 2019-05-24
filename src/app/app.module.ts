@@ -1,0 +1,50 @@
+import { BrowserModule } from '@angular/platform-browser';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { MatSidenavModule, MatToolbarModule, MatIconModule, MatListModule, MatButtonModule, MatCardModule, MatInputModule } from '@angular/material';
+import { NgModule } from '@angular/core';
+import { RouterModule } from '@angular/router';
+import { AppComponent } from './app.component';
+import { AppHeaderComponent } from './common/header/header.component';
+import { AppLeftMenuComponent } from './common/left-menu/left-menu.component';
+import { CardFirstComponent } from './cards/card-first/card-first.component';
+import { CardSecondComponent } from './cards/card-second/card-second.component';
+import { CardThirdComponent } from './cards/card-third/card-third.component';
+import { SettingsComponent } from './settings/settings.component';
+import { HomeComponent } from './home/home.component';
+import { ApplicationMenuComponent } from './common/header-menu/application-menu/application-menu.component';
+import { SocialMenuComponent } from './common/header-menu/social-menu/social-menu.component';
+import { MusicMenuComponent } from './common/header-menu/music-menu/music-menu.component';
+import { routes } from './routes/route';
+import { MatVideoModule } from 'mat-video';
+
+@NgModule({
+  declarations: [
+    AppComponent,
+    AppHeaderComponent,
+    AppLeftMenuComponent,
+    CardFirstComponent,
+    CardSecondComponent,
+    CardThirdComponent,
+    SettingsComponent,
+    HomeComponent,
+    ApplicationMenuComponent,
+    SocialMenuComponent,
+    MusicMenuComponent,
+  ],
+  imports: [
+    BrowserModule,
+    BrowserAnimationsModule,
+    MatSidenavModule,
+    MatToolbarModule,
+    MatIconModule,
+    MatListModule,
+    MatButtonModule,
+    MatCardModule,
+    MatInputModule,
+    MatVideoModule,
+    RouterModule.forRoot(routes, { useHash: true })
+  ],
+  providers: [],
+  bootstrap: [AppComponent]
+})
+export class AppModule { }

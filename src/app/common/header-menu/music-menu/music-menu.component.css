@@ -1,0 +1,16 @@
+.music-menu li {
+    display: inline;
+    margin: 3px;
+    list-style-type: none;
+    line-height: 4em;
+}
+
+.music-menu .mat-raised-button {
+    line-height: 28px !important;
+    border-radius: 10px !important;
+}
+
+.music-menu {
+    margin-left: -26px;
+    margin-top: -30px;
+}

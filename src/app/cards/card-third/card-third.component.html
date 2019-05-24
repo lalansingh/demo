@@ -1,0 +1,54 @@
+<div class="card-third">
+    <mat-card>
+        <div class="row" style="margin-bottom: -24px">
+            <music-menu 
+            (all)="AllEventClicked($event)"
+            (video)="VideoEventClicked($event)"
+            (music)="MusicEventClicked($event)"
+            (postCasts)="PostcastsEventClicked($event)"
+            ></music-menu>
+        </div>
+        <div class="row" *ngFor="let item of srcData; let i = index;">
+            <mat-card class="padding10">
+                <div class="row">
+                    <div class="row">
+                        <div style="float:left;width:8%;"><a style="cursor: pointer;"><i class="material-icons"
+                                    (click)="close(i)">close</i></a>
+                        </div>
+                        <div style="float:left;width:25%;"> <a mat-raised-button routerLink=".">10B Listens</a></div>
+                        <div style="float:left;width:44%;" class="media-align-center music-menu-a"><a>#Art #Movie
+                                #History {{i}}</a></div>
+                        <div style="float:left;width:18%;"> <a mat-raised-button routerLink=".">music</a></div>
+                        <div style="float:left;width:5%;" class="media-align-right"><i
+                                class="material-icons flipped-icon">reply</i></div>
+                    </div>
+                    <div class="row row-padding-top">
+                        <div class="column card-third-vedio-frame">
+                            <mat-video *ngIf="item.mediaType === 'video'" src="../../assets/video/{{item.url}}"
+                                title="{{item.mediaTitle}}" [autoplay]="false" [preload]="false" [fullscreen]="true"
+                                [download]="false" color="accent" spinner="spin"
+                                poster="../../assets/video/poster/{{item.poster}}">
+                            </mat-video>
+                            <mat-video *ngIf="item.mediaType === 'music'" src="../../assets/music/{{item.url}}"
+                                title="{{item.mediaTitle}}" [autoplay]="false" [preload]="false" [fullscreen]="true"
+                                [download]="false" color="accent" spinner="spin"
+                                poster="../../assets/music/poster/{{item.poster}}">
+                            </mat-video>
+                            <mat-video *ngIf="item.mediaType === 'postcasts'" src="{{item.url}}"
+                                title="{{item.mediaTitle}}" [autoplay]="false" [preload]="false" [fullscreen]="true"
+                                [download]="false" color="accent" spinner="spin"
+                                poster="../../assets/postcasts/poster/{{item.poster}}">
+                            </mat-video>
+                        </div>
+                        <div class="column summary">
+                            <label>{{item.title}}</label>
+                            <p>{{item.description}}</p>
+                            <label>{{item.user}}</label>
+                            <p>{{item.days}}</p>
+                        </div>
+                    </div>
+                </div>
+            </mat-card>
+        </div>
+    </mat-card>
+</div>
