@@ -1,21 +1,21 @@
-<div class="app-container" [class.app-is-mobile]="mobileQuery.matches" *ngIf="shouldRun">
-  <mat-toolbar color="primary" class="app-toolbar z-depth-5">
-    <button mat-icon-button (click)="snav.toggle()">
-      <mat-icon class="material-icons-custom">menu</mat-icon>
-    </button>
-    <app-header style="width:100%"></app-header>
-  </mat-toolbar>
-  <mat-sidenav-container class="app-sidenav-container" [style.marginTop.px]="mobileQuery.matches ? 56 : 0">
-    <mat-sidenav #snav [mode]="mobileQuery.matches ? 'over' : 'side'" [fixedInViewport]="mobileQuery.matches"
-      fixedTopGap="56">
+<app-top-header></app-top-header>
+
+<div class="story-container">
+  <div class="side-nav-container">
+    <div class="side-nav-padding">
+      <button type="button" aria-label="Toggle sidenav" mat-icon-button (click)="drawer.toggle()"
+        *ngIf="isHandset$ | async">
+        <mat-icon class="material-icons-30" aria-label="Side nav toggle icon">menu</mat-icon>
+      </button>
+      <!-- <mat-sidenav-container class="sidenav-container">
+        <mat-sidenav #drawer style="top:131px !important;" class="sidenav" fixedInViewport="true"
+          [attr.role]="(isHandset$ | async) ? 'dialog' : 'navigation'" [mode]="(isHandset$ | async) ? 'over' : 'side'"
+          [opened]="!(isHandset$ | async)">
+          <app-left-menu></app-left-menu>
+        </mat-sidenav>
+      </mat-sidenav-container> -->
       <app-left-menu></app-left-menu>
-    </mat-sidenav>
-    <mat-sidenav-content>
-      <!-- <p *ngFor="let content of fillerContent">{{content}}</p> -->
-      <div style="width: 99%;
-      position: absolute;">
-        <router-outlet></router-outlet>
-      </div>
-    </mat-sidenav-content>
-  </mat-sidenav-container>
+    </div>
+  </div>
+  <router-outlet></router-outlet>
 </div>

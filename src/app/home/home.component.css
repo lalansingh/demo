@@ -1,19 +1,25 @@
-.card-first {
+.today-story {
+    /* display: inline-block; */
+    width: calc(18% - 30px);
+    background: #fff;
+    margin-left: 5px;
     float: left;
-    width: 25%;
-    position: absolute;
+    padding: 0px 20px 0px 20px;
 }
 
-.card-second {
-    float: right;
-    width: 40%;
-    position: absolute;
-    right: 35%;
-}
-
-.card-third {
-    float: right;
+.thinking-today {
+    /* display: inline-block; */
     width: 35%;
-    position: absolute;
-    right: 0;
+    margin: 0 15px;
+    background: #fff;
+    float: left;
+    padding: 0px 20px 0px 20px;
+}
+
+.start-creating {
+    /* display: inline-block; */
+    width: 32%;
+    background: #fff;
+    float: left;
+    padding: 0px 20px 0px 20px;
 }

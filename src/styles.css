@@ -1,15 +1,67 @@
 @import "~@angular/material/prebuilt-themes/deeppurple-amber.css";
-body { 
-    font-family: Roboto, Arial, sans-serif;
-    margin: 0;
-  }
-  
-  .basic-container {
-    padding: 30px;
-  }
-  
-  .version-info {
-    font-size: 8pt;
-    float: right;
-  }
-  
+body {
+  font-family: calibri;
+  margin: 0;
+  background-color: #EBF7FF;
+}
+
+.basic-container {
+  padding: 30px;
+}
+
+.version-info {
+  font-size: 8pt;
+  float: right;
+}
+
+.mat-card:not([class*=mat-elevation-z]) {
+  box-shadow: 0 2px 1px -2px rgba(0, 0, 0, .2), 0 1px 5px 0 rgba(0, 0, 0, .14), 0 1px 3px 0 rgba(0, 0, 0, .12);
+}
+
+.mat-card {
+  border-radius: 8px!important;
+}
+
+.box-shadow {
+  box-shadow: 0 2px 1px -2px rgba(0, 0, 0, .2), 0 1px 5px 0 rgba(0, 0, 0, .14), 0 1px 3px 0 rgba(0, 0, 0, .12);
+}
+
+.button-belive {
+  height: 30px;
+  border-radius: 15px !important;
+  line-height: 30px !important;
+  border: 1px solid #3597EC !important;
+  color: #3597EC;
+  margin-left: 33% !important;
+  margin-top: 2% !important;
+}
+
+.button-belive mat-icon {
+  color: #3597EC;
+}
+
+.radius-border {
+  border-radius: 8px;
+}
+
+.anchor {
+  font-size: 15px;
+  cursor: pointer;
+  color: #3597EC;
+  text-decoration: none;
+}
+
+.mat-icon-button .mat-icon {
+  line-height: 24px;
+  font-size: 18px;
+  /* color: #E3E3E3; */
+}
+
+.mat-form-field-label-wrapper {
+  left: 8px !important;
+  top: -18px !important;
+}
+
+.material-icons {
+  color: #5F5F5F
+}

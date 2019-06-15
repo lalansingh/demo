@@ -62,11 +62,6 @@
      font-size: 11px;
  }
 
- .mat-primary {
-     background: #ffffff !important;
-     color: #000 !important;
-     border-bottom: 2px solid rgba(0, 0, 0, .12);
- }
 
  .rotate-90 {
      -webkit-transform: rotate(90deg);
@@ -181,3 +176,27 @@
  .material-icons-custom {
      font-size: 35px !important;
  }
+
+ /*new css */
+ .side-nav-container {
+     /* display: inline-block; */
+     width: 4%;
+     background: #fff;
+     float: left;
+     box-shadow: 0 2px 1px -2px rgba(0, 0, 0, .2), 0 1px 5px 0 rgba(0, 0, 0, .14), 0 1px 3px 0 rgba(0, 0, 0, .12);
+ }
+
+ .side-nav-padding {
+     padding: 0% !important;
+ }
+
+ .material-icons-30 {
+     font-size: 30px !important;
+ }
+
+ 
+ .mat-primary {
+    background: #F7F7F7!important;
+    color: #000 !important;
+    border-top: 1px solid rgba(0, 0, 0, .12);
+}
