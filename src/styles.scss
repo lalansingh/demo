@@ -1,0 +1,107 @@
+
+@import '~@angular/material/theming';
+
+$custom-typography: mat-typography-config($font-family: '"Calibri", sans-serif;');
+@include mat-core($custom-typography);
+
+.topSearch {
+    width: calc(100% - 400px);
+    overflow: hidden;
+    height: 40px;
+    // padding: 0 15px;
+    margin: 0 15px;
+    font-size: 16px;
+    border-radius: 20px;
+    box-shadow: 0 3px 1px -2px rgba(0, 0, 0, 0.2), 0 2px 2px 0 rgba(0, 0, 0, 0.14), 0 1px 5px 0 rgba(0, 0, 0, 0.12);
+    .mat-form-field {
+        width: 100%;
+        top: -12px;
+        text-align: center;
+    }
+    .mat-form-field-appearance-legacy .mat-form-field-underline {
+        bottom: 0;
+        display: none;
+    }    
+}
+
+// .sidenav-container {
+    //     height: 100%;
+    //   }
+      
+    .sidenav {
+        width: 70px;
+        top: 131px !important;
+      }
+
+      .mat-drawer-backdrop.mat-drawer-shown {
+        top:66px;
+      }
+      
+    //   .sidenav .mat-toolbar {
+    //     background: inherit;
+    //   }
+      
+    //   .mat-toolbar.mat-primary {
+    //     position: sticky;
+    //     // top: 0;
+    //     z-index: 1;
+    //   }
+
+    .custom-nav-list {
+        .mat-nav-list{
+            padding-top: 0px;
+            display: flex;
+            flex-direction: row;
+            margin-left: -20px;
+            margin-right: -20px;
+            a.mat-list-item {
+                border-bottom: 2px solid #fff;
+                &.active {
+                    color: #3597EC;
+                    border-bottom: 2px solid #3597EC;
+                    background: rgba(53, 151, 236,0.21);
+                }
+                &:hover {
+                    background: rgba(53, 151, 236,0.21);
+                }
+                .mat-list-item-content {
+                    padding: 0 8px;
+                    justify-content: center;
+                    min-width: 50px;
+                    color: #707070;
+                    font-size: 18px;
+                }
+            }
+        }
+    }
+
+    .custom-nav-list-music {
+        .mat-nav-list{
+            width: 150px;
+            padding-bottom: 11px;
+            margin-top: -12px;
+            display: flex;
+            flex-direction: row;
+            margin-right: 90px;
+            float: right;
+            a.mat-list-item {
+                border-bottom: 2px solid #fff;
+                height: 30px;
+                &.active {
+                    color: #3597EC;
+                    border-bottom: 2px solid #3597EC;
+                    background: rgba(53, 151, 236,0.21);
+                }
+                &:hover {
+                    background: rgba(53, 151, 236,0.21);
+                }
+                .mat-list-item-content {
+                    padding: 0 8px;
+                    justify-content: center;
+                    min-width: 50px;
+                    color: #707070;
+                    font-size: 18px;
+                }
+            }
+        }
+    }

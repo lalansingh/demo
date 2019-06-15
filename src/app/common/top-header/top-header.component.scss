@@ -1,0 +1,13 @@
+.mat-toolbar.top-header {
+    background: #fff;
+    border-bottom: 1px solid #D1D1D1;
+    .mat-toolbar-row {
+        padding: 0;
+    }
+
+    .mat-raised-button{
+        padding: 0;
+        min-width: 40px;
+        margin: 4px;
+    }
+}
