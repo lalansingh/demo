@@ -19,13 +19,41 @@
     </li>
 </ul> -->
 
-<div class="start-creating-header flex-display">
-    <div style="display: inline;">
-        <!-- <mat-form-field floatLabel="never">
+<div class="start-creating-music flex-display">
+    <div class="search-music">
+        <div style="float:left;">
+            <img class="search-image" src="https://material.angular.io/assets/img/examples/shiba2.jpg"
+                alt="Photo of a Shiba Inu">
+        </div>
+        <div style="display: inline;">
+            <input class="search-box" type="text" name="search" placeholder="&#61442; Start Creating">
+        </div>
+        <div style="display: inline;">
+            <a mat-raised-button class="music-menu-button" routerLink="#" (click)="PauseClicked()"><i
+                    class="material-icons">pause</i></a>
+            <a mat-raised-button class="music-menu-button" routerLink="#" (click)="PlayClicked()"><i
+                    class="material-icons rotate-90">pause</i></a>
+        </div>
+        <div style="float: right;">
+            <div class="custom-nav-list-music">
+                <mat-nav-list>
+                    <a mat-list-item class="active"> All</a>
+                    <a mat-list-item> Videos</a>
+                    <a mat-list-item> Music</a>
+                    <a mat-list-item> Podcasts</a>
+                </mat-nav-list>
+            </div>
+        </div>
+    </div>
+    <!-- <div style="display: inline;">
+        <mat-form-field floatLabel="never">
             <mat-label>Start Creating</mat-label>
             <mat-icon matPrefix>search</mat-icon>
             <input type="search" matInput>
-        </mat-form-field> -->
+        </mat-form-field> 
+        <div class="search-hero">
+            <input class="search-box" type="text" name="search" placeholder="&#61442; Search">
+        </div>
     </div>
     <div style="display: inline;">
             <a mat-raised-button class="music-menu-button" routerLink="#" (click)="PauseClicked()"><i class="material-icons">pause</i></a>
@@ -40,7 +68,7 @@
             <a mat-list-item> Podcasts</a>
         </mat-nav-list>
 
-    </div>
+    </div> -->
 </div>
 <!-- 
 <div class="start-creating-content">

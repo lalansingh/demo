@@ -79,7 +79,7 @@ $custom-typography: mat-typography-config($font-family: '"Calibri", sans-serif;'
         .mat-nav-list{
             width: 150px;
             padding-bottom: 11px;
-            margin-top: -12px;
+            margin-top: -8px;
             display: flex;
             flex-direction: row;
             margin-right: 90px;
@@ -100,8 +100,65 @@ $custom-typography: mat-typography-config($font-family: '"Calibri", sans-serif;'
                     justify-content: center;
                     min-width: 50px;
                     color: #707070;
-                    font-size: 18px;
+                    font-size: 17px;
                 }
             }
         }
     }
+
+    .search-think{
+        padding: 10px;
+        background-color: #F7F7F7;
+        border-top: 1px solid rgba(0, 0, 0, .12);
+        .search-image{
+            width: 30px;
+            height: 30px;
+            border-radius: 10px;
+        }
+        .search-box{
+        border-radius: 20px;
+        width: 90%;
+        border: 0px solid;
+        text-align: center;
+        background-color: #F7F7F7;
+        height: 28px;
+        box-shadow: 0 3px 1px -2px rgba(0, 0, 0, .2), 0 2px 2px 0 rgba(0, 0, 0, .14), 0 1px 5px 0 rgba(0, 0, 0, .12);
+    }
+    .search-box::placeholder {
+        font-family: FontAwesome;
+        font-family: "Calibri", sans-serif !important;
+        font-weight: 400;
+        font-size: 16px;
+    }
+}
+.start-creating-music{
+    padding-bottom: 20px;
+    .search-music{
+        padding: 10px;
+        background-color: #F7F7F7;
+        border-top: 1px solid rgba(0, 0, 0, .12);
+        margin-left: -20px;
+        margin-right: -20px;
+        .search-image{
+            width: 30px;
+            height: 30px;
+            border-radius: 10px;
+        }
+        .search-box{
+        border-radius: 20px;
+        width: 22%;
+        border: 0px solid;
+        text-align: center;
+        background-color: #F7F7F7;
+        height: 28px;
+        box-shadow: 0 3px 1px -2px rgba(0, 0, 0, .2), 0 2px 2px 0 rgba(0, 0, 0, .14), 0 1px 5px 0 rgba(0, 0, 0, .12);
+        }
+        .search-box::placeholder {
+            // font-family: FontAwesome;
+            font-family: FontAwesome;
+            font-family: "Calibri", sans-serif !important;
+            font-weight: 400;
+            font-size: 16px;
+        }   
+    }   
+}

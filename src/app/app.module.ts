@@ -1,6 +1,6 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { MatSidenavModule, MatToolbarModule, MatIconModule, MatListModule, MatButtonModule, MatCardModule, MatInputModule } from '@angular/material';
+import { MatSidenavModule, MatToolbarModule, MatIconModule, MatListModule, MatButtonModule, MatCardModule, MatInputModule, MatAutocompleteModule } from '@angular/material';
 import { NgModule } from '@angular/core';
 import { RouterModule } from '@angular/router';
 import { AppComponent } from './app.component';
@@ -19,6 +19,7 @@ import { TopHeaderComponent } from './common/top-header/top-header.component';
 import { LoginFirstComponent } from './cards/login/login.component';
 import { CreatingComponent } from './cards/creating/creating.component';
 import { StoryComponent } from './cards/story/story.component';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -39,6 +40,8 @@ import { StoryComponent } from './cards/story/story.component';
   ],
   imports: [
     BrowserModule,
+    FormsModule,
+    ReactiveFormsModule,
     BrowserAnimationsModule,
     MatSidenavModule,
     MatToolbarModule,
@@ -48,6 +51,7 @@ import { StoryComponent } from './cards/story/story.component';
     MatCardModule,
     MatInputModule,
     MatVideoModule,
+    MatAutocompleteModule,
     RouterModule.forRoot(routes, { useHash: true })
   ],
   providers: [],

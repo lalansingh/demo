@@ -2,7 +2,7 @@
     <application-menu></application-menu>
     <div class="thinking-today-content">
         <div class="thinking-today-post">
-            <mat-form-field floatLabel="never">
+            <!-- <mat-form-field floatLabel="never">
                 <mat-label>What are you thinking toay?</mat-label>
                 <div matPrefix mat-card-avatar>
                     <img mat-card-image src="https://material.angular.io/assets/img/examples/shiba2.jpg"
@@ -11,7 +11,20 @@
 
                 <input type="search" matInput>
                 <mat-icon matSuffix>send</mat-icon>
-            </mat-form-field>
+            </mat-form-field> -->
+            <div class="search-think">
+                <div style="float:left;">
+                    <img class="search-image" src="https://material.angular.io/assets/img/examples/shiba2.jpg"
+                        alt="Photo of a Shiba Inu">
+                </div>
+                <div style="display: inline;">
+                    <input class="search-box" type="text" name="search"
+                        placeholder="&#61442; What are you thinking toay?">
+                </div>
+                <div style="float: right;">
+                    <mat-icon matSuffix>send</mat-icon>
+                </div>
+            </div>
         </div>
         <div class="thinking-today-post-content">
             <mat-card>
@@ -33,8 +46,8 @@
                         A small, agile dog that copes very well with mountainous terrain, the Shiba Inu was originally
                         bred for hunting.
                     </p>
-                    <img class="radius-border" mat-card-image src="https://material.angular.io/assets/img/examples/shiba2.jpg"
-                        alt="Photo of a Shiba Inu">
+                    <img class="radius-border" mat-card-image
+                        src="https://material.angular.io/assets/img/examples/shiba2.jpg" alt="Photo of a Shiba Inu">
                     <div class="card-content-footer-action">
                         <button mat-button>
                             <mat-icon>alternate_email</mat-icon>10M
