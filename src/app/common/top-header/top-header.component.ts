@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ElementRef, ViewChild } from '@angular/core';
 import { FormControl } from '@angular/forms';
 import { Observable } from 'rxjs';
 import { startWith, map } from 'rxjs/operators';
@@ -16,8 +16,18 @@ export interface State {
 })
 export class TopHeaderComponent {
 
+  @ViewChild('topSearchElement')
+  topSearchElement: ElementRef;
   stateCtrl = new FormControl();
   filteredStates: Observable<State[]>;
+
+  onClickSearch(): void {
+    this.topSearchElement.nativeElement.style.borderRadius = '20px 20px 0px 0px';
+  }
+
+  onBlur() {
+    this.topSearchElement.nativeElement.style.borderRadius = '20px';
+  }
 
   states: State[] = [
     {

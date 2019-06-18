@@ -1,16 +1,16 @@
 .today-story {
     /* display: inline-block; */
-    width: calc(18% - 30px);
+    width: 19%;
     background: #fff;
-    margin-left: 5px;
+    /* margin-left: 5px; */
     float: left;
     padding: 0px 20px 0px 20px;
 }
 
 .thinking-today {
     /* display: inline-block; */
-    width: 35%;
-    margin: 0 15px;
+    width: 34%;
+    margin: 0 23px;
     background: #fff;
     float: left;
     padding: 0px 20px 0px 20px;

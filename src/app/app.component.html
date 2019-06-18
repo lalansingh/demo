@@ -1,19 +1,7 @@
 <app-top-header></app-top-header>
-
-<div class="story-container">
+<div class="main-container">
   <div class="side-nav-container">
     <div class="side-nav-padding">
-      <button type="button" aria-label="Toggle sidenav" mat-icon-button (click)="drawer.toggle()"
-        *ngIf="isHandset$ | async">
-        <mat-icon class="material-icons-30" aria-label="Side nav toggle icon">menu</mat-icon>
-      </button>
-      <!-- <mat-sidenav-container class="sidenav-container">
-        <mat-sidenav #drawer style="top:131px !important;" class="sidenav" fixedInViewport="true"
-          [attr.role]="(isHandset$ | async) ? 'dialog' : 'navigation'" [mode]="(isHandset$ | async) ? 'over' : 'side'"
-          [opened]="!(isHandset$ | async)">
-          <app-left-menu></app-left-menu>
-        </mat-sidenav>
-      </mat-sidenav-container> -->
       <app-left-menu></app-left-menu>
     </div>
   </div>

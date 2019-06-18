@@ -1,98 +1,28 @@
-<!-- <ul class="music-menu">
-    <li>
-        <a mat-raised-button routerLink="#" (click)="AllClicked()">All</a>
-    </li>
-    <li>
-        <a mat-raised-button routerLink="#" (click)="VideoClicked()">Vedios</a>
-    </li>
-    <li>
-        <a mat-raised-button routerLink="#" (click)="MusicClicked()">Music</a>
-    </li>
-    <li>
-        <a mat-raised-button routerLink="#" (click)="PostCastsClicked()">Podcasts</a>
-    </li>
-    <li>
-        <a mat-raised-button routerLink="#" (click)="PauseClicked()"><i class="material-icons">pause</i></a>
-    </li>
-    <li>
-        <a mat-raised-button routerLink="#" (click)="PlayClicked()"><i class="material-icons rotate-90">pause</i></a>
-    </li>
-</ul> -->
-
-<div class="start-creating-music flex-display">
-    <div class="search-music">
-        <div style="float:left;">
-            <img class="search-image" src="https://material.angular.io/assets/img/examples/shiba2.jpg"
-                alt="Photo of a Shiba Inu">
-        </div>
-        <div style="display: inline;">
-            <input class="search-box" type="text" name="search" placeholder="&#61442; Start Creating">
-        </div>
-        <div style="display: inline;">
-            <a mat-raised-button class="music-menu-button" routerLink="#" (click)="PauseClicked()"><i
-                    class="material-icons">pause</i></a>
-            <a mat-raised-button class="music-menu-button" routerLink="#" (click)="PlayClicked()"><i
-                    class="material-icons rotate-90">pause</i></a>
-        </div>
-        <div style="float: right;">
-            <div class="custom-nav-list-music">
-                <mat-nav-list>
-                    <a mat-list-item class="active"> All</a>
-                    <a mat-list-item> Videos</a>
-                    <a mat-list-item> Music</a>
-                    <a mat-list-item> Podcasts</a>
-                </mat-nav-list>
-            </div>
+<div class="custom-nav-list-music-header">
+    <div class="search-sec">
+        <div class="search mar-t-b-auto">
+            <mat-form-field floatLabel="never">
+                <mat-label>Start Creating</mat-label>
+                <mat-icon matPrefix>search</mat-icon>
+                <input type="search" matInput>
+            </mat-form-field>
         </div>
     </div>
-    <!-- <div style="display: inline;">
-        <mat-form-field floatLabel="never">
-            <mat-label>Start Creating</mat-label>
-            <mat-icon matPrefix>search</mat-icon>
-            <input type="search" matInput>
-        </mat-form-field> 
-        <div class="search-hero">
-            <input class="search-box" type="text" name="search" placeholder="&#61442; Search">
-        </div>
-    </div>
-    <div style="display: inline;">
-            <a mat-raised-button class="music-menu-button" routerLink="#" (click)="PauseClicked()"><i class="material-icons">pause</i></a>
-            <a mat-raised-button class="music-menu-button" routerLink="#" (click)="PlayClicked()"><i class="material-icons rotate-90">pause</i></a>
-    </div>
-
-    <div class="custom-nav-list-music" style="display: inline;">
+    <div style="display:inline;">
         <mat-nav-list>
-            <a mat-list-item class="active"> All</a>
-            <a mat-list-item> Videos</a>
-            <a mat-list-item> Music</a>
-            <a mat-list-item> Podcasts</a>
+            <a mat-list-item class="active"> Treanding</a>
+            <a mat-list-item> Contacts</a>
+            <a mat-list-item> Believers</a>
         </mat-nav-list>
-
-    </div> -->
-</div>
-<!-- 
-<div class="start-creating-content">
-    <div class="start-creating-post">
-        <mat-form-field floatLabel="never">
-            <mat-label>Start Creating</mat-label>
-            <div matPrefix mat-card-avatar class="custom-prifix">
-                <img mat-card-image src="https://material.angular.io/assets/img/examples/shiba2.jpg"
-                    alt="Photo of a Shiba Inu">
-            </div>
-
-            <input type="search" matInput>
-            <button mat-raised-button matSuffix>
-                <mat-icon>play_circle_filled</mat-icon>
-                Video
-            </button>
-            <button mat-raised-button matSuffix>
-                <mat-icon>music_note</mat-icon>
-                Music
-            </button>
-            <button mat-raised-button matSuffix>
-                <mat-icon>keyboard_voice</mat-icon>
-                Podcast
-            </button>
-        </mat-form-field>
     </div>
-</div> -->
+</div>
+<div class="custom-nav-list-music">
+    <mat-nav-list>
+        <a mat-list-item class="active"> All</a>
+        <a mat-list-item> Videos</a>
+        <a mat-list-item> Live</a>
+        <a mat-list-item> Virtual&nbsp;Reality</a>
+        <a mat-list-item> Music</a>
+        <a mat-list-item> Postcasts</a>
+    </mat-nav-list>
+</div>
