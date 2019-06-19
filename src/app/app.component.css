@@ -49,9 +49,9 @@
      text-align: center;
  }  */
 
- .padding10 {
+ /* .padding10 {
      margin: 16px;
- }
+ } */
 
  /* 
  .mat-raised-button {
@@ -59,7 +59,7 @@
      font-size: 11px !important;
  } */
 
- .mat-raised-button {
+ /* .mat-raised-button {
      font-size: 11px;
  }
 
@@ -69,7 +69,7 @@
      -ms-transform: rotate(90deg);
      -o-transform: rotate(90deg);
      transform: rotate(90deg);
- }
+ } */
 
  /* .container {
      padding-top: 50px;
@@ -99,7 +99,7 @@
      font-family: FontAwesome;
  } */
 
- .icon-round-boarder {
+ /* .icon-round-boarder {
      border: 1px solid;
      border-bottom-left-radius: 7px;
      border-bottom-right-radius: 7px;
@@ -113,33 +113,22 @@
      margin-top: 2px;
      font-size: 17px;
      position: absolute;
- }
+ } */
 
- .app-form {
-     /* min-width: 150px;
-     max-width: 500px; */
+ /* .app-form {
+     // min-width: 150px;
+     // max-width: 500px; 
      width: 100%;
- }
+ } */
 
- .app-full-width {
+ /* .app-full-width {
      width: 100%;
      border: 0px solid;
- }
+ } */
 
- .btn-submit {
-     color: #fff;
-     background-color: #2799fb;
-     border-radius: 7px !important;
-     min-width: 150px;
- }
 
- .login {
-     /* float: left; */
-     width: 100%;
-     text-align: center;
-     padding-top: 10px;
- }
 
+ /* 
  .column {
      float: left;
      width: 50%;
@@ -159,23 +148,23 @@
      content: "";
      display: table;
      clear: both;
- }
+ } */
 
  .lbl-msg {
-     font-size: 10px;
+     font-size: 13px;
      text-align: center;
-     color: #c5c5c5;
+     color: #B9B9B9;
  }
 
- .lbl-header {
+ /* .lbl-header {
      font-size: 20px;
      text-align: center;
      color: #c5c5c5;
- }
+ } */
 
- .material-icons-custom {
+ /* .material-icons-custom {
      font-size: 35px !important;
- }
+ } */
 
  /*new css */
 
@@ -185,10 +174,7 @@
  }
 
  .side-nav-container {
-     /* display: inline-block; */
-     /* width: 4%; */
      height: 91vh;
-     /* border: 1px solid rgba(0, 0, 0, .2); */
      background: #fff;
      float: left;
      box-shadow: 0 2px 1px -2px rgba(0, 0, 0, .2), 0 1px 5px 0 rgba(0, 0, 0, .14), 0 1px 3px 0 rgba(0, 0, 0, .12);
@@ -210,13 +196,21 @@
 
  .section-a-y {
      overflow-y: auto;
-     height: 75vh;
+     padding: 5px;
+     height: 77vh;
+     margin-right: -20px;
  }
+
  .section-b-y {
-    overflow-y: auto;
-    height: 77vh;
-}
-.section-c-y {
-    overflow-y: auto;
-    height: 80vh;
-}
+     overflow-y: auto;
+     padding: 5px;
+     height: 76vh;
+     margin-right: -20px;
+ }
+
+ .section-c-y {
+     overflow-y: auto;
+     padding: 5px;
+     height: 78vh;
+     margin-right: -20px;
+ }

@@ -1,10 +1,10 @@
 import { Routes } from "@angular/router";
-import { HomeComponent } from "../home/home.component";
 import { SettingsComponent } from "../settings/settings.component";
+import { SpaceComponent } from "../space/space.component";
 
 export const routes: Routes = [
-    { path: '', redirectTo: '/home', pathMatch: 'full' },
-    { path: 'home', component: HomeComponent, pathMatch: 'full' },
+    { path: '', redirectTo: '/space', pathMatch: 'full' },
+    { path: 'space', component: SpaceComponent, pathMatch: 'full' },
     { path: 'settings', component: SettingsComponent, pathMatch: 'full' },
-    { path: '**', redirectTo: '/home' }
+    { path: '**', redirectTo: '/space' }
 ];

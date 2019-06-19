@@ -1,39 +1,69 @@
-<div class="card-first3">
-        <mat-card>
-            <mat-card class="padding10" style="height:250px;">
-                <mat-card-title class="lbl-header">Sign In or Sign Up</mat-card-title>
-                <form class="app-form">
-                    <!-- <mat-form-field class="example-full-width">
-                <input matInput type="search" placeholder="Favorite food" value="Sushi">
-              </mat-form-field> -->
-                    <div class="login">
-                        <div style="float:left;width:13%;">
-                            <mat-form-field class="app-full-width">
-                                <mat-label></mat-label>
-                                <select matNativeControl required>
-                                    <option value="91">91</option>
-                                </select>
-                            </mat-form-field>
-                        </div>
-                        <div style="float:right;width:85%;">
-                            <mat-form-field class="app-full-width">
-                                <input matInput type="number" placeholder="Mobile Phone Number" value="">
-                            </mat-form-field>
-                        </div>
-                    </div>
-                    <div class="login">
-                        <mat-label class="lbl-msg">Enter your mobile phone number to Sign In or Sign Up</mat-label>
-                    </div>
-                    <div class="login">
-                        <button mat-raised-button class="btn-submit">Verify</button>
-                    </div>
-                    <div class="login">
-                        <mat-label class="lbl-msg">A verification code will be sent to verify the mobile phone number
-                        </mat-label>
-                    </div>
-                </form>
-            </mat-card>
-            <mat-card class="padding10" style="height:200px">
-            </mat-card>
+<social-menu></social-menu>
+<div class="section-a-y">
+<div class="user-sec">
+    <mat-card>
+        <mat-card-title>Sign In or Sign Up</mat-card-title>
+        <form>
+            <div class="login">
+                <div class="sec-left">
+                    <mat-form-field>
+                        <mat-label></mat-label>
+                        <select matNativeControl required>
+                            <option value="91">91</option>
+                        </select>
+                    </mat-form-field>
+                </div>
+                <div class="sec-right">
+                    <mat-form-field>
+                        <input matInput type="number" placeholder="Mobile Phone Number" value="">
+                    </mat-form-field>
+                </div>
+            </div>
+            <div class="login">
+                <mat-label class="lbl-msg">Enter your Mobile Phone Number to Sign Up or Sign In.</mat-label>
+            </div>
+            <div class="button-sec">
+                <button mat-raised-button class="btn-submit">Verify</button>
+            </div>
+            <div class="login">
+                <mat-label class="lbl-msg">A verification code will be sent to the Mobile Phone Number.
+                </mat-label>
+            </div>
+        </form>
+    </mat-card>
+    <mat-card>
+            <mat-card-content>
+                <div class="card-header-action">
+                    <button mat-icon-button>
+                        <mat-icon>close</mat-icon>
+                    </button>
+                    <button mat-raised-button class="custom-button-round-30">25K Creations</button>
+                    <button mat-icon-button>
+                        <mat-icon>expand_more</mat-icon>
+                    </button>
+                </div>
+
+                <img mat-card-image src="https://material.angular.io/assets/img/examples/shiba2.jpg"
+                    alt="Photo of a Shiba Inu">
+                <div>
+                    <a>@Ghandi</a>,
+                    <a>#GhandhiGotIndependence</a>,
+                    <a>#GhandiDidIt</a>
+                </div>
+                <div class="flex-display">
+                    <mat-icon>place</mat-icon> <span class="mar-t-b-auto">India, London, South Africa</span>
+                </div>
+            </mat-card-content>
+            <mat-card-header>
+                <div mat-card-avatar>
+                    <img mat-card-image src="https://material.angular.io/assets/img/examples/shiba2.jpg"
+                        alt="Photo of a Shiba Inu">
+                </div>
+                <mat-card-title>Shiba Inu</mat-card-title>
+                <mat-card-subtitle><a>@Leo</a></mat-card-subtitle>
+                <mat-card-subtitle class="small-text-subtitle">2days ago [6 Apr 2019 11 50 am]</mat-card-subtitle>
+                <div class="app-flex-filler"></div>
+            </mat-card-header>
         </mat-card>
-    </div>
+</div>
+</div>

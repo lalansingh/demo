@@ -20,6 +20,7 @@ import { LoginFirstComponent } from './cards/login/login.component';
 import { CreatingComponent } from './cards/creating/creating.component';
 import { StoryComponent } from './cards/story/story.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { SpaceComponent } from './space/space.component';
 
 @NgModule({
   declarations: [
@@ -36,7 +37,8 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
     MusicMenuComponent,
     TopHeaderComponent,
     CreatingComponent,
-    StoryComponent
+    StoryComponent,
+    SpaceComponent
   ],
   imports: [
     BrowserModule,
