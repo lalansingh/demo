@@ -6,4 +6,11 @@ import { Component, ChangeDetectorRef, ViewEncapsulation } from '@angular/core';
     styleUrls: ['./left-menu.component.css']
 })
 export class AppLeftMenuComponent {
+
+    public leftNav: string = 'space';
+    constructor() { }
+
+    public leftNavClicked(param: string): void {
+        this.leftNav = param;
+    }
 }

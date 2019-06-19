@@ -35,29 +35,6 @@ $custom-typography: mat-typography-config($font-family: '"Calibri", sans-serif;'
     background: #f5f5f5db;
 }
 
-// .sidenav-container {
-    //     height: 100%;
-    //   }
-      
-    .sidenav {
-        width: 70px;
-        top: 131px !important;
-      }
-
-      .mat-drawer-backdrop.mat-drawer-shown {
-        top:66px;
-      }
-      
-    //   .sidenav .mat-toolbar {
-    //     background: inherit;
-    //   }
-      
-    //   .mat-toolbar.mat-primary {
-    //     position: sticky;
-    //     // top: 0;
-    //     z-index: 1;
-    //   }
-
     .custom-nav-list {
         .mat-nav-list{
             padding-top: 0px;
@@ -71,11 +48,17 @@ $custom-typography: mat-typography-config($font-family: '"Calibri", sans-serif;'
                     color: #3597EC;
                     border-bottom: 2px solid #3597EC;
                     background: rgba(53, 151, 236,0.21);
+                    .mat-list-item-content{
+                        color: #3597EC;
+                    }
                 }
                 &:hover {
                     background: rgba(53, 151, 236,0.21);
                     color: #3597EC;
                     border-bottom: 2px solid #3597EC;
+                    .mat-list-item-content{
+                        color: #3597EC;
+                    }
                 }
                 .mat-list-item-content {
                     padding: 0 8px;
@@ -84,12 +67,6 @@ $custom-typography: mat-typography-config($font-family: '"Calibri", sans-serif;'
                     color: #707070;
                     font-weight: bold;
                     font-size: 18px;
-                    &:hover{
-                        color: #3597EC;
-                    }
-                    &:active{
-                        color: #3597EC;
-                    }
                 }
             }
         }
@@ -111,23 +88,26 @@ $custom-typography: mat-typography-config($font-family: '"Calibri", sans-serif;'
                 &.active {
                     color: #3597EC;
                     border-bottom: 2px solid #3597EC;
+                    .mat-list-item-content {
+                        color: #3597EC;
+                    }
                 }
                 &:hover {
                     color: #3597EC;
                     border-bottom: 2px solid #3597EC;
+                    .mat-list-item-content {
+                        color: #3597EC;
+                    }
                 }
                 .mat-list-item-content {
                     padding: 0 8px;
                     justify-content: center;
                     color: #707070;
                     font-size: 16px;
-                    &:hover{
-                        color: #3597EC;
-                    }
-                    &:active{
-                        color: #3597EC;
-                    }
                 }
+            }
+            .icon-prefix{
+                margin-top: 10px;
             }
         }
     }
@@ -135,39 +115,69 @@ $custom-typography: mat-typography-config($font-family: '"Calibri", sans-serif;'
     .custom-nav-list-social {
         padding-bottom: 10px;
         .mat-nav-list{
-            margin-top: -8px;
             display: flex;
             flex-direction: row;
             margin-left: -20px;
             margin-right: -20px;
             border-bottom: 1px solid rgba(0, 0, 0, 0.12);
+            border-top: 1px solid rgba(0, 0, 0, 0.12);
             a.mat-list-item {
                 border-bottom: 2px solid #fff;
                 height: 30px;
                 &.active {
                     color: #3597EC;
                     border-bottom: 2px solid #3597EC;
+                    .mat-list-item-content{
+                        color: #3597EC;
+                    }
                 }
                 &:hover {
                     color: #3597EC;
                     border-bottom: 2px solid #3597EC;
+                    .mat-list-item-content{
+                        color: #3597EC;
+                    }
                 }
                 .mat-list-item-content {
                     padding: 0 10px;
                     justify-content: center;
                     color: #707070;
                     font-size: 16px;
-                    &:hover{
-                        color: #3597EC;
-                    }
-                    &:active{
-                        color: #3597EC;
-                    }
                 }
             }
         }
     }
-
+.left-nav-menu{
+    text-align: center;
+    // padding: 5px;
+    span{
+        display: block;
+        font-size: 12px;
+    }
+    a{
+        text-decoration: none;
+        color: #696868;
+        display: block;
+        padding: 10px;
+        i{
+            font-size: 30px;
+        }
+        &:hover {
+            color: #3597EC;
+            background: rgba(53, 151, 236,0.21);
+            i{
+                color: #3597EC;
+            }
+        }
+        &.active {
+            color: #3597EC;
+            background: rgba(53, 151, 236,0.21);
+            i{
+                color: #3597EC;
+            }
+        }
+    }
+}
     .custom-nav-list-social-header {
         .mat-nav-list{
             margin-top: -8px;
@@ -181,9 +191,15 @@ $custom-typography: mat-typography-config($font-family: '"Calibri", sans-serif;'
                 &.active {
                     color: #3597EC;
                     background: rgba(53, 151, 236,0.21);
+                    .mat-list-item-content{
+                        color:#3597EC;
+                    }
                 }
                 &:hover {
                     background: rgba(53, 151, 236,0.21);
+                    .mat-list-item-content{
+                        color:#3597EC;
+                    }
                 }
                 .mat-list-item-content {
                     padding: 0 10px;
@@ -191,12 +207,6 @@ $custom-typography: mat-typography-config($font-family: '"Calibri", sans-serif;'
                     color:#5F5F5F;
                     font-weight: bold;
                     font-size: 18px;
-                    &:hover{
-                        color:#3597EC;
-                    }
-                    &:active{
-                        color:#3597EC;
-                    }
                 }
             }
         }
@@ -217,9 +227,15 @@ $custom-typography: mat-typography-config($font-family: '"Calibri", sans-serif;'
                 &.active {
                     color: #3597EC;
                     background: rgba(53, 151, 236,0.21);
+                    .mat-list-item-content{
+                        color:#3597EC;
+                    }
                 }
                 &:hover {
                     background: rgba(53, 151, 236,0.21);
+                    .mat-list-item-content{
+                        color:#3597EC;
+                    }
                 }
                 .mat-list-item-content {
                     padding: 0 10px;
@@ -227,12 +243,6 @@ $custom-typography: mat-typography-config($font-family: '"Calibri", sans-serif;'
                     color:#5F5F5F;
                     font-weight: bold;
                     font-size: 18px;
-                    &:hover{
-                        color:#3597EC;
-                    }
-                    &:active{
-                        color:#3597EC;
-                    }
                 }
             }
         }

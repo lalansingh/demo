@@ -1,15 +1,12 @@
 .today-story {
-    /* display: inline-block; */
     width: 19%;
     background: #fff;
-    /* margin-left: 5px; */
     float: left;
     padding: 0px 20px 0px 20px;
 }
 
 .thinking-today {
-    /* display: inline-block; */
-    width: 34%;
+    width: 33%;
     margin: 0 23px;
     background: #fff;
     float: left;
@@ -17,7 +14,6 @@
 }
 
 .start-creating {
-    /* display: inline-block; */
     width: 32%;
     background: #fff;
     float: left;

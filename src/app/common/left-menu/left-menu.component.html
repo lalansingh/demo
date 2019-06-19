@@ -1,4 +1,4 @@
-<ul class="mat-drower-ul">
+<!-- <ul class="mat-drower-ul">
     <li>
         <a [routerLink]="['/home']" [ngClass]="{'icon-active':false,'icon-inactive':true}">
             <div class="icon-menu">
@@ -59,25 +59,42 @@
             </div>
         </a>
     </li>
-    <!-- <li>
-        <a [routerLink]="['/settings']">
-            <i class="icon-text material-icons large">chat</i><span>Chat</span>
-        </a>
-    </li>
-    <li>
-        <a [routerLink]="['/home']">
-            <i class="icon-text material-icons large">language</i><span>Space</span></a>
-    </li>
-    <li>
-        <a [routerLink]="['/home']">
-            <i class="icon-text material-icons large">camera</i><span>Studio</span></a>
-    </li>
-    <li>
-        <a [routerLink]="['/home']">
-            <i class="icon-text material-icons large">account_balance</i><span>AppSite</span></a>
-    </li>
-    <li>
-        <a [routerLink]="['/home']">
-            <i class="icon-text material-icons large">settings</i><span>Settings</span></a>
-    </li> -->
-</ul>
+</ul> -->
+<div class="left-nav-menu">
+    <a [routerLink]="['/settings']" (click)="leftNavClicked('alert')" [ngClass]="{'active':'alert'=== leftNav}">
+        <i class="icon-text-top material-icons">notifications_none</i>
+        <span>Alert</span>
+    </a>
+    <a [routerLink]="['/settings']" (click)="leftNavClicked('appSite')" [ngClass]="{'active':'appSite'=== leftNav}">
+        <i class="icon-text-top material-icons">person_pin</i>
+        <span>AppSite</span>
+    </a>
+    <a [routerLink]="['/settings']" (click)="leftNavClicked('chat')" [ngClass]="{'active':'chat'=== leftNav}">
+        <i class="icon-text-top material-icons">question_answer</i>
+        <span>Chat</span>
+    </a>
+    <a [routerLink]="['/home']" (click)="leftNavClicked('space')" [ngClass]="{'active':'space'=== leftNav}">
+        <i class="icon-text-top material-icons">language</i>
+        <span>Space</span>
+    </a>
+    <a [routerLink]="['/settings']" (click)="leftNavClicked('studio')" [ngClass]="{'active':'studio'=== leftNav}">
+        <i class="icon-text-top material-icons">camera</i>
+        <span>Studio</span>
+    </a>
+    <a [routerLink]="['/settings']" (click)="leftNavClicked('store')" [ngClass]="{'active':'store'=== leftNav}">
+        <i class="icon-text-top material-icons">shopping_cart</i>
+        <span>Store</span>
+    </a>
+    <a [routerLink]="['/settings']" (click)="leftNavClicked('bussiness')" [ngClass]="{'active':'bussiness'=== leftNav}">
+        <i class="icon-text-top material-icons">work</i>
+        <span>Bussiness</span>
+    </a>
+    <a [routerLink]="['/settings']" (click)="leftNavClicked('support')" [ngClass]="{'active':'support'=== leftNav}">
+        <i class="icon-text-top material-icons">live_help</i>
+        <span>Support</span>
+    </a>
+    <a [routerLink]="['/settings']" (click)="leftNavClicked('settings')" [ngClass]="{'active':'settings'=== leftNav}">
+        <i class="icon-text-top material-icons">settings</i>
+        <span>Settings</span>
+    </a>
+</div>
