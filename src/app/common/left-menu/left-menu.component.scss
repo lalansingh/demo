@@ -26,5 +26,14 @@
         color: #3597ec;
       }
     }
+    &:nth-last-child(1) {
+      bottom: 0;
+      position: absolute;
+    }
+    &:nth-last-child(2) {
+      position: absolute;
+      bottom: 0;
+      padding-bottom: 75px;
+    }
   }
 }

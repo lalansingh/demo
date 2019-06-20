@@ -12,13 +12,6 @@
      width: 100%;
  }
 
- .side-nav-container {
-     height: 91vh;
-     background: #fff;
-     float: left;
-     box-shadow: 0 2px 1px -2px rgba(0, 0, 0, .2), 0 1px 5px 0 rgba(0, 0, 0, .14), 0 1px 3px 0 rgba(0, 0, 0, .12);
- }
-
  .side-nav-padding {
      padding: 0% !important;
  }
@@ -31,25 +24,4 @@
      background: #F7F7F7!important;
      color: #000 !important;
      border-top: 1px solid rgba(0, 0, 0, .12);
- }
-
- .section-a-y {
-     overflow-y: auto;
-     padding: 5px;
-     height: 77vh;
-     margin-right: -20px;
- }
-
- .section-b-y {
-     overflow-y: auto;
-     padding: 5px;
-     height: 76vh;
-     margin-right: -20px;
- }
-
- .section-c-y {
-     overflow-y: auto;
-     padding: 5px;
-     height: 78vh;
-     margin-right: -20px;
  }
