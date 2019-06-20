@@ -9,6 +9,7 @@
  .main-container {
      position: fixed;
      margin-top: 65px;
+     width: 100%;
  }
 
  .side-nav-container {

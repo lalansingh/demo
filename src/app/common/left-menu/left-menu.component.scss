@@ -1,0 +1,30 @@
+.left-nav-menu {
+  text-align: center;
+  span {
+    display: block;
+    font-size: 12px;
+  }
+  a {
+    text-decoration: none;
+    color: #696868;
+    display: block;
+    padding: 10px;
+    i {
+      font-size: 30px;
+    }
+    &:hover {
+      color: #3597ec;
+      background: rgba(53, 151, 236, 0.21);
+      i {
+        color: #3597ec;
+      }
+    }
+    &.active {
+      color: #3597ec;
+      background: rgba(53, 151, 236, 0.21);
+      i {
+        color: #3597ec;
+      }
+    }
+  }
+}

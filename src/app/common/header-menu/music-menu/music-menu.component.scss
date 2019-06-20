@@ -1,0 +1,92 @@
+.custom-nav-list-music {
+  .mat-nav-list {
+    display: flex;
+    margin-bottom: 10px;
+    flex-direction: row;
+    margin-right: -20px;
+    margin-left: -20px;
+    border-top: 1px solid rgba(0, 0, 0, 0.12);
+    border-bottom: 1px solid rgba(0, 0, 0, 0.12);
+    a.mat-list-item {
+      border-bottom: 2px solid #fff;
+      height: 30px;
+      margin-top: -2px;
+      &.active {
+        color: #3597ec;
+        border-bottom: 2px solid #3597ec;
+        .mat-list-item-content {
+          color: #3597ec;
+        }
+      }
+      &:hover {
+        color: #3597ec;
+        border-bottom: 2px solid #3597ec;
+        .mat-list-item-content {
+          color: #3597ec;
+        }
+      }
+      .mat-list-item-content {
+        padding: 0 8px;
+        justify-content: center;
+        color: #707070;
+        font-size: 16px;
+      }
+    }
+    .icon-prefix {
+      margin-top: 10px;
+    }
+  }
+}
+
+.custom-nav-list-music-header {
+  margin-right: -20px;
+  margin-left: -20px;
+  .mat-nav-list {
+    margin-top: -8px;
+    display: flex;
+    flex-direction: row;
+    margin-left: -20px;
+    margin-right: -20px;
+    a.mat-list-item {
+      border-bottom: 2px solid #fff;
+      height: 48px;
+      &.active {
+        color: #3597ec;
+        background: rgba(53, 151, 236, 0.21);
+        .mat-list-item-content {
+          color: #3597ec;
+        }
+      }
+      &:hover {
+        background: rgba(53, 151, 236, 0.21);
+        .mat-list-item-content {
+          color: #3597ec;
+        }
+      }
+      .mat-list-item-content {
+        padding: 0 10px;
+        justify-content: center;
+        color: #5f5f5f;
+        font-weight: bold;
+        font-size: 18px;
+      }
+    }
+  }
+  .search-sec {
+    float: left;
+    padding-right: 10px;
+    margin-top: 20px;
+    .search {
+      height: 30px;
+      margin-left: 10px;
+      overflow: hidden;
+      border-radius: 15px;
+      box-shadow: 0 3px 1px -2px rgba(0, 0, 0, 0.2), 0 2px 2px 0 rgba(0, 0, 0, 0.14), 0 1px 5px 0 rgba(0, 0, 0, 0.12);
+      .mat-form-field {
+        min-width: 10px;
+        position: relative;
+        top: -13px;
+      }
+    }
+  }
+}

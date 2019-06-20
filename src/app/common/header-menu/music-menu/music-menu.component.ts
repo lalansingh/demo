@@ -1,9 +1,10 @@
-import { Component, Output, EventEmitter } from "@angular/core";
+import { Component, Output, EventEmitter, ViewEncapsulation } from "@angular/core";
 
 @Component({
     selector: 'music-menu',
     templateUrl: './music-menu.component.html',
-    styleUrls: ['./music-menu.component.css']
+    styleUrls: ['./music-menu.component.scss'],
+    encapsulation: ViewEncapsulation.None
 })
 export class MusicMenuComponent {
     @Output()

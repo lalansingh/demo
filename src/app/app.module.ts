@@ -21,6 +21,7 @@ import { CreatingComponent } from './cards/creating/creating.component';
 import { StoryComponent } from './cards/story/story.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { SpaceComponent } from './space/space.component';
+import { SearchComponent } from './common/search/search.component';
 
 @NgModule({
   declarations: [
@@ -38,7 +39,8 @@ import { SpaceComponent } from './space/space.component';
     TopHeaderComponent,
     CreatingComponent,
     StoryComponent,
-    SpaceComponent
+    SpaceComponent,
+    SearchComponent
   ],
   imports: [
     BrowserModule,
