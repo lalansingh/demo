@@ -1,0 +1,62 @@
+.user-sec {
+  .mat-card {
+    margin-bottom: 10px;
+    .mat-card-title {
+      font-size: 15px;
+      text-align: center;
+      color: #3597ec;
+    }
+    form {
+      width: 100%;
+    }
+    .login {
+      width: 100%;
+      text-align: center;
+      padding-bottom: 35px;
+      .sec-left {
+        float: left;
+        width: 13%;
+        height: 60px;
+        .mat-form-field {
+          width: 100%;
+          border: 0px solid;
+        }
+      }
+      .sec-right {
+        float: right;
+        width: 85%;
+        height: 60px;
+        .mat-form-field {
+          width: 100%;
+          border: 0px solid;
+        }
+      }
+      .mat-form-field {
+        background: none !important;
+      }
+      .mat-primary {
+        color: #3597ec !important;
+        font-size: 20px;
+      }
+      .mat-form-field-appearance-legacy .mat-form-field-underline {
+        background-color: rgba(57, 155, 236, 0.94) !important;
+      }
+      .mat-form-field-type-mat-native-select .mat-input-element {
+        padding-right: 9px;
+      }
+    }
+    .button-sec {
+      width: 100%;
+      text-align: center;
+      padding-bottom: 5px;
+      .btn-submit {
+        color: #fff;
+        background-color: #2799fb;
+        border-radius: 4px !important;
+        width: 100px;
+        height: 30px;
+        line-height: 0px;
+      }
+    }
+  }
+}
