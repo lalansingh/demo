@@ -4,7 +4,6 @@ import { MatSidenavModule, MatToolbarModule, MatIconModule, MatListModule, MatBu
 import { NgModule } from '@angular/core';
 import { RouterModule } from '@angular/router';
 import { AppComponent } from './app.component';
-import { AppHeaderComponent } from './common/header/header.component';
 import { AppLeftMenuComponent } from './common/left-menu/left-menu.component';
 import { ThinkingComponent } from './cards/thinking/thinking.component';
 import { CardThirdComponent } from './cards/card-third/card-third.component';
@@ -26,7 +25,6 @@ import { SearchComponent } from './common/search/search.component';
 @NgModule({
   declarations: [
     AppComponent,
-    AppHeaderComponent,
     AppLeftMenuComponent,
     LoginFirstComponent,
     ThinkingComponent,

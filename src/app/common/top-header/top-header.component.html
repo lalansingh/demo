@@ -9,12 +9,15 @@
     <button mat-raised-button>
       <mat-icon>keyboard_arrow_right</mat-icon>
     </button>
-
+    <button mat-raised-button class="mar-r-6">
+      <mat-icon>public</mat-icon>
+    </button>
     <div class="topSearch" #topSearchElement>
       <mat-form-field floatLabel="never">
         <mat-label>Type to search the web or tap the mic.. <mat-icon>mic</mat-icon>
         </mat-label>
-        <input matInput placeholder="State" aria-label="State" (blur)="onBlur()" (click)="onClickSearch()" [matAutocomplete]="auto" [formControl]="stateCtrl">
+        <input matInput placeholder="State" aria-label="State" (blur)="onBlur()" (click)="onClickSearch()"
+          [matAutocomplete]="auto" [formControl]="stateCtrl">
         <mat-autocomplete #auto="matAutocomplete">
           <mat-option *ngFor="let state of filteredStates | async" [value]="state.name">
             <img class="example-option-img" aria-hidden [src]="state.flag" height="25">
@@ -27,9 +30,6 @@
 
     <button mat-raised-button class="mar-r-6">
       <mat-icon>supervised_user_circle</mat-icon>
-    </button>
-    <button mat-raised-button class="mar-r-6">
-      <mat-icon>public</mat-icon>
     </button>
     <button mat-raised-button class="mar-r-6">
       <mat-icon>brightness_3</mat-icon>
