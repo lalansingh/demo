@@ -24,8 +24,6 @@
   background-color: #f7f7f7;
   border-top: 1px solid rgba(0, 0, 0, 0.12);
   border-bottom: 1px solid rgba(0, 0, 0, 0.12);
-  margin-left: -20px;
-  margin-right: -20px;
   .search-image {
     width: 30px;
     height: 30px;
@@ -34,7 +32,7 @@
   .icon-sufix {
     float: right;
     margin-top: -27px;
-    margin-right: 27px;
+    margin-right: 7px;
     position: relative;
   }
   .icon-prefix {
@@ -45,7 +43,7 @@
   }
   .search-box {
     border-radius: 7px;
-    width: 89%;
+    width: 92%;
     border: 0px solid;
     text-align: left;
     background-color: #f7f7f7;

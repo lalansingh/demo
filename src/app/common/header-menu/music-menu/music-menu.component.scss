@@ -3,8 +3,6 @@
     display: flex;
     margin-bottom: 10px;
     flex-direction: row;
-    margin-right: -20px;
-    margin-left: -20px;
     border-top: 1px solid rgba(0, 0, 0, 0.12);
     border-bottom: 1px solid rgba(0, 0, 0, 0.12);
     a.mat-list-item {
@@ -39,14 +37,10 @@
 }
 
 .custom-nav-list-music-header {
-  margin-right: -20px;
-  margin-left: -20px;
   .mat-nav-list {
     margin-top: -8px;
     display: flex;
     flex-direction: row;
-    margin-left: -20px;
-    margin-right: -20px;
     a.mat-list-item {
       // border-bottom: 2px solid #fff;
       height: 48px;

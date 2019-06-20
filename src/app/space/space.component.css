@@ -1,21 +1,18 @@
 .left-layout-sec {
-    width: 19%;
+    width: 21%;
     background: #fff;
     float: left;
-    padding: 0px 20px 0px 20px;
 }
 
 .middle-layout-sec {
-    width: 39%;
+    width: 42%;
     margin: 0 22px;
     background: #fff;
     float: left;
-    padding: 0px 20px 0px 20px;
 }
 
 .right-layout-sec {
-    width: 29%;
+    width: 31%;
     background: #fff;
     float: left;
-    padding: 0px 20px 0px 20px;
 }
