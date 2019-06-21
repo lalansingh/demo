@@ -22,6 +22,11 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { SpaceComponent } from './space/space.component';
 import { SearchComponent } from './common/search/search.component';
 import { FlexLayoutModule } from "@angular/flex-layout";
+import { TrendingComponent } from './cards/trending/trending.component';
+import { StoryVedioComponent } from './cards/story-vedio/story-vedio.component';
+import { NoteComponent } from './cards/note/note.component';
+import { UserDetailsFooterComponent } from './cards/user-details-footer/user-details-footer.component';
+import { ThoughtComponent } from './cards/thought/thought.component';
 
 @NgModule({
   declarations: [
@@ -39,7 +44,12 @@ import { FlexLayoutModule } from "@angular/flex-layout";
     CreatingComponent,
     StoryComponent,
     SpaceComponent,
-    SearchComponent
+    SearchComponent,
+    TrendingComponent,
+    StoryVedioComponent,
+    NoteComponent,
+    UserDetailsFooterComponent,
+    ThoughtComponent
   ],
   imports: [
     BrowserModule,

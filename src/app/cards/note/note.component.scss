@@ -1,0 +1,92 @@
+/*thinking-today*/
+
+.note {
+  .mat-card {
+    margin-bottom: 15px;
+    .mat-card-content {
+      p {
+        padding-top: 24px;
+        font-size: 20px;
+        text-align: left;
+      }
+      .card-header-action {
+        width: 100%;
+        .top-right-titel {
+          float: right;
+          width: 30%;
+          text-align: right;
+          .mat-icon-button {
+            line-height: 4px;
+            height: 24px;
+          }
+          span {
+            font-size: 12px;
+            text-align: left;
+            color: #707070;
+          }
+        }
+        .top-lef-titel {
+          width: 40%;
+          float: left;
+          span {
+            font-size: 12px;
+            text-align: left;
+            color: #707070;
+          }
+        }
+        .top-middle-titel {
+          text-align: center;
+          display: inline;
+          span {
+            font-size: 15px;
+            text-align: left;
+            color: #1f8ce8;
+          }
+        }
+      }
+
+      .mat-card-image {
+        width: 100%;
+        margin: 0;
+        border-radius: 15px;
+      }
+      .card-content-footer-action {
+        position: relative;
+        display: flex;
+        margin: 0 -15px;
+        justify-content: space-between;
+        color: #6a6a6a;
+        padding: 10px;
+        .rating-comment {
+          font-size: 12px;
+          position: absolute;
+          right: 22px;
+          bottom: 0px;
+        }
+        button.mat-button {
+          min-width: 10px;
+          padding: 0 8px;
+          span {
+            color: #6a6a6a;
+            font-size: 15px;
+            padding-left: 10px;
+            font-weight: bold;
+            margin-top: 10px;
+          }
+          .mat-icon {
+            height: 18px;
+            width: 18px;
+            font-weight: bold;
+          }
+          .mat-star {
+            color: #6a6a6a;
+            font-size: 25px;
+            margin-top: 5px;
+            margin-left: -22px;
+            position: absolute;
+          }
+        }
+      }
+    }
+  }
+}
