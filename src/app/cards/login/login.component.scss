@@ -48,7 +48,7 @@
     .button-sec {
       width: 100%;
       text-align: center;
-      padding-bottom: 5px;
+      padding-bottom: 10px;
       .btn-submit {
         color: #fff;
         background-color: #2799fb;
@@ -58,5 +58,15 @@
         line-height: 0px;
       }
     }
+  }
+  .lbl-sign {
+    width: 100%;
+    text-align: center;
+    padding-bottom: 45px;
+  }
+  .lbl-otp {
+    width: 100%;
+    text-align: center;
+    padding-bottom: 30px;
   }
 }

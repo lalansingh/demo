@@ -17,7 +17,30 @@
     </div>
 </div>
 <div class="custom-nav-list-music">
-    <mat-nav-list>
+    <!-- Ui Responsive Menu -->
+    <nav class="ui-responsive-nav" role="navigation" fxShow="true" fxHide.gt-md>
+        <ul>
+            <li><a href="#">
+                    &nbsp;<mat-icon>menu</mat-icon>
+                </a>
+                <ul class="dropdown">
+                    <li><a href="#">
+                            <div class="icon-prefix">
+                                <mat-icon>filter_list</mat-icon>
+                            </div>
+                        </a>
+                    </li>
+                    <li><a href="#">All</a></li>
+                    <li><a href="#">Videos</a></li>
+                    <li><a href="#">Live</a></li>
+                    <li><a href="#">Virtual&nbsp;Reality</a></li>
+                    <li><a href="#">Music</a></li>
+                    <li><a href="#">Postcasts</a></li>
+                </ul>
+            </li>
+        </ul>
+    </nav>
+    <mat-nav-list fxShow="true" fxHide.lt-lg>
         <a mat-list-item>
             <div class="icon-prefix">
                 <mat-icon>filter_list</mat-icon>
