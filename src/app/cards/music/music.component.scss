@@ -1,0 +1,63 @@
+.vedio {
+  .mat-card {
+    margin-bottom: 15px;
+    .mat-card-content {
+      margin-bottom: 40px;
+      p {
+        padding-top: 24px;
+        font-size: 20px;
+        text-align: left;
+      }
+      .card-header-action {
+        width: 100%;
+        .top-right-titel {
+          float: right;
+          width: 50%;
+          text-align: right;
+          .mat-icon-button {
+            line-height: 4px;
+            height: 24px;
+          }
+          span {
+            font-size: 10px;
+            text-align: left;
+            color: #707070;
+          }
+        }
+        .top-lef-titel {
+          width: 40%;
+          float: left;
+          span {
+            font-size: 10px;
+            text-align: left;
+            color: #707070;
+          }
+        }
+      }
+      .hash-link {
+        text-align: center;
+        span {
+          font-size: 15px;
+          text-align: left;
+          color: #1f8ce8;
+        }
+      }
+      .title {
+        text-align: left;
+        float: left;
+        padding: 10px 0px 10px 0px;
+        span {
+          font-size: 18px;
+          text-align: left;
+          color: #4d4d4d;
+          font-weight: bold;
+        }
+      }
+      .mat-card-image {
+        width: 100%;
+        margin: 0;
+        border-radius: 15px;
+      }
+    }
+  }
+}

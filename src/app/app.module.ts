@@ -27,6 +27,11 @@ import { StoryVedioComponent } from './cards/story-vedio/story-vedio.component';
 import { NoteComponent } from './cards/note/note.component';
 import { UserDetailsFooterComponent } from './cards/user-details-footer/user-details-footer.component';
 import { ThoughtComponent } from './cards/thought/thought.component';
+import { VedioComponent } from './cards/vedio/vedio.component';
+import { PublishedUserComponent } from './cards/published-user/published-user.component';
+import { MusicComponent } from './cards/music/music.component';
+import { PostcastComponent } from './cards/postcast/postcast.component';
+import { LiveComponent } from './cards/live/live.component';
 
 @NgModule({
   declarations: [
@@ -49,7 +54,12 @@ import { ThoughtComponent } from './cards/thought/thought.component';
     StoryVedioComponent,
     NoteComponent,
     UserDetailsFooterComponent,
-    ThoughtComponent
+    ThoughtComponent,
+    VedioComponent,
+    PublishedUserComponent,
+    MusicComponent,
+    PostcastComponent,
+    LiveComponent
   ],
   imports: [
     BrowserModule,
@@ -68,7 +78,7 @@ import { ThoughtComponent } from './cards/thought/thought.component';
     MatAutocompleteModule,
     RouterModule.forRoot(routes, { useHash: true })
   ],
-  exports:[MatListModule],
+  exports: [MatListModule],
   providers: [],
   bootstrap: [AppComponent]
 })
