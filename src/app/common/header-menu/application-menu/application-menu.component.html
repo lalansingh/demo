@@ -1,5 +1,24 @@
 <div class="custom-nav-list">
-    <mat-nav-list>
+    <!-- Ui Responsive Menu -->
+    <nav class="ui-responsive-nav" role="navigation" fxShow="true" fxHide.gt-md>
+        <ul>
+            <li><a href="#">
+                    &nbsp;<mat-icon>menu</mat-icon>
+                </a>
+                <ul class="dropdown">
+                    <li><a href="#">All</a></li>
+                    <li><a href="#">@theName</a></li>
+                    <li><a href="#">Notes</a></li>
+                    <li><a href="#">Photos</a></li>
+                    <li><a href="#">Articles</a></li>
+                    <li><a href="#">Jobs</a></li>
+                    <li><a href="#">Asks</a></li>
+                    <li><a href="#">Teams</a></li>
+                </ul>
+            </li>
+        </ul>
+    </nav>
+    <mat-nav-list fxShow="true" fxHide.lt-lg>
         <a mat-list-item class="active"> All</a>
         <a mat-list-item> @theName</a>
         <a mat-list-item> Notes</a>

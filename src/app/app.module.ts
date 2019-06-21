@@ -21,6 +21,7 @@ import { StoryComponent } from './cards/story/story.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { SpaceComponent } from './space/space.component';
 import { SearchComponent } from './common/search/search.component';
+import { FlexLayoutModule } from "@angular/flex-layout";
 
 @NgModule({
   declarations: [
@@ -53,9 +54,11 @@ import { SearchComponent } from './common/search/search.component';
     MatCardModule,
     MatInputModule,
     MatVideoModule,
+    FlexLayoutModule,
     MatAutocompleteModule,
     RouterModule.forRoot(routes, { useHash: true })
   ],
+  exports:[MatListModule],
   providers: [],
   bootstrap: [AppComponent]
 })
