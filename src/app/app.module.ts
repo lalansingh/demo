@@ -5,10 +5,8 @@ import { NgModule } from '@angular/core';
 import { RouterModule } from '@angular/router';
 import { AppComponent } from './app.component';
 import { AppLeftMenuComponent } from './common/left-menu/left-menu.component';
-import { ThinkingComponent } from './cards/thinking/thinking.component';
 import { CardThirdComponent } from './cards/card-third/card-third.component';
 import { SettingsComponent } from './settings/settings.component';
-import { HomeComponent } from './home/home.component';
 import { ApplicationMenuComponent } from './common/header-menu/application-menu/application-menu.component';
 import { SocialMenuComponent } from './common/header-menu/social-menu/social-menu.component';
 import { MusicMenuComponent } from './common/header-menu/music-menu/music-menu.component';
@@ -16,8 +14,6 @@ import { routes } from './routes/route';
 import { MatVideoModule } from 'mat-video';
 import { TopHeaderComponent } from './common/top-header/top-header.component';
 import { LoginFirstComponent } from './cards/login/login.component';
-import { CreatingComponent } from './cards/creating/creating.component';
-import { StoryComponent } from './cards/story/story.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { SpaceComponent } from './space/space.component';
 import { SearchComponent } from './common/search/search.component';
@@ -32,6 +28,9 @@ import { PublishedUserComponent } from './cards/published-user/published-user.co
 import { MusicComponent } from './cards/music/music.component';
 import { PostcastComponent } from './cards/postcast/postcast.component';
 import { LiveComponent } from './cards/live/live.component';
+import { ThinkingComponent } from './layout/thinking/thinking.component';
+import { CreatingComponent } from './layout/creating/creating.component';
+import { StoryComponent } from './layout/story/story.component';
 
 @NgModule({
   declarations: [
@@ -41,7 +40,6 @@ import { LiveComponent } from './cards/live/live.component';
     ThinkingComponent,
     CardThirdComponent,
     SettingsComponent,
-    HomeComponent,
     ApplicationMenuComponent,
     SocialMenuComponent,
     MusicMenuComponent,
