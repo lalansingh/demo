@@ -31,6 +31,10 @@ import { StoryComponent } from './layout/story/story.component';
 import { ApplicationMenuComponent } from './common/menu/application-menu/application-menu.component';
 import { SocialMenuComponent } from './common/menu/social-menu/social-menu.component';
 import { MusicMenuComponent } from './common/menu/music-menu/music-menu.component';
+import { AlertComponent } from './alert/alert.component';
+import { OtpComponent } from './cards/otp/otp.component';
+import { SiteInfoMenuComponent } from './common/menu/site-info-menu/site-info-menu.component';
+import { PolicyMenuComponent } from './common/menu/policy-menu/policy-menu.component';
 
 @NgModule({
   declarations: [
@@ -57,7 +61,11 @@ import { MusicMenuComponent } from './common/menu/music-menu/music-menu.componen
     PublishedUserComponent,
     MusicComponent,
     PostcastComponent,
-    LiveComponent
+    LiveComponent,
+    AlertComponent,
+    OtpComponent,
+    SiteInfoMenuComponent,
+    PolicyMenuComponent
   ],
   imports: [
     BrowserModule,

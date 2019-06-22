@@ -1,4 +1,5 @@
 import { Component, ViewEncapsulation } from '@angular/core';
+import { Router } from '@angular/router';
 
 @Component({
     selector: 'login',
@@ -7,4 +8,10 @@ import { Component, ViewEncapsulation } from '@angular/core';
     encapsulation: ViewEncapsulation.None
 })
 export class LoginFirstComponent {
+    constructor(private router: Router) {
+
+    }
+    public onVerify(): void {
+        this.router.navigate(['/alert']);
+    }
 }

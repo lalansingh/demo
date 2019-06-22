@@ -1,0 +1,28 @@
+<div class="otp-sec">
+    <mat-card>
+        <!-- <mat-card-title>One Time Password</mat-card-title> -->
+        <form>
+            <div class="otp">
+                <div class="sec-right">
+                    <mat-form-field>
+                        <input matInput type="number" placeholder="One Time Password" value="">
+                    </mat-form-field>
+                </div>
+            </div>
+            <div class="lbl-sign">
+                <mat-label class="lbl-msg">A message with verification code has been sent to your device. Enter the Code to continue.</mat-label>
+            </div>
+            <div class="lbl-otp">
+                <mat-label class="lbl-msg">Didn’t get a verification code?
+                </mat-label>
+            </div>
+            <div class="button-sec">
+                <button mat-raised-button class="btn-submit" (click)="onSubmit()">Submit</button>
+            </div>
+            <div class="lbl-otp">
+                <mat-label class="lbl-msg">By Clicking Submit you Confirm to Allow Contacts Syncing, Accept Our Policies and Terms of Service.
+                </mat-label>
+            </div>
+        </form>
+    </mat-card>
+</div>

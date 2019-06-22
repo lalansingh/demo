@@ -1,0 +1,68 @@
+.otp-sec {
+  .mat-card {
+    margin-bottom: 10px;
+    // .mat-card-title {
+    //   font-size: 15px;
+    //   text-align: center;
+    //   color:#A7A7A7;
+    // }
+    form {
+      width: 100%;
+    }
+    .otp {
+      width: 100%;
+      text-align: center;
+      padding-bottom: 18px;
+
+      .sec-right {
+        float: left;
+        width: 100%;
+        height: 60px;
+        .mat-form-field {
+          width: 100%;
+          border: 0px solid;
+        }
+      }
+      .mat-form-field {
+        background: none !important;
+        text-align: center;
+      }
+      .mat-primary {
+        color: #3597ec !important;
+        font-size: 20px;
+      }
+      .mat-form-field-appearance-legacy .mat-form-field-underline {
+        background-color: rgba(57, 155, 236, 0.94) !important;
+      }
+      .mat-form-field-type-mat-native-select .mat-input-element {
+        padding-right: 9px;
+      }
+    }
+    .button-sec {
+      width: 100%;
+      text-align: center;
+      padding-bottom: 10px;
+      .btn-submit {
+        color: #fff;
+        background-color: #2799fb;
+        border-radius: 4px !important;
+        width: 100px;
+        height: 30px;
+        line-height: 0px;
+      }
+    }
+  }
+  .lbl-sign {
+    width: 100%;
+    text-align: center;
+    padding-bottom: 45px;
+  }
+  .lbl-otp {
+    width: 100%;
+    text-align: center;
+    padding-bottom: 30px;
+    .lbl-msg {
+      color: #2799fb;
+    }
+  }
+}
