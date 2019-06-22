@@ -52,11 +52,16 @@
       }
       .card-content-footer-action {
         position: relative;
-        display: flex;
+        // display: flex;
         margin: 0 -15px;
         justify-content: space-between;
         color: #6a6a6a;
         padding: 10px;
+        .ratting {
+          right: 0;
+          position: absolute;
+          padding-right: 20px;
+        }
         .rating-comment {
           font-size: 12px;
           position: absolute;

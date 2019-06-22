@@ -13,7 +13,7 @@
         width: 100%;
         .top-right-titel {
           float: right;
-          width: 30%;
+          width: 22%;
           text-align: right;
           .mat-icon-button {
             line-height: 4px;
@@ -26,7 +26,7 @@
           }
         }
         .top-lef-titel {
-          width: 40%;
+          width: 22%;
           float: left;
           span {
             font-size: 12px;
@@ -36,7 +36,8 @@
         }
         .top-middle-titel {
           text-align: center;
-          display: inline;
+          width: 56%;
+          display: inline-block;
           span {
             font-size: 15px;
             text-align: left;
@@ -52,11 +53,16 @@
       }
       .card-content-footer-action {
         position: relative;
-        display: flex;
+        // display: flex;
         margin: 0 -15px;
         justify-content: space-between;
         color: #6a6a6a;
         padding: 10px;
+        .ratting {
+          right: 0;
+          position: absolute;
+          padding-right: 20px;
+        }
         .rating-comment {
           font-size: 12px;
           position: absolute;
