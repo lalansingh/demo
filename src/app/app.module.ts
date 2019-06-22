@@ -7,9 +7,6 @@ import { AppComponent } from './app.component';
 import { AppLeftMenuComponent } from './common/left-menu/left-menu.component';
 import { CardThirdComponent } from './cards/card-third/card-third.component';
 import { SettingsComponent } from './settings/settings.component';
-import { ApplicationMenuComponent } from './common/header-menu/application-menu/application-menu.component';
-import { SocialMenuComponent } from './common/header-menu/social-menu/social-menu.component';
-import { MusicMenuComponent } from './common/header-menu/music-menu/music-menu.component';
 import { routes } from './routes/route';
 import { MatVideoModule } from 'mat-video';
 import { TopHeaderComponent } from './common/top-header/top-header.component';
@@ -31,6 +28,9 @@ import { LiveComponent } from './cards/live/live.component';
 import { ThinkingComponent } from './layout/thinking/thinking.component';
 import { CreatingComponent } from './layout/creating/creating.component';
 import { StoryComponent } from './layout/story/story.component';
+import { ApplicationMenuComponent } from './common/menu/application-menu/application-menu.component';
+import { SocialMenuComponent } from './common/menu/social-menu/social-menu.component';
+import { MusicMenuComponent } from './common/menu/music-menu/music-menu.component';
 
 @NgModule({
   declarations: [
