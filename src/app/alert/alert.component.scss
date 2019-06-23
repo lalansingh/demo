@@ -1,0 +1,25 @@
+.alert-sec-a-scroll {
+  overflow-y: auto;
+  height: calc(100vh - 181px);
+  padding: 5px;
+  padding-left: 25px;
+  padding-right: 25px;
+  padding-top: 10px;
+}
+
+.alert-sec-b-scroll {
+  overflow-y: auto;
+  height: calc(100vh - 127px);
+  padding-left: 25px;
+  padding-right: 25px;
+  padding-top: 10px;
+}
+
+.alert-sec-c-scroll {
+  overflow-y: auto;
+  height: calc(100vh - 132px);
+  padding: 5px;
+  padding-left: 45px;
+  padding-right: 45px;
+  padding-top: 10px;
+}

@@ -1,0 +1,25 @@
+.cookies {
+  .img-sec {
+    float: left;
+    width: 23%;
+    text-align: center;
+    img {
+      height: 85px;
+      width: 85px;
+      padding-top: 40px;
+    }
+  }
+  .content-sec {
+    float: left;
+    width: 77%;
+    p {
+      font-size: 25px;
+      color: #6c6c6c;
+    }
+  }
+}
+.row:after {
+  content: "";
+  display: table;
+  clear: both;
+}

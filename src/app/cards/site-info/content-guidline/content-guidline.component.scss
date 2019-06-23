@@ -1,0 +1,27 @@
+.guidline {
+  .img-sec {
+    float: left;
+    width: 23%;
+    padding-top: 23px;
+    img {
+      height: 100px;
+      width: 100px;
+      border-radius: 20px;
+    }
+  }
+  .content-sec {
+    float: left;
+    width: 77%;
+    text-align: left;
+    p {
+      font-size: 20px;
+      color: #6c6c6c;
+    }
+  }
+}
+
+.row:after {
+  content: "";
+  display: table;
+  clear: both;
+}

@@ -1,0 +1,25 @@
+.space-sec-a-scroll {
+  overflow-y: auto;
+  height: calc(100vh - 181px);
+  padding: 5px;
+  padding-left: 25px;
+  padding-right: 25px;
+  padding-top: 10px;
+}
+
+.space-sec-b-scroll {
+  overflow-y: auto;
+  height: calc(100vh - 178px);
+  padding-left: 50px;
+  padding-right: 50px;
+  padding-top: 10px;
+}
+
+.space-sec-c-scroll {
+  overflow-y: auto;
+  height: calc(100vh - 178px);
+  padding: 5px;
+  padding-left: 45px;
+  padding-right: 45px;
+  padding-top: 10px;
+}

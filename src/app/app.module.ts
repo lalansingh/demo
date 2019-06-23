@@ -36,6 +36,8 @@ import { OtpComponent } from './cards/otp/otp.component';
 import { SiteInfoMenuComponent } from './common/menu/site-info-menu/site-info-menu.component';
 import { PolicyMenuComponent } from './common/menu/policy-menu/policy-menu.component';
 import { ComonService } from './common/services/comon-service';
+import { CookiesComponent } from './cards/policies/cookies/cookies.component';
+import { ContentGuidlineComponent } from './cards/site-info/content-guidline/content-guidline.component';
 
 @NgModule({
   declarations: [
@@ -66,7 +68,9 @@ import { ComonService } from './common/services/comon-service';
     AlertComponent,
     OtpComponent,
     SiteInfoMenuComponent,
-    PolicyMenuComponent
+    PolicyMenuComponent,
+    CookiesComponent,
+    ContentGuidlineComponent
   ],
   imports: [
     BrowserModule,
