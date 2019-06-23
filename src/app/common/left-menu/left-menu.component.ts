@@ -1,4 +1,5 @@
 import { Component, ChangeDetectorRef, ViewEncapsulation } from '@angular/core';
+import { ComonService } from '../services/comon-service';
 
 @Component({
     selector: 'app-left-menu',
@@ -8,7 +9,11 @@ import { Component, ChangeDetectorRef, ViewEncapsulation } from '@angular/core';
 export class AppLeftMenuComponent {
 
     public leftNav: string = 'space';
-    constructor() { }
+    constructor(private comonService: ComonService) {
+        this.comonService.leftMenuChange.subscribe(menuName => {
+            this.leftNav = menuName;
+        });
+    }
 
     public leftNavClicked(param: string): void {
         this.leftNav = param;

@@ -35,6 +35,7 @@ import { AlertComponent } from './alert/alert.component';
 import { OtpComponent } from './cards/otp/otp.component';
 import { SiteInfoMenuComponent } from './common/menu/site-info-menu/site-info-menu.component';
 import { PolicyMenuComponent } from './common/menu/policy-menu/policy-menu.component';
+import { ComonService } from './common/services/comon-service';
 
 @NgModule({
   declarations: [
@@ -85,7 +86,9 @@ import { PolicyMenuComponent } from './common/menu/policy-menu/policy-menu.compo
     RouterModule.forRoot(routes, { useHash: true })
   ],
   exports: [MatListModule],
-  providers: [],
+  providers: [
+    ComonService
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

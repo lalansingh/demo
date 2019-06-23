@@ -1,4 +1,5 @@
 import { Component } from "@angular/core";
+import { ComonService } from "../common/services/comon-service";
 
 
 @Component({
@@ -7,4 +8,7 @@ import { Component } from "@angular/core";
     styleUrls: ['./alert.component.css']
 })
 export class AlertComponent {
+    constructor(private comonService: ComonService) {
+        this.comonService.lefSideMenuSelected('alert');
+    }
 }

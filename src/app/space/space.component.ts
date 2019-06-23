@@ -1,6 +1,5 @@
 import { Component } from "@angular/core";
-import { ActivatedRoute } from "@angular/router";
-
+import { ComonService } from "../common/services/comon-service";
 
 @Component({
     selector: 'space',
@@ -8,4 +7,7 @@ import { ActivatedRoute } from "@angular/router";
     styleUrls: ['./space.component.css']
 })
 export class SpaceComponent {
+    constructor(private comonService: ComonService) {
+        this.comonService.lefSideMenuSelected('space');
+    }
 }
