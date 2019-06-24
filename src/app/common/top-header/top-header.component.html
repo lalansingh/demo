@@ -9,7 +9,7 @@
     <button mat-raised-button>
       <mat-icon>keyboard_arrow_right</mat-icon>
     </button>
-    <button mat-raised-button class="mar-r-6">
+    <button mat-raised-button class="mar-r-6" [matMenuTriggerFor]="menuPublic">
       <mat-icon>public</mat-icon>
     </button>
     <div class="topSearch" #topSearchElement>
@@ -28,21 +28,94 @@
       </mat-form-field>
     </div>
 
-    <button mat-raised-button class="mar-r-6">
+    <button mat-raised-button class="mar-r-6" [matMenuTriggerFor]="menuIncognito">
       <mat-icon>supervised_user_circle</mat-icon>
     </button>
-    <button mat-raised-button class="mar-r-6">
-      <mat-icon>brightness_3</mat-icon>
+    <button mat-raised-button class="mar-r-6" [matMenuTriggerFor]="menuBrightness">
+      <mat-icon class="rotate-135">brightness_3</mat-icon>
     </button>
-    <button mat-raised-button class="mar-r-6">
+    <button mat-raised-button class="mar-r-6" [matMenuTriggerFor]="menuAdd">
       <mat-icon>add</mat-icon>
     </button>
-    <button mat-raised-button class="mar-r-6">
+    <button mat-raised-button class="mar-r-6" [matMenuTriggerFor]="menuBookmark">
       <mat-icon>turned_in_not</mat-icon>
     </button>
-    <button mat-raised-button class="mar-r-6">
+    <button mat-raised-button class="mar-r-6" [matMenuTriggerFor]="menuLogout">
       <mat-icon>exit_to_app</mat-icon>
     </button>
   </mat-toolbar-row>
 
 </mat-toolbar>
+
+<mat-menu #menuHome="matMenu">
+  Home
+</mat-menu>
+
+<mat-menu #menuBrightness="matMenu">
+  <div class="do-not-distrub ">
+    <div class="example-button-row align-center">
+      <mat-icon class="rotate-135">brightness_3</mat-icon>
+      <mat-card-title>Do Not Distrub</mat-card-title>
+    </div>
+    <div class="example-button-row align-center">
+      <div><span class="lbl-sm">When enabled, Calls and Notifications will be silenced.</span></div>
+    </div>
+    <div class="example-button-row">
+      <div class="do-not-hover active"><a class="lbl-md active">For 1 Hour</a></div>
+    </div>
+    <div class="example-button-row">
+      <div class="do-not-hover"><a class="lbl-md">Until End of the Day</a></div>
+    </div>
+    <div class="example-button-row">
+      <div class="do-not-hover"><a class="lbl-md">Till Turned Off</a></div>
+    </div>
+  </div>
+</mat-menu>
+
+<mat-menu #menuAdd="matMenu">
+  <div class="do-not-distrub ">
+    <div class="example-button-row align-center">
+      <mat-icon>add</mat-icon>
+      <mat-card-title>New Tab</mat-card-title>
+    </div>
+    <div class="example-button-row align-center">
+      <div><span class="lbl-sm">Opens a New Tab for Web or App Search.</span></div>
+    </div>
+  </div>
+</mat-menu>
+
+<mat-menu #menuIncognito="matMenu">
+  <div class="do-not-distrub ">
+    <div class="example-button-row align-center">
+      <mat-icon>supervised_user_circle</mat-icon>
+      <mat-card-title>Incognito On</mat-card-title>
+    </div>
+    <div class="example-button-row align-center">
+      <div><span class="lbl-sm">You are now searching Securely and Privately.</span></div>
+    </div>
+  </div>
+</mat-menu>
+
+<mat-menu #menuBookmark="matMenu">
+  <div class="do-not-distrub ">
+    <div class="example-button-row align-center">
+      <mat-icon>turned_in_not</mat-icon>
+      <mat-card-title>Bookmark</mat-card-title>
+    </div>
+    <div class="example-button-row align-center">
+      <div><span class="lbl-sm">Shows all Bookmarked Content and Links.</span></div>
+    </div>
+  </div>
+</mat-menu>
+
+<mat-menu #menuLogout="matMenu">
+  <div class="do-not-distrub ">
+    <div class="example-button-row align-center">
+      <mat-icon>exit_to_app</mat-icon>
+      <mat-card-title>Log Out</mat-card-title>
+    </div>
+    <div class="example-button-row align-center">
+      <div><span class="lbl-sm">Log Out from this Device.</span></div>
+    </div>
+  </div>
+</mat-menu>

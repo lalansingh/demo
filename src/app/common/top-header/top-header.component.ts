@@ -1,4 +1,4 @@
-import { Component, OnInit, ElementRef, ViewChild } from '@angular/core';
+import { Component, OnInit, ElementRef, ViewChild, ViewEncapsulation } from '@angular/core';
 import { FormControl } from '@angular/forms';
 import { Observable } from 'rxjs';
 import { startWith, map } from 'rxjs/operators';
@@ -12,7 +12,8 @@ export interface State {
 @Component({
   selector: 'app-top-header',
   templateUrl: './top-header.component.html',
-  styleUrls: ['./top-header.component.scss']
+  styleUrls: ['./top-header.component.scss'],
+  encapsulation: ViewEncapsulation.None
 })
 export class TopHeaderComponent {
 

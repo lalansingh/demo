@@ -1,6 +1,6 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { MatSidenavModule, MatToolbarModule, MatIconModule, MatListModule, MatButtonModule, MatCardModule, MatInputModule, MatAutocompleteModule } from '@angular/material';
+import { MatSidenavModule, MatToolbarModule, MatIconModule, MatListModule, MatButtonModule, MatCardModule, MatInputModule, MatAutocompleteModule, MatTooltipModule, MatMenuModule } from '@angular/material';
 import { NgModule } from '@angular/core';
 import { RouterModule } from '@angular/router';
 import { AppComponent } from './app.component';
@@ -87,6 +87,8 @@ import { ContentGuidlineComponent } from './cards/site-info/content-guidline/con
     MatVideoModule,
     FlexLayoutModule,
     MatAutocompleteModule,
+    MatTooltipModule,
+    MatMenuModule,
     RouterModule.forRoot(routes, { useHash: true })
   ],
   exports: [MatListModule],
