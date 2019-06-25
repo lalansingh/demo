@@ -2,6 +2,7 @@ import { Component, OnInit, ElementRef, ViewChild, ViewEncapsulation } from '@an
 import { FormControl } from '@angular/forms';
 import { Observable } from 'rxjs';
 import { startWith, map } from 'rxjs/operators';
+import { ISpace, StateData, SpaceData } from './top-header.modle';
 
 export interface State {
   flag: string;
@@ -19,43 +20,14 @@ export class TopHeaderComponent {
 
   @ViewChild('topSearchElement')
   topSearchElement: ElementRef;
+
   stateCtrl = new FormControl();
   filteredStates: Observable<State[]>;
+  states: State[] = StateData;
 
-  onClickSearch(): void {
-    this.topSearchElement.nativeElement.style.borderRadius = '20px 20px 0px 0px';
-  }
-
-  onBlur() {
-    this.topSearchElement.nativeElement.style.borderRadius = '20px';
-  }
-
-  states: State[] = [
-    {
-      name: 'Arkansas',
-      population: '2.978M',
-      // https://commons.wikimedia.org/wiki/File:Flag_of_Arkansas.svg
-      flag: 'https://upload.wikimedia.org/wikipedia/commons/9/9d/Flag_of_Arkansas.svg'
-    },
-    {
-      name: 'California',
-      population: '39.14M',
-      // https://commons.wikimedia.org/wiki/File:Flag_of_California.svg
-      flag: 'https://upload.wikimedia.org/wikipedia/commons/0/01/Flag_of_California.svg'
-    },
-    {
-      name: 'Florida',
-      population: '20.27M',
-      // https://commons.wikimedia.org/wiki/File:Flag_of_Florida.svg
-      flag: 'https://upload.wikimedia.org/wikipedia/commons/f/f7/Flag_of_Florida.svg'
-    },
-    {
-      name: 'Texas',
-      population: '27.47M',
-      // https://commons.wikimedia.org/wiki/File:Flag_of_Texas.svg
-      flag: 'https://upload.wikimedia.org/wikipedia/commons/f/f7/Flag_of_Texas.svg'
-    }
-  ];
+  public spaceCtrl = new FormControl();
+  public filteredSpace: Observable<ISpace[]>;
+  public space: ISpace[] = SpaceData;
 
   constructor() {
     this.filteredStates = this.stateCtrl.valueChanges
@@ -63,12 +35,31 @@ export class TopHeaderComponent {
         startWith(''),
         map(state => state ? this._filterStates(state) : this.states.slice())
       );
+
+    this.filteredSpace = this.spaceCtrl.valueChanges
+      .pipe(
+        startWith(''),
+        map(space => space ? this._filterSpace(space) : this.space.slice())
+      );
   }
+
+  public onClickSearch(): void {
+    this.topSearchElement.nativeElement.style.borderRadius = '20px 20px 0px 0px';
+  }
+
+  public onBlur() {
+    this.topSearchElement.nativeElement.style.borderRadius = '20px';
+  }
+
+
 
   private _filterStates(value: string): State[] {
     const filterValue = value.toLowerCase();
-
     return this.states.filter(state => state.name.toLowerCase().indexOf(filterValue) === 0);
+  }
+  private _filterSpace(value: string): ISpace[] {
+    const filterValue = value.toLowerCase();
+    return this.space.filter(state => state.name.toLowerCase().indexOf(filterValue) === 0);
   }
 
 }

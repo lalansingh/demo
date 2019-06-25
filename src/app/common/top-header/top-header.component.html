@@ -9,7 +9,7 @@
     <button mat-raised-button>
       <mat-icon>keyboard_arrow_right</mat-icon>
     </button>
-    <button mat-raised-button class="mar-r-6" [matMenuTriggerFor]="menuPublic">
+    <button mat-raised-button class="mar-r-6" [matMenuTriggerFor]="menuSpace">
       <mat-icon>public</mat-icon>
     </button>
     <div class="topSearch" #topSearchElement>
@@ -22,7 +22,7 @@
           <mat-option *ngFor="let state of filteredStates | async" [value]="state.name">
             <img class="example-option-img" aria-hidden [src]="state.flag" height="25">
             <span>{{state.name}}</span> |
-            <small>Population: {{state.population}}</small>
+            <!-- <small>Population: {{state.population}}</small> -->
           </mat-option>
         </mat-autocomplete>
       </mat-form-field>
@@ -47,11 +47,8 @@
 
 </mat-toolbar>
 
-<mat-menu #menuHome="matMenu">
-  Home
-</mat-menu>
 
-<mat-menu #menuBrightness="matMenu">
+<mat-menu #menuBrightness="matMenu" class="custom-mat-panel">
   <div class="do-not-distrub ">
     <div class="example-button-row align-center">
       <mat-icon class="rotate-135">brightness_3</mat-icon>
@@ -72,7 +69,7 @@
   </div>
 </mat-menu>
 
-<mat-menu #menuAdd="matMenu">
+<mat-menu #menuAdd="matMenu" class="custom-mat-panel">
   <div class="do-not-distrub ">
     <div class="example-button-row align-center">
       <mat-icon>add</mat-icon>
@@ -84,7 +81,7 @@
   </div>
 </mat-menu>
 
-<mat-menu #menuIncognito="matMenu">
+<mat-menu #menuIncognito="matMenu" class="custom-mat-panel">
   <div class="do-not-distrub ">
     <div class="example-button-row align-center">
       <mat-icon>supervised_user_circle</mat-icon>
@@ -96,7 +93,7 @@
   </div>
 </mat-menu>
 
-<mat-menu #menuBookmark="matMenu">
+<mat-menu #menuBookmark="matMenu" class="custom-mat-panel">
   <div class="do-not-distrub ">
     <div class="example-button-row align-center">
       <mat-icon>turned_in_not</mat-icon>
@@ -108,14 +105,32 @@
   </div>
 </mat-menu>
 
-<mat-menu #menuLogout="matMenu">
-  <div class="do-not-distrub ">
+<mat-menu #menuLogout="matMenu" class="custom-mat-panel">
+  <div class="do-not-distrub " (click)="$event.stopPropagation();">
     <div class="example-button-row align-center">
       <mat-icon>exit_to_app</mat-icon>
       <mat-card-title>Log Out</mat-card-title>
     </div>
     <div class="example-button-row align-center">
       <div><span class="lbl-sm">Log Out from this Device.</span></div>
+    </div>
+  </div>
+</mat-menu>
+<mat-menu #menuSpace="matMenu" class="home-mat-panel">
+  <div class="do-not-distrub " (click)="$event.stopPropagation();">
+    <div class="example-button-row align-center menu-search">
+      <mat-form-field floatLabel="never">
+        <mat-label>Type City or Country
+        </mat-label>
+        <mat-icon class="search-icon" matPrefix>search</mat-icon>
+        <input matInput placeholder="Space" aria-label="Space" [matAutocomplete]="spaceAuto" [formControl]="spaceCtrl">
+        <mat-autocomplete #spaceAuto="matAutocomplete" class="flagOption">
+          <mat-option *ngFor="let space of filteredSpace | async" [value]="space.name">
+            <img class="example-option-img" aria-hidden [src]="'../../../assets/images/flag/' + space.flag" height="20">
+            <span>{{space.name}}</span>
+          </mat-option>
+        </mat-autocomplete>
+      </mat-form-field>
     </div>
   </div>
 </mat-menu>
