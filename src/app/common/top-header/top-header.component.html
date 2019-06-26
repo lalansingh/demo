@@ -16,7 +16,7 @@
       <mat-form-field floatLabel="never">
         <mat-label>Type to search the web or tap the mic.. <mat-icon>mic</mat-icon>
         </mat-label>
-        <input matInput placeholder="State" aria-label="State" (blur)="onBlur()" (click)="onClickSearch()"
+        <input matInput placeholder="State" aria-label="State" (blur)="onTopSearchBlur()" (click)="onTopSearchClicked()"
           [matAutocomplete]="auto" [formControl]="stateCtrl">
         <mat-autocomplete #auto="matAutocomplete">
           <mat-option *ngFor="let state of filteredStates | async" [value]="state.name">
@@ -118,16 +118,18 @@
 </mat-menu>
 <mat-menu #menuSpace="matMenu" class="home-mat-panel">
   <div class="do-not-distrub " (click)="$event.stopPropagation();">
-    <div class="example-button-row align-center menu-search">
+    <div class="example-button-row align-center menu-search" #spaceSearchElement>
       <mat-form-field floatLabel="never">
         <mat-label>Type City or Country
         </mat-label>
         <mat-icon class="search-icon" matPrefix>search</mat-icon>
-        <input matInput placeholder="Space" aria-label="Space" [matAutocomplete]="spaceAuto" [formControl]="spaceCtrl">
-        <mat-autocomplete #spaceAuto="matAutocomplete" class="flagOption">
+        <input matInput placeholder="Space" aria-label="Space" [matAutocomplete]="spaceAuto" [formControl]="spaceCtrl"
+          (blur)="onSpaceSearchBlur()" (click)="onSpaceSearchClicked()">
+        <mat-autocomplete #spaceAuto="matAutocomplete" class="flagOption"
+          (optionSelected)="onSpaceItemSelected($event.option.value)">
           <mat-option *ngFor="let space of filteredSpace | async" [value]="space.name">
             <img class="example-option-img" aria-hidden [src]="'../../../assets/images/flag/' + space.flag" height="20">
-            <span>{{space.name}}</span>
+            <span class="option-span">{{space.name}}</span>
           </mat-option>
         </mat-autocomplete>
       </mat-form-field>
