@@ -1,6 +1,6 @@
 <mat-toolbar class="top-header">
   <mat-toolbar-row>
-    <button mat-raised-button class="mar-l-10">
+    <button mat-raised-button class="mar-l-10" [routerLink]="['/space']">
       <mat-icon>home</mat-icon>
     </button>
     <button mat-raised-button class="mar-r-6">
@@ -118,7 +118,12 @@
 </mat-menu>
 <mat-menu #menuSpace="matMenu" class="home-mat-panel">
   <div class="do-not-distrub " (click)="$event.stopPropagation();">
-    <div class="example-button-row align-center menu-search" #spaceSearchElement>
+    <div class="space-tab">
+      <a href="javascript:void()" class="active">Region</a>
+      <a href="javascript:void()">Time</a>
+      <a href="javascript:void()">Filter</a>
+    </div>
+    <div class="example-button-row menu-search" #spaceSearchElement>
       <mat-form-field floatLabel="never">
         <mat-label>Type City or Country
         </mat-label>

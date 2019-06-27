@@ -19,7 +19,7 @@
   margin-top: 8px;
   border-radius: 10px !important;
   width: 400px;
-  height: 400px;
+  // height: 400px;
 }
 
 .do-not-distrub {
@@ -36,7 +36,7 @@
     text-align: center;
   }
   .mat-form-field {
-    width: 90%;
+    width: 100%;
     border-radius: 20px;
     box-shadow: 0 3px 1px -2px rgba(0, 0, 0, 0.2), 0 2px 2px 0 rgba(0, 0, 0, 0.14), 0 1px 5px 0 rgba(0, 0, 0, 0.12);
   }
@@ -90,6 +90,27 @@
     }
     &.active {
       background: rgba(53, 151, 236, 0.21);
+      color: #3597ec;
+    }
+  }
+
+  .space-tab {
+    overflow: hidden;
+    background-color: #fff;
+    padding-bottom: 20px;
+  }
+
+  .space-tab a {
+    float: left;
+    font-size: 16px;
+    color: #818181;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+    width: 24%;
+    &:hover,
+    &.active {
+      background-color: rgba(53, 151, 236, 0.21);
       color: #3597ec;
     }
   }
