@@ -33,11 +33,20 @@ export class TopHeaderComponent implements OnInit {
   public filteredSpace: Observable<ISpace[]>;
   public space: ISpace[] = SpaceData;
 
-  constructor() {
+  constructor(private elemntRef: ElementRef) {
   }
   private isTopSearchLoaded: boolean = false;
   private isSpaceSearchLoaded: boolean = false;
+
+  ngAfterViewInit() {
+    this.topSearchElement.nativeElement.querySelector('.mat-form-field-infix')
+      .addEventListener('click', this.onTopSearchClicked.bind(this));
+
+    this.spaceSearchElement.nativeElement.querySelector('.mat-form-field-infix')
+      .addEventListener('click', this.onSpaceSearchClicked.bind(this));
+  }
   ngOnInit() {
+
     // Top search autocomplete
     this.filteredStates = this.stateCtrl.valueChanges
       .pipe(
@@ -75,8 +84,9 @@ export class TopHeaderComponent implements OnInit {
       );
   }
 
+
   // Top Search
-  public onTopSearchClicked(): void {
+  public onTopSearchClicked(item: any): void {
     let stateList;
     this.filteredStates.subscribe(x => {
       stateList = x
@@ -86,6 +96,9 @@ export class TopHeaderComponent implements OnInit {
     } else {
       this.topSearchElement.nativeElement.style.borderRadius = '20px';
     }
+  }
+  public onTopSearchItemSelected(selectedItem: string) {
+    this.topSearchElement.nativeElement.style.borderRadius = '20px';
   }
 
   public onTopSearchBlur() {
@@ -109,6 +122,7 @@ export class TopHeaderComponent implements OnInit {
     let element = this.spaceSearchElement.nativeElement.firstChild;
     element.style.borderRadius = '20px';
   }
+
   public onSpaceSearchBlur() {
     let element = this.spaceSearchElement.nativeElement.firstChild;
     element.style.borderRadius = '20px';
