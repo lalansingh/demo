@@ -33,17 +33,17 @@ export class TopHeaderComponent implements OnInit {
   public filteredSpace: Observable<ISpace[]>;
   public space: ISpace[] = SpaceData;
 
-  constructor(private elemntRef: ElementRef) {
+  constructor() {
   }
   private isTopSearchLoaded: boolean = false;
   private isSpaceSearchLoaded: boolean = false;
 
   ngAfterViewInit() {
     this.topSearchElement.nativeElement.querySelector('.mat-form-field-infix')
-      .addEventListener('click', this.onTopSearchClicked);
+      .addEventListener('click', this.onTopSearchClicked.bind(this));
     // .addEventListener('click', this.onTopSearchClicked.bind(this));
     this.spaceSearchElement.nativeElement.querySelector('.mat-form-field-infix')
-      .addEventListener('click', this.onSpaceSearchClicked);
+      .addEventListener('click', this.onSpaceSearchClicked.bind(this));
   }
   ngOnInit() {
 
