@@ -18,10 +18,10 @@ export interface State {
 })
 export class TopHeaderComponent implements OnInit {
 
-  @ViewChild('topSearchElement')
+  @ViewChild('topSearchElement', { static: false })
   topSearchElement: ElementRef;
 
-  @ViewChild('spaceSearchElement')
+  @ViewChild('spaceSearchElement', { static: false })
   spaceSearchElement: ElementRef;
 
   // Top Search
@@ -40,10 +40,10 @@ export class TopHeaderComponent implements OnInit {
 
   ngAfterViewInit() {
     this.topSearchElement.nativeElement.querySelector('.mat-form-field-infix')
-      .addEventListener('click', this.onTopSearchClicked.bind(this));
-
+      .addEventListener('click', this.onTopSearchClicked);
+    // .addEventListener('click', this.onTopSearchClicked.bind(this));
     this.spaceSearchElement.nativeElement.querySelector('.mat-form-field-infix')
-      .addEventListener('click', this.onSpaceSearchClicked.bind(this));
+      .addEventListener('click', this.onSpaceSearchClicked);
   }
   ngOnInit() {
 
@@ -86,7 +86,7 @@ export class TopHeaderComponent implements OnInit {
 
 
   // Top Search
-  public onTopSearchClicked(item: any): void {
+  public onTopSearchClicked(): void {
     let stateList;
     this.filteredStates.subscribe(x => {
       stateList = x

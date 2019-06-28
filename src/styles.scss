@@ -43,6 +43,16 @@ $custom-typography: mat-typography-config(
   box-shadow: 0 2px 1px -2px rgba(0, 0, 0, 0.2), 0 1px 5px 0 rgba(0, 0, 0, 0.14), 0 1px 3px 0 rgba(0, 0, 0, 0.12);
   width: 66px;
 }
+
+@media only screen and (max-width: 1110px) {
+  .side-nav-container {
+    height: 1789px;
+    background: #fff;
+    float: left;
+    box-shadow: 0 2px 1px -2px rgba(0, 0, 0, 0.2), 0 1px 5px 0 rgba(0, 0, 0, 0.14), 0 1px 3px 0 rgba(0, 0, 0, 0.12);
+    width: 66px;
+  }
+}
 /*responsive css menu*/
 .ui-responsive-menu {
   display: inline-flex;
@@ -106,5 +116,45 @@ $custom-typography: mat-typography-config(
     a {
       color: #fff;
     }
+  }
+}
+
+.left-layout-sec {
+  width: calc(23% - 41px);
+  /* width: 21%; */
+  background: #fff;
+  float: left;
+}
+
+.middle-layout-sec {
+  /* width: 42%; */
+  width: calc(44% - 44px);
+  margin: 0px 22px 0px 22px;
+  background: #fff;
+  float: left;
+}
+
+.right-layout-sec {
+  /* width: 31%; */
+  width: calc(32% - 14px);
+  background: #fff;
+  float: left;
+}
+
+@media only screen and (max-width: 1110px) {
+  .left-layout-sec {
+    width: 86%;
+    background: #fff;
+  }
+
+  .middle-layout-sec {
+    width: 86%;
+    background: #fff;
+    margin: 22px 0px 22px 0px;
+  }
+
+  .right-layout-sec {
+    width: 86%;
+    background: #fff;
   }
 }
