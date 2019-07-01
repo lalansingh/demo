@@ -32,9 +32,6 @@ import { LiveComponent } from './space/creating/live/live.component';
 import { ThinkingComponent } from './space/thinking/thinking.component';
 import { CreatingComponent } from './space/creating/creating.component';
 import { StoryComponent } from './space/story/story.component';
-import { ApplicationMenuComponent } from './common/menu/application-menu/application-menu.component';
-import { SocialMenuComponent } from './common/menu/social-menu/social-menu.component';
-import { MusicMenuComponent } from './common/menu/music-menu/music-menu.component';
 import { AlertComponent } from './alert/alert.component';
 import { OtpComponent } from './user/otp/otp.component';
 import { SiteInfoMenuComponent } from './common/menu/site-info-menu/site-info-menu.component';
@@ -42,6 +39,9 @@ import { PolicyMenuComponent } from './common/menu/policy-menu/policy-menu.compo
 import { ComonService } from './common/services/comon-service';
 import { CookiesComponent } from './alert/policies/cookies/cookies.component';
 import { ContentGuidlineComponent } from './alert/site-info/content-guidline/content-guidline.component';
+import { ThinkingMenuComponent } from './common/menu/thinking-menu/thinking-menu.component';
+import { StoryMenuComponent } from './common/menu/story-menu/story-menu.component';
+import { CreatingMenuComponent } from './common/menu/creating-menu/creating-menu.component';
 
 @NgModule({
   declarations: [
@@ -51,9 +51,9 @@ import { ContentGuidlineComponent } from './alert/site-info/content-guidline/con
     ThinkingComponent,
     CardThirdComponent,
     SettingsComponent,
-    ApplicationMenuComponent,
-    SocialMenuComponent,
-    MusicMenuComponent,
+    ThinkingMenuComponent,
+    StoryMenuComponent,
+    CreatingMenuComponent,
     TopHeaderComponent,
     CreatingComponent,
     StoryComponent,

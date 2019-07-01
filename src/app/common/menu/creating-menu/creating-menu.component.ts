@@ -1,12 +1,12 @@
 import { Component, Output, EventEmitter, ViewEncapsulation } from "@angular/core";
 
 @Component({
-    selector: 'music-menu',
-    templateUrl: './music-menu.component.html',
-    styleUrls: ['./music-menu.component.scss'],
+    selector: 'creating-menu',
+    templateUrl: './creating-menu.component.html',
+    styleUrls: ['./creating-menu.component.scss'],
     encapsulation: ViewEncapsulation.None
 })
-export class MusicMenuComponent {
+export class CreatingMenuComponent {
     @Output()
     public all: EventEmitter<any> = new EventEmitter<any>();
     @Output()
