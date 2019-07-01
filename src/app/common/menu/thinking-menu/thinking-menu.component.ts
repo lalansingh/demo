@@ -1,4 +1,6 @@
 import { Component, ViewEncapsulation, Output, EventEmitter } from '@angular/core';
+import { ComonService } from '../../services/comon-service';
+import { ActivatedRoute } from '@angular/router';
 
 @Component({
     selector: 'thinking-menu',
@@ -7,6 +9,17 @@ import { Component, ViewEncapsulation, Output, EventEmitter } from '@angular/cor
     encapsulation: ViewEncapsulation.None
 })
 export class ThinkingMenuComponent {
-    constructor() { }
-
+    public thinkingNav: string;
+    public isMultiComponentLoading: boolean = false;
+    constructor(private comonService: ComonService, private route: ActivatedRoute) {
+        this.comonService.thinkingMenuChange.subscribe(menuName => {
+            this.thinkingNav = 'allthinking';
+            if (menuName !== 'allthinking') {
+                this.thinkingNav = menuName;
+            }
+        });
+    }
+    public onClickThingingMenu(menuName: string): void {
+        this.thinkingNav = menuName;
+    }
 }

@@ -19,13 +19,15 @@
         </ul>
     </nav>
     <mat-nav-list fxShow="true" fxHide.lt-lg>
-        <a mat-list-item class="active"> All</a>
+        <a mat-list-item [ngClass]="{'active':('allthinking'=== thinkingNav)}" [routerLink]="['/all-thinking']"
+            (click)="onClickThingingMenu()"> All</a>
         <a mat-list-item> @theName</a>
-        <a mat-list-item> Notes</a>
-        <a mat-list-item> Photos</a>
-        <a mat-list-item> Articles</a>
-        <a mat-list-item> Jobs</a>
-        <a mat-list-item> Asks</a>
-        <a mat-list-item> Teams</a>
+        <a mat-list-item [ngClass]="{'active':('note'=== thinkingNav)}" [routerLink]="['/note']"
+            (click)="onClickThingingMenu()"> Notes</a>
+        <a mat-list-item (click)="onClickThingingMenu('Photos')" [ngClass]="{'active':('Photos'=== thinkingNav)}"> Photos</a>
+        <a mat-list-item (click)="onClickThingingMenu('Articles')" [ngClass]="{'active':('Articles'=== thinkingNav)}"> Articles</a>
+        <a mat-list-item (click)="onClickThingingMenu('Jobs')" [ngClass]="{'active':('Jobs'=== thinkingNav)}"> Jobs</a>
+        <a mat-list-item (click)="onClickThingingMenu('Asks')" [ngClass]="{'active':('Asks'=== thinkingNav)}"> Asks</a>
+        <a mat-list-item (click)="onClickThingingMenu('Teams')" [ngClass]="{'active':('Teams'=== thinkingNav)}"> Teams</a>
     </mat-nav-list>
 </div>

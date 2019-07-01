@@ -42,6 +42,7 @@ import { ContentGuidlineComponent } from './alert/site-info/content-guidline/con
 import { ThinkingMenuComponent } from './common/menu/thinking-menu/thinking-menu.component';
 import { StoryMenuComponent } from './common/menu/story-menu/story-menu.component';
 import { CreatingMenuComponent } from './common/menu/creating-menu/creating-menu.component';
+import { AllThinkingComponent } from './space/thinking/all-thinking/all-thinking.component';
 
 @NgModule({
   declarations: [
@@ -74,7 +75,8 @@ import { CreatingMenuComponent } from './common/menu/creating-menu/creating-menu
     SiteInfoMenuComponent,
     PolicyMenuComponent,
     CookiesComponent,
-    ContentGuidlineComponent
+    ContentGuidlineComponent,
+    AllThinkingComponent
   ],
   imports: [
     BrowserModule,

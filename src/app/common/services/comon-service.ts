@@ -6,6 +6,8 @@ export class ComonService {
   @Output()
   public leftMenuChange: EventEmitter<string> = new EventEmitter();
   @Output()
+  public thinkingMenuChange: EventEmitter<string> = new EventEmitter();
+  @Output()
   public getWindowHeight: EventEmitter<number> = new EventEmitter();
 
   constructor() {
@@ -13,6 +15,9 @@ export class ComonService {
 
   public lefSideMenuSelected(menuName: string) {
     this.leftMenuChange.emit(menuName);
+  }
+  public thinkingMenuSelected(menuName: string) {
+    this.thinkingMenuChange.emit(menuName);
   }
 
   public setWindowHeight(height: number) {
