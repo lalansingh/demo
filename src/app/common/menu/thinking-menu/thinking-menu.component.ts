@@ -15,7 +15,9 @@ export class ThinkingMenuComponent {
         this.comonService.thinkingMenuChange.subscribe(menuName => {
             this.thinkingNav = 'allthinking';
             if (menuName !== 'allthinking') {
-                this.thinkingNav = menuName;
+                setTimeout(() => {
+                    this.thinkingNav = menuName;
+                }, 100);
             }
         });
     }
