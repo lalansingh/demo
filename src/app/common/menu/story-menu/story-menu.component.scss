@@ -7,17 +7,17 @@
     border-top: 1px solid rgba(0, 0, 0, 0.12);
     a.mat-list-item {
       border-bottom: 2px solid #fff;
-      height: 30px;
+      height: 22px;
       &.active {
         color: #3597ec;
-        border-bottom: 2px solid #3597ec;
+        border-bottom: 4px solid #3597ec;
         .mat-list-item-content {
           color: #3597ec;
         }
       }
       &:hover {
         color: #3597ec;
-        border-bottom: 2px solid #3597ec;
+        border-bottom: 4px solid #3597ec;
         .mat-list-item-content {
           color: #3597ec;
         }
@@ -38,7 +38,7 @@
     flex-direction: row;
     a.mat-list-item {
       // border-bottom: 2px solid #fff;
-      height: 48px;
+      height: 49px;
       &.active {
         color: #3597ec;
         background: rgba(53, 151, 236, 0.21);
