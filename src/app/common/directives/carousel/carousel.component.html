@@ -1,0 +1,21 @@
+<div class="carousel">
+    <div class="left-arrow" *ngIf="leftArrow">
+        <a (click)="prev()">
+            <i class="material-icons carousel-arrow-button">chevron_left</i>
+        </a>
+    </div>
+    <div>
+        <section class="carousel-wrapper" [ngStyle]="carouselWrapperStyle">
+            <ul class="carousel-inner" #carousel>
+                <li *ngFor="let item of items;" class="carousel-item">
+                    <ng-container [ngTemplateOutlet]="item.tpl"></ng-container>
+                </li>
+            </ul>
+        </section>
+    </div>
+    <div *ngIf="rightArrow" class="rigth-arrow">
+        <a (click)="next()">
+            <i class="material-icons carousel-arrow-button">chevron_right</i>
+        </a>
+    </div>
+</div>

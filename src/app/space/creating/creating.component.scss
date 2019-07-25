@@ -1,10 +1,25 @@
 .vedio-sec.vertical-post {
   display: flex;
   justify-content: space-between;
-  .mat-card {
-    width: calc(50% - 37px);
-  }
+  position: relative;
+  // .mat-card {
+  //   width: calc(50% - 37px) !important;
+  // }
 }
-.vedio-sec vedio, .vedio-sec postcast, .vedio-sec live, .vedio-sec music {
+.vedio-sec vedio,
+.vedio-sec postcast,
+.vedio-sec live,
+.vedio-sec music {
   padding: 5px;
+}
+
+.item {
+  padding: 0;
+  width: 245px;
+  height: 350px;
+  // background-color: crimson;
+  // color: #fff;
+  // font-size: 50px;
+  // line-height: 300px;
+  // text-align: center;
 }

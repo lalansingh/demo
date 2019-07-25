@@ -43,6 +43,8 @@ import { ThinkingMenuComponent } from './common/menu/thinking-menu/thinking-menu
 import { StoryMenuComponent } from './common/menu/story-menu/story-menu.component';
 import { CreatingMenuComponent } from './common/menu/creating-menu/creating-menu.component';
 import { AllThinkingComponent } from './space/thinking/all-thinking/all-thinking.component';
+import { CarouselComponent, CarouselItemElement } from './common/directives/carousel/carousel.component';
+import { CarouselItemDirective } from './common/directives/carousel/carousel-item.directive';
 
 @NgModule({
   declarations: [
@@ -76,7 +78,10 @@ import { AllThinkingComponent } from './space/thinking/all-thinking/all-thinking
     PolicyMenuComponent,
     CookiesComponent,
     ContentGuidlineComponent,
-    AllThinkingComponent
+    AllThinkingComponent,
+    CarouselItemElement,
+    CarouselComponent,
+    CarouselItemDirective
   ],
   imports: [
     BrowserModule,
