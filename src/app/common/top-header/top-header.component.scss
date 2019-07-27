@@ -2,14 +2,20 @@
   background: #fff;
   border-bottom: 1px solid #d1d1d1;
   position: fixed;
+  height: 83px;
   .mat-toolbar-row {
     padding: 0;
+    height: 83px;
   }
-
+  .home {
+    margin: 0px 15px 0px 15px !important;
+  }
   .mat-raised-button {
     padding: 0;
-    min-width: 40px;
-    margin: 4px;
+    min-width: 30px;
+    height: 30px;
+    margin: 5px;
+    line-height: 0px;
   }
 }
 

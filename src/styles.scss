@@ -10,7 +10,8 @@ $custom-typography: mat-typography-config(
   overflow: hidden;
   height: 40px;
   // padding: 0 15px;
-  margin: 0 15px;
+  border: 1px solid #3597ec;
+  margin: 0 20px;
   font-size: 16px;
   border-radius: 20px;
   box-shadow: 0 3px 1px -2px rgba(0, 0, 0, 0.2), 0 2px 2px 0 rgba(0, 0, 0, 0.14), 0 1px 5px 0 rgba(0, 0, 0, 0.12);

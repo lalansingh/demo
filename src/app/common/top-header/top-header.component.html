@@ -1,6 +1,6 @@
 <mat-toolbar class="top-header">
   <mat-toolbar-row>
-    <button mat-raised-button class="mar-l-10" [routerLink]="['/space']">
+    <button mat-raised-button class="mar-l-10 home" [routerLink]="['/space']">
       <mat-icon>home</mat-icon>
     </button>
     <button mat-raised-button class="mar-r-6">
@@ -39,6 +39,9 @@
     </button>
     <button mat-raised-button class="mar-r-6" [matMenuTriggerFor]="menuBookmark">
       <mat-icon>turned_in_not</mat-icon>
+    </button>
+    <button mat-raised-button class="mar-r-6">
+      <mat-icon>brightness_4</mat-icon>
     </button>
     <button mat-raised-button class="mar-r-6" [matMenuTriggerFor]="menuLogout">
       <mat-icon>exit_to_app</mat-icon>

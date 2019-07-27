@@ -9,7 +9,7 @@
  .main-container {
      position: fixed;
      /* position: absolute; */
-     margin-top: 65px;
+     margin-top: 83px;
      width: 1920px;
      z-index: -1;
  }
@@ -23,7 +23,7 @@
  }
 
  .mat-primary {
-     background: #F7F7F7!important;
+     /* background: #F7F7F7!important; */
      color: #000 !important;
      border-top: 1px solid rgba(0, 0, 0, .12);
  }
