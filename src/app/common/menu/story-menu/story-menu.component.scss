@@ -33,15 +33,18 @@
       }
     }
   }
+  .mat-list-base{
+    padding-top: 5px !important;
+  }
 }
 .custom-nav-list-social-header {
   .mat-nav-list {
-    margin-top: -8px;
+    margin-top: 0px;
     display: flex;
     flex-direction: row;
     a.mat-list-item {
       // border-bottom: 2px solid #fff;
-      height: 49px;
+      height: 46px;
       &.active {
         color: #3597ec;
         background: rgba(53, 151, 236, 0.21);
@@ -63,5 +66,8 @@
         font-size: 20px;
       }
     }
+  }
+  .mat-list-base{
+    padding-top: 0px !important;
   }
 }
