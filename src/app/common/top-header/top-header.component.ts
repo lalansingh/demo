@@ -3,6 +3,7 @@ import { FormControl } from '@angular/forms';
 import { Observable } from 'rxjs';
 import { startWith, map } from 'rxjs/operators';
 import { ISpace, StateData, SpaceData } from './top-header.modle';
+import { ThemeService } from '../theme/theme.service';
 
 export interface State {
   flag: string;
@@ -33,10 +34,21 @@ export class TopHeaderComponent implements OnInit {
   public filteredSpace: Observable<ISpace[]>;
   public space: ISpace[] = SpaceData;
 
-  constructor() {
+  constructor(private themeService: ThemeService) {
   }
   private isTopSearchLoaded: boolean = false;
   private isSpaceSearchLoaded: boolean = false;
+  private themeName = 'light';
+
+  public themeChange() {
+    if (this.themeName === 'light') {
+      this.themeName = 'dark';
+      this.themeService.toggleDark();
+    } else {
+      this.themeName = 'light';
+      this.themeService.toggleLight();
+    }
+  }
 
   ngAfterViewInit() {
     this.topSearchElement.nativeElement.querySelector('.mat-form-field-infix')

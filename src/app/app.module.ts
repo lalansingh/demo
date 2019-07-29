@@ -45,6 +45,7 @@ import { CreatingMenuComponent } from './common/menu/creating-menu/creating-menu
 import { AllThinkingComponent } from './space/thinking/all-thinking/all-thinking.component';
 import { CarouselComponent, CarouselItemElement } from './common/directives/carousel/carousel.component';
 import { CarouselItemDirective } from './common/directives/carousel/carousel-item.directive';
+import { ThemeService } from './common/theme/theme.service';
 
 @NgModule({
   declarations: [
@@ -104,7 +105,8 @@ import { CarouselItemDirective } from './common/directives/carousel/carousel-ite
   ],
   exports: [MatListModule],
   providers: [
-    ComonService
+    ComonService,
+    ThemeService
   ],
   bootstrap: [AppComponent]
 })
