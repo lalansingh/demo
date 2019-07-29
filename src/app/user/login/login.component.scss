@@ -4,7 +4,7 @@
     .mat-card-title {
       font-size: 15px;
       text-align: center;
-      color: #3597ec;
+      color: var(--text-active-color);
     }
     form {
       width: 100%;
@@ -35,11 +35,11 @@
         background: none !important;
       }
       .mat-primary {
-        color: #3597ec !important;
+        color: var(--text-active-color) !important;
         font-size: 20px;
       }
       .mat-form-field-appearance-legacy .mat-form-field-underline {
-        background-color: rgba(57, 155, 236, 0.94) !important;
+        background-color: var(--rgba-active-color) !important;
       }
       .mat-form-field-type-mat-native-select .mat-input-element {
         padding-right: 9px;
@@ -50,8 +50,8 @@
       text-align: center;
       padding-bottom: 10px;
       .btn-submit {
-        color: #fff;
-        background-color: #2799fb;
+        color: var(--primary-color);
+        background-color: var(--active-background);
         border-radius: 4px !important;
         width: 100px;
         height: 30px;

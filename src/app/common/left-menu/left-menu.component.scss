@@ -6,7 +6,7 @@
   }
   a {
     text-decoration: none;
-    color: #696868;
+    color: var(--left-anchor-color);
     display: block;
     padding: 1px;
     margin: 11px 0px;
@@ -14,17 +14,17 @@
       font-size: 30px;
     }
     &:hover {
-      color: #3597ec;
-      background: rgba(53, 151, 236, 0.21);
+      color: var(--text-active-color);
+      background: var(--rgba-inactive-background);
       i {
-        color: #3597ec;
+        color: var(--text-active-color);
       }
     }
     &.active {
-      color: #3597ec;
-      background: rgba(53, 151, 236, 0.21);
+      color: var(--text-active-color);
+      background: var(--rgba-inactive-background);
       i {
-        color: #3597ec;
+        color: var(--text-active-color);
       }
     }
     &:nth-last-child(1) {

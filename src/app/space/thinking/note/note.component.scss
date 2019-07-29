@@ -23,7 +23,7 @@
           span {
             font-size: 12px;
             text-align: left;
-            color: #707070;
+            color: var(--title-color);
           }
         }
         .top-lef-titel {
@@ -32,7 +32,7 @@
           span {
             font-size: 12px;
             text-align: left;
-            color: #707070;
+            color: var(--title-color);
           }
         }
         .top-middle-titel {
@@ -42,7 +42,7 @@
           span {
             font-size: 15px;
             text-align: left;
-            color: #1f8ce8;
+            color: var(--text-active-color);
           }
         }
       }
@@ -57,7 +57,7 @@
         // display: flex;
         margin: 0 -15px;
         justify-content: space-between;
-        color: #6a6a6a;
+        color: var(--content-span-color);
         padding: 10px;
         span {
           margin-right: 60px;
@@ -67,7 +67,7 @@
           span {
             margin-top: 3px;
             position: absolute;
-            color: #6a6a6a;
+            color: var(--content-span-color);
             font-size: 15px;
             font-weight: bold;
           }
@@ -81,7 +81,7 @@
           }
         }
         .mat-star {
-          color: #6a6a6a;
+          color: var(--content-span-color);
           font-size: 25px;
           margin-top: -3px;
           margin-left: -12px;

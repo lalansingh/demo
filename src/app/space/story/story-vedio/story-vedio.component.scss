@@ -15,11 +15,11 @@
   }
   .mat-card-title {
     font-size: 15px;
-    color: #4d4d4d;
+    color: var(--title-cart-color);
   }
   .mat-card-subtitle {
     font-size: 12px;
-    color: #818181;
+    color: var(--subtile-color);
   }
   .mat-card-header-text {
     margin: -4px 0px -15px 35px !important;
@@ -38,7 +38,7 @@
       span {
         font-size: 12px;
         text-align: left;
-        color: #707070;
+        color: var(--title-color);
       }
     }
     .top-lef-titel {
@@ -46,7 +46,7 @@
       span {
         font-size: 12px;
         text-align: left;
-        color: #707070;
+        color: var(--title-color);
       }
     }
   }

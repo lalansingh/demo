@@ -5,34 +5,34 @@
   .mat-nav-list {
     display: flex;
     flex-direction: row;
-    border-top: 1px solid rgba(0, 0, 0, 0.12);
-    border-bottom: 1px solid rgba(0, 0, 0, 0.12);
+    border-top: 1px solid var(--box-sadow-3);
+    border-bottom: 1px solid var(--box-sadow-3);
     padding-top: 5px;
     .mat-list-item:hover {
       background: none !important;
     }
     a.mat-list-item {
-      border-bottom: 2px solid #fff;
+      border-bottom: 2px solid var(--primary-color);
       height: 22px;
       margin-top: -3px;
       &.active {
-        color: #3597ec;
-        border-bottom: 4px solid #3597ec;
+        color: var(--text-active-color);
+        border-bottom: 4px solid var(--text-active-color);
         .mat-list-item-content {
-          color: #3597ec;
+          color: var(--text-active-color);
         }
       }
       &:hover {
-        color: #3597ec;
-        border-bottom: 4px solid #3597ec;
+        color: var(--text-active-color);
+        border-bottom: 4px solid var(--text-active-color);
         .mat-list-item-content {
-          color: #3597ec;
+          color: var(--text-active-color);
         }
       }
       .mat-list-item-content {
         padding: 0 3px;
         justify-content: center;
-        color: #707070;
+        color: var(--title-color);
         font-size: 18px;
       }
     }
@@ -52,22 +52,22 @@
       // border-bottom: 2px solid #fff;
       height: 49px;
       &.active {
-        color: #3597ec;
-        background: rgba(53, 151, 236, 0.21);
+        color: var(--text-active-color);
+        background: var(--rgba-inactive-background);
         .mat-list-item-content {
-          color: #3597ec;
+          color: var(--text-active-color);
         }
       }
       &:hover {
-        background: rgba(53, 151, 236, 0.21);
+        background: var(--rgba-inactive-background);
         .mat-list-item-content {
-          color: #3597ec;
+          color: var(--text-active-color);
         }
       }
       .mat-list-item-content {
         padding: 0 3px;
         justify-content: center;
-        color: #5f5f5f;
+        color: var(--fore-color);
         font-weight: bold;
         font-size: 20px;
       }
@@ -86,7 +86,7 @@
       margin-left: 10px;
       overflow: hidden;
       border-radius: 15px;
-      box-shadow: 0 3px 1px -2px rgba(0, 0, 0, 0.2), 0 2px 2px 0 rgba(0, 0, 0, 0.14), 0 1px 5px 0 rgba(0, 0, 0, 0.12);
+      box-shadow: 0 3px 1px -2px var(--box-sadow-1), 0 2px 2px 0 var(--box-sadow-2), 0 1px 5px 0 var(--box-sadow-3);
       .mat-form-field {
         min-width: 10px;
         position: relative;
@@ -123,7 +123,7 @@
       margin-left: 10px;
       overflow: hidden;
       border-radius: 15px;
-      box-shadow: 0 3px 1px -2px rgba(0, 0, 0, 0.2), 0 2px 2px 0 rgba(0, 0, 0, 0.14), 0 1px 5px 0 rgba(0, 0, 0, 0.12);
+      box-shadow: 0 3px 1px -2px var(--box-sadow-1), 0 2px 2px 0 var(--box-sadow-2), 0 1px 5px 0 var(--box-sadow-3);
       .mat-form-field {
         min-width: 10px;
         position: relative;

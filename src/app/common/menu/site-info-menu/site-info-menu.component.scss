@@ -4,28 +4,28 @@
     display: flex;
     flex-direction: row;
     a.mat-list-item {
-      border-bottom: 2px solid #fff;
+      border-bottom: 2px solid var(--primary-color);
       &.active {
-        color: #3597ec;
-        border-bottom: 2px solid #3597ec;
-        background: rgba(53, 151, 236, 0.21);
+        color: var(--text-active-color);
+        border-bottom: 2px solid var(--text-active-color);
+        background: var(--rgba-inactive-background);
         .mat-list-item-content {
-          color: #3597ec;
+          color: var(--text-active-color);
         }
       }
       &:hover {
-        background: rgba(53, 151, 236, 0.21);
-        color: #3597ec;
-        border-bottom: 2px solid #3597ec;
+        background: var(--rgba-inactive-background);
+        color: var(--text-active-color);
+        border-bottom: 2px solid var(--text-active-color);
         .mat-list-item-content {
-          color: #3597ec;
+          color: var(--text-active-color);
         }
       }
       .mat-list-item-content {
         padding: 0 5px;
         justify-content: center;
         min-width: 50px;
-        color: #707070;
+        color: var(--fore-color);
         font-weight: bold;
         font-size: 20px;
       }

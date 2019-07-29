@@ -1,7 +1,7 @@
  .lbl-msg {
      font-size: 13px;
      text-align: center;
-     color: #B9B9B9;
+     color: var(--messege-color);
  }
 
  /*new css */
@@ -24,6 +24,6 @@
 
  .mat-primary {
      /* background: #F7F7F7!important; */
-     color: #000 !important;
-     border-top: 1px solid rgba(0, 0, 0, .12);
+     color: var(--secondary-color) !important;
+     border-top: 1px solid var(--box-sadow-3);
  }
