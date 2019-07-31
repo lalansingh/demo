@@ -25,5 +25,5 @@
  .mat-primary {
      /* background: #F7F7F7!important; */
      color: var(--secondary-color) !important;
-     border-top: 1px solid var(--box-sadow-3);
+     border-top: 1px solid #D1D1D1;
  }

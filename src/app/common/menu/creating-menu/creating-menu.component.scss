@@ -5,8 +5,8 @@
   .mat-nav-list {
     display: flex;
     flex-direction: row;
-    border-top: 1px solid var(--box-sadow-3);
-    border-bottom: 1px solid var(--box-sadow-3);
+    border-top: 1px solid #D1D1D1;
+    border-bottom: 1px solid #D1D1D1;
     padding-top: 5px;
     .mat-list-item:hover {
       background: none !important;
@@ -50,7 +50,7 @@
     flex-direction: row;
     a.mat-list-item {
       // border-bottom: 2px solid #fff;
-      height: 49px;
+      height: 46px;
       &.active {
         color: var(--text-active-color);
         background: var(--rgba-inactive-background);
@@ -86,7 +86,7 @@
       margin-left: 10px;
       overflow: hidden;
       border-radius: 15px;
-      box-shadow: 0 3px 1px -2px var(--box-sadow-1), 0 2px 2px 0 var(--box-sadow-2), 0 1px 5px 0 var(--box-sadow-3);
+      box-shadow: #D1D1D1 0px 3px 6px;
       .mat-form-field {
         min-width: 10px;
         position: relative;
@@ -123,7 +123,7 @@
       margin-left: 10px;
       overflow: hidden;
       border-radius: 15px;
-      box-shadow: 0 3px 1px -2px var(--box-sadow-1), 0 2px 2px 0 var(--box-sadow-2), 0 1px 5px 0 var(--box-sadow-3);
+      box-shadow: #D1D1D1 0px 3px 6px;
       .mat-form-field {
         min-width: 10px;
         position: relative;

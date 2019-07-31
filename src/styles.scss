@@ -14,7 +14,7 @@ $custom-typography: mat-typography-config(
   margin: 0 20px;
   font-size: 16px;
   border-radius: 20px;
-  box-shadow: 0 3px 1px -2px var(--box-sadow-1), 0 2px 2px 0 var(--box-sadow-2), 0 1px 5px 0 var(--box-sadow-3);
+  box-shadow: #D1D1D1 0px 3px 6px;
   .mat-form-field {
     width: 100%;
     top: -12px;
@@ -41,7 +41,7 @@ $custom-typography: mat-typography-config(
   // height: calc(100vh - 66px);
   background: var(--primary-color);
   float: left;
-  box-shadow: 0 2px 1px -2px var(--box-sadow-1), 0 1px 5px 0 var(--box-sadow-2), 0 1px 3px 0 var(--box-sadow-3);
+  box-shadow: #D1D1D1 0px 3px 6px;;
   width: 60px;
 }
 
@@ -50,7 +50,7 @@ $custom-typography: mat-typography-config(
     // height: cac(100vh) !important;
     background: var(--primary-color);
     float: left;
-    box-shadow: 0 2px 1px -2px var(--box-sadow-1), 0 1px 5px 0 var(--box-sadow-2), 0 1px 3px 0 var(--box-sadow-3);
+    box-shadow: #D1D1D1 0px 3px 6px;
     width: 66px;
   }
 }
@@ -132,6 +132,7 @@ $custom-typography: mat-typography-config(
   width: 400px;
   background: var(--primary-color);
   float: left;
+  margin-left: 1px;
 }
 
 .middle-layout-sec {

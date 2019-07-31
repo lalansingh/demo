@@ -6,10 +6,10 @@
                     &nbsp;<mat-icon>menu</mat-icon>
                 </a>
                 <ul class="dropdown">
-                    <li [ngClass]="{'active':('allthinking'=== thinkingNav)}" [routerLink]="['/all-thinking']"
+                    <li [ngClass]="{'active':('allthinking'=== thinkingNav)}" [routerLink]="['/space/all-thinking']"
                         (click)="onClickThingingMenu('allthinking')"><a>All</a></li>
                     <li><a href="#">@theName</a></li>
-                    <li [ngClass]="{'active':('note'=== thinkingNav)}" [routerLink]="['/note']"
+                    <li [ngClass]="{'active':('note'=== thinkingNav)}" [routerLink]="['/space/note']"
                         (click)="onClickThingingMenu('note')"><a>Notes</a></li>
                     <li (click)="onClickThingingMenu('Photos')" [ngClass]="{'active':('Photos'=== thinkingNav)}">
                         <a>Photos</a></li>
@@ -26,10 +26,10 @@
         </ul>
     </nav>
     <mat-nav-list fxShow="true" fxHide.lt-lg>
-        <a mat-list-item [ngClass]="{'active':('allthinking'=== thinkingNav)}" [routerLink]="['/all-thinking']"
+        <a mat-list-item [ngClass]="{'active':('allthinking'=== thinkingNav)}" [routerLink]="['/space/all-thinking']"
             (click)="onClickThingingMenu('allthinking')"> All</a>
         <a mat-list-item> @theName</a>
-        <a mat-list-item [ngClass]="{'active':('note'=== thinkingNav)}" [routerLink]="['/note']"
+        <a mat-list-item [ngClass]="{'active':('note'=== thinkingNav)}" [routerLink]="['/space/note']"
             (click)="onClickThingingMenu('note')"> Notes</a>
         <a mat-list-item (click)="onClickThingingMenu('Photos')" [ngClass]="{'active':('Photos'=== thinkingNav)}">
             Photos</a>

@@ -1,12 +1,12 @@
 .custom-nav-list {
-  border-bottom: 2px solid var(--box-sadow-3);
+  border-bottom: 1px solid #D1D1D1;
   .mat-nav-list {
     padding-top: 0px;
     display: flex;
     flex-direction: row;
     height: 46px;
     a.mat-list-item {
-      border-bottom: 2px solid #fff;
+      // border-bottom: 2px solid #fff;
       &.active {
         color: var(--text-active-color);
         border-bottom: 4px solid var(--text-active-color);

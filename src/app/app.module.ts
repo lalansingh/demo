@@ -46,6 +46,7 @@ import { AllThinkingComponent } from './space/thinking/all-thinking/all-thinking
 import { CarouselComponent, CarouselItemElement } from './common/directives/carousel/carousel.component';
 import { CarouselItemDirective } from './common/directives/carousel/carousel-item.directive';
 import { ThemeService } from './common/theme/theme.service';
+import { MainLayoutComponent } from './layout/main-layout.component';
 
 @NgModule({
   declarations: [
@@ -82,7 +83,8 @@ import { ThemeService } from './common/theme/theme.service';
     AllThinkingComponent,
     CarouselItemElement,
     CarouselComponent,
-    CarouselItemDirective
+    CarouselItemDirective,
+    MainLayoutComponent
   ],
   imports: [
     BrowserModule,
