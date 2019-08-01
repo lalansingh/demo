@@ -7,7 +7,7 @@ export const darkTheme = {
     'active-background': '#38393b',
     'rgba-active-color': 'rgba(57, 155, 135, 0.94)',
     'label-color': '#6c6c6c',
-    'body-color': '#111111',
+    'body-color': '#000000de',
     'list-background-color': '#d4e9bf',
     'autocomplete-background-color': '#f5f5f5bd',
     'messege-color': '#B9B9B8',
