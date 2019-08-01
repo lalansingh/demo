@@ -10,11 +10,11 @@ $custom-typography: mat-typography-config(
   overflow: hidden;
   height: 40px;
   // padding: 0 15px;
-  border: 1px solid var(--text-active-color);
+  border: 1px solid var(--topsearch-border-color);
   margin: 0 20px;
   font-size: 16px;
   border-radius: 20px;
-  box-shadow: #D1D1D1 0px 3px 6px;
+  box-shadow: var(--border-color) 0px 3px 6px;
   .mat-form-field {
     width: 100%;
     top: -12px;
@@ -41,7 +41,7 @@ $custom-typography: mat-typography-config(
   // height: calc(100vh - 66px);
   background: var(--primary-color);
   float: left;
-  box-shadow: #D1D1D1 0px 3px 6px;;
+  box-shadow: var(--border-color) 0px 3px 6px;;
   width: 60px;
 }
 
@@ -50,7 +50,7 @@ $custom-typography: mat-typography-config(
     // height: cac(100vh) !important;
     background: var(--primary-color);
     float: left;
-    box-shadow: #D1D1D1 0px 3px 6px;
+    box-shadow: var(--border-color) 0px 3px 6px;
     width: 66px;
   }
 }

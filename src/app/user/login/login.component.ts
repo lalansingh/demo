@@ -12,6 +12,6 @@ export class LoginFirstComponent {
 
     }
     public onVerify(): void {
-        this.router.navigate(['/alert']);
+        this.router.navigate(['/space/verification']);
     }
 }

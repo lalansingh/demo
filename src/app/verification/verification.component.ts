@@ -3,11 +3,11 @@ import { ComonService } from "../common/services/comon-service";
 
 
 @Component({
-    selector: 'alert',
-    templateUrl: './alert.component.html',
-    styleUrls: ['./alert.component.scss']
+    selector: 'verification',
+    templateUrl: './verification.component.html',
+    styleUrls: ['./verification.component.scss']
 })
-export class AlertComponent {
+export class VerificationComponent {
     constructor(private comonService: ComonService) {
         this.comonService.lefSideMenuSelected('space');
     }

@@ -1,9 +1,9 @@
 import { Routes } from "@angular/router";
 import { SettingsComponent } from "../settings/settings.component";
 import { SpaceComponent } from "../space/space.component";
-import { AlertComponent } from "../alert/alert.component";
 import { NoteComponent } from "../space/thinking/note/note.component";
 import { AllThinkingComponent } from "../space/thinking/all-thinking/all-thinking.component";
+import { VerificationComponent } from "../verification/verification.component";
 
 export const routes: Routes = [
     { path: '', redirectTo: '/space/all-thinking', pathMatch: 'full' },
@@ -15,6 +15,6 @@ export const routes: Routes = [
         ]
     },
     { path: 'settings', component: SettingsComponent, pathMatch: 'full' },
-    { path: 'alert', component: AlertComponent, pathMatch: 'full' },
+    { path: 'space/verification', component: VerificationComponent, pathMatch: 'full' },
     { path: '**', redirectTo: '/space/all-thinking' }
 ];

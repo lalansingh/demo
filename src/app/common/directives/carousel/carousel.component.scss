@@ -17,7 +17,7 @@ ul li {
   background-color: var(--primary-color);
   font-size: 40px;
   border-radius: 25px;
-  box-shadow: #D1D1D1 0px 3px 6px;
+  box-shadow: var(--border-color) 0px 3px 6px;
   cursor: pointer;
 }
 

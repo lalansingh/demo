@@ -32,13 +32,10 @@ import { LiveComponent } from './space/creating/live/live.component';
 import { ThinkingComponent } from './space/thinking/thinking.component';
 import { CreatingComponent } from './space/creating/creating.component';
 import { StoryComponent } from './space/story/story.component';
-import { AlertComponent } from './alert/alert.component';
 import { OtpComponent } from './user/otp/otp.component';
 import { SiteInfoMenuComponent } from './common/menu/site-info-menu/site-info-menu.component';
 import { PolicyMenuComponent } from './common/menu/policy-menu/policy-menu.component';
 import { ComonService } from './common/services/comon-service';
-import { CookiesComponent } from './alert/policies/cookies/cookies.component';
-import { ContentGuidlineComponent } from './alert/site-info/content-guidline/content-guidline.component';
 import { ThinkingMenuComponent } from './common/menu/thinking-menu/thinking-menu.component';
 import { StoryMenuComponent } from './common/menu/story-menu/story-menu.component';
 import { CreatingMenuComponent } from './common/menu/creating-menu/creating-menu.component';
@@ -47,6 +44,9 @@ import { CarouselComponent, CarouselItemElement } from './common/directives/caro
 import { CarouselItemDirective } from './common/directives/carousel/carousel-item.directive';
 import { ThemeService } from './common/theme/theme.service';
 import { MainLayoutComponent } from './layout/main-layout.component';
+import { VerificationComponent } from './verification/verification.component';
+import { CookiesComponent } from './verification/policies/cookies/cookies.component';
+import { ContentGuidlineComponent } from './verification/site-info/content-guidline/content-guidline.component';
 
 @NgModule({
   declarations: [
@@ -74,7 +74,7 @@ import { MainLayoutComponent } from './layout/main-layout.component';
     MusicComponent,
     PostcastComponent,
     LiveComponent,
-    AlertComponent,
+    VerificationComponent,
     OtpComponent,
     SiteInfoMenuComponent,
     PolicyMenuComponent,

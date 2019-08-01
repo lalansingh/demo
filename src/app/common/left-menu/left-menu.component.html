@@ -1,5 +1,5 @@
 <div class="left-nav-menu">
-    <a [routerLink]="['/alert']" (click)="leftNavClicked('alert')" [ngClass]="{'active':'alert'=== leftNav}">
+    <a [routerLink]="['/settings']" (click)="leftNavClicked('alert')" [ngClass]="{'active':'alert'=== leftNav}">
         <i class="icon-text-top material-icons">notifications_none</i>
         <span>Alert</span>
     </a>
@@ -11,7 +11,8 @@
         <i class="icon-text-top material-icons">question_answer</i>
         <span>Chat</span>
     </a>
-    <a [routerLink]="['/space/all-thinking']" (click)="leftNavClicked('space')" [ngClass]="{'active':'space'=== leftNav}">
+    <a [routerLink]="['/space/all-thinking']" (click)="leftNavClicked('space')"
+        [ngClass]="{'active':'space'=== leftNav}">
         <i class="icon-text-top material-icons">language</i>
         <span>Space</span>
     </a>
