@@ -47,6 +47,7 @@ import { MainLayoutComponent } from './layout/main-layout.component';
 import { VerificationComponent } from './verification/verification.component';
 import { CookiesComponent } from './verification/policies/cookies/cookies.component';
 import { ContentGuidlineComponent } from './verification/site-info/content-guidline/content-guidline.component';
+import { StudioComponent } from './studio/studio.component';
 
 @NgModule({
   declarations: [
@@ -84,7 +85,8 @@ import { ContentGuidlineComponent } from './verification/site-info/content-guidl
     CarouselItemElement,
     CarouselComponent,
     CarouselItemDirective,
-    MainLayoutComponent
+    MainLayoutComponent,
+    StudioComponent
   ],
   imports: [
     BrowserModule,
