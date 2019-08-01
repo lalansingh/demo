@@ -25,11 +25,15 @@ $custom-typography: mat-typography-config(
     display: none;
   }
   .mat-form-field-label {
-    color: var(--label-color);
+    color: var(--label-color) !important;
   }
   .mat-focused .mat-form-field-label {
     color: var(--label-color);
   }
+}
+
+.mat-form-field-appearance-legacy .mat-form-field-label {
+  color: var(--label-color) !important;
 }
 
 .mat-autocomplete-panel {
@@ -41,7 +45,7 @@ $custom-typography: mat-typography-config(
   // height: calc(100vh - 66px);
   background: var(--primary-color);
   float: left;
-  box-shadow: var(--border-color) 0px 3px 6px;;
+  box-shadow: var(--border-color) 0px 3px 6px;
   width: 60px;
 }
 
