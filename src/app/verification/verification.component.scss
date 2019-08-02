@@ -3,16 +3,20 @@
   height: calc(100vh - 181px);
   padding: 5px;
   padding-left: 25px;
-  padding-right: 25px;
+  padding-right: 40px;
   padding-top: 10px;
+  // hidding scroll bar
+  margin-right: -17px;
 }
 
 .alert-sec-b-scroll {
   overflow-y: auto;
   height: calc(100vh - 127px);
   padding-left: 25px;
-  padding-right: 25px;
+  padding-right: 50px;
   padding-top: 10px;
+  // hidding scroll bar
+  margin-right: -17px;
 }
 
 .alert-sec-c-scroll {
@@ -20,6 +24,19 @@
   height: calc(100vh - 132px);
   padding: 5px;
   padding-left: 45px;
-  padding-right: 45px;
+  padding-right: 67px;
   padding-top: 10px;
+  // hidding scroll bar
+  margin-right: -17px;
+}
+
+//hiden scrollbar
+.left-layout-sec {
+  overflow: hidden;
+}
+.middle-layout-sec {
+  overflow: hidden;
+}
+.right-layout-sec {
+  overflow: hidden;
 }

@@ -1,77 +1,92 @@
 .space-sec-a-scroll {
   overflow-y: auto;
-  height: calc(100vh - 195px);
+  height: calc(100vh - 187px);
   padding: 5px;
   padding-left: 25px;
-  padding-right: 25px;
+  padding-right: 30px;
   padding-top: 10px;
+  // hidding scroll bar
+  margin-right: -18px;
 }
 
 .space-sec-b-scroll {
   overflow-y: auto;
-  height: calc(100vh - 203px);
+  height: calc(100vh - 198px);
   padding-left: 50px;
   padding-right: 50px;
   padding-top: 10px;
+  // hidding scroll bar
+  margin-right: -18px;
 }
 
 .space-sec-c-scroll {
   overflow-y: auto;
-  height: calc(100vh - 192px);
+  height: calc(100vh - 175px);
   padding: 5px;
   padding-left: 45px;
-  padding-right: 45px;
+  padding-right: 30px;
   padding-top: 10px;
+  // hidding scroll bar
+  margin-right: -18px;
 }
-
+//hiden scrollbar
+.left-layout-sec {
+  overflow: hidden;
+}
+.middle-layout-sec {
+  overflow: hidden;
+}
+.right-layout-sec {
+  overflow: hidden;
+}
 // custom scroll onlu for chrom
 
-.space-sec-a-scroll::-webkit-scrollbar-track {
-  -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
-  border-radius: 10px;
-  background-color: var(--custom-scroll-background-color);
-}
+// .space-sec-a-scroll::-webkit-scrollbar-track {
+//   -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
+//   border-radius: 10px;
+//   background-color: var(--custom-scroll-background-color);
+// }
 
-.space-sec-a-scroll::-webkit-scrollbar {
-  width: 10px;
-  background-color: var(--custom-scroll-background-color);
-}
+// .space-sec-a-scroll::-webkit-scrollbar {
+//   width: 10px;
+//   background-color: var(--custom-scroll-background-color);
+// }
 
-.space-sec-a-scroll::-webkit-scrollbar-thumb {
-  border-radius: 10px;
-  -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
-  background-color: var(--custom-scroll-thumb-color);
-}
-.space-sec-b-scroll::-webkit-scrollbar-track {
-  -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
-  border-radius: 10px;
-  background-color: var(--custom-scroll-background-color);
-}
+// .space-sec-a-scroll::-webkit-scrollbar-thumb {
+//   border-radius: 10px;
+//   -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
+//   background-color: var(--custom-scroll-thumb-color);
+// }
+// .space-sec-b-scroll::-webkit-scrollbar-track {
+//   -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
+//   border-radius: 10px;
+//   background-color: var(--custom-scroll-background-color);
+// }
 
-.space-sec-b-scroll::-webkit-scrollbar {
-  width: 10px;
-  background-color: var(--custom-scroll-background-color);
-}
+// .space-sec-b-scroll::-webkit-scrollbar {
+//   width: 10px;
+//   background-color: var(--custom-scroll-background-color);
+// }
 
-.space-sec-b-scroll::-webkit-scrollbar-thumb {
-  border-radius: 10px;
-  -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
-  background-color: var(--custom-scroll-thumb-color);
-}
+// .space-sec-b-scroll::-webkit-scrollbar-thumb {
+//   border-radius: 10px;
+//   -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
+//   background-color: var(--custom-scroll-thumb-color);
+// }
 
-.space-sec-c-scroll::-webkit-scrollbar-track {
-  -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
-  border-radius: 10px;
-  background-color: var(--custom-scroll-background-color);
-}
+// .space-sec-c-scroll::-webkit-scrollbar-track {
+//   -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
+//   border-radius: 10px;
+//   background-color: var(--custom-scroll-background-color);
+// }
 
-.space-sec-c-scroll::-webkit-scrollbar {
-  width: 10px;
-  background-color: var(--custom-scroll-background-color);
-}
+// .space-sec-c-scroll::-webkit-scrollbar {
+//   width: 10px;
+//   background-color: var(--custom-scroll-background-color);
+// }
 
-.space-sec-c-scroll::-webkit-scrollbar-thumb {
-  border-radius: 10px;
-  -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
-  background-color: var(--custom-scroll-thumb-color);
-}
+// .space-sec-c-scroll::-webkit-scrollbar-thumb {
+//   border-radius: 10px;
+//   -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
+//   background-color: var(--custom-scroll-thumb-color);
+// }
