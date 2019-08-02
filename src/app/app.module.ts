@@ -48,6 +48,9 @@ import { VerificationComponent } from './verification/verification.component';
 import { CookiesComponent } from './verification/policies/cookies/cookies.component';
 import { ContentGuidlineComponent } from './verification/site-info/content-guidline/content-guidline.component';
 import { StudioComponent } from './studio/studio.component';
+import { ProfileComponent } from './studio/profile/profile.component';
+import { PhotoComponent } from './studio/photo/photo.component';
+import { PhotoManageComponent } from './studio/photo-manage/photo-manage.component';
 
 @NgModule({
   declarations: [
@@ -86,7 +89,10 @@ import { StudioComponent } from './studio/studio.component';
     CarouselComponent,
     CarouselItemDirective,
     MainLayoutComponent,
-    StudioComponent
+    StudioComponent,
+    ProfileComponent,
+    PhotoComponent,
+    PhotoManageComponent
   ],
   imports: [
     BrowserModule,
