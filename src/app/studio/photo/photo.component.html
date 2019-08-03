@@ -1,1 +1,82 @@
-This is photo
+<div class="photo-upload">
+    <div class="photo-secion space-sec-b-scroll">
+        <div class="photo" appDragDrop (onFileDropped)="uploadFile($event)">
+            <i *ngIf="lastPhoto !== null" class="material-icons" (click)="removePreviewPhoto()">cancel</i>
+            <img [src]="lastPhoto" *ngIf="lastPhoto !== null">
+            <div class="drag-drop" *ngIf="lastPhoto === null">
+                <div>
+                    <i class="material-icons" (click)="addMore()">add_a_photo</i>
+                </div>
+                <div>
+                    <label>
+                        Upload your Photos Or Drag and Drop Photos here
+                    </label>
+                </div>
+            </div>
+        </div>
+        <div class="photo-preview">
+            <ng-template ngFor let-src [ngForOf]="urls">
+                <div class="image-sec">
+                    <i class="material-icons" (click)="onRemoveFile(src.id)">cancel</i>
+                    <img [src]="src.file" (click)="onClickPhoto(src.id)">
+                </div>
+            </ng-template>
+            <div class="add-more">
+                <input type='file' #fileEvent (change)="onSelectFile($event)" multiple style="display:none">
+                <a (click)="addMore()"> <i class="material-icons">add_circle</i>
+                    <span>Add More Photos</span>
+                </a>
+            </div>
+        </div>
+        <div class="content">
+            <fieldset>
+                <legend>+ Add Hashtags</legend>
+            </fieldset>
+        </div>
+        <div class="content">
+            <fieldset>
+                <legend>Description or Captions</legend>
+            </fieldset>
+        </div>
+        <div class="content display-inline">
+            <fieldset>
+                <legend>Add Location</legend>
+            </fieldset>
+            <fieldset>
+                <legend>Tag People or Products</legend>
+            </fieldset>
+        </div>
+        <div class="content">
+            <div class="advance-top">
+                <label>
+                    Advanced Settings
+                </label>
+            </div>
+            <div class="advance">
+                <fieldset>
+                    <legend>Description or Captions</legend>
+                </fieldset>
+                <fieldset>
+                    <legend>Description or Captions</legend>
+                </fieldset>
+                <div class="turned-off">
+                    <label>
+                        Monetise Image
+                        <span *ngIf="!checked">Turned off</span>
+                        <span *ngIf="checked">Turned on</span>
+                    </label>
+                    <mat-card>
+                        <mat-card-content>
+                            <section class="example-section">
+                                <mat-slide-toggle class="example-margin" [(ngModel)]="checked" [color]="color" [checked]="checked"
+                                    [disabled]="disabled">
+                                </mat-slide-toggle>
+                            </section>
+                        </mat-card-content>
+                    </mat-card>
+                    <i class="material-icons">info</i>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

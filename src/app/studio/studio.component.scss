@@ -6,9 +6,6 @@
 .space-sec-b-scroll {
   overflow-y: auto;
   height: calc(100vh - 203px);
-  padding-left: 50px;
-  padding-right: 50px;
-  padding-top: 10px;
 }
 
 .space-sec-c-scroll {
@@ -22,6 +19,11 @@
 
 //hidden scroll bar
 .studio-menu-sec {
+  overflow: hidden;
+}
+
+//hidden scroll bar
+.photo-upload {
   overflow: hidden;
 }
 

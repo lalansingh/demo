@@ -3,7 +3,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import {
   MatSidenavModule, MatToolbarModule, MatIconModule, MatListModule, MatButtonModule,
   MatCardModule, MatInputModule, MatAutocompleteModule,
-  MatTooltipModule, MatMenuModule
+  MatTooltipModule, MatMenuModule, MatSlideToggleModule
 } from '@angular/material';
 import { NgModule } from '@angular/core';
 import { RouterModule } from '@angular/router';
@@ -51,6 +51,7 @@ import { StudioComponent } from './studio/studio.component';
 import { ProfileComponent } from './studio/profile/profile.component';
 import { PhotoComponent } from './studio/photo/photo.component';
 import { PhotoManageComponent } from './studio/photo-manage/photo-manage.component';
+import { DragDropDirective } from './common/directives/drag-drop/drag-drop.directive';
 
 @NgModule({
   declarations: [
@@ -92,7 +93,8 @@ import { PhotoManageComponent } from './studio/photo-manage/photo-manage.compone
     StudioComponent,
     ProfileComponent,
     PhotoComponent,
-    PhotoManageComponent
+    PhotoManageComponent,
+    DragDropDirective
   ],
   imports: [
     BrowserModule,
@@ -111,6 +113,7 @@ import { PhotoManageComponent } from './studio/photo-manage/photo-manage.compone
     MatAutocompleteModule,
     MatTooltipModule,
     MatMenuModule,
+    MatSlideToggleModule,
     RouterModule.forRoot(routes, { useHash: true })
   ],
   exports: [MatListModule],
