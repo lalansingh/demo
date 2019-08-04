@@ -5,16 +5,12 @@
 
 .space-sec-b-scroll {
   overflow-y: auto;
-  height: calc(100vh - 203px);
+  height: calc(100vh - 236px);
 }
 
 .space-sec-c-scroll {
   overflow-y: auto;
-  height: calc(100vh - 192px);
-  padding: 5px;
-  padding-left: 45px;
-  padding-right: 45px;
-  padding-top: 10px;
+  height: calc(100vh - 163px);
 }
 
 //hidden scroll bar
@@ -24,6 +20,9 @@
 
 //hidden scroll bar
 .photo-upload {
+  overflow: hidden;
+}
+.photo-manage {
   overflow: hidden;
 }
 
