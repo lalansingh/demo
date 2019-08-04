@@ -52,7 +52,8 @@
             </mat-card-header>
         </mat-card>
         <mat-card>
-            <mat-card-header [routerLink]="[{ outlets: { mediaRouter: ['photos'],mediasettings:['photo-manage'] } }]">
+            <mat-card-header class="active"
+                [routerLink]="[{ outlets: { mediaRouter: ['photos'],mediasettings:['photo-manage'] } }]">
                 <div class="mat-card-icon">
                     <i class="material-icons">insert_photo</i>
                 </div>
@@ -63,7 +64,7 @@
             </mat-card-header>
         </mat-card>
         <mat-card>
-            <mat-card-header class="active" (click)="navigate()">
+            <mat-card-header>
                 <div class="mat-card-icon">
                     <i class="material-icons">play_circle_filled</i>
                 </div>
