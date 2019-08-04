@@ -1,16 +1,21 @@
 <div class="photo-upload">
     <div class="photo-header">
-        <button mat-raised-button> <i class="material-icons">access_time</i>Schedule</button>
-        <div class="publish-time">
-            <span class="lbl-publish">Publish Time:</span>
-            <span>Today</span>
-            <button mat-icon-button>
-                <mat-icon>expand_more</mat-icon>
-            </button>
+        <div class="photo-button" *ngIf="urls.length !== 0">
+            <button mat-raised-button> <i class="material-icons">access_time</i>Schedule</button>
+            <div class="publish-time">
+                <span class="lbl-publish">Publish Time:</span>
+                <span>Today</span>
+                <button mat-icon-button>
+                    <mat-icon>expand_more</mat-icon>
+                </button>
+            </div>
+            <button mat-raised-button>Publish to Contacts</button>
+            <button mat-raised-button>Publish to Believers</button>
+            <button mat-raised-button>Publish to Everyone</button>
         </div>
-        <button mat-raised-button>Publish to Contacts</button>
-        <button mat-raised-button>Publish to Believers</button>
-        <button mat-raised-button>Publish to Everyone</button>
+        <div class="photo-title" *ngIf="urls.length === 0">
+            <span>Upload, Edit and Publish your Photos with Audience of your Choice.</span>
+        </div>
     </div>
     <div class="photo-secion space-sec-b-scroll">
         <div class="photo" appDragDrop (onFileDropped)="uploadFile($event)">
