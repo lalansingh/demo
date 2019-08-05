@@ -9,6 +9,8 @@ export class ComonService {
   public thinkingMenuChange: EventEmitter<string> = new EventEmitter();
   @Output()
   public getWindowHeight: EventEmitter<number> = new EventEmitter();
+  @Output()
+  public photoUploaded: EventEmitter<boolean> = new EventEmitter();
 
   constructor() {
   }
@@ -22,5 +24,8 @@ export class ComonService {
 
   public setWindowHeight(height: number) {
     this.getWindowHeight.emit(height);
+  }
+  public uploaded(isUploaded: boolean) {
+    this.photoUploaded.emit(isUploaded);
   }
 }

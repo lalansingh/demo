@@ -50,8 +50,10 @@ import { ContentGuidlineComponent } from './verification/site-info/content-guidl
 import { StudioComponent } from './studio/studio.component';
 import { ProfileComponent } from './studio/profile/profile.component';
 import { PhotoComponent } from './studio/photo/photo.component';
-import { PhotoManageComponent } from './studio/photo-manage/photo-manage.component';
 import { DragDropDirective } from './common/directives/drag-drop/drag-drop.directive';
+import { PhotoManageComponent } from './studio/photo/photo-manage/photo-manage.component';
+import { AllMediaComponent } from './studio/all-media/all-media.component';
+import { UploadPhotoComponent } from './studio/photo/photo-manage/upload-photo/upload-photo.component';
 
 @NgModule({
   declarations: [
@@ -94,7 +96,9 @@ import { DragDropDirective } from './common/directives/drag-drop/drag-drop.direc
     ProfileComponent,
     PhotoComponent,
     PhotoManageComponent,
-    DragDropDirective
+    DragDropDirective,
+    AllMediaComponent,
+    UploadPhotoComponent
   ],
   imports: [
     BrowserModule,

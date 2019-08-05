@@ -1,4 +1,5 @@
 import { Component, ViewEncapsulation, HostListener, Inject, ElementRef, ViewChild, Input } from '@angular/core';
+import { ComonService } from 'src/app/common/services/comon-service';
 
 @Component({
     selector: 'photo',
@@ -16,7 +17,7 @@ export class PhotoComponent {
     @Input()
     private checked = false;
     private disabled = false;
-    constructor() {
+    constructor(private comonService: ComonService) {
     }
 
     public addMore() {
@@ -71,6 +72,7 @@ export class PhotoComponent {
         } else {
             this.lastPhoto = null;
         }
+        this.setPhotoUploadFlag();
     }
     public removePreviewPhoto() {
         this.lastPhoto = null;
@@ -81,5 +83,8 @@ export class PhotoComponent {
     }
     public uploadFile(file: any) {
         this.fileUpload(file);
+    }
+    private setPhotoUploadFlag() {
+        this.comonService.uploaded(this.urls.length === 0 ? false : true);
     }
 }

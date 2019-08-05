@@ -1,0 +1,177 @@
+.all-media-parent-menu {
+  .mat-nav-list {
+    margin-top: 0px;
+    display: flex;
+    flex-direction: row;
+    border-bottom: 2px solid #e0e0e0;
+    a.mat-list-item {
+      height: 46px;
+      &.active {
+        color: var(--text-active-color);
+        background: var(--rgba-inactive-background);
+        border-bottom: 5px solid;
+        margin-bottom: -3px;
+        .mat-list-item-content {
+          color: var(--text-active-color);
+          .material-icons {
+            color: var(--text-active-color);
+          }
+        }
+      }
+      &:hover {
+        background: var(--rgba-inactive-background);
+        color: var(--text-active-color);
+        border-bottom: 5px solid;
+        margin-bottom: -3px;
+        .mat-list-item-content {
+          color: var(--text-active-color);
+          .material-icons {
+            color: var(--text-active-color);
+          }
+        }
+      }
+      .mat-list-item-content {
+        padding: 0 0px;
+        justify-content: center;
+        color: #818181;
+        font-weight: bold;
+        font-size: 20px;
+        .material-icons {
+          font-size: 18px;
+          padding-right: 5px;
+          color: #818181;
+        }
+      }
+    }
+  }
+  .mat-list-base {
+    padding-top: 0px !important;
+  }
+}
+.all-media-sub-menu {
+  .mat-nav-list {
+    margin-top: 0px;
+    display: flex;
+    flex-direction: row;
+    border-bottom: 1px solid #e0e0e0;
+    a.mat-list-item {
+      height: 42px;
+      &.active {
+        color: var(--text-active-color);
+        margin-bottom: -3px;
+        .mat-list-item-content {
+          color: var(--text-active-color);
+          .material-icons {
+            color: var(--text-active-color);
+          }
+        }
+      }
+      &:hover {
+        color: var(--text-active-color);
+        margin-bottom: -3px;
+        .mat-list-item-content {
+          color: var(--text-active-color);
+          .material-icons {
+            color: var(--text-active-color);
+          }
+        }
+      }
+      .mat-list-item-content {
+        padding: 0 0px;
+        justify-content: center;
+        color: #909090;
+        font-weight: bold;
+        font-size: 18px;
+        .material-icons {
+          font-size: 18px;
+          padding-right: 5px;
+          color: #909090;
+        }
+      }
+    }
+  }
+  .mat-list-base {
+    padding-top: 0px !important;
+  }
+}
+.all-media-child-menu {
+  .mat-nav-list {
+    margin-top: 0px;
+    display: flex;
+    flex-direction: row;
+    border-bottom: 2px solid #e0e0e0;
+    a.mat-list-item {
+      height: 42px;
+      &.active {
+        color: var(--text-active-color);
+        border-bottom: 5px solid;
+        margin-bottom: -3px;
+        .mat-list-item-content {
+          color: var(--text-active-color);
+        }
+      }
+      &:hover {
+        color: var(--text-active-color);
+        border-bottom: 5px solid;
+        margin-bottom: -3px;
+        .mat-list-item-content {
+          color: var(--text-active-color);
+        }
+      }
+      .mat-list-item-content {
+        padding: 0 0px;
+        justify-content: center;
+        color: #909090;
+        font-weight: bold;
+        font-size: 16px;
+      }
+    }
+  }
+  .mat-list-base {
+    padding-top: 0px !important;
+  }
+}
+.all-media-section {
+  margin: 18px;
+  // hidding scrollbar
+  margin-right: -18px;
+  .cloud {
+    text-align: center;
+    border-radius: 10px;
+    background-color: #f7f7f7;
+    box-shadow: var(--border-color) 0px 3px 6px;
+    margin-right: 18px;
+    p {
+      font-size: 15px;
+      color: #818181;
+      padding-bottom: 16px;
+      margin-top: 0;
+    }
+    .material-icons {
+      font-size: 43px;
+      color: #dedede;
+      margin-top: 25px;
+    }
+  }
+  .media-files {
+    display: inline-flex;
+    padding-bottom: 34px;
+    .media {
+      padding-right: 20px;
+      position: relative;
+      img {
+        width: 175px;
+        height: 175px;
+        border-radius: 5px;
+        margin: 0px;
+      }
+      span {
+        font-size: 10px;
+        color: #4a4a4a;
+        margin-top: 0px;
+        position: absolute;
+        display: flex;
+      }
+    }
+  }
+}

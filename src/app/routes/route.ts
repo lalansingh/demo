@@ -6,7 +6,7 @@ import { AllThinkingComponent } from "../space/thinking/all-thinking/all-thinkin
 import { VerificationComponent } from "../verification/verification.component";
 import { StudioComponent } from "../studio/studio.component";
 import { PhotoComponent } from "../studio/photo/photo.component";
-import { PhotoManageComponent } from "../studio/photo-manage/photo-manage.component";
+import { PhotoManageComponent } from "../studio/photo/photo-manage/photo-manage.component";
 
 export const routes: Routes = [
     { path: '', redirectTo: '/space/all-thinking', pathMatch: 'full' },
@@ -21,7 +21,7 @@ export const routes: Routes = [
         path: 'studio', component: StudioComponent,
         children: [
             { path: 'photos', component: PhotoComponent, pathMatch: 'full', outlet: 'mediaRouter' },
-            { path: 'photo-manage', component: PhotoManageComponent, pathMatch: 'full', outlet: 'mediasettings' }
+            { path: 'photo-manage', component: PhotoManageComponent, outlet: 'mediasettings' }
         ]
     },
 
