@@ -17,7 +17,7 @@
             <span>Upload, Edit and Publish your Photos with Audience of your Choice.</span>
         </div>
     </div>
-    <div class="photo-secion space-sec-b-scroll">
+    <div class="photo-secion space-sec-b-scroll" [style.height.px]="screenHeight - 236">
         <div class="photo" appDragDrop (onFileDropped)="uploadFile($event)">
             <i *ngIf="lastPhoto !== null" class="material-icons" (click)="removePreviewPhoto()">cancel</i>
             <img [src]="lastPhoto" *ngIf="lastPhoto !== null">

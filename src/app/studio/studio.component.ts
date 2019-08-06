@@ -12,15 +12,15 @@ import { ActivatedRoute, Router } from '@angular/router';
 export class StudioComponent {
     constructor(private comonService: ComonService, @Inject(DOCUMENT) private document: Document,
         private router: Router, private route: ActivatedRoute) {
-        this.getScreenSize();
+        // this.getScreenSize();
         this.comonService.lefSideMenuSelected('studio');
         this.router.navigate([{ outlets: { mediaRouter: ['studio-home'], mediasettings: ['studio-guidline'] } }],
             { relativeTo: this.route, skipLocationChange: true });
     }
 
-    @HostListener('window:resize', ['$event'])
-    public getScreenSize(event?) {
-        // this.screenWidth = window.innerWidth;
-        this.comonService.setWindowHeight(this.document.documentElement.scrollHeight);
-    }
+    // @HostListener('window:resize', ['$event'])
+    // public getScreenSize(event?) {
+    //     // this.screenWidth = window.innerWidth;
+    //     this.comonService.setWindowHeight(this.document.documentElement.scrollHeight);
+    // }
 }

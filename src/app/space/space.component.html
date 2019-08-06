@@ -1,17 +1,17 @@
 <div class="left-layout-sec box-shadow">
     <story-menu></story-menu>
-    <div class="space-sec-a-scroll">
+    <div class="space-sec-a-scroll" [style.height.px]="screenHeight - 190">
         <story></story>
     </div>
 </div>
 <div class="middle-layout-sec box-shadow">
     <thinking-menu></thinking-menu>
     <search></search>
-    <div class="space-sec-b-scroll">
+    <div class="space-sec-b-scroll" [style.height.px]="screenHeight - 200">
         <thinking></thinking>
     </div>
 </div>
-<div class="right-layout-sec box-shadow">
+<div class="right-layout-sec box-shadow" [style.height.px]="screenHeight - 86">
     <creating-menu></creating-menu>
     <div class="space-sec-c-scroll">
         <creating></creating>

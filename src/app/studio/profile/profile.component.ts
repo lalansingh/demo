@@ -8,7 +8,10 @@ import { Router, ActivatedRoute } from '@angular/router';
     encapsulation: ViewEncapsulation.None
 })
 export class ProfileComponent {
+    public screenHeight: string;
+
     constructor(private router: Router, private route: ActivatedRoute) {
+        this.screenHeight = localStorage.getItem('windowHeight');
     }
     public navigate() {
         this.router.navigate([{ outlets: { mediaRouter: ['photos'], mediasettings: ['photo-manage'] } }],

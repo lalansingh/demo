@@ -8,15 +8,16 @@ import { DOCUMENT } from "@angular/common";
     styleUrls: ['./space.component.scss']
 })
 export class SpaceComponent {
-
+    public screenHeight: string;
     constructor(private comonService: ComonService, @Inject(DOCUMENT) private document: Document) {
-        this.getScreenSize();
+        // this.getScreenSize();
         this.comonService.lefSideMenuSelected('space');
+        this.screenHeight = localStorage.getItem('windowHeight');
     }
 
-    @HostListener('window:resize', ['$event'])
-    public getScreenSize(event?) {
-        // this.screenWidth = window.innerWidth;
-        this.comonService.setWindowHeight(this.document.documentElement.scrollHeight);
-    }
+    // @HostListener('window:resize', ['$event'])
+    // public getScreenSize(event?) {
+    //     // this.screenWidth = window.innerWidth;
+    //     this.comonService.setWindowHeight(this.document.documentElement.scrollHeight);
+    // }
 }

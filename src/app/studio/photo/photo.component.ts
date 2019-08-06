@@ -17,7 +17,9 @@ export class PhotoComponent {
     @Input()
     private checked = false;
     private disabled = false;
+    public screenHeight: string;
     constructor(private comonService: ComonService) {
+        this.screenHeight = localStorage.getItem('windowHeight');
     }
 
     public addMore() {
