@@ -54,6 +54,8 @@ import { DragDropDirective } from './common/directives/drag-drop/drag-drop.direc
 import { PhotoManageComponent } from './studio/photo/photo-manage/photo-manage.component';
 import { AllMediaComponent } from './studio/all-media/all-media.component';
 import { UploadPhotoComponent } from './studio/photo/photo-manage/upload-photo/upload-photo.component';
+import { StudioHomeComponent } from './studio/studio-home/studio-home.component';
+import { StudioGuidlineComponent } from './studio/studio-guidline/studio-guidline.component';
 
 @NgModule({
   declarations: [
@@ -98,7 +100,9 @@ import { UploadPhotoComponent } from './studio/photo/photo-manage/upload-photo/u
     PhotoManageComponent,
     DragDropDirective,
     AllMediaComponent,
-    UploadPhotoComponent
+    UploadPhotoComponent,
+    StudioHomeComponent,
+    StudioGuidlineComponent
   ],
   imports: [
     BrowserModule,

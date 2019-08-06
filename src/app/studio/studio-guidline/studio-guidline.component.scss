@@ -1,0 +1,16 @@
+.studio-guidline {
+  .guidline-header {
+    text-align: center;
+    border-bottom: 1px solid #e0e0e0;
+    padding: 9px;
+    span {
+      font-size: 25px;
+      color: #3597ec;
+    }
+  }
+  .guidline {
+    // hidding scrollbar
+    margin-right: -18px;
+    padding: 35px;
+  }
+}
