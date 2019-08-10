@@ -9,10 +9,11 @@
             </span>
         </div>
         <div class="seek">
+            <label><i class="material-icons" (click)="onMoreControl()">view_module</i></label>
             <input type="range" id="seek" [(ngModel)]="currentTime" (change)="onSkip($event)" min="{{minDuration}}"
                 max="{{maxDuration}}" step="0.000001" />
             <span>{{lapsTime}}</span>
-            <i class="material-icons" (click)="onMoreControl()">view_module</i>
+
         </div>
         <div class="player-layout">
             <div *ngIf="isMoreControl" class="control-section">

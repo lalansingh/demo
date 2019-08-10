@@ -11,6 +11,8 @@ export class ComonService {
   public getWindowHeight: EventEmitter<number> = new EventEmitter();
   @Output()
   public photoUploaded: EventEmitter<boolean> = new EventEmitter();
+  @Output()
+  public musicSrc: EventEmitter<any> = new EventEmitter();
 
   constructor() {
   }
@@ -27,5 +29,9 @@ export class ComonService {
   }
   public uploaded(isUploaded: boolean) {
     this.photoUploaded.emit(isUploaded);
+  }
+
+  public musicUploaded(src: any) {
+    this.musicSrc.emit(src);
   }
 }

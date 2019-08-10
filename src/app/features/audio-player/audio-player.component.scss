@@ -1,7 +1,7 @@
 .music-player {
-  margin: 20px;
+  margin: 0px;
   .player {
-    margin: 1px;
+    margin: 0px;
     .canvas {
       background: #c6c0c0;
       border-top-left-radius: 10px;
@@ -11,9 +11,9 @@
       background-repeat: repeat;
       .canvas-play-pause {
         position: relative;
-        left: 45%;
+        left: -50%;
         float: left;
-        margin-top: 18%;
+        margin-top: 13%;
         .material-icons {
           font-size: 75px;
           color: #95989a;
@@ -30,11 +30,10 @@
       background: #726c6c;
       padding: 0px;
       .material-icons {
-        position: absolute;
-        left: 80px;
-        margin-top: -4px;
+        margin-top: -2px;
         color: #fff;
         cursor: pointer;
+        margin-left: 3px;
       }
       span {
         margin-top: 0px;

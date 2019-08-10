@@ -12,7 +12,7 @@ export class UploadMusicComponent {
     @ViewChild('fileEvent', { static: false })
     private fileEvent: ElementRef;
     private urls = [];
-    private lastPhoto: any = null;
+    private lastMusic: any = null;
     private color = '3597ec';
     @Input()
     private checked = false;
@@ -28,21 +28,6 @@ export class UploadMusicComponent {
 
     public onSelectFile(event) {
         this.fileUpload(event.target.files);
-        // if (event.target.files && event.target.files[0]) {
-        //     var filesAmount = event.target.files.length;
-        //     for (let i = 0; i < filesAmount; i++) {
-        //         var reader = new FileReader();
-
-        //         reader.onload = (event: any) => {
-        //             let url = {};
-        //             url['id'] = i;
-        //             url['file'] = event.target.result;
-        //             this.urls.push(url);
-        //             this.setLastPhoto();
-        //         }
-        //         reader.readAsDataURL(event.target.files[i]);
-        //     }
-        // }
     }
 
     private fileUpload(files: any) {
@@ -56,7 +41,7 @@ export class UploadMusicComponent {
                     url['id'] = i;
                     url['file'] = event.target.result;
                     this.urls.push(url);
-                    this.setLastPhoto();
+                    this.setLastMusic();
                 }
                 reader.readAsDataURL(files[i]);
             }
@@ -66,23 +51,28 @@ export class UploadMusicComponent {
     public onRemoveFile(index: any) {
         let i = this.urls.findIndex(x => x.id === index);
         this.urls.splice(i, 1);
-        this.setLastPhoto();
+        this.setLastMusic();
     }
-    private setLastPhoto() {
+    private setLastMusic() {
         if (this.urls.length !== 0) {
-            this.lastPhoto = this.urls[this.urls.length - 1].file;
+            this.lastMusic = this.urls[this.urls.length - 1].file;
         } else {
-            this.lastPhoto = null;
+            this.lastMusic = null;
         }
         this.setPhotoUploadFlag();
+        let model = {
+            trackId: 0,
+            mediaType: '',
+            url: '',
+            mediaTitle: '',
+            poster: '',
+            title: '',
+            description: ''
+        };
+        model.url = this.urls[0].file;
+        this.comonService.musicUploaded(model);
     }
-    public removePreviewPhoto() {
-        this.lastPhoto = null;
-    }
-    public onClickPhoto(index: any) {
-        let i = this.urls.findIndex(x => x.id === index);
-        this.lastPhoto = this.urls[i].file;
-    }
+
     public uploadFile(file: any) {
         this.fileUpload(file);
     }

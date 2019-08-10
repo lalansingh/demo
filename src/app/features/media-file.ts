@@ -64,7 +64,7 @@ export const VisualizerModel = {
     },
     "dualbars_blocks": {
         dualbars_blocks: true,
-        colors: ["#8008f7", "#8008f733"]
+        colors: ["#f32a66", "#f55c57", "#f7a942", "#f8e82f", "#f32a66", "#f55c57", "#f7a942", "#f8e82f"]
     },
     "round_wave": {
         round_wave: true,

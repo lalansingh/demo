@@ -1,6 +1,7 @@
-import { Component, ViewEncapsulation } from "@angular/core";
+import { Component, ViewEncapsulation, Input, Output, EventEmitter } from "@angular/core";
 import { Wave } from "../wave";
 import { AudioFiles, VisualizerModel } from "../media-file";
+import { ComonService } from "src/app/common/services/comon-service";
 
 @Component({
     selector: 'audio-player',
@@ -19,8 +20,8 @@ export class AudioPlayerComponent {
     public audioSrc = '..//..//..//assets/music/';
     // public W: Wave;
     public canvas: any;
-    public canvHeight = 275;
-    public canvWidth;
+    public canvHeight = 247;
+    public canvWidth = 700;
     public fileDetails: any = {};
     public isNextAvailable: boolean = false;
     public isPreviousAvailable: boolean = false;
@@ -29,9 +30,12 @@ export class AudioPlayerComponent {
     public maxVolume: number = 10;
     public minVolume: number = 0;
 
-    constructor(private waveService: Wave) {
+    constructor(private waveService: Wave, private comonService: ComonService) {
         // this.W = new Wave();
-        this.initAudio(AudioFiles[2]);
+
+        this.comonService.musicSrc.subscribe(src => {
+            this.initAudio(src);
+        });
     }
 
     private initAudio(src: any) {
@@ -57,10 +61,10 @@ export class AudioPlayerComponent {
 
         this.advAudio = new Audio();
         this.advAudio.id = 'audio';
-        this.advAudio.src = this.audioSrc + this.fileDetails.url;
+        this.advAudio.src = this.fileDetails.url; //this.audioSrc + this.fileDetails.url;
         this.advAudio.addEventListener('timeupdate', this.getLapsTime.bind(this));
         this.waveService = new Wave();
-        this.waveService.fromElement(this.advAudio, "wave", VisualizerModel.bars);
+        this.waveService.fromElement(this.advAudio, "wave", VisualizerModel.dualbars_blocks);
     }
 
     ngAfterViewInit() {
