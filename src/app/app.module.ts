@@ -56,6 +56,9 @@ import { AllMediaComponent } from './studio/all-media/all-media.component';
 import { UploadPhotoComponent } from './studio/photo/photo-manage/upload-photo/upload-photo.component';
 import { StudioHomeComponent } from './studio/studio-home/studio-home.component';
 import { StudioGuidlineComponent } from './studio/studio-guidline/studio-guidline.component';
+import { AudioPlayerComponent } from './features/audio-player/audio-player.component';
+import { Wave } from './features/wave';
+import { VedioPlayerComponent } from './features/vedio-player/vedio-player.component';
 
 @NgModule({
   declarations: [
@@ -102,7 +105,9 @@ import { StudioGuidlineComponent } from './studio/studio-guidline/studio-guidlin
     AllMediaComponent,
     UploadPhotoComponent,
     StudioHomeComponent,
-    StudioGuidlineComponent
+    StudioGuidlineComponent,
+    AudioPlayerComponent,
+    VedioPlayerComponent
   ],
   imports: [
     BrowserModule,
@@ -127,7 +132,8 @@ import { StudioGuidlineComponent } from './studio/studio-guidline/studio-guidlin
   exports: [MatListModule],
   providers: [
     ComonService,
-    ThemeService
+    ThemeService,
+    Wave
   ],
   bootstrap: [AppComponent]
 })

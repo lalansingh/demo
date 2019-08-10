@@ -1,0 +1,337 @@
+.video-player {
+  margin: 20px;
+  .player {
+  
+    margin: 1px;
+    .video-sec {
+      background: #c6c0c0;
+      border-top-left-radius: 10px;
+      border-top-right-radius: 10px;
+      background-position: center;
+      background-size: cover;
+      background-repeat: repeat;
+      video {
+        height: 313px;
+        margin-top: 0px;
+        margin-left: 1px;
+        border-radius: 10px;
+        margin-right: 0px;
+      }
+      .canvas-play-pause {
+        position: relative;
+        left: 45%;
+        float: left;
+        margin-top: 18%;
+        .material-icons {
+          font-size: 75px;
+          color: blanchedalmond;
+          position: absolute;
+          cursor: pointer;
+          top: 13%;
+          left: 17%;
+          &:hover {
+            color: #fff;
+          }
+        }
+      }
+    }
+    .video-control {
+      margin-top: -72px;
+      position: relative;
+      .seek {
+        height: 15px;
+        // background: #726c6c;
+        padding: 0px;
+        .material-icons {
+          position: absolute;
+          left: 80px;
+          margin-top: -4px;
+          color: #fff;
+          cursor: pointer;
+        }
+        span {
+          margin-top: -36px;
+          position: absolute;
+          font-size: 12px;
+          margin-left: 7px;
+          color: #fff;
+          font-weight: bold;
+        }
+      }
+      .player-layout {
+        min-height: 10px;
+        background: #7b6d6d6e;
+        position: relative;
+        text-align: center;
+        border-bottom-left-radius: 10px;
+        border-bottom-right-radius: 10px;
+        .control-section {
+          display: inline-flex;
+          .control-section1,
+          .control-section3 {
+            margin-top: 10px;
+          }
+          .control-section4 {
+            margin-top: 10px;
+            margin-left: 130px;
+            display: inline-flex;
+            span {
+              margin-left: 6px;
+              color: #fff;
+              font-weight: bold;
+              font-size: 18px;
+            }
+          }
+          .material-icons {
+            margin-left: 5px;
+            margin-right: 5px;
+            color: blanchedalmond;
+            cursor: pointer;
+            &:hover {
+              color: #fff;
+            }
+            &.icon-desabled {
+              color: #d3c4c4;
+            }
+            &.icon-active {
+              color: #fff;
+            }
+          }
+          .play-pause {
+            font-size: 40px;
+            color: blanchedalmond;
+          }
+        }
+      }
+    }
+  }
+}
+
+.seek {
+  // excess height to improve interactive area / accessibility
+  $height: 30px;
+  $thumb-height: 13px;
+  $track-height: 3px;
+
+  // colours
+  $upper-color: #cfcfcf;
+  $lower-color: #0199ff;
+  $thumb-color: #0199ff;
+  $thumb-hover-color: #55c2ff;
+
+  $upper-background: linear-gradient(to bottom, $upper-color, $upper-color) 100% 50% / 100% $track-height no-repeat
+    transparent;
+  $lower-background: linear-gradient(to bottom, $lower-color, $lower-color) 100% 50% / 100% $track-height no-repeat
+    transparent;
+
+  // Webkit cannot style progress so we fake it with a long shadow
+  // on the thumb element
+  @function webkit-slider-thumb-shadow($i: 1) {
+    $val: #{$i}px 0 0 -#{($thumb-height - $track-height) / 2} #{$upper-color};
+    @if $i == 1 {
+      @for $k from 2 through 1000 {
+        $val: #{$val}, webkit-slider-thumb-shadow($k);
+      }
+    }
+    @return $val;
+  }
+  .e-range {
+    display: block;
+    appearance: none;
+    width: 100%;
+    margin: 0;
+    height: $height;
+    overflow: hidden;
+    cursor: pointer;
+    background: none;
+
+    &:focus {
+      outline: none;
+    }
+  }
+
+  // Webkit
+  .e-range::-webkit-slider-runnable-track {
+    width: 100%;
+    height: $height;
+    background: $lower-background;
+  }
+
+  .e-range::-webkit-slider-thumb {
+    position: relative;
+    appearance: none;
+    height: $thumb-height;
+    width: $thumb-height;
+    background: $thumb-color;
+    border-radius: 100%;
+    border: 0;
+    top: 50%;
+    margin-top: (-$thumb-height/2);
+    box-shadow: webkit-slider-thumb-shadow();
+    transition: background-color 150ms;
+  }
+
+  // Firefox
+  .e-range::-moz-range-track,
+  .e-range::-moz-range-progress {
+    width: 100%;
+    height: $height;
+    background: $upper-background;
+  }
+
+  .e-range::-moz-range-progress {
+    background: $lower-background;
+  }
+
+  .e-range::-moz-range-thumb {
+    appearance: none;
+    margin: 0;
+    height: $thumb-height;
+    width: $thumb-height;
+    background: $thumb-color;
+    border-radius: 100%;
+    border: 0;
+    transition: background-color 150ms;
+  }
+
+  // Internet Exploder
+  .e-range::-ms-track {
+    width: 100%;
+    height: $height;
+    border: 0;
+    // color needed to hide track marks
+    color: transparent;
+    background: transparent;
+  }
+
+  .e-range::-ms-fill-lower {
+    background: $lower-background;
+  }
+
+  .e-range::-ms-fill-upper {
+    background: $upper-background;
+  }
+
+  .e-range::-ms-thumb {
+    appearance: none;
+    height: $thumb-height;
+    width: $thumb-height;
+    background: $thumb-color;
+    border-radius: 100%;
+    border: 0;
+    transition: background-color 150ms;
+    // IE Edge thinks it can support -webkit prefixes
+    top: 0;
+    margin: 0;
+    box-shadow: none;
+  }
+
+  .e-range:hover,
+  .e-range:focus {
+    &::-webkit-slider-thumb {
+      background-color: $thumb-hover-color;
+    }
+    &::-moz-range-thumb {
+      background-color: $thumb-hover-color;
+    }
+    &::-ms-thumb {
+      background-color: $thumb-hover-color;
+    }
+  }
+}
+
+.control-section4 {
+  input[type="range"] {
+    height: 11px;
+    -webkit-appearance: none;
+    width: 85%;
+    margin-top: -33px;
+    background: none;
+    margin-left: -3px;
+    margin-right: 0;
+  }
+  input[type="range"]:focus {
+    outline: none;
+  }
+  input[type="range"]::-webkit-slider-runnable-track {
+    width: 100%;
+    height: 2px;
+    cursor: pointer;
+    animate: 0.2s;
+    box-shadow: 0px 0px 0px #000000;
+    background: #1f83c4;
+    border-radius: 0px;
+    border: 0px solid #000000;
+    margin-top: -1px;
+  }
+  input[type="range"]::-webkit-slider-thumb {
+    box-shadow: 0px 0px 0px #000000;
+    border: 1px solid #2497e3;
+    height: 18px;
+    width: 18px;
+    border-radius: 25px;
+    background: #a1d0ff;
+    cursor: pointer;
+    -webkit-appearance: none;
+    margin-top: -8.5px;
+  }
+  input[type="range"]:focus::-webkit-slider-runnable-track {
+    background: #1f83c4;
+  }
+  input[type="range"]::-moz-range-track {
+    width: 100%;
+    height: 2px;
+    cursor: pointer;
+    animate: 0.2s;
+    box-shadow: 0px 0px 0px #000000;
+    background: #1f83c4;
+    border-radius: 0px;
+    border: 0px solid #000000;
+  }
+  input[type="range"]::-moz-range-thumb {
+    box-shadow: 0px 0px 0px #000000;
+    border: 1px solid #2497e3;
+    height: 18px;
+    width: 18px;
+    border-radius: 25px;
+    background: #a1d0ff;
+    cursor: pointer;
+  }
+  input[type="range"]::-ms-track {
+    width: 100%;
+    height: 2px;
+    cursor: pointer;
+    animate: 0.2s;
+    background: transparent;
+    border-color: transparent;
+    color: transparent;
+  }
+  input[type="range"]::-ms-fill-lower {
+    background: #1f83c4;
+    border: 0px solid #000000;
+    border-radius: 0px;
+    box-shadow: 0px 0px 0px #000000;
+  }
+  input[type="range"]::-ms-fill-upper {
+    background: #1f83c4;
+    border: 0px solid #000000;
+    border-radius: 0px;
+    box-shadow: 0px 0px 0px #000000;
+  }
+  input[type="range"]::-ms-thumb {
+    margin-top: 1px;
+    box-shadow: 0px 0px 0px #000000;
+    border: 1px solid #2497e3;
+    height: 18px;
+    width: 18px;
+    border-radius: 25px;
+    background: #a1d0ff;
+    cursor: pointer;
+  }
+  input[type="range"]:focus::-ms-fill-lower {
+    background: #1f83c4;
+  }
+  input[type="range"]:focus::-ms-fill-upper {
+    background: #1f83c4;
+  }
+}
