@@ -1,0 +1,5 @@
+<div class="podcast-manage">
+    <allmedia topMenuSelected="Cloud" middleMenuSelected="Podcasts" bottomMenuSelected="All"
+        *ngIf="!isPhotoUploaded"></allmedia>
+    <podcast-setting *ngIf="isPhotoUploaded"></podcast-setting>
+</div>

@@ -1,0 +1,5 @@
+<div class="video-manage">
+    <allmedia topMenuSelected="Cloud" middleMenuSelected="Videos" bottomMenuSelected="All"
+        *ngIf="!isPhotoUploaded"></allmedia>
+    <video-setting *ngIf="isPhotoUploaded"></video-setting>
+</div>

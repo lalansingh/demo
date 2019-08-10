@@ -8,7 +8,7 @@
     </div>
     <div class="studio-menu space-sec-a-scroll" [style.height.px]="screenHeight - 166">
         <mat-card>
-            <mat-card-header>
+            <mat-card-header (click)="profileNavClicked('Manage')" [ngClass]="{'active':'Manage'=== profileNav}">
                 <div class="mat-card-icon">
                     <i class="material-icons solid-icon">trending_up</i>
                 </div>
@@ -19,7 +19,7 @@
             </mat-card-header>
         </mat-card>
         <mat-card>
-            <mat-card-header>
+            <mat-card-header (click)="profileNavClicked('Story')" [ngClass]="{'active':'Story'=== profileNav}">
                 <div class="mat-card-icon">
                     <i class="material-icons">center_focus_strong</i>
                 </div>
@@ -30,7 +30,7 @@
             </mat-card-header>
         </mat-card>
         <mat-card>
-            <mat-card-header>
+            <mat-card-header (click)="profileNavClicked('Note')" [ngClass]="{'active':'Note'=== profileNav}">
                 <div class="mat-card-icon">
                     <i class="material-icons solid-icon">notes</i>
                 </div>
@@ -41,7 +41,7 @@
             </mat-card-header>
         </mat-card>
         <mat-card>
-            <mat-card-header>
+            <mat-card-header (click)="profileNavClicked('Article')" [ngClass]="{'active':'Article'=== profileNav}">
                 <div class="mat-card-icon">
                     <i class="material-icons">import_contacts</i>
                 </div>
@@ -53,7 +53,8 @@
         </mat-card>
         <mat-card>
             <!-- class="active" -->
-            <mat-card-header [routerLink]="[{ outlets: { mediaRouter: ['photo'],mediasettings:['photo-settings'] } }]">
+            <mat-card-header (click)="profileNavClicked('Photos')" [ngClass]="{'active':'Photos'=== profileNav}"
+                [routerLink]="[{ outlets: { mediaRouter: ['photo'],mediasettings:['photo-settings'] } }]">
                 <div class="mat-card-icon">
                     <i class="material-icons">insert_photo</i>
                 </div>
@@ -64,7 +65,8 @@
             </mat-card-header>
         </mat-card>
         <mat-card>
-            <mat-card-header>
+            <mat-card-header (click)="profileNavClicked('Video')" [ngClass]="{'active':'Video'=== profileNav}"
+                [routerLink]="[{ outlets: { mediaRouter: ['video'],mediasettings:['video-settings'] } }]">
                 <div class="mat-card-icon">
                     <i class="material-icons">play_circle_filled</i>
                 </div>
@@ -75,7 +77,8 @@
             </mat-card-header>
         </mat-card>
         <mat-card>
-            <mat-card-header>
+            <mat-card-header (click)="profileNavClicked('Music')" [ngClass]="{'active':'Music'=== profileNav}"
+                [routerLink]="[{ outlets: { mediaRouter: ['music'],mediasettings:['music-settings'] } }]">
                 <div class="mat-card-icon">
                     <i class="material-icons">music_note</i>
                 </div>
@@ -86,7 +89,8 @@
             </mat-card-header>
         </mat-card>
         <mat-card>
-            <mat-card-header>
+            <mat-card-header (click)="profileNavClicked('Podcast')" [ngClass]="{'active':'Podcast'=== profileNav}"
+                [routerLink]="[{ outlets: { mediaRouter: ['podcast'],mediasettings:['podcast-settings'] } }]">
                 <div class="mat-card-icon">
                     <i class="material-icons">keyboard_voice</i>
                 </div>
@@ -97,7 +101,7 @@
             </mat-card-header>
         </mat-card>
         <mat-card>
-            <mat-card-header>
+            <mat-card-header (click)="profileNavClicked('poll')" [ngClass]="{'active':'poll'=== profileNav}">
                 <div class="mat-card-icon">
                     <i class="material-icons">poll</i>
                 </div>
@@ -108,7 +112,7 @@
             </mat-card-header>
         </mat-card>
         <mat-card>
-            <mat-card-header>
+            <mat-card-header (click)="profileNavClicked('Confused')" [ngClass]="{'active':'Confused'=== profileNav}">
                 <div class="mat-card-icon">
                     <i class="material-icons">poll</i>
                 </div>
@@ -119,7 +123,7 @@
             </mat-card-header>
         </mat-card>
         <mat-card>
-            <mat-card-header>
+            <mat-card-header (click)="profileNavClicked('work')" [ngClass]="{'active':'work'=== profileNav}">
                 <div class="mat-card-icon">
                     <i class="material-icons">work</i>
                 </div>

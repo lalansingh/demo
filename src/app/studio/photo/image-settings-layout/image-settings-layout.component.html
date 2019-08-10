@@ -1,4 +1,5 @@
 <div class="photo-manage">
-    <allmedia *ngIf="!isPhotoUploaded"></allmedia>
+    <allmedia topMenuSelected="Cloud" middleMenuSelected="Photos" bottomMenuSelected="All"
+        *ngIf="!isPhotoUploaded"></allmedia>
     <photo-setting *ngIf="isPhotoUploaded"></photo-setting>
 </div>

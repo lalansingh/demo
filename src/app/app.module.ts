@@ -59,6 +59,15 @@ import { VedioPlayerComponent } from './features/vedio-player/vedio-player.compo
 import { ImageSettingsLayoutComponent } from './studio/photo/image-settings-layout/image-settings-layout.component';
 import { PhotoSettingComponent } from './studio/photo/photo-setting/photo-setting.component';
 import { UploadPhotoComponent } from './studio/photo/upload-photo/upload-photo.component';
+import { MusicSettingsLayoutComponent } from './studio/music/music-settings-layout/music-settings-layout.component';
+import { MusicSettingComponent } from './studio/music/music-setting/music-setting.component';
+import { UploadMusicComponent } from './studio/music/upload-music/upload-music.component';
+import { VideoSettingsLayoutComponent } from './studio/video/video-settings-layout/video-settings-layout.component';
+import { VideoSettingComponent } from './studio/video/video-setting/video-setting.component';
+import { UploadVideoComponent } from './studio/video/video-photo/upload-video.component';
+import { PodcastSettingsLayoutComponent } from './studio/podcast/podcast-settings-layout/podcast-settings-layout.component';
+import { PodcastSettingComponent } from './studio/podcast/podcast-setting/podcast-setting.component';
+import { UploadPodcastComponent } from './studio/podcast/upload-podcast/upload-podcast.component';
 
 @NgModule({
   declarations: [
@@ -107,7 +116,17 @@ import { UploadPhotoComponent } from './studio/photo/upload-photo/upload-photo.c
     VedioPlayerComponent,
     ImageSettingsLayoutComponent,
     PhotoSettingComponent,
-    UploadPhotoComponent
+    UploadPhotoComponent,
+    MusicSettingsLayoutComponent,
+    MusicSettingComponent,
+    UploadMusicComponent,
+    VideoSettingsLayoutComponent,
+    VideoSettingComponent,
+    UploadVideoComponent,
+    PodcastSettingsLayoutComponent,
+    PodcastSettingComponent,
+    UploadPodcastComponent
+
   ],
   imports: [
     BrowserModule,

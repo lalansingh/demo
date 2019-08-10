@@ -1,0 +1,101 @@
+<div class="photo-upload">
+    <div class="photo-header">
+        <div class="photo-button" *ngIf="urls.length !== 0">
+            <button mat-raised-button> <i class="material-icons">access_time</i>Schedule</button>
+            <div class="publish-time">
+                <span class="lbl-publish">Publish Time:</span>
+                <span>Today</span>
+                <button mat-icon-button>
+                    <mat-icon>expand_more</mat-icon>
+                </button>
+            </div>
+            <button mat-raised-button>Publish to Contacts</button>
+            <button mat-raised-button>Publish to Believers</button>
+            <button mat-raised-button>Publish to Everyone</button>
+        </div>
+        <div class="photo-title" *ngIf="urls.length === 0">
+            <span>Start Uploading and Publishing your Music with the World</span>
+        </div>
+    </div>
+    <div class="photo-secion space-sec-b-scroll" [style.height.px]="screenHeight - 236">
+        <div class="photo" appDragDrop (onFileDropped)="uploadFile($event)">
+            <i *ngIf="lastPhoto !== null" class="material-icons" (click)="removePreviewPhoto()">cancel</i>
+            <img [src]="lastPhoto" *ngIf="lastPhoto !== null">
+            <div class="drag-drop" *ngIf="lastPhoto === null">
+                <div>
+                    <i class="material-icons" (click)="addMore()">audiotrack</i>
+                </div>
+                <div>
+                    <label>
+                        Upload or Drag & Drop your Music Files
+                    </label>
+                </div>
+            </div>
+        </div>
+        <div class="photo-preview">
+            <ng-template ngFor let-src [ngForOf]="urls">
+                <div class="image-sec">
+                    <i class="material-icons" (click)="onRemoveFile(src.id)">cancel</i>
+                    <img [src]="src.file" (click)="onClickPhoto(src.id)">
+                </div>
+            </ng-template>
+            <div class="add-more">
+                <input type='file' #fileEvent (change)="onSelectFile($event)" multiple style="display:none">
+                <a (click)="addMore()"> <i class="material-icons">add_circle</i>
+                    <span>Add More Photos</span>
+                </a>
+            </div>
+        </div>
+        <div class="content">
+            <fieldset>
+                <legend>+ Add Hashtags</legend>
+                <!-- <textarea></textarea> -->
+            </fieldset>
+        </div>
+        <div class="content">
+            <fieldset>
+                <legend>Description or Captions</legend>
+            </fieldset>
+        </div>
+        <div class="content display-inline">
+            <fieldset>
+                <legend>Add Location</legend>
+            </fieldset>
+            <fieldset>
+                <legend>Tag People or Products</legend>
+            </fieldset>
+        </div>
+        <div class="content">
+            <div class="advance-top">
+                <label>
+                    Advanced Settings
+                </label>
+            </div>
+            <div class="advance">
+                <fieldset>
+                    <legend>Description or Captions</legend>
+                </fieldset>
+                <fieldset>
+                    <legend>Description or Captions</legend>
+                </fieldset>
+                <div class="turned-off">
+                    <label>
+                        Monetise Image
+                        <span *ngIf="!checked">Turned off</span>
+                        <span *ngIf="checked">Turned on</span>
+                    </label>
+                    <mat-card>
+                        <mat-card-content>
+                            <section class="example-section">
+                                <mat-slide-toggle class="example-margin" [(ngModel)]="checked" [color]="color"
+                                    [checked]="checked" [disabled]="disabled">
+                                </mat-slide-toggle>
+                            </section>
+                        </mat-card-content>
+                    </mat-card>
+                    <i class="material-icons">info</i>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

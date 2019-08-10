@@ -1,4 +1,4 @@
-import { Component, ViewEncapsulation } from '@angular/core';
+import { Component, ViewEncapsulation, Input } from '@angular/core';
 
 @Component({
     selector: 'allmedia',
@@ -8,6 +8,13 @@ import { Component, ViewEncapsulation } from '@angular/core';
 })
 export class AllMediaComponent {
     public screenHeight: string;
+    @Input()
+    public topMenuSelected: string;
+    @Input()
+    public middleMenuSelected: string;
+    @Input()
+    public bottomMenuSelected: string;
+
     constructor() {
         this.screenHeight = localStorage.getItem('windowHeight');
     }

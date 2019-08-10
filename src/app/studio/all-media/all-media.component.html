@@ -1,24 +1,24 @@
 <div class="all-media-parent-menu">
     <mat-nav-list>
-        <a mat-list-item class="active"><i class="material-icons">cloud</i> Cloud</a>
-        <a mat-list-item><i class="material-icons">assignment_turned_in</i>Photos Guidlines</a>
+        <a mat-list-item [ngClass]="{'active':'Cloud'=== topMenuSelected}"><i class="material-icons">cloud</i> Cloud</a>
+        <a mat-list-item [ngClass]="{'active':'Guidlines'=== topMenuSelected}"><i class="material-icons">assignment_turned_in</i>Photos Guidlines</a>
     </mat-nav-list>
 </div>
 <div class="all-media-sub-menu">
     <mat-nav-list>
-        <a mat-list-item class="active"><i class="material-icons">collections</i> Photos</a>
-        <a mat-list-item><i class="material-icons">video_library</i>Videos</a>
-        <a mat-list-item><i class="material-icons">library_music</i>Music</a>
-        <a mat-list-item><i class="material-icons">mic</i>Podcasts</a>
-        <a mat-list-item><i class="material-icons">file_copy</i>Files</a>
+        <a mat-list-item [ngClass]="{'active':'Photos'=== middleMenuSelected}"><i class="material-icons">collections</i> Photos</a>
+        <a mat-list-item [ngClass]="{'active':'Videos'=== middleMenuSelected}"><i class="material-icons">video_library</i>Videos</a>
+        <a mat-list-item [ngClass]="{'active':'Music'=== middleMenuSelected}"><i class="material-icons">library_music</i>Music</a>
+        <a mat-list-item [ngClass]="{'active':'Podcasts'=== middleMenuSelected}"><i class="material-icons">mic</i>Podcasts</a>
+        <a mat-list-item [ngClass]="{'active':'Files'=== middleMenuSelected}"><i class="material-icons">file_copy</i>Files</a>
     </mat-nav-list>
 </div>
 <div class="all-media-child-menu">
     <mat-nav-list>
-        <a mat-list-item class="active">All</a>
-        <a mat-list-item>Recent</a>
-        <a mat-list-item>Uploaded Photos</a>
-        <a mat-list-item>Photo Library</a>
+        <a mat-list-item [ngClass]="{'active':'All'=== bottomMenuSelected}">All</a>
+        <a mat-list-item [ngClass]="{'active':'Recent'=== bottomMenuSelected}">Recent</a>
+        <a mat-list-item [ngClass]="{'active':'Uploaded'=== bottomMenuSelected}">Uploaded Photos</a>
+        <a mat-list-item [ngClass]="{'active':'Library'=== bottomMenuSelected}">Photo Library</a>
     </mat-nav-list>
 </div>
 <div class="all-media-section space-sec-c-scroll" [style.height.px]="screenHeight - 260">

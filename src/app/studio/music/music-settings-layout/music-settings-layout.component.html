@@ -1,0 +1,5 @@
+<div class="music-manage">
+    <allmedia topMenuSelected="Cloud" middleMenuSelected="Music" bottomMenuSelected="All"
+        *ngIf="!isPhotoUploaded"></allmedia>
+    <music-setting *ngIf="isPhotoUploaded"></music-setting>
+</div>
