@@ -14,7 +14,7 @@ export class ProfileComponent {
         this.screenHeight = localStorage.getItem('windowHeight');
     }
     public navigate() {
-        this.router.navigate([{ outlets: { mediaRouter: ['photos'], mediasettings: ['photo-manage'] } }],
+        this.router.navigate([{ outlets: { mediaRouter: ['photo'], mediasettings: ['photo-settings'] } }],
             { relativeTo: this.route, skipLocationChange: true });
     }
 }

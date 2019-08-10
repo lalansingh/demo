@@ -49,16 +49,16 @@ import { CookiesComponent } from './verification/policies/cookies/cookies.compon
 import { ContentGuidlineComponent } from './verification/site-info/content-guidline/content-guidline.component';
 import { StudioComponent } from './studio/studio.component';
 import { ProfileComponent } from './studio/profile/profile.component';
-import { PhotoComponent } from './studio/photo/photo.component';
 import { DragDropDirective } from './common/directives/drag-drop/drag-drop.directive';
-import { PhotoManageComponent } from './studio/photo/photo-manage/photo-manage.component';
 import { AllMediaComponent } from './studio/all-media/all-media.component';
-import { UploadPhotoComponent } from './studio/photo/photo-manage/upload-photo/upload-photo.component';
 import { StudioHomeComponent } from './studio/studio-home/studio-home.component';
 import { StudioGuidlineComponent } from './studio/studio-guidline/studio-guidline.component';
 import { AudioPlayerComponent } from './features/audio-player/audio-player.component';
 import { Wave } from './features/wave';
 import { VedioPlayerComponent } from './features/vedio-player/vedio-player.component';
+import { ImageSettingsLayoutComponent } from './studio/photo/image-settings-layout/image-settings-layout.component';
+import { PhotoSettingComponent } from './studio/photo/photo-setting/photo-setting.component';
+import { UploadPhotoComponent } from './studio/photo/upload-photo/upload-photo.component';
 
 @NgModule({
   declarations: [
@@ -99,15 +99,15 @@ import { VedioPlayerComponent } from './features/vedio-player/vedio-player.compo
     MainLayoutComponent,
     StudioComponent,
     ProfileComponent,
-    PhotoComponent,
-    PhotoManageComponent,
     DragDropDirective,
     AllMediaComponent,
-    UploadPhotoComponent,
     StudioHomeComponent,
     StudioGuidlineComponent,
     AudioPlayerComponent,
-    VedioPlayerComponent
+    VedioPlayerComponent,
+    ImageSettingsLayoutComponent,
+    PhotoSettingComponent,
+    UploadPhotoComponent
   ],
   imports: [
     BrowserModule,

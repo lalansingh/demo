@@ -2,12 +2,12 @@ import { Component, ViewEncapsulation, HostListener, Inject, ElementRef, ViewChi
 import { ComonService } from 'src/app/common/services/comon-service';
 
 @Component({
-    selector: 'photo',
-    templateUrl: './photo.component.html',
-    styleUrls: ['./photo.component.scss'],
+    selector: 'upload-photo',
+    templateUrl: './upload-photo.component.html',
+    styleUrls: ['./upload-photo.component.scss'],
     encapsulation: ViewEncapsulation.None
 })
-export class PhotoComponent {
+export class UploadPhotoComponent {
 
     @ViewChild('fileEvent', { static: false })
     private fileEvent: ElementRef;
