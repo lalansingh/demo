@@ -1,8 +1,9 @@
 <div class="music-player">
     <div class="player user-select-none">
-        <div class="canvas" [style.background-image]="'url(../../../assets/music/poster/'+fileDetails.poster+')'"
+        <div class="canvas" [style.background-image]="'url(../../../assets/music/poster/'+fileDetails.posterSrc+')'"
             [style.background.repeat]="'no-repeat'">
-            <canvas id="wave" [style.height.px]="canvHeight" [style.width.px]="canvWidth"></canvas>
+            <canvas id="wave" [style.height.px]="canvHeight" [style.width.px]="canvWidth"
+                style="border-radius:10px;"></canvas>
             <span class="canvas-play-pause">
                 <i class="material-icons" id="play" *ngIf="!isPlayed" (click)="onPlay()">play_circle_outline</i>
                 <i class="material-icons" id="pause" *ngIf="isPlayed" (click)="onPause()">pause_circle_outline</i>

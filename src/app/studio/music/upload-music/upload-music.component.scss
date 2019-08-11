@@ -41,8 +41,9 @@
     // hidding scrollbar
     margin-right: -18px;
     .music {
-      width: 700px;
-      height: 275px;
+      // width: 700px;
+      // height: 275px;
+      min-height: 275px;
       border-radius: 10px;
       border: 1px solid #c4c4c4;
       position: relative;

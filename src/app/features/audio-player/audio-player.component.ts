@@ -29,25 +29,29 @@ export class AudioPlayerComponent {
     public volumeRange: number = 1;
     public maxVolume: number = 10;
     public minVolume: number = 0;
+    public audioFileList: any = [];
 
     constructor(private waveService: Wave, private comonService: ComonService) {
-        // this.W = new Wave();
-
-        this.comonService.musicSrc.subscribe(src => {
-            this.initAudio(src);
+        this.comonService.musicSrc.subscribe(mediaFileList => {
+            this.audioFileList = mediaFileList;
+            if (mediaFileList.length !== 0) {
+                this.initAudio(mediaFileList[0]);
+            } else {
+                this.onStop();
+            }
         });
     }
 
-    private initAudio(src: any) {
+    private initAudio(currentTrack: any) {
 
-        this.fileDetails.trackId = src.trackId;
-        this.fileDetails.url = src.url;
-        this.fileDetails.mediaTitle = src.mediaTitle;
-        this.fileDetails.poster = src.poster;
+        this.fileDetails.trackId = currentTrack.trackId;
+        this.fileDetails.url = currentTrack.src;
+        this.fileDetails.mediaTitle = currentTrack.mediaTitle;
+        this.fileDetails.posterSrc = currentTrack.posterSrc;
 
-        let index = AudioFiles.findIndex(x => x.trackId === this.fileDetails.trackId);
+        let index = this.audioFileList.findIndex(x => x.trackId === this.fileDetails.trackId);
         //set next song available to be play
-        if ((index + 1) < (AudioFiles.length)) {
+        if ((index + 1) < (this.audioFileList.length)) {
             this.isNextAvailable = true;
         } else {
             this.isNextAvailable = false;
@@ -97,18 +101,18 @@ export class AudioPlayerComponent {
     }
 
     public onPrevious() {
-        let index = AudioFiles.findIndex(x => x.trackId === this.fileDetails.trackId);
+        let index = this.audioFileList.findIndex(x => x.trackId === this.fileDetails.trackId);
         if (this.isPreviousAvailable) {
-            let songToBePlay = AudioFiles[(index - 1)];
+            let songToBePlay = this.audioFileList[(index - 1)];
             this.onStop();
             this.initAudio(songToBePlay);
             this.onPlay();
         }
     }
     public onNext() {
-        let index = AudioFiles.findIndex(x => x.trackId === this.fileDetails.trackId);
+        let index = this.audioFileList.findIndex(x => x.trackId === this.fileDetails.trackId);
         if (this.isNextAvailable) {
-            let songToBePlay = AudioFiles[(index + 1)];
+            let songToBePlay = this.audioFileList[(index + 1)];
             this.onStop();
             this.initAudio(songToBePlay);
             this.onPlay();

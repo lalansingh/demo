@@ -11,7 +11,7 @@ export class UploadMusicComponent {
 
     @ViewChild('fileEvent', { static: false })
     private fileEvent: ElementRef;
-    private urls = [];
+    private mediaFileList = [];
     private lastMusic: any = null;
     private color = '3597ec';
     @Input()
@@ -25,58 +25,58 @@ export class UploadMusicComponent {
     public addMore() {
         this.fileEvent.nativeElement.click();
     }
-
+    public onFileDropped(file: any) {
+        this.fileUpload(file);
+    }
     public onSelectFile(event) {
         this.fileUpload(event.target.files);
     }
 
     private fileUpload(files: any) {
+        let fileCount: number = 0;
         if (files && files[0]) {
             var filesAmount = files.length;
             for (let i = 0; i < filesAmount; i++) {
                 var reader = new FileReader();
 
                 reader.onload = (event: any) => {
-                    let url = {};
-                    url['id'] = i;
-                    url['file'] = event.target.result;
-                    this.urls.push(url);
-                    this.setLastMusic();
+                    let mediaTrackList = {};
+                    mediaTrackList['trackId'] = i;
+                    mediaTrackList['src'] = event.target.result;
+                    mediaTrackList['mediaTitle'] = '';
+                    mediaTrackList['posterSrc'] = 'mp3poster3.jpeg';
+                    mediaTrackList['posterTitle'] = '';
+                    mediaTrackList['description'] = '';
+                    this.mediaFileList.push(mediaTrackList);
+                    --fileCount;
+                    if (fileCount === 0) {
+                        this.setLastMusic();
+                    }
                 }
+
                 reader.readAsDataURL(files[i]);
+                fileCount++;
             }
         }
     }
 
     public onRemoveFile(index: any) {
-        let i = this.urls.findIndex(x => x.id === index);
-        this.urls.splice(i, 1);
+        let i = this.mediaFileList.findIndex(x => x.trackId === index);
+        this.mediaFileList.splice(i, 1);
         this.setLastMusic();
     }
     private setLastMusic() {
-        if (this.urls.length !== 0) {
-            this.lastMusic = this.urls[this.urls.length - 1].file;
+        if (this.mediaFileList.length !== 0) {
+            this.lastMusic = this.mediaFileList[this.mediaFileList.length - 1].file;
         } else {
             this.lastMusic = null;
         }
         this.setPhotoUploadFlag();
-        let model = {
-            trackId: 0,
-            mediaType: '',
-            url: '',
-            mediaTitle: '',
-            poster: '',
-            title: '',
-            description: ''
-        };
-        model.url = this.urls[0].file;
-        this.comonService.musicUploaded(model);
+        this.comonService.musicUploaded(this.mediaFileList);
     }
 
-    public uploadFile(file: any) {
-        this.fileUpload(file);
-    }
+
     private setPhotoUploadFlag() {
-        this.comonService.uploaded(this.urls.length === 0 ? false : true);
+        this.comonService.uploaded(this.mediaFileList.length === 0 ? false : true);
     }
 }

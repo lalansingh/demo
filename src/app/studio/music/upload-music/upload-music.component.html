@@ -1,6 +1,6 @@
 <div class="music-upload">
     <div class="music-header">
-        <div class="music-button" *ngIf="urls.length !== 0">
+        <div class="music-button" *ngIf="mediaFileList.length !== 0">
             <button mat-raised-button> <i class="material-icons">access_time</i>Schedule</button>
             <div class="publish-time">
                 <span class="lbl-publish">Publish Time:</span>
@@ -12,13 +12,13 @@
             <button mat-raised-button>Save</button>
             <button mat-raised-button>Publish</button>
         </div>
-        <div class="music-title" *ngIf="urls.length === 0">
+        <div class="music-title" *ngIf="mediaFileList.length === 0">
             <span>Start Uploading and Publishing your Music with the World</span>
         </div>
     </div>
     <div class="music-secion space-sec-b-scroll" [style.height.px]="screenHeight - 236">
         <input type='file' #fileEvent (change)="onSelectFile($event)" multiple style="display:none">
-        <div class="music" appDragDrop (onFileDropped)="uploadFile($event)">
+        <div class="music" appDragDrop (onFileDropped)="onFileDropped($event)">
             <audio-player [hidden]="lastMusic === null"></audio-player>
             <div class="drag-drop" *ngIf="lastMusic === null">
                 <div>
