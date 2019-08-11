@@ -1,6 +1,6 @@
 <div class="video-upload">
     <div class="video-header">
-        <div class="video-button" *ngIf="urls.length !== 0">
+        <div class="video-button" *ngIf="mediaFileList.length !== 0">
             <button mat-raised-button> <i class="material-icons">access_time</i>Schedule</button>
             <div class="publish-time">
                 <span class="lbl-publish">Publish Time:</span>
@@ -13,15 +13,15 @@
             <button mat-raised-button>Publish to Believers</button>
             <button mat-raised-button>Publish to Everyone</button>
         </div>
-        <div class="video-title" *ngIf="urls.length === 0">
+        <div class="video-title" *ngIf="mediaFileList.length === 0">
             <span>Start Uploading and Publishing your Videos with the World</span>
         </div>
     </div>
     <div class="video-secion space-sec-b-scroll" [style.height.px]="screenHeight - 236">
+        <input type='file' #fileEvent (change)="onSelectFile($event)" multiple style="display:none">
         <div class="video" appDragDrop (onFileDropped)="uploadFile($event)">
-            <i *ngIf="lastPhoto !== null" class="material-icons" (click)="removePreviewPhoto()">cancel</i>
-            <img [src]="lastPhoto" *ngIf="lastPhoto !== null">
-            <div class="drag-drop" *ngIf="lastPhoto === null">
+            <video-player [hidden]="lastVideo === null"></video-player>
+            <div class="drag-drop" *ngIf="lastVideo === null">
                 <div>
                     <i class="material-icons" (click)="addMore()">video_call</i>
                 </div>
@@ -32,20 +32,15 @@
                 </div>
             </div>
         </div>
-        <div class="video-preview">
-            <ng-template ngFor let-src [ngForOf]="urls">
-                <div class="image-sec">
-                    <i class="material-icons" (click)="onRemoveFile(src.id)">cancel</i>
-                    <img [src]="src.file" (click)="onClickPhoto(src.id)">
-                </div>
-            </ng-template>
-            <div class="add-more">
-                <input type='file' #fileEvent (change)="onSelectFile($event)" multiple style="display:none">
-                <a (click)="addMore()"> <i class="material-icons">add_circle</i>
-                    <span>Add More Photos</span>
-                </a>
+        <div class="video-preview" *ngIf="lastVideo !== null">
+            <div class="left">
+                <a href="javascript:void()">File Successfully uploaded.</a>
+            </div>
+            <div class="right">
+                <a href="javascript:void()" (click)="onRemoveFile(0)">Delete</a>
             </div>
         </div>
+        <div style="display:inline-flex;"></div>
         <div class="content">
             <fieldset>
                 <legend>+ Add Hashtags</legend>

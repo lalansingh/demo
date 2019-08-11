@@ -1,5 +1,5 @@
 import { Component, ViewEncapsulation, ViewChild, ElementRef, Input } from "@angular/core";
-import { AudioFiles, VedioFiles } from "../media-file";
+import { ComonService } from "src/app/common/services/comon-service";
 
 @Component({
     selector: 'video-player',
@@ -20,7 +20,6 @@ export class VedioPlayerComponent {
     public isMoreControl: boolean = false;
     public videoSrc = '..//..//..//assets/video/';
     // public W: Wave;
-    public canvHeight = 275;
     public fileDetails: any = {};
     public isNextAvailable: boolean = false;
     public isPreviousAvailable: boolean = false;
@@ -28,28 +27,35 @@ export class VedioPlayerComponent {
     public volumeRange: number = 1;
     public maxVolume: number = 10;
     public minVolume: number = 0;
+    public videoFileList: any = [];
     @Input()
     public hideShowControl: boolean = false;
 
-    constructor() {
+    constructor(private comonService: ComonService) {
+
     }
 
     ngAfterViewInit() {
-        // this.video = this.videoElement.nativeElement;
-        // this.video.src = '..//..//..//assets/video/SampleVideo_1280x720_1mb.mp4';
-        this.initAudio(VedioFiles[0]);
+        this.comonService.musicSrc.subscribe(videoFileList => {
+            this.videoFileList = videoFileList;
+            if (videoFileList.length !== 0) {
+                this.initAudio(videoFileList[0]);
+            } else {
+                this.onStop();
+            }
+        });
     }
 
-    private initAudio(src: any) {
+    private initAudio(currentTrack: any) {
 
-        this.fileDetails.trackId = src.trackId;
-        this.fileDetails.url = src.url;
-        this.fileDetails.mediaTitle = src.mediaTitle;
-        this.fileDetails.poster = src.poster;
+        this.fileDetails.trackId = currentTrack.trackId;
+        this.fileDetails.url = currentTrack.src;
+        this.fileDetails.mediaTitle = currentTrack.mediaTitle;
+        this.fileDetails.posterSrc = currentTrack.posterSrc;
 
-        let index = VedioFiles.findIndex(x => x.trackId === this.fileDetails.trackId);
+        let index = this.videoFileList.findIndex(x => x.trackId === this.fileDetails.trackId);
         //set next song available to be play
-        if ((index + 1) < (VedioFiles.length)) {
+        if ((index + 1) < (this.videoFileList.length)) {
             this.isNextAvailable = true;
         } else {
             this.isNextAvailable = false;
@@ -63,7 +69,7 @@ export class VedioPlayerComponent {
         this.video = this.videoElement.nativeElement;
         // this.video = new HTMLVideoElement();
         this.video.id = 'video';
-        this.video.src = this.videoSrc + this.fileDetails.url;
+        this.video.src = this.fileDetails.url;
         this.video.addEventListener('timeupdate', this.getLapsTime.bind(this));
         this.video.addEventListener('mouseenter', this.mouseenter);
         this.video.addEventListener('mouseleave', this.mouseleave);
@@ -120,18 +126,18 @@ export class VedioPlayerComponent {
     }
 
     public onPrevious() {
-        let index = AudioFiles.findIndex(x => x.trackId === this.fileDetails.trackId);
+        let index = this.videoFileList.findIndex(x => x.trackId === this.fileDetails.trackId);
         if (this.isPreviousAvailable) {
-            let songToBePlay = AudioFiles[(index - 1)];
+            let songToBePlay = this.videoFileList[(index - 1)];
             this.onStop();
             this.initAudio(songToBePlay);
             this.onPlay();
         }
     }
     public onNext() {
-        let index = AudioFiles.findIndex(x => x.trackId === this.fileDetails.trackId);
+        let index = this.videoFileList.findIndex(x => x.trackId === this.fileDetails.trackId);
         if (this.isNextAvailable) {
-            let songToBePlay = AudioFiles[(index + 1)];
+            let songToBePlay = this.videoFileList[(index + 1)];
             this.onStop();
             this.initAudio(songToBePlay);
             this.onPlay();

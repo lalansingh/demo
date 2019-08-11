@@ -1,21 +1,19 @@
 .video-player {
-  margin: 20px;
+  margin: 0px;
+  position: absolute;
   .player {
-  
-    margin: 1px;
+    margin: 0px;
     .video-sec {
-      background: #c6c0c0;
-      border-top-left-radius: 10px;
-      border-top-right-radius: 10px;
       background-position: center;
       background-size: cover;
       background-repeat: repeat;
+      border-radius: 10px;
+      margin: 0;
       video {
-        height: 313px;
         margin-top: 0px;
-        margin-left: 1px;
         border-radius: 10px;
         margin-right: 0px;
+        width: 700px;
       }
       .canvas-play-pause {
         position: relative;
@@ -29,6 +27,7 @@
           cursor: pointer;
           top: 13%;
           left: 17%;
+          margin-left: 0px;
           &:hover {
             color: #fff;
           }
@@ -86,6 +85,7 @@
             margin-left: 5px;
             margin-right: 5px;
             color: blanchedalmond;
+            position: relative;
             cursor: pointer;
             &:hover {
               color: #fff;

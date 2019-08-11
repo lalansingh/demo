@@ -14,8 +14,8 @@ export class StudioComponent {
         private router: Router, private route: ActivatedRoute) {
         // this.getScreenSize();
         this.comonService.lefSideMenuSelected('studio');
-        this.router.navigate([{ outlets: { mediaRouter: ['studio-home'], mediasettings: ['studio-guidline'] } }],
-            { relativeTo: this.route, skipLocationChange: true });
+        // this.router.navigate([{ outlets: { mediaRouter: ['studio-home'], mediasettings: ['studio-guidline'] } }],
+        //     { relativeTo: this.route, skipLocationChange: true });
     }
 
     // @HostListener('window:resize', ['$event'])

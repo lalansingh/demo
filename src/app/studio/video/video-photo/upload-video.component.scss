@@ -42,7 +42,7 @@
     margin-right: -18px;
     .video {
       width: 700px;
-      height: 500px;
+      height: 393px;
       border-radius: 10px;
       border: 1px solid #c4c4c4;
       position: relative;
@@ -67,7 +67,7 @@
         width: 244px;
         height: 98px;
         text-align: center;
-        padding-top: 25%;
+        padding-top: 18%;
         padding-left: 33%;
         .material-icons {
           margin: 0px 0px 0px 0px;
@@ -83,50 +83,18 @@
     }
     .video-preview {
       padding: 18px 0px 13px 0px;
-      .image-sec {
-        width: 75px;
-        height: 75px;
-        margin-right: 10px;
-        display: inline-flex;
-        position: relative;
-        cursor: pointer;
-        .mat-card-image {
-          margin: 0px;
-        }
-        img {
-          width: 75px;
-          height: 75px;
-          border-radius: 10px;
-        }
-        .material-icons {
-          position: absolute;
-          margin-left: 57px;
-          margin-top: 3px;
-          font-size: 15px;
-          color: #ffffffb3;
-          cursor: pointer;
-        }
+      a {
+        font-size: 15px;
+        color: #3597ec;
+        text-decoration: none;
       }
-      .add-more {
-        display: inline-table;
-        vertical-align: top;
-        margin-top: 20px;
-        a {
-          cursor: pointer;
-          position: relative;
-        }
-        .material-icons {
-          color: #99cbf5;
-          font-size: 30px;
-        }
-        span {
-          margin-top: 8px;
-          position: absolute;
-          margin-left: 10px;
-          color: #3597ec;
-          font-size: 12px;
-          width: 118px;
-        }
+      .left {
+        left: 0;
+        float: left;
+      }
+      .right {
+        right: 0;
+        float: right;
       }
     }
     .content {
