@@ -12,6 +12,9 @@ export class VedioPlayerComponent {
     public videoElement: ElementRef;
     public video: HTMLVideoElement;
 
+    @ViewChild('videoSection', { static: false })
+    public videoSection: ElementRef;
+
     public currentTime: number = 0;
     public maxDuration: number = 0;
     public minDuration: number = 0;
@@ -71,8 +74,8 @@ export class VedioPlayerComponent {
         this.video.id = 'video';
         this.video.src = this.fileDetails.url;
         this.video.addEventListener('timeupdate', this.getLapsTime.bind(this));
-        this.video.addEventListener('mouseenter', this.mouseenter);
-        this.video.addEventListener('mouseleave', this.mouseleave);
+        this.videoSection.nativeElement.addEventListener('mouseenter', this.mouseenter);
+        this.videoSection.nativeElement.addEventListener('mouseleave', this.mouseleave);
     }
 
     public mouseenter = () => {
@@ -119,6 +122,7 @@ export class VedioPlayerComponent {
         this.video.play();
         this.maxDuration = this.video.duration;
         this.isPlayed = true;
+        setTimeout(() => { this.hideShowControl = false; }, 2000);
     }
     public onPause() {
         this.isPlayed = false;
@@ -149,6 +153,14 @@ export class VedioPlayerComponent {
     }
     public onForward() {
         this.video.currentTime += 2;
+    }
+
+    public onEnterFullScreen() {
+        this.video.webkitEnterFullScreen();
+    }
+
+    public onExitFullScreen() {
+        this.video.webkitExitFullScreen();
     }
 
     public onRewind() {

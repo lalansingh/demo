@@ -3,12 +3,20 @@
   position: absolute;
   .player {
     margin: 0px;
+
     .video-sec {
       background-position: center;
       background-size: cover;
       background-repeat: repeat;
       border-radius: 10px;
       margin: 0;
+      .video-hover-controls {
+        height: 274px;
+        width: 700px;
+        background: #0199ff;
+        position: absolute;
+        top: 0;
+      }
       video {
         margin-top: 0px;
         border-radius: 10px;
@@ -33,73 +41,83 @@
           }
         }
       }
-    }
-    .video-control {
-      margin-top: -72px;
-      position: relative;
-      .seek {
-        height: 15px;
-        // background: #726c6c;
-        padding: 0px;
-        .material-icons {
-          position: absolute;
-          left: 80px;
-          margin-top: -4px;
-          color: #fff;
-          cursor: pointer;
-        }
-        span {
-          margin-top: -36px;
-          position: absolute;
-          font-size: 12px;
-          margin-left: 7px;
-          color: #fff;
-          font-weight: bold;
-        }
-      }
-      .player-layout {
-        min-height: 10px;
-        background: #7b6d6d6e;
+      .video-control {
+        margin-top: -72px;
         position: relative;
-        text-align: center;
-        border-bottom-left-radius: 10px;
-        border-bottom-right-radius: 10px;
-        .control-section {
-          display: inline-flex;
-          .control-section1,
-          .control-section3 {
-            margin-top: 10px;
+        &:hover {
+          .video-control {
+            display: block;
           }
-          .control-section4 {
-            margin-top: 10px;
-            margin-left: 130px;
-            display: inline-flex;
-            span {
-              margin-left: 6px;
-              color: #fff;
-              font-weight: bold;
-              font-size: 18px;
-            }
-          }
+        }
+        .seek {
+          height: 15px;
+          // background: #726c6c;
+          padding: 0px;
           .material-icons {
-            margin-left: 5px;
-            margin-right: 5px;
-            color: blanchedalmond;
-            position: relative;
+            position: absolute;
+            left: 80px;
+            margin-top: -4px;
+            color: #fff;
             cursor: pointer;
-            &:hover {
-              color: #fff;
-            }
-            &.icon-desabled {
-              color: #d3c4c4;
-            }
-            &.icon-active {
-              color: #fff;
-            }
           }
-          .play-pause {
-            font-size: 40px;
-            color: blanchedalmond;
+          span {
+            margin-top: -36px;
+            position: absolute;
+            font-size: 12px;
+            margin-left: 7px;
+            color: #fff;
+            font-weight: bold;
+          }
+        }
+        .player-layout {
+          min-height: 10px;
+          background: #7b6d6d6e;
+          position: relative;
+          text-align: center;
+          border-bottom-left-radius: 10px;
+          border-bottom-right-radius: 10px;
+          .control-section {
+            display: inline-flex;
+            .control-section1,
+            .control-section3 {
+              margin-top: 10px;
+            }
+            .control-section4 {
+              margin-top: 10px;
+              margin-left: 130px;
+              display: inline-flex;
+              span {
+                margin-left: 6px;
+                color: #fff;
+                font-weight: bold;
+                font-size: 18px;
+              }
+              .full-screen {
+                font-size: 36px;
+                margin-top: -7px;
+                margin-left: 28px;
+              }
+            }
+            .material-icons {
+              margin-left: 5px;
+              margin-right: 5px;
+              color: blanchedalmond;
+              position: relative;
+              cursor: pointer;
+              &:hover {
+                color: #fff;
+              }
+              &.icon-desabled {
+                color: #d3c4c4;
+              }
+              &.icon-active {
+                color: #fff;
+              }
+            }
+            .play-pause {
+              font-size: 40px;
+              color: blanchedalmond;
+            }
           }
         }
       }
