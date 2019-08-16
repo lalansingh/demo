@@ -21,7 +21,13 @@
         margin-top: 0px;
         border-radius: 10px;
         margin-right: 0px;
-        width: 700px;
+        // width: 700px;
+      }
+      video::-webkit-media-controls {
+        display: none !important;
+      }
+      video::-webkit-media-controls-enclosure {
+        display: none !important;
       }
       .canvas-play-pause {
         position: relative;
@@ -44,10 +50,42 @@
       .video-control {
         margin-top: -72px;
         position: relative;
+        z-index: 2147483647;
         &:hover {
           .video-control {
             display: block;
           }
+        }
+
+        .progress {
+          height: 8px;
+          width: calc(100% - 0px);
+          background: rgba(60, 60, 60, 0.6);
+          margin: auto;
+          border-radius: 6px;
+          position: absolute;
+          // left: 20px;
+          bottom: 100%;
+          transition: height 0.1s ease-in-out;
+          span {
+            margin-top: -36px;
+            position: absolute;
+            font-size: 12px;
+            margin-left: 7px;
+            color: #fff;
+            font-weight: bold;
+          }
+        }
+        .progress:hover {
+          // height: 10px;
+          cursor: pointer;
+        }
+        .progress-filled {
+          background: #0199ff;
+          width: 0%;
+          height: 100%;
+          border-radius: 6px;
+          transition: all 0.1s;
         }
         .seek {
           height: 15px;
@@ -78,6 +116,10 @@
           border-bottom-right-radius: 10px;
           .control-section {
             display: inline-flex;
+            .fullScreen {
+              display: flex;
+              justify-content: center;
+            }
             .control-section1,
             .control-section3 {
               margin-top: 10px;

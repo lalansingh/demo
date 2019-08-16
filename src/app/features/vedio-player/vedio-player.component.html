@@ -1,15 +1,19 @@
 <div class="video-player">
     <div class="player user-select-none">
         <div class="video-sec" #videoSection>
-            <video #videoElement></video>
+            <video #videoElement [style.height]="videoHeight" [style.width]="videoWidth" (click)="onClickVideo()"></video>
             <span class="canvas-play-pause" [ngStyle]="{'display':hideShowControl?'block':'none'}">
                 <i class="material-icons" id="play" *ngIf="!isPlayed" (click)="onPlay()">play_arrow</i>
                 <i class="material-icons" id="pause" *ngIf="isPlayed" (click)="onPause()">pause_circle_filled</i>
             </span>
             <div class="video-control" [ngStyle]="{'display':hideShowControl?'block':'none'}">
-                <div class="seek">
+                <!-- <div class="seek">
                     <input type="range" class="e-range" id="seek" [(ngModel)]="currentTime" (change)="onSkip($event)"
                         min="{{minDuration}}" max="{{maxDuration}}" step="0.000001" />
+                    <span>{{lapsTime}}</span>
+                </div> -->
+                <div class='progress' (click)="setProgress($event)" #progressSlider>
+                    <div class='progress-filled' [style.width.%]="progressBarTime"></div>
                     <span>{{lapsTime}}</span>
                 </div>
                 <div class="player-layout">
@@ -45,7 +49,8 @@
                                 <span>{{volumeRange*10}}</span>
                             </div>
                             <div>
-                                <i class="material-icons full-screen" (click)="onEnterFullScreen()">fullscreen</i>
+                                <i class="material-icons full-screen" (click)="toggleFullscreen()" *ngIf="!isfullScreen">fullscreen</i>
+                                <i class="material-icons full-screen" (click)="toggleFullscreen()" *ngIf="isfullScreen">fullscreen_exit</i>
                             </div>
                         </div>
                     </div>

@@ -1,4 +1,4 @@
-import { Component, ViewEncapsulation, ViewChild, ElementRef, Input } from "@angular/core";
+import { Component, ViewEncapsulation, ViewChild, ElementRef, Input, HostListener } from "@angular/core";
 import { ComonService } from "src/app/common/services/comon-service";
 
 @Component({
@@ -14,6 +14,10 @@ export class VedioPlayerComponent {
 
     @ViewChild('videoSection', { static: false })
     public videoSection: ElementRef;
+
+    @ViewChild('progressSlider', { static: false })
+    public progressSlider: ElementRef;
+    public progressBarTime: number = 0;
 
     public currentTime: number = 0;
     public maxDuration: number = 0;
@@ -31,6 +35,9 @@ export class VedioPlayerComponent {
     public maxVolume: number = 10;
     public minVolume: number = 0;
     public videoFileList: any = [];
+    public videoHeight: string = null;
+    public videoWidth: string = '700px';
+    public isfullScreen: boolean = false;
     @Input()
     public hideShowControl: boolean = false;
 
@@ -74,6 +81,7 @@ export class VedioPlayerComponent {
         this.video.id = 'video';
         this.video.src = this.fileDetails.url;
         this.video.addEventListener('timeupdate', this.getLapsTime.bind(this));
+        // this.video.addEventListener('fullscreenchange', this.onExitScap, false);
         this.videoSection.nativeElement.addEventListener('mouseenter', this.mouseenter);
         this.videoSection.nativeElement.addEventListener('mouseleave', this.mouseleave);
     }
@@ -87,9 +95,21 @@ export class VedioPlayerComponent {
         }
     }
 
+    public onClickVideo() {
+        if (this.isfullScreen) {
+            if (this.hideShowControl) {
+                this.mouseleave();
+            } else {
+                this.mouseenter();
+            }
+        }
+    }
+
     public getLapsTime(event) {
         this.currentTime = event.target.currentTime;
         let sec = event.target.currentTime;
+
+        this.progressBarTime = this.currentTime / this.video.duration * 100;
 
         let h = Math.floor(sec / 3600);
         sec = sec % 3600;
@@ -151,16 +171,54 @@ export class VedioPlayerComponent {
         this.video.currentTime = evnt.currentTarget.valueAsNumber;
         this.maxDuration = this.video.duration;
     }
+    public setProgress(e) {
+        const newTime = e.offsetX / this.progressSlider.nativeElement.offsetWidth;
+        this.video.currentTime = newTime * this.video.duration;
+        this.progressBarTime = newTime * 100;
+    }
     public onForward() {
         this.video.currentTime += 2;
     }
 
-    public onEnterFullScreen() {
-        this.video.webkitEnterFullScreen();
+    public toggleFullscreen() {
+        this.isfullScreen ? this.exitFullScreen() : this.launchFullScreen()
+        // this.isfullScreen = !this.isfullScreen;
     }
 
-    public onExitFullScreen() {
-        this.video.webkitExitFullScreen();
+    public launchFullScreen() {
+        this.videoWidth = '100%';
+        this.videoHeight = '100%';
+        this.videoSection.nativeElement.requestFullscreen();
+        // if (this.videoSection.nativeElement.requestFullscreen) {
+        //     this.videoSection.nativeElement.requestFullscreen();
+        // } else if (this.videoSection.nativeElement.mozRequestFullScreen) {
+        //     this.videoSection.nativeElement.mozRequestFullScreen();
+        // } else if (this.videoSection.nativeElement.webkitRequestFullscreen) {
+        //     this.videoSection.nativeElement.webkitRequestFullscreen();
+        // } else if (this.videoSection.nativeElement.msRequestFullscreen) {
+        //     this.videoSection.nativeElement.msRequestFullscreen();
+        // }
+    }
+    @HostListener('fullscreenchange', ['$event'])
+    public onExitScap = () => {
+        // this.videoSection.nativeElement.webkitExitFullscreen();
+        this.isfullScreen = !this.isfullScreen;
+        if (!this.isfullScreen) {
+            this.videoWidth = '700px';
+            this.videoHeight = '';
+        }
+    }
+    public exitFullScreen() {
+        this.videoWidth = '700px';
+        this.videoHeight = '';
+        document.exitFullscreen();
+        // if(document.exitFullscreen) {
+        //     document.exitFullscreen();
+        //   } else if(document.mozCancelFullScreen) {
+        //     document.mozCancelFullScreen();
+        //   } else if(document.webkitExitFullscreen) {
+        //     document.webkitExitFullscreen();
+        //   }
     }
 
     public onRewind() {
