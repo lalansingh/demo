@@ -1,0 +1,130 @@
+<div class="music-player-root user-select-none">
+    <div class="tag-header">
+        <div class="lbl-first">
+            <div class="first">
+                <i class="material-icons">cancel</i>
+                <span>10M Tuned</span>
+            </div>
+        </div>
+        <div class="lbl-second">
+            <a href="javascript:void()">#Classical #Symphonies #Music</a>
+        </div>
+        <div class="lbl-third">
+            <div class="third">
+                <i class="material-icons">control_point</i>
+                <i class="material-icons">update</i>
+                <i class="material-icons">expand_more</i>
+            </div>
+        </div>
+    </div>
+    <div class="player-control">
+        <div class="poster" [style.background-image]="'url(../../../assets/music/poster/'+fileDetails.posterSrc+')'"
+            [style.background.repeat]="'no-repeat'">
+            <canvas id="wave" [style.height.px]="canvHeight" [style.width.px]="canvWidth"
+                style="border-radius:10px;"></canvas>
+            <span class="canvas-play-pause" *ngIf="isSongInitialized">
+                <i class="material-icons" id="play" *ngIf="!isPlayed" (click)="onPlay()">play_circle_outline</i>
+                <i class="material-icons" id="pause" *ngIf="isPlayed" (click)="onPause()">pause_circle_outline</i>
+            </span>
+        </div>
+        <div class="controls">
+            <div class="song-details">
+                <label class="title">{{fileDetails.mediaTitle}}</label>
+                <label class="sub-title">{{fileDetails.mediaSubTitle}}</label>
+                <label class="artist">{{fileDetails.description}}</label>
+            </div>
+            <div class="repeat">
+                <a href="#"><i class="material-icons">shuffle</i>Shuffle</a>
+                <a href="#"><i class="material-icons">repeat</i>Repeat</a>
+            </div>
+            <div class="progress-bar">
+                <input type="range" id="seek" [(ngModel)]="currentTime" (change)="onSkip($event)" min="{{minDuration}}"
+                    max="{{maxDuration}}" step="0.000001" />
+            </div>
+            <div class="play-control">
+                <div class="play-pause">
+                    <i class="material-icons" id="rewind" (click)="onRewind()">fast_rewind</i>
+                    <i class="material-icons"
+                        [ngClass]="{'icon-desabled':!isPreviousAvailable,'icon-active':isPreviousAvailable}"
+                        id="previous" (click)="onPrevious()">skip_previous</i>
+                    <i class="material-icons" *ngIf="!isPlayed" (click)="onPlay()">play_arrow</i>
+                    <i class="material-icons" *ngIf="isPlayed" (click)="onPause()">pause</i>
+                    <i class="material-icons" id="stop" (click)="onStop()">stop</i>
+                    <i class="material-icons" id="next"
+                        [ngClass]="{'icon-desabled':!isNextAvailable,'icon-active':isNextAvailable}"
+                        (click)="onNext()">skip_next</i>
+                    <i class="material-icons" id="forward" (click)="onForward()">fast_forward</i>
+                    <div class="hifi">Hi-Fi</div>
+                    <i *ngIf="!isMute" class="material-icons" (click)="volume = !volume">volume_up</i>
+                    <i *ngIf="isMute" class="material-icons" (click)="volume = !volume">volume_off</i>
+                    <div class="volume" *ngIf="volume">
+                        <i *ngIf="!isMute" class="material-icons" (click)="onVolume()">volume_up</i>
+                        <i *ngIf="isMute" class="material-icons" (click)="onVolume()">volume_off</i>
+                        <input type="range" id="volumeRaise" (change)="onVolumeRaise($event)" min="{{minVolume}}"
+                            max="{{maxVolume}}" step="1" />
+                        <span>{{volumeRange*10}}</span>
+                    </div>
+
+                    <span>{{lapsTime}} / {{totalDuration}}</span>
+                </div>
+                <div class="track-list">
+                    <div class="track">
+                        <div class="on-off">Ads Turned off</div>
+                        <!-- Rounded switch -->
+                        <div>
+                            <label class="switch">
+                                <input type="checkbox">
+                                <span class="slider round"></span>
+                            </label>
+                        </div>
+                        <div class="speed" (click)="setSpeed(0.5,'x05')" [ngClass]="{'active':'x05'=== activeSpeed}">
+                            0.5x
+                        </div>
+                        <div class="speed" (click)="setSpeed(1,'x1')" [ngClass]="{'active':'x1'=== activeSpeed}">1x
+                        </div>
+                        <div class="speed" (click)="setSpeed(2,'x2')" [ngClass]="{'active':'x2'=== activeSpeed}">2x
+                        </div>
+                        <div class="list-icon"> <i class="material-icons">menu</i></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+    <div class="bottom-menu">
+        <div class="more-details-menu">
+            <mat-nav-list>
+                <a mat-list-item class="active">Up&nbsp;Next</a>
+                <a mat-list-item>Recommended</a>
+                <a mat-list-item>More&nbsp;By&nbsp;@Bettoven</a>
+                <a mat-list-item>Download</a>
+                <a mat-list-item>Library</a>
+                <a mat-list-item>History</a>
+            </mat-nav-list>
+        </div>
+    </div>
+    <div class="up-next">
+        <table matSort (matSortChange)="sortMediaData($event)">
+            <tr>
+                <th mat-header-cell mat-sort-header="title">Title</th>
+                <th mat-header-cell mat-sort-header="time">Time</th>
+                <th mat-header-cell mat-sort-header="publish">Publish</th>
+            </tr>
+            <tr *ngFor="let media of sortedMediaList" (click)="songSelected(media)">
+                <td>
+                    <div class="title-image">
+                        <div class="image">
+
+                        </div>
+                        <div class="title-details">
+                            <span class="track-title">{{media.mediaTitle}}</span>
+                            <span class="track-sub-title">{{media.mediaSubTitle}}</span>
+                        </div>
+                    </div>
+                </td>
+                <td>{{media.time}}</td>
+                <td>{{media.publish}}</td>
+            </tr>
+        </table>
+    </div>
+</div>

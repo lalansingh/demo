@@ -3,7 +3,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import {
   MatSidenavModule, MatToolbarModule, MatIconModule, MatListModule, MatButtonModule,
   MatCardModule, MatInputModule, MatAutocompleteModule,
-  MatTooltipModule, MatMenuModule, MatSlideToggleModule
+  MatTooltipModule, MatMenuModule, MatSlideToggleModule, MatSortModule
 } from '@angular/material';
 import { NgModule } from '@angular/core';
 import { RouterModule } from '@angular/router';
@@ -68,6 +68,7 @@ import { UploadVideoComponent } from './studio/video/video-photo/upload-video.co
 import { PodcastSettingsLayoutComponent } from './studio/podcast/podcast-settings-layout/podcast-settings-layout.component';
 import { PodcastSettingComponent } from './studio/podcast/podcast-setting/podcast-setting.component';
 import { UploadPodcastComponent } from './studio/podcast/upload-podcast/upload-podcast.component';
+import { MusicPlayerComponent } from './features/music-player/music-player.component';
 
 @NgModule({
   declarations: [
@@ -125,7 +126,8 @@ import { UploadPodcastComponent } from './studio/podcast/upload-podcast/upload-p
     UploadVideoComponent,
     PodcastSettingsLayoutComponent,
     PodcastSettingComponent,
-    UploadPodcastComponent
+    UploadPodcastComponent,
+    MusicPlayerComponent
 
   ],
   imports: [
@@ -146,6 +148,7 @@ import { UploadPodcastComponent } from './studio/podcast/upload-podcast/upload-p
     MatTooltipModule,
     MatMenuModule,
     MatSlideToggleModule,
+    MatSortModule,
     RouterModule.forRoot(routes, { useHash: true })
   ],
   exports: [MatListModule],
