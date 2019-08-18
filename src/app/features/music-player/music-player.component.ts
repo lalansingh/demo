@@ -1,21 +1,8 @@
 import { Wave } from "../wave";
 import { ComonService } from "src/app/common/services/comon-service";
-import { Component, ViewEncapsulation } from "@angular/core";
-import { VisualizerModel } from "../media-file";
+import { Component, ViewEncapsulation, Input } from "@angular/core";
+import { VisualizerModel, mediaFile } from "../media-file";
 import { Sort } from "@angular/material/sort";
-
-export interface mediaFile {
-    trackId: number;
-    mediaType: string;
-    mediaTitle: string;
-    mediaSubTitle: string;
-    src: string;
-    posterSrc: string;
-    posterTitle: string;
-    description: string;
-    time: string;
-    publish: string;
-}
 
 @Component({
     selector: 'music-player',
@@ -32,6 +19,8 @@ export class MusicPlayerComponent {
     public lapsTime: string = '0:00:00';
     public isMoreControl: boolean = false;
     public audioSrc = '..//..//..//assets/music/';
+    @Input()
+    public showFileList: boolean = false;
     // public W: Wave;
     public canvas: any;
     public canvHeight = 100;
@@ -43,23 +32,26 @@ export class MusicPlayerComponent {
     public volumeRange: number = 1;
     public maxVolume: number = 10;
     public minVolume: number = 0;
-    public audioFileList: any = [];
+    // public audioFileList: any = [];
     public totalDuration: string = '0:00:00';
     public activeSpeed: string = 'x1';
 
     public mediaList: mediaFile[] = [];
     public sortedMediaList: mediaFile[];
     public isSongInitialized: boolean = false;
+    public activeRow: any;
 
     constructor(private waveService: Wave, private comonService: ComonService) {
-        // this.comonService.musicSrc.subscribe(mediaFileList => {
-        //     this.audioFileList = mediaFileList;
-        //     if (mediaFileList.length !== 0) {
-        //         this.initAudio(mediaFileList[0]);
-        //     } else {
-        //         this.onStop();
-        //     }
-        // });
+        this.comonService.musicSrc.subscribe(mediaFileList => {
+            this.mediaList = mediaFileList;
+            this.sortedMediaList = this.mediaList.slice();
+            if (mediaFileList.length !== 0) {
+                // this.initAudio(mediaFileList[0]);
+                this.songSelected(mediaFileList[0]);
+            } else {
+                this.onStop();
+            }
+        });
         // let mediaTrackList = {};
         // mediaTrackList['trackId'] = 0;
         // mediaTrackList['src'] = this.audioSrc + 'file_example_MP3_700KB.mp3';
@@ -71,45 +63,45 @@ export class MusicPlayerComponent {
 
         this.initAudio({});
 
-        this.mediaList = [
-            {
-                trackId: 0,
-                mediaType: 'audio',
-                mediaTitle: 'Symphony 1 - Postrol',
-                mediaSubTitle: 'Baron Gottfried van Swieten',
-                description: '',
-                src: this.audioSrc + 'file_example_MP3_700KB.mp3',
-                posterSrc: 'mp3poster3.jpeg',
-                posterTitle: '',
-                time: '35 min',
-                publish: '1 Aug, 2019'
-            },
-            {
-                trackId: 1,
-                mediaType: 'audio',
-                mediaTitle: 'Symphony 2 - Postrol',
-                mediaSubTitle: 'Baron Gottfried van Swieten',
-                description: '',
-                src: this.audioSrc + 'SampleAudio_0.4mb.mp3',
-                posterSrc: '',
-                posterTitle: '',
-                time: '35 min',
-                publish: '1 Aug, 2019'
-            },
-            {
-                trackId: 2,
-                mediaType: 'audio',
-                mediaTitle: 'Symphony 3 - Postrol',
-                mediaSubTitle: 'Track 01',
-                description: 'Baron Gottfried van Swieten',
-                src: this.audioSrc + 'SampleAudio_0.7mb.mp3',
-                posterSrc: '',
-                posterTitle: '',
-                time: '35 min',
-                publish: '1 Aug, 2019'
-            }
-        ];
-        this.sortedMediaList = this.mediaList.slice();
+        // this.mediaList = [
+        //     {
+        //         trackId: 0,
+        //         mediaType: 'audio',
+        //         mediaTitle: 'Symphony 1 - Postrol',
+        //         mediaSubTitle: 'Baron Gottfried van Swieten',
+        //         description: '',
+        //         src: this.audioSrc + 'file_example_MP3_700KB.mp3',
+        //         posterSrc: 'mp3poster3.jpeg',
+        //         posterTitle: '',
+        //         time: '35 min',
+        //         publish: '1 Aug, 2019'
+        //     },
+        //     {
+        //         trackId: 1,
+        //         mediaType: 'audio',
+        //         mediaTitle: 'Symphony 2 - Postrol',
+        //         mediaSubTitle: 'Baron Gottfried van Swieten',
+        //         description: '',
+        //         src: this.audioSrc + 'SampleAudio_0.4mb.mp3',
+        //         posterSrc: '',
+        //         posterTitle: '',
+        //         time: '35 min',
+        //         publish: '1 Aug, 2019'
+        //     },
+        //     {
+        //         trackId: 2,
+        //         mediaType: 'audio',
+        //         mediaTitle: 'Symphony 3 - Postrol',
+        //         mediaSubTitle: 'Track 01',
+        //         description: 'Baron Gottfried van Swieten',
+        //         src: this.audioSrc + 'SampleAudio_0.7mb.mp3',
+        //         posterSrc: '',
+        //         posterTitle: '',
+        //         time: '35 min',
+        //         publish: '1 Aug, 2019'
+        //     }
+        // ];
+        // this.sortedMediaList = this.mediaList.slice();
     }
 
 
@@ -122,9 +114,9 @@ export class MusicPlayerComponent {
         this.fileDetails.description = currentTrack.description;
         this.fileDetails.posterSrc = currentTrack.posterSrc;
 
-        let index = this.audioFileList.findIndex(x => x.trackId === this.fileDetails.trackId);
+        let index = this.mediaList.findIndex(x => x.trackId === this.fileDetails.trackId);
         //set next song available to be play
-        if ((index + 1) < (this.audioFileList.length)) {
+        if ((index + 1) < (this.mediaList.length)) {
             this.isNextAvailable = true;
         } else {
             this.isNextAvailable = false;
@@ -148,11 +140,17 @@ export class MusicPlayerComponent {
         // this.waveService.fromElement(this.advAudio, "wave", VisualizerModel.bars);
     }
 
+    // public onRemoveFile(index: any) {
+    //     let i = this.mediaList.findIndex(x => x.trackId === index);
+    //     this.mediaList.splice(i, 1);
+    // }
+
     public songSelected(songToBePlay: mediaFile) {
         this.onStop();
         this.initAudio(songToBePlay);
         this.onPlay();
         this.isSongInitialized = true;
+        this.activeRow = songToBePlay.trackId;
     }
 
     public sortMediaData(sort: Sort) {
@@ -208,18 +206,18 @@ export class MusicPlayerComponent {
     }
 
     public onPrevious() {
-        let index = this.audioFileList.findIndex(x => x.trackId === this.fileDetails.trackId);
+        let index = this.mediaList.findIndex(x => x.trackId === this.fileDetails.trackId);
         if (this.isPreviousAvailable) {
-            let songToBePlay = this.audioFileList[(index - 1)];
+            let songToBePlay = this.mediaList[(index - 1)];
             this.onStop();
             this.initAudio(songToBePlay);
             this.onPlay();
         }
     }
     public onNext() {
-        let index = this.audioFileList.findIndex(x => x.trackId === this.fileDetails.trackId);
+        let index = this.mediaList.findIndex(x => x.trackId === this.fileDetails.trackId);
         if (this.isNextAvailable) {
-            let songToBePlay = this.audioFileList[(index + 1)];
+            let songToBePlay = this.mediaList[(index + 1)];
             this.onStop();
             this.initAudio(songToBePlay);
             this.onPlay();

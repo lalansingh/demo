@@ -109,6 +109,83 @@
         }
       }
     }
+    .track-list-sec {
+      min-height: 50px;
+      border-radius: 10px;
+      border: 1px solid #c4c4c4;
+      position: relative;
+      margin-top: 10px;
+      .poster-sec {
+        height: 95px;
+        border: 1px solid #e0e0e0;
+        border-radius: 10px;
+        margin: 10px;
+        display: inline-flex;
+        width: 97%;
+        .details {
+          display: inline-flex;
+          width: 90%;
+          .image {
+            height: 75px;
+            width: 75px;
+            border-radius: 5px;
+            background: #848484;
+            background-size: cover;
+            margin: 10px;
+            cursor: pointer;
+            .material-icons {
+              margin-top: 24px;
+              margin-left: 25px;
+            }
+          }
+          .edit {
+            margin: 10px;
+            a {
+              text-decoration: none;
+              font-size: 12px;
+              color: #3597ec;
+              cursor: pointer;
+            }
+          }
+          .song-title-details {
+            display: inline-grid;
+            margin: 10px;
+            .track {
+              font-size: 15px;
+              color: #5f5f5f;
+              .file-text {
+                font-size: 20px;
+                color: #3597ec;
+              }
+            }
+            .artist {
+              font-size: 15px;
+              color: #5f5f5f;
+            }
+            .file-name {
+              font-size: 13px;
+              color: #5f5f5f;
+            }
+          }
+        }
+        .time {
+          padding: 20px 0px 0px 0px;
+          display: inline-grid;
+          .duration {
+            font-size: 20px;
+            color: #8b8b8b;
+          }
+          .delete {
+            a {
+              text-decoration: none;
+              font-size: 12px;
+              color: #3597ec;
+              cursor: pointer;
+            }
+          }
+        }
+      }
+    }
   }
   .display-inline {
     display: inline-flex;

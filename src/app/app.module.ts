@@ -3,7 +3,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import {
   MatSidenavModule, MatToolbarModule, MatIconModule, MatListModule, MatButtonModule,
   MatCardModule, MatInputModule, MatAutocompleteModule,
-  MatTooltipModule, MatMenuModule, MatSlideToggleModule, MatSortModule
+  MatTooltipModule, MatMenuModule, MatSlideToggleModule, MatSortModule, MatTabsModule
 } from '@angular/material';
 import { NgModule } from '@angular/core';
 import { RouterModule } from '@angular/router';
@@ -69,6 +69,7 @@ import { PodcastSettingsLayoutComponent } from './studio/podcast/podcast-setting
 import { PodcastSettingComponent } from './studio/podcast/podcast-setting/podcast-setting.component';
 import { UploadPodcastComponent } from './studio/podcast/upload-podcast/upload-podcast.component';
 import { MusicPlayerComponent } from './features/music-player/music-player.component';
+import { UpNextComponent } from './features/music-player/up-next/up-next.component';
 
 @NgModule({
   declarations: [
@@ -127,8 +128,8 @@ import { MusicPlayerComponent } from './features/music-player/music-player.compo
     PodcastSettingsLayoutComponent,
     PodcastSettingComponent,
     UploadPodcastComponent,
-    MusicPlayerComponent
-
+    MusicPlayerComponent,
+    UpNextComponent
   ],
   imports: [
     BrowserModule,
@@ -149,6 +150,7 @@ import { MusicPlayerComponent } from './features/music-player/music-player.compo
     MatMenuModule,
     MatSlideToggleModule,
     MatSortModule,
+    MatTabsModule,
     RouterModule.forRoot(routes, { useHash: true })
   ],
   exports: [MatListModule],

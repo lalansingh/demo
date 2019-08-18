@@ -16,11 +16,12 @@
             <span>Start Uploading and Publishing your Music with the World</span>
         </div>
     </div>
+
     <div class="music-secion space-sec-b-scroll" [style.height.px]="screenHeight - 236">
+        <music-player [showFileList]="showFileList" [hidden]="lastMusic === null"></music-player>
         <input type='file' #fileEvent (change)="onSelectFile($event)" multiple style="display:none">
-        <div class="music" appDragDrop (onFileDropped)="onFileDropped($event)">
-            <audio-player [hidden]="lastMusic === null"></audio-player>
-            <div class="drag-drop" *ngIf="lastMusic === null">
+        <div class="music" appDragDrop (onFileDropped)="onFileDropped($event)" *ngIf="lastMusic === null">
+            <div class="drag-drop">
                 <div>
                     <i class="material-icons" (click)="addMore()">audiotrack</i>
                 </div>
@@ -28,6 +29,31 @@
                     <label>
                         Upload or Drag & Drop your Music Files
                     </label>
+                </div>
+            </div>
+        </div>
+        <div class="track-list-sec" *ngIf="mediaFileList.length !== 0">
+            <div class="poster-sec" *ngFor="let media of mediaFileList">
+                <div class="details">
+                    <div class="image" (click)="playSelectedSong(media.trackId)"
+                        [style.background-image]="'url(../../../assets/music/poster/'+media.posterSrc+')'"
+                        [style.background.repeat]="'no-repeat'">
+                        <i class="material-icons">audiotrack</i>
+                    </div>
+                    <div class="song-title-details">
+                        <span class="track">Track Name:<span class="file-text">{{media.mediaTitle}}</span></span>
+                        <span class="artist">Artsist Name: {{media.mediaSubTitle}}</span>
+                        <span class="file-name">Uploaded Filename: {{media.description}}</span>
+                    </div>
+                    <div class="edit"><a href="javascript:void()">Edit</a></div>
+                </div>
+                <div class="time">
+                    <span class="duration">
+                        4:19
+                    </span>
+                    <span class="delete">
+                        <a href="javascript:void()" (click)="onRemoveFile(media.trackId)">delete</a>
+                    </span>
                 </div>
             </div>
         </div>

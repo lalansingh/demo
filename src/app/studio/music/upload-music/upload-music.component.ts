@@ -1,5 +1,6 @@
 import { Component, ViewEncapsulation, HostListener, Inject, ElementRef, ViewChild, Input } from '@angular/core';
 import { ComonService } from 'src/app/common/services/comon-service';
+import { mediaFile } from 'src/app/features/media-file';
 
 @Component({
     selector: 'upload-music',
@@ -11,9 +12,10 @@ export class UploadMusicComponent {
 
     @ViewChild('fileEvent', { static: false })
     private fileEvent: ElementRef;
-    private mediaFileList = [];
+    private mediaFileList: mediaFile[] = [];
     private lastMusic: any = null;
     private color = '3597ec';
+    public showFileList: boolean = false;
     @Input()
     private checked = false;
     private disabled = false;
@@ -40,13 +42,25 @@ export class UploadMusicComponent {
                 var reader = new FileReader();
 
                 reader.onload = (event: any) => {
-                    let mediaTrackList = {};
-                    mediaTrackList['trackId'] = i;
-                    mediaTrackList['src'] = event.target.result;
-                    mediaTrackList['mediaTitle'] = '';
-                    mediaTrackList['posterSrc'] = 'mp3poster3.jpeg';
-                    mediaTrackList['posterTitle'] = '';
-                    mediaTrackList['description'] = '';
+                    let mediaTrackList: mediaFile = {
+                        trackId: i,
+                        mediaType: 'audio',
+                        mediaTitle: 'Symphony 3 - Postrol',
+                        mediaSubTitle: 'Track 01',
+                        description: 'Baron Gottfried van Swieten',
+                        src: event.target.result,
+                        posterSrc: '',
+                        posterTitle: '',
+                        time: '35 min',
+                        publish: '1 Aug, 2019'
+                    }
+
+                    // mediaTrackList['trackId'] = i;
+                    // mediaTrackList['src'] = event.target.result;
+                    // mediaTrackList['mediaTitle'] = '';
+                    // mediaTrackList['posterSrc'] = 'mp3poster3.jpeg';
+                    // mediaTrackList['posterTitle'] = '';
+                    // mediaTrackList['description'] = '';
                     this.mediaFileList.push(mediaTrackList);
                     --fileCount;
                     if (fileCount === 0) {
@@ -67,7 +81,7 @@ export class UploadMusicComponent {
     }
     private setLastMusic() {
         if (this.mediaFileList.length !== 0) {
-            this.lastMusic = this.mediaFileList[this.mediaFileList.length - 1].file;
+            this.lastMusic = this.mediaFileList[this.mediaFileList.length - 1].src;
         } else {
             this.lastMusic = null;
         }
@@ -78,5 +92,12 @@ export class UploadMusicComponent {
 
     private setPhotoUploadFlag() {
         this.comonService.uploaded(this.mediaFileList.length === 0 ? false : true);
+    }
+
+    public playSelectedSong(index: any) {
+        let i = this.mediaFileList.findIndex(x => x.trackId === index);
+        let selectedSong: any[] = [];
+        selectedSong.push(this.mediaFileList[i]);
+        this.comonService.musicUploaded(selectedSong);
     }
 }

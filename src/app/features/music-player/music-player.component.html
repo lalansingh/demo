@@ -84,47 +84,54 @@
                         </div>
                         <div class="speed" (click)="setSpeed(2,'x2')" [ngClass]="{'active':'x2'=== activeSpeed}">2x
                         </div>
-                        <div class="list-icon"> <i class="material-icons">menu</i></div>
+                        <div *ngIf="showFileList" class="list-icon" (click)="menuClicked = !menuClicked"> <i
+                                class="material-icons">menu</i>
+                        </div>
                     </div>
                 </div>
             </div>
         </div>
-
     </div>
-    <div class="bottom-menu">
+    <div class="bottom-menu" *ngIf="menuClicked">
         <div class="more-details-menu">
-            <mat-nav-list>
-                <a mat-list-item class="active">Up&nbsp;Next</a>
-                <a mat-list-item>Recommended</a>
-                <a mat-list-item>More&nbsp;By&nbsp;@Bettoven</a>
-                <a mat-list-item>Download</a>
-                <a mat-list-item>Library</a>
-                <a mat-list-item>History</a>
-            </mat-nav-list>
+            <mat-tab-group animationDuration="0ms">
+                <mat-tab label="Up Next">
+                    <div class="up-next">
+                        <table matSort (matSortChange)="sortMediaData($event)">
+                            <tr>
+                                <th mat-header-cell mat-sort-header="title">Title</th>
+                                <th mat-header-cell mat-sort-header="time">Time</th>
+                                <th mat-header-cell mat-sort-header="publish">Publish</th>
+                                <!-- <th mat-header-cell mat-sort-header="publish">Action</th> -->
+                            </tr>
+                            <tr *ngFor="let media of sortedMediaList" (click)="songSelected(media)"
+                                [ngClass]="{'active':media.trackId === activeRow}">
+                                <td>
+                                    <div class="title-image">
+                                        <div class="image"
+                                            [style.background-image]="'url(../../../assets/music/poster/'+media.posterSrc+')'"
+                                            [style.background.repeat]="'no-repeat'">
+                                        </div>
+                                        <div class="title-details">
+                                            <span class="track-title">{{media.mediaTitle}}</span>
+                                            <span class="track-sub-title">{{media.mediaSubTitle}}</span>
+                                        </div>
+                                    </div>
+                                </td>
+                                <td>{{media.time}}</td>
+                                <td>{{media.publish}}</td>
+                                <!-- <td><i class="material-icons" (click)="onRemoveFile(media.trackId)"> delete </i></td> -->
+                            </tr>
+                        </table>
+                    </div>
+                </mat-tab>
+                <mat-tab label="Recommended">Content 2</mat-tab>
+                <mat-tab label="More By @Bettoven">Content 3</mat-tab>
+                <mat-tab label="Download">Content 3</mat-tab>
+                <mat-tab label="Library">Content 3</mat-tab>
+                <mat-tab label="History">Content 3</mat-tab>
+            </mat-tab-group>
         </div>
     </div>
-    <div class="up-next">
-        <table matSort (matSortChange)="sortMediaData($event)">
-            <tr>
-                <th mat-header-cell mat-sort-header="title">Title</th>
-                <th mat-header-cell mat-sort-header="time">Time</th>
-                <th mat-header-cell mat-sort-header="publish">Publish</th>
-            </tr>
-            <tr *ngFor="let media of sortedMediaList" (click)="songSelected(media)">
-                <td>
-                    <div class="title-image">
-                        <div class="image">
 
-                        </div>
-                        <div class="title-details">
-                            <span class="track-title">{{media.mediaTitle}}</span>
-                            <span class="track-sub-title">{{media.mediaSubTitle}}</span>
-                        </div>
-                    </div>
-                </td>
-                <td>{{media.time}}</td>
-                <td>{{media.publish}}</td>
-            </tr>
-        </table>
-    </div>
 </div>

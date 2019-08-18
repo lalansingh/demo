@@ -1,3 +1,16 @@
+export interface mediaFile {
+    trackId: number;
+    mediaType: string;
+    mediaTitle: string;
+    mediaSubTitle: string;
+    src: string;
+    posterSrc: string;
+    posterTitle: string;
+    description: string;
+    time: string;
+    publish: string;
+}
+
 export const AudioFiles = [
     {
         trackId: 0,

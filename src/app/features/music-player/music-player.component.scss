@@ -4,7 +4,7 @@
   border: 1px solid #d1d1d1;
   opacity: 1;
   // height: 150px;
-  margin: 10px;
+  // margin: 10px;
   .tag-header {
     height: 20px;
     display: inline-flex;
@@ -56,9 +56,9 @@
     display: inline-flex;
     width: 100%;
     .poster {
-      width: 100px;
+      width: 15%;
       height: 100px;
-      background:#d7d2d2;
+      background: #d7d2d2;
       border-radius: 5px;
       opacity: 1;
       background-size: cover;
@@ -80,11 +80,12 @@
       }
     }
     .controls {
-      width: 85%;
+      width: 82%;
       margin-left: 4px;
       .song-details {
         display: inline-grid;
         padding-left: 6px;
+        height: 46px;
         .title {
           text-align: left;
           font-size: 15px;
@@ -386,6 +387,7 @@
               }
             }
             .list-icon {
+              cursor: pointer;
               .material-icons {
                 font-size: 18px;
                 color: #848484;
@@ -465,44 +467,55 @@
     // height: 31px;
     border-top: 1px solid #d1d1d1;
     .more-details-menu {
-      .mat-nav-list {
-        margin-top: 0px;
-        display: flex;
-        flex-direction: row;
-        border-bottom: 1px solid #e0e0e0;
-        a.mat-list-item {
-          height: 25px;
-          &.active {
-            color: var(--text-active-color);
-            margin-bottom: -3px;
-            .mat-list-item-content {
-              color: var(--text-active-color);
-            }
-          }
-          &:hover {
-            color: var(--text-active-color);
-            margin-bottom: -3px;
-            .mat-list-item-content {
-              color: var(--text-active-color);
-            }
-          }
-          .mat-list-item-content {
-            justify-content: center;
-            color: #909090;
-            // font-weight: bold;
-            font-size: 18px;
-          }
-        }
+      .mat-tab-label-active {
+        color: #2196f3;
       }
-      .mat-list-base {
-        padding-top: 0px !important;
+      .mat-tab-label {
+        height: 25px;
+        min-width: 50px;
       }
+      .mat-ink-bar {
+        background: none;
+      }
+     
+      // .mat-nav-list {
+      //   margin-top: 0px;
+      //   display: flex;
+      //   flex-direction: row;
+      //   border-bottom: 1px solid #e0e0e0;
+      //   a.mat-list-item {
+      //     height: 25px;
+      //     &.active {
+      //       color: var(--text-active-color);
+      //       margin-bottom: -3px;
+      //       .mat-list-item-content {
+      //         color: var(--text-active-color);
+      //       }
+      //     }
+      //     &:hover {
+      //       color: var(--text-active-color);
+      //       margin-bottom: -3px;
+      //       .mat-list-item-content {
+      //         color: var(--text-active-color);
+      //       }
+      //     }
+      //     .mat-list-item-content {
+      //       justify-content: center;
+      //       color: #909090;
+      //       // font-weight: bold;
+      //       font-size: 18px;
+      //     }
+      //   }
+      // }
+      // .mat-list-base {
+      //   padding-top: 0px !important;
+      // }
     }
   }
   //up-next
   .up-next {
-    border: 1px solid #d1d1d1;
-    margin: -1px;
+    // border: 1px solid #d1d1d1;
+    // margin: -1px;
     padding: 10px;
     .mat-sort-header-container {
       align-items: center;
@@ -513,8 +526,11 @@
       border-collapse: collapse;
       border-style: hidden;
       tr:hover {
-        background:#95989a;
+        background: #d7d2d2;
         cursor: pointer;
+      }
+      tr.active {
+        background: #d7d2d2;
       }
       td {
         border-top: 1px solid #848484;
@@ -528,6 +544,7 @@
           width: 50px;
           border-radius: 5px;
           background: #848484;
+          background-size: cover;
         }
         .title-details {
           display: inline-grid;

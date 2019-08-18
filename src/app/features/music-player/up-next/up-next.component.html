@@ -1,0 +1,26 @@
+<div class="up-next">
+    <table matSort (matSortChange)="sortMediaData($event)">
+        <tr>
+            <th mat-header-cell mat-sort-header="title">Title</th>
+            <th mat-header-cell mat-sort-header="time">Time</th>
+            <th mat-header-cell mat-sort-header="publish">Publish</th>
+        </tr>
+        <tr *ngFor="let media of sortedMediaList" (click)="songSelected(media)"
+            [ngClass]="{'active':media.trackId === activeRow}">
+            <td>
+                <div class="title-image">
+                    <div class="image"
+                        [style.background-image]="'url(../../../assets/music/poster/'+media.posterSrc+')'"
+                        [style.background.repeat]="'no-repeat'">
+                    </div>
+                    <div class="title-details">
+                        <span class="track-title">{{media.mediaTitle}}</span>
+                        <span class="track-sub-title">{{media.mediaSubTitle}}</span>
+                    </div>
+                </div>
+            </td>
+            <td>{{media.time}}</td>
+            <td>{{media.publish}}</td>
+        </tr>
+    </table>
+</div>
