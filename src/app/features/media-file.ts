@@ -9,6 +9,7 @@ export interface mediaFile {
     description: string;
     time: string;
     publish: string;
+    duration: string;
 }
 
 export const AudioFiles = [

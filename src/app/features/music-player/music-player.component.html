@@ -77,15 +77,22 @@
                                 <span class="slider round"></span>
                             </label>
                         </div>
-                        <div class="speed" (click)="setSpeed(0.5,'x05')" [ngClass]="{'active':'x05'=== activeSpeed}">
-                            0.5x
-                        </div>
-                        <div class="speed" (click)="setSpeed(1,'x1')" [ngClass]="{'active':'x1'=== activeSpeed}">1x
-                        </div>
-                        <div class="speed" (click)="setSpeed(2,'x2')" [ngClass]="{'active':'x2'=== activeSpeed}">2x
-                        </div>
-                        <div *ngIf="showFileList" class="list-icon" (click)="menuClicked = !menuClicked"> <i
-                                class="material-icons">menu</i>
+                        <div class="speed-sec">1x
+                            <div class="flip-speed-sec">
+                                <div class="speed" (click)="setSpeed(0.5,'x05')"
+                                    [ngClass]="{'active':'x05'=== activeSpeed}">
+                                    0.5x
+                                </div>
+                                <div class="speed" (click)="setSpeed(1,'x1')"
+                                    [ngClass]="{'active':'x1'=== activeSpeed}">1x
+                                </div>
+                                <div class="speed" (click)="setSpeed(2,'x2')"
+                                    [ngClass]="{'active':'x2'=== activeSpeed}">2x
+                                </div>
+                                <div *ngIf="showFileList" class="list-icon" (click)="menuClicked = !menuClicked"> <i
+                                        class="material-icons">menu</i>
+                                </div>
+                            </div>
                         </div>
                     </div>
                 </div>

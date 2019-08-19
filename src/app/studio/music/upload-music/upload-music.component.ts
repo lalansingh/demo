@@ -20,6 +20,8 @@ export class UploadMusicComponent {
     private checked = false;
     private disabled = false;
     public screenHeight: string;
+    public totalFile: number;
+
     constructor(private comonService: ComonService) {
         this.screenHeight = localStorage.getItem('windowHeight');
     }
@@ -34,38 +36,50 @@ export class UploadMusicComponent {
         this.fileUpload(event.target.files);
     }
 
+    private getTotalDuration(sec: any): string {
+        let h = Math.floor(sec / 3600);
+        sec = sec % 3600;
+
+        let min = Math.floor(sec / 60).toString();
+        sec = Math.floor(sec % 60).toString();
+
+        if (sec.toString().length < 2) { sec = "0" + sec };
+        if (min.toString().length < 2) { min = "0" + min };
+
+        return h + ":" + min + ":" + sec;
+    }
+
     private fileUpload(files: any) {
         let fileCount: number = 0;
         if (files && files[0]) {
-            var filesAmount = files.length;
-            for (let i = 0; i < filesAmount; i++) {
+            this.totalFile = files.length;
+            for (let i = 0; i < this.totalFile; i++) {
                 var reader = new FileReader();
 
                 reader.onload = (event: any) => {
-                    let mediaTrackList: mediaFile = {
-                        trackId: i,
-                        mediaType: 'audio',
-                        mediaTitle: 'Symphony 3 - Postrol',
-                        mediaSubTitle: 'Track 01',
-                        description: 'Baron Gottfried van Swieten',
-                        src: event.target.result,
-                        posterSrc: '',
-                        posterTitle: '',
-                        time: '35 min',
-                        publish: '1 Aug, 2019'
-                    }
+                    let advAudio = new Audio(event.target.result);
+                    setTimeout(() => {
+                        let duration = this.getTotalDuration(advAudio.duration);
+                        let mediaTrackList: mediaFile = {
+                            trackId: i,
+                            mediaType: 'audio',
+                            mediaTitle: 'Symphony 3 - Postrol',
+                            mediaSubTitle: 'Track 01',
+                            description: 'Baron Gottfried van Swieten',
+                            src: event.target.result,
+                            posterSrc: '',
+                            posterTitle: '',
+                            time: '35 min',
+                            publish: '1 Aug, 2019',
+                            duration: duration
+                        }
 
-                    // mediaTrackList['trackId'] = i;
-                    // mediaTrackList['src'] = event.target.result;
-                    // mediaTrackList['mediaTitle'] = '';
-                    // mediaTrackList['posterSrc'] = 'mp3poster3.jpeg';
-                    // mediaTrackList['posterTitle'] = '';
-                    // mediaTrackList['description'] = '';
-                    this.mediaFileList.push(mediaTrackList);
-                    --fileCount;
-                    if (fileCount === 0) {
-                        this.setLastMusic();
-                    }
+                        this.mediaFileList.push(mediaTrackList);
+                        --fileCount;
+                        if (fileCount === 0) {
+                            this.setLastMusic();
+                        }
+                    }, 100);
                 }
 
                 reader.readAsDataURL(files[i]);
@@ -75,8 +89,14 @@ export class UploadMusicComponent {
     }
 
     public onRemoveFile(index: any) {
-        let i = this.mediaFileList.findIndex(x => x.trackId === index);
-        this.mediaFileList.splice(i, 1);
+        if (index !== null && index !== undefined) {
+            let i = this.mediaFileList.findIndex(x => x.trackId === index);
+            this.mediaFileList.splice(i, 1);
+        } else {
+            for (let i = 0; i < this.mediaFileList.length;) {
+                this.mediaFileList.splice(i, 1);
+            }
+        }
         this.setLastMusic();
     }
     private setLastMusic() {
@@ -88,7 +108,6 @@ export class UploadMusicComponent {
         this.setPhotoUploadFlag();
         this.comonService.musicUploaded(this.mediaFileList);
     }
-
 
     private setPhotoUploadFlag() {
         this.comonService.uploaded(this.mediaFileList.length === 0 ? false : true);

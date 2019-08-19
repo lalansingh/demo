@@ -225,9 +225,11 @@ export class MusicPlayerComponent {
     }
     public onPlay() {
         this.advAudio.play();
-        this.maxDuration = this.advAudio.duration;
-        this.getTotalDuration(this.maxDuration);
         this.isPlayed = true;
+        setTimeout(() => {
+            this.maxDuration = this.advAudio.duration;
+            this.getTotalDuration(this.advAudio.duration);
+        }, 100);
     }
     private getTotalDuration(sec: any) {
         let h = Math.floor(sec / 3600);

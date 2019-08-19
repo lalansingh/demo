@@ -224,7 +224,7 @@
         display: inline-flex;
         width: 100%;
         .play-pause {
-          width: 53%;
+          width: 65%;
           text-align: left;
           display: inline-flex;
           span {
@@ -360,7 +360,7 @@
         }
         .track-list {
           text-align: right;
-          width: 47%;
+          width: 35%;
           .track {
             display: inline-flex;
             div {
@@ -369,22 +369,6 @@
             .on-off {
               font-size: 12px;
               color: #848484;
-            }
-            .speed {
-              border: 1px solid #848484;
-              height: 15px;
-              width: 25px;
-              background: #fff;
-              color: #848484;
-              font-size: 10px;
-              font-weight: bold;
-              border-radius: 4px;
-              text-align: center;
-              cursor: pointer;
-              &.active {
-                color: #1592e6;
-                font-weight: bold;
-              }
             }
             .list-icon {
               cursor: pointer;
@@ -477,7 +461,7 @@
       .mat-ink-bar {
         background: none;
       }
-     
+
       // .mat-nav-list {
       //   margin-top: 0px;
       //   display: flex;
@@ -552,5 +536,51 @@
         }
       }
     }
+  }
+}
+.flip-speed-sec {
+  display: none;
+  position: absolute;
+  background: #c1b9b9;
+  margin-left: -9px !important;
+  width: 45px;
+  z-index: 1;
+  margin-top: 2px;
+  border-radius: 10px;
+  padding-bottom: 10px;
+  border: 1px solid #818181;
+  .speed {
+    border: 1px solid #848484;
+    height: 15px;
+    width: 25px;
+    background: #fff;
+    color: #848484;
+    font-size: 10px;
+    font-weight: bold;
+    border-radius: 4px;
+    text-align: center;
+    margin-top: 10px;
+    cursor: pointer;
+    &.active {
+      color: #1592e6;
+      font-weight: bold;
+    }
+  }
+}
+.speed-sec {
+  border: 1px solid #848484;
+  height: 15px;
+  width: 25px;
+  background: #fff;
+  color: #848484;
+  font-size: 10px;
+  font-weight: bold;
+  border-radius: 4px;
+  text-align: center;
+  cursor: pointer;
+}
+.speed-sec:hover {
+  .flip-speed-sec {
+    display: block;
   }
 }

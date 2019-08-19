@@ -49,7 +49,7 @@
                 </div>
                 <div class="time">
                     <span class="duration">
-                        4:19
+                        {{media.duration}}
                     </span>
                     <span class="delete">
                         <a href="javascript:void()" (click)="onRemoveFile(media.trackId)">delete</a>
@@ -59,10 +59,10 @@
         </div>
         <div class="music-preview" *ngIf="lastMusic !== null">
             <div class="left">
-                <a href="javascript:void()">File Successfully uploaded.</a>
+                <a href="javascript:void()">{{totalFile}} File Successfully uploaded.</a>
             </div>
             <div class="right">
-                <a href="javascript:void()" (click)="onRemoveFile(0)">Delete</a>
+                <a href="javascript:void()" (click)="onRemoveFile()">Delete</a>
             </div>
         </div>
         <div class="content display-inline">
