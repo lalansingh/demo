@@ -34,7 +34,7 @@ export class MusicPlayerComponent {
     public minVolume: number = 0;
     // public audioFileList: any = [];
     public totalDuration: string = '0:00:00';
-    public activeSpeed: string = 'x1';
+    public activeSpeed: string = '1x';
 
     public mediaList: mediaFile[] = [];
     public sortedMediaList: mediaFile[];
