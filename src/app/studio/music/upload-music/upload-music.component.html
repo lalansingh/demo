@@ -9,8 +9,8 @@
                     <mat-icon>expand_more</mat-icon>
                 </button>
             </div>
-            <button mat-raised-button>Save</button>
-            <button mat-raised-button>Publish</button>
+            <button class="btn-save" mat-raised-button>Save</button>
+            <button class="btn-publish" mat-raised-button>Publish</button>
         </div>
         <div class="music-title" *ngIf="mediaFileList.length === 0">
             <span>Start Uploading and Publishing your Music with the World</span>
@@ -66,10 +66,10 @@
             </div>
         </div>
         <div class="content display-inline">
-            <fieldset>
+            <fieldset class="music-url">
                 <legend>Music URL</legend>
             </fieldset>
-            <fieldset>
+            <fieldset class="file-name">
                 <legend>File Name</legend>
             </fieldset>
         </div>
@@ -80,36 +80,36 @@
         </div>
 
         <div class="content display-inline">
-            <fieldset>
+            <fieldset class="title">
                 <legend>Title</legend>
             </fieldset>
-            <fieldset>
+            <fieldset class="playlist">
                 <legend>Music Playlist</legend>
             </fieldset>
         </div>
         <div class="content display-inline">
-            <fieldset>
+            <fieldset class="artist">
                 <legend>Artist Name</legend>
             </fieldset>
-            <fieldset>
+            <fieldset class="type">
                 <legend>Typle</legend>
             </fieldset>
         </div>
         <div class="content">
-            <fieldset>
+            <fieldset class="description">
                 <legend>Description</legend>
             </fieldset>
         </div>
         <div class="content display-inline">
-            <fieldset>
+            <fieldset class="genre">
                 <legend>Genre</legend>
             </fieldset>
-            <fieldset>
+            <fieldset class="language">
                 <legend>Language</legend>
             </fieldset>
         </div>
         <div class="content">
-            <fieldset>
+            <fieldset class="writers">
                 <legend>Writers</legend>
             </fieldset>
         </div>
