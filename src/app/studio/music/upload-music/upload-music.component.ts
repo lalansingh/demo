@@ -60,6 +60,8 @@ export class UploadMusicComponent {
                     let advAudio = new Audio(event.target.result);
                     setTimeout(() => {
                         let duration = this.getTotalDuration(advAudio.duration);
+                        advAudio.pause();
+                        advAudio.currentTime = 0;
                         let mediaTrackList: mediaFile = {
                             trackId: i,
                             mediaType: 'audio',
