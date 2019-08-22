@@ -21,6 +21,7 @@ export class UploadMusicComponent {
     private disabled = false;
     public screenHeight: string;
     public totalFile: number;
+    public likeIcon: boolean = false;
 
     constructor(private comonService: ComonService) {
         this.screenHeight = localStorage.getItem('windowHeight');

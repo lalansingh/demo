@@ -21,6 +21,8 @@ export class MusicPlayerComponent {
     public audioSrc = '..//..//..//assets/music/';
     @Input()
     public showFileList: boolean = false;
+    @Input()
+    public likeIcon: boolean = true;
     // public W: Wave;
     public canvas: any;
     public canvHeight = 100;
@@ -47,7 +49,8 @@ export class MusicPlayerComponent {
             this.sortedMediaList = this.mediaList.slice();
             if (mediaFileList.length !== 0) {
                 // this.initAudio(mediaFileList[0]);
-                this.songSelected(mediaFileList[0]);
+                // this.songSelected(mediaFileList[0]);
+                this.songLoad(mediaFileList[0]);
             } else {
                 this.onStop();
             }
@@ -61,7 +64,7 @@ export class MusicPlayerComponent {
         // mediaTrackList['description'] = '';
         // this.audioFileList.push(mediaTrackList);
 
-        this.initAudio({});
+       
 
         // this.mediaList = [
         //     {
@@ -137,6 +140,7 @@ export class MusicPlayerComponent {
     }
 
     ngAfterViewInit() {
+        this.initAudio({});
         // this.waveService.fromElement(this.advAudio, "wave", VisualizerModel.bars);
     }
 
@@ -149,6 +153,13 @@ export class MusicPlayerComponent {
         this.onStop();
         this.initAudio(songToBePlay);
         this.onPlay();
+        this.isSongInitialized = true;
+        this.activeRow = songToBePlay.trackId;
+    }
+
+    public songLoad(songToBePlay: mediaFile) {
+        this.onStop();
+        this.initAudio(songToBePlay);
         this.isSongInitialized = true;
         this.activeRow = songToBePlay.trackId;
     }

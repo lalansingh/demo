@@ -57,7 +57,7 @@
     width: 100%;
     padding-top: 5px;
     .poster {
-      width: 15%;
+      width: 100px;
       height: 100px;
       background: #d7d2d2;
       border-radius: 5px;
@@ -81,7 +81,7 @@
       }
     }
     .controls {
-      width: 82%;
+      width: 80%;
       margin-left: 4px;
       .song-details {
         display: inline-grid;
@@ -225,7 +225,7 @@
         display: inline-flex;
         width: 100%;
         .play-pause {
-          width: 65%;
+          width: 52%;
           text-align: left;
           display: inline-flex;
           span {
@@ -361,7 +361,7 @@
         }
         .track-list {
           text-align: right;
-          width: 35%;
+          width: 48%;
           .track {
             display: inline-flex;
             div {
@@ -458,6 +458,7 @@
       .mat-tab-label {
         height: 25px;
         min-width: 50px;
+        padding: 0 15px !important;
       }
       .mat-ink-bar {
         background: none;

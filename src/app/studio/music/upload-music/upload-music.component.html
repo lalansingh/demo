@@ -18,7 +18,7 @@
     </div>
 
     <div class="music-secion space-sec-b-scroll" [style.height.px]="screenHeight - 236">
-        <music-player [showFileList]="showFileList" [hidden]="lastMusic === null"></music-player>
+        <music-player [showFileList]="showFileList" [likeIcon]="likeIcon" [hidden]="lastMusic === null"></music-player>
         <input type='file' #fileEvent (change)="onSelectFile($event)" multiple style="display:none">
         <div class="music" appDragDrop (onFileDropped)="onFileDropped($event)" *ngIf="lastMusic === null">
             <div class="drag-drop">
