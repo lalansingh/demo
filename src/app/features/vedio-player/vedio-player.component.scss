@@ -86,27 +86,35 @@
           height: 100%;
           border-radius: 6px;
           transition: all 0.1s;
+          margin-top: -8px;
         }
-        .seek {
-          height: 15px;
-          // background: #726c6c;
-          padding: 0px;
-          .material-icons {
-            position: absolute;
-            left: 80px;
-            margin-top: -4px;
-            color: #fff;
-            cursor: pointer;
-          }
-          span {
-            margin-top: -36px;
-            position: absolute;
-            font-size: 12px;
-            margin-left: 7px;
-            color: #fff;
-            font-weight: bold;
-          }
+        .progress-buffer{
+          background: azure;
+          width: 0%;
+          height: 100%;
+          border-radius: 6px;
+          transition: all 0.1s;
         }
+        // .seek {
+        //   height: 15px;
+        //   // background: #726c6c;
+        //   padding: 0px;
+        //   .material-icons {
+        //     position: absolute;
+        //     left: 80px;
+        //     margin-top: -4px;
+        //     color: #fff;
+        //     cursor: pointer;
+        //   }
+        //   span {
+        //     margin-top: -36px;
+        //     position: absolute;
+        //     font-size: 12px;
+        //     margin-left: 7px;
+        //     color: #fff;
+        //     font-weight: bold;
+        //   }
+        // }
         .player-layout {
           min-height: 10px;
           background: #7b6d6d6e;
@@ -167,138 +175,138 @@
   }
 }
 
-.seek {
-  // excess height to improve interactive area / accessibility
-  $height: 30px;
-  $thumb-height: 13px;
-  $track-height: 3px;
+// .seek {
+//   // excess height to improve interactive area / accessibility
+//   $height: 30px;
+//   $thumb-height: 13px;
+//   $track-height: 3px;
 
-  // colours
-  $upper-color: #cfcfcf;
-  $lower-color: #0199ff;
-  $thumb-color: #0199ff;
-  $thumb-hover-color: #55c2ff;
+//   // colours
+//   $upper-color: #cfcfcf;
+//   $lower-color: #0199ff;
+//   $thumb-color: #0199ff;
+//   $thumb-hover-color: #55c2ff;
 
-  $upper-background: linear-gradient(to bottom, $upper-color, $upper-color) 100% 50% / 100% $track-height no-repeat
-    transparent;
-  $lower-background: linear-gradient(to bottom, $lower-color, $lower-color) 100% 50% / 100% $track-height no-repeat
-    transparent;
+//   $upper-background: linear-gradient(to bottom, $upper-color, $upper-color) 100% 50% / 100% $track-height no-repeat
+//     transparent;
+//   $lower-background: linear-gradient(to bottom, $lower-color, $lower-color) 100% 50% / 100% $track-height no-repeat
+//     transparent;
 
-  // Webkit cannot style progress so we fake it with a long shadow
-  // on the thumb element
-  @function webkit-slider-thumb-shadow($i: 1) {
-    $val: #{$i}px 0 0 -#{($thumb-height - $track-height) / 2} #{$upper-color};
-    @if $i == 1 {
-      @for $k from 2 through 1000 {
-        $val: #{$val}, webkit-slider-thumb-shadow($k);
-      }
-    }
-    @return $val;
-  }
-  .e-range {
-    display: block;
-    appearance: none;
-    width: 100%;
-    margin: 0;
-    height: $height;
-    overflow: hidden;
-    cursor: pointer;
-    background: none;
+//   // Webkit cannot style progress so we fake it with a long shadow
+//   // on the thumb element
+//   @function webkit-slider-thumb-shadow($i: 1) {
+//     $val: #{$i}px 0 0 -#{($thumb-height - $track-height) / 2} #{$upper-color};
+//     @if $i == 1 {
+//       @for $k from 2 through 1000 {
+//         $val: #{$val}, webkit-slider-thumb-shadow($k);
+//       }
+//     }
+//     @return $val;
+//   }
+//   .e-range {
+//     display: block;
+//     appearance: none;
+//     width: 100%;
+//     margin: 0;
+//     height: $height;
+//     overflow: hidden;
+//     cursor: pointer;
+//     background: none;
 
-    &:focus {
-      outline: none;
-    }
-  }
+//     &:focus {
+//       outline: none;
+//     }
+//   }
 
-  // Webkit
-  .e-range::-webkit-slider-runnable-track {
-    width: 100%;
-    height: $height;
-    background: $lower-background;
-  }
+//   // Webkit
+//   .e-range::-webkit-slider-runnable-track {
+//     width: 100%;
+//     height: $height;
+//     background: $lower-background;
+//   }
 
-  .e-range::-webkit-slider-thumb {
-    position: relative;
-    appearance: none;
-    height: $thumb-height;
-    width: $thumb-height;
-    background: $thumb-color;
-    border-radius: 100%;
-    border: 0;
-    top: 50%;
-    margin-top: (-$thumb-height/2);
-    box-shadow: webkit-slider-thumb-shadow();
-    transition: background-color 150ms;
-  }
+//   .e-range::-webkit-slider-thumb {
+//     position: relative;
+//     appearance: none;
+//     height: $thumb-height;
+//     width: $thumb-height;
+//     background: $thumb-color;
+//     border-radius: 100%;
+//     border: 0;
+//     top: 50%;
+//     margin-top: (-$thumb-height/2);
+//     box-shadow: webkit-slider-thumb-shadow();
+//     transition: background-color 150ms;
+//   }
 
-  // Firefox
-  .e-range::-moz-range-track,
-  .e-range::-moz-range-progress {
-    width: 100%;
-    height: $height;
-    background: $upper-background;
-  }
+//   // Firefox
+//   .e-range::-moz-range-track,
+//   .e-range::-moz-range-progress {
+//     width: 100%;
+//     height: $height;
+//     background: $upper-background;
+//   }
 
-  .e-range::-moz-range-progress {
-    background: $lower-background;
-  }
+//   .e-range::-moz-range-progress {
+//     background: $lower-background;
+//   }
 
-  .e-range::-moz-range-thumb {
-    appearance: none;
-    margin: 0;
-    height: $thumb-height;
-    width: $thumb-height;
-    background: $thumb-color;
-    border-radius: 100%;
-    border: 0;
-    transition: background-color 150ms;
-  }
+//   .e-range::-moz-range-thumb {
+//     appearance: none;
+//     margin: 0;
+//     height: $thumb-height;
+//     width: $thumb-height;
+//     background: $thumb-color;
+//     border-radius: 100%;
+//     border: 0;
+//     transition: background-color 150ms;
+//   }
 
-  // Internet Exploder
-  .e-range::-ms-track {
-    width: 100%;
-    height: $height;
-    border: 0;
-    // color needed to hide track marks
-    color: transparent;
-    background: transparent;
-  }
+//   // Internet Exploder
+//   .e-range::-ms-track {
+//     width: 100%;
+//     height: $height;
+//     border: 0;
+//     // color needed to hide track marks
+//     color: transparent;
+//     background: transparent;
+//   }
 
-  .e-range::-ms-fill-lower {
-    background: $lower-background;
-  }
+//   .e-range::-ms-fill-lower {
+//     background: $lower-background;
+//   }
 
-  .e-range::-ms-fill-upper {
-    background: $upper-background;
-  }
+//   .e-range::-ms-fill-upper {
+//     background: $upper-background;
+//   }
 
-  .e-range::-ms-thumb {
-    appearance: none;
-    height: $thumb-height;
-    width: $thumb-height;
-    background: $thumb-color;
-    border-radius: 100%;
-    border: 0;
-    transition: background-color 150ms;
-    // IE Edge thinks it can support -webkit prefixes
-    top: 0;
-    margin: 0;
-    box-shadow: none;
-  }
+//   .e-range::-ms-thumb {
+//     appearance: none;
+//     height: $thumb-height;
+//     width: $thumb-height;
+//     background: $thumb-color;
+//     border-radius: 100%;
+//     border: 0;
+//     transition: background-color 150ms;
+//     // IE Edge thinks it can support -webkit prefixes
+//     top: 0;
+//     margin: 0;
+//     box-shadow: none;
+//   }
 
-  .e-range:hover,
-  .e-range:focus {
-    &::-webkit-slider-thumb {
-      background-color: $thumb-hover-color;
-    }
-    &::-moz-range-thumb {
-      background-color: $thumb-hover-color;
-    }
-    &::-ms-thumb {
-      background-color: $thumb-hover-color;
-    }
-  }
-}
+//   .e-range:hover,
+//   .e-range:focus {
+//     &::-webkit-slider-thumb {
+//       background-color: $thumb-hover-color;
+//     }
+//     &::-moz-range-thumb {
+//       background-color: $thumb-hover-color;
+//     }
+//     &::-ms-thumb {
+//       background-color: $thumb-hover-color;
+//     }
+//   }
+// }
 
 .control-section4 {
   input[type="range"] {

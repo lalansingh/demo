@@ -72,7 +72,7 @@ export class UploadVideoComponent {
             this.lastVideo = null;
         }
         this.setPhotoUploadFlag();
-        this.comonService.musicUploaded(this.mediaFileList);
+        this.comonService.videoUploaded(this.mediaFileList);
     }
 
 

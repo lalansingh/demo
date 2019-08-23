@@ -13,6 +13,8 @@ export class ComonService {
   public photoUploaded: EventEmitter<boolean> = new EventEmitter();
   @Output()
   public musicSrc: EventEmitter<any> = new EventEmitter();
+  @Output()
+  public videoSrc: EventEmitter<any> = new EventEmitter();
 
   constructor() {
   }
@@ -33,5 +35,9 @@ export class ComonService {
 
   public musicUploaded(src: any) {
     this.musicSrc.emit(src);
+  }
+
+  public videoUploaded(src: any) {
+    this.videoSrc.emit(src);
   }
 }

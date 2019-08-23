@@ -40,16 +40,18 @@ export class VedioPlayerComponent {
     public isfullScreen: boolean = false;
     @Input()
     public hideShowControl: boolean = false;
+    public bufferBarWidth: number = 0;
 
     constructor(private comonService: ComonService) {
 
     }
 
     ngAfterViewInit() {
-        this.comonService.musicSrc.subscribe(videoFileList => {
+        this.comonService.videoSrc.subscribe(videoFileList => {
             this.videoFileList = videoFileList;
             if (videoFileList.length !== 0) {
                 this.initAudio(videoFileList[0]);
+                // this.startBuffer();
             } else {
                 this.onStop();
             }
@@ -81,6 +83,7 @@ export class VedioPlayerComponent {
         this.video.id = 'video';
         this.video.src = this.fileDetails.url;
         this.video.addEventListener('timeupdate', this.getLapsTime.bind(this));
+        this.video.addEventListener('loadedmetadata', this.startBuffer);
         // this.video.addEventListener('fullscreenchange', this.onExitScap, false);
         this.videoSection.nativeElement.addEventListener('mouseenter', this.mouseenter);
         this.videoSection.nativeElement.addEventListener('mouseleave', this.mouseleave);
@@ -176,6 +179,22 @@ export class VedioPlayerComponent {
         this.video.currentTime = newTime * this.video.duration;
         this.progressBarTime = newTime * 100;
     }
+    public startBuffer = () => {
+        var currentBuffer = this.video.buffered.end(0);
+        var maxduration = this.video.duration;
+        var perc = 100 * currentBuffer / maxduration;
+        this.bufferBarWidth = perc;
+
+        // if (currentBuffer < maxduration) {
+        //     setTimeout(this.startBuffer, 500);
+        // }
+        if (this.video.buffered.length === 0) return;
+
+        // this.bufferBarWidth = this.video.buffered.end(0) - this.video.buffered.start(0);
+        if (currentBuffer < maxduration) {
+            setTimeout(this.startBuffer, 500);
+        }
+    };
     public onForward() {
         this.video.currentTime += 2;
     }
