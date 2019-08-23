@@ -41,6 +41,7 @@ export class VedioPlayerComponent {
     @Input()
     public hideShowControl: boolean = false;
     public bufferBarWidth: number = 0;
+    public activeSpeed: string = '1x';
 
     constructor(private comonService: ComonService) {
 
@@ -197,6 +198,10 @@ export class VedioPlayerComponent {
     };
     public onForward() {
         this.video.currentTime += 2;
+    }
+    public setSpeed(sp: any, active: string) {
+        this.video.playbackRate = sp;
+        this.activeSpeed = active;
     }
 
     public toggleFullscreen() {
