@@ -16,6 +16,9 @@
                 <div class='progress' (click)="setProgress($event)" #progressSlider>
                     <div class='progress-buffer' [style.width.%]="bufferBarWidth"></div>
                     <div class='progress-filled' [style.width.%]="progressBarTime"></div>
+                    <div class='progress-circle'>
+                        <span [style.margin-left.%]="progressBarTime"></span>
+                    </div>
                     <span>{{lapsTime}}</span>
                 </div>
                 <div class="player-layout">

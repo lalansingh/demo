@@ -15,6 +15,9 @@ export class VedioPlayerComponent {
     @ViewChild('videoSection', { static: false })
     public videoSection: ElementRef;
 
+    @ViewChild('progressCircle', { static: false })
+    public progressCircle: ElementRef;
+
     @ViewChild('progressSlider', { static: false })
     public progressSlider: ElementRef;
     public progressBarTime: number = 0;
@@ -42,12 +45,16 @@ export class VedioPlayerComponent {
     public hideShowControl: boolean = false;
     public bufferBarWidth: number = 0;
     public activeSpeed: string = '1x';
+    public progressBar: number = 0;
 
     constructor(private comonService: ComonService) {
 
     }
 
     ngAfterViewInit() {
+        // this.progressCircle.nativeElement.draggable({
+        //     containment: 'parent'
+        // });
         this.comonService.videoSrc.subscribe(videoFileList => {
             this.videoFileList = videoFileList;
             if (videoFileList.length !== 0) {
@@ -60,7 +67,7 @@ export class VedioPlayerComponent {
     }
 
     private initAudio(currentTrack: any) {
-
+        this.progressBar = 0;
         this.fileDetails.trackId = currentTrack.trackId;
         this.fileDetails.url = currentTrack.src;
         this.fileDetails.mediaTitle = currentTrack.mediaTitle;
@@ -139,6 +146,7 @@ export class VedioPlayerComponent {
         this.video.pause();
         this.video.currentTime = 0;
         this.isPlayed = false;
+        this.progressBar = 0;
     }
     public onMoreControl() {
         if (this.isMoreControl) {
@@ -148,6 +156,7 @@ export class VedioPlayerComponent {
         }
     }
     public onPlay() {
+        this.progressBar = 1;
         this.video.play();
         this.maxDuration = this.video.duration;
         this.isPlayed = true;
