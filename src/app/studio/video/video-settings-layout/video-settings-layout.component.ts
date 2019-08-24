@@ -10,7 +10,7 @@ import { ComonService } from 'src/app/common/services/comon-service';
 export class VideoSettingsLayoutComponent {
     public isPhotoUploaded: boolean = false;
     constructor(private comonService: ComonService) {
-        this.comonService.photoUploaded.subscribe(res => {
+        this.comonService.changeLayout.subscribe(res => {
             this.isPhotoUploaded = res;
         });
     }

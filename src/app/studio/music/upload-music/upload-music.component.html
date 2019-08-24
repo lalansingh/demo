@@ -18,9 +18,21 @@
     </div>
 
     <div class="music-secion space-sec-b-scroll" [style.height.px]="screenHeight - 236">
-        <music-player [showFileList]="showFileList" [likeIcon]="likeIcon" [hidden]="lastMusic === null"></music-player>
+        <div class="music-player" *ngIf="mediaFileList.length === 1">
+            <div class="player user-select-none">
+                <div class="canvas">
+                    <canvas id="wave" [style.height.px]="canvHeight" [style.width.px]="canvWidth"
+                        style="border-radius:10px;"></canvas>
+                    <span class="canvas-play-pause">
+                        <i class="material-icons" id="play" *ngIf="!isPlayed" (click)="onPlay()">play_circle_outline</i>
+                        <i class="material-icons" id="pause" *ngIf="isPlayed"
+                            (click)="onPause()">pause_circle_outline</i>
+                    </span>
+                </div>
+            </div>
+        </div>
         <input type='file' #fileEvent (change)="onSelectFile($event)" multiple style="display:none">
-        <div class="music" appDragDrop (onFileDropped)="onFileDropped($event)" *ngIf="lastMusic === null">
+        <div class="music" appDragDrop (onFileDropped)="onFileDropped($event)" *ngIf="mediaFileList.length === 0">
             <div class="drag-drop">
                 <div>
                     <i class="material-icons" (click)="addMore()">audiotrack</i>
@@ -32,7 +44,7 @@
                 </div>
             </div>
         </div>
-        <div class="track-list-sec" *ngIf="mediaFileList.length !== 0">
+        <div class="track-list-sec" *ngIf="mediaFileList.length > 1">
             <div class="poster-sec" *ngFor="let media of mediaFileList">
                 <div class="details">
                     <div class="image" (click)="playSelectedSong(media.trackId)"
@@ -57,7 +69,7 @@
                 </div>
             </div>
         </div>
-        <div class="music-preview" *ngIf="lastMusic !== null">
+        <div class="music-preview" *ngIf="mediaFileList.length !== 0">
             <div class="left">
                 <a href="javascript:void()">{{totalFile}} File Successfully uploaded.</a>
             </div>

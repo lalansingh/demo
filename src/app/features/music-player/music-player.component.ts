@@ -1,6 +1,6 @@
 import { Wave } from "../wave";
 import { ComonService } from "src/app/common/services/comon-service";
-import { Component, ViewEncapsulation, Input } from "@angular/core";
+import { Component, ViewEncapsulation, Input, OnDestroy } from "@angular/core";
 import { VisualizerModel, mediaFile } from "../media-file";
 import { Sort } from "@angular/material/sort";
 
@@ -10,7 +10,7 @@ import { Sort } from "@angular/material/sort";
     styleUrls: ['./music-player.component.scss'],
     encapsulation: ViewEncapsulation.None
 })
-export class MusicPlayerComponent {
+export class MusicPlayerComponent implements OnDestroy {
     public advAudio: any;
     public currentTime: number = 0;
     public maxDuration: number = 0;
@@ -28,9 +28,9 @@ export class MusicPlayerComponent {
     public canvHeight = 100;
     public canvWidth = 100;
     public fileDetails: any = {};
-    public isNextAvailable: boolean = false;
-    public isPreviousAvailable: boolean = false;
-    public isMute: boolean = false;
+    public isNextAvailable: boolean;
+    public isPreviousAvailable: boolean;
+    public isMute: boolean;
     public volumeRange: number = 1;
     public maxVolume: number = 10;
     public minVolume: number = 0;
@@ -40,10 +40,15 @@ export class MusicPlayerComponent {
 
     public mediaList: mediaFile[] = [];
     public sortedMediaList: mediaFile[];
-    public isSongInitialized: boolean = false;
+    public isSongInitialized: boolean;
     public activeRow: any;
 
     constructor(private waveService: Wave, private comonService: ComonService) {
+        this.isNextAvailable = false;
+        this.isPreviousAvailable = false;
+        this.isMute = false;
+        this.isSongInitialized = false;
+
         this.comonService.musicSrc.subscribe(mediaFileList => {
             this.mediaList = mediaFileList;
             this.sortedMediaList = this.mediaList.slice();
@@ -52,7 +57,7 @@ export class MusicPlayerComponent {
                 // this.songSelected(mediaFileList[0]);
                 this.songLoad(mediaFileList[0]);
             } else {
-                this.onStop();
+                this.clearAudioPlayer();
             }
         });
         // let mediaTrackList = {};
@@ -64,7 +69,7 @@ export class MusicPlayerComponent {
         // mediaTrackList['description'] = '';
         // this.audioFileList.push(mediaTrackList);
 
-       
+
 
         // this.mediaList = [
         //     {
@@ -143,7 +148,9 @@ export class MusicPlayerComponent {
         this.initAudio({});
         // this.waveService.fromElement(this.advAudio, "wave", VisualizerModel.bars);
     }
-
+    ngOnDestroy() {
+        this.waveService.stopStream();
+    }
     // public onRemoveFile(index: any) {
     //     let i = this.mediaList.findIndex(x => x.trackId === index);
     //     this.mediaList.splice(i, 1);
@@ -258,6 +265,13 @@ export class MusicPlayerComponent {
         this.isPlayed = false;
         this.advAudio.pause();
     }
+
+    public clearAudioPlayer() {
+        this.advAudio = new Audio();
+        this.isPlayed = false;
+        this.waveService.stopStream();
+    }
+
     public onStop() {
         this.advAudio.pause();
         this.advAudio.currentTime = 0;

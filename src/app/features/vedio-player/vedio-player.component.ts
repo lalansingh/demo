@@ -54,7 +54,7 @@ export class VedioPlayerComponent {
                 this.initAudio(videoFileList[0]);
                 // this.startBuffer();
             } else {
-                this.onStop();
+                this.clearPlayer();
             }
         });
     }
@@ -84,7 +84,8 @@ export class VedioPlayerComponent {
         this.video.id = 'video';
         this.video.src = this.fileDetails.url;
         this.video.addEventListener('timeupdate', this.getLapsTime.bind(this));
-        this.video.addEventListener('loadedmetadata', this.startBuffer);
+        // this.video.addEventListener('loadedmetadata', this.startBuffer);
+        this.video.addEventListener('canplaythrough', this.startBuffer);
         // this.video.addEventListener('fullscreenchange', this.onExitScap, false);
         this.videoSection.nativeElement.addEventListener('mouseenter', this.mouseenter);
         this.videoSection.nativeElement.addEventListener('mouseleave', this.mouseleave);
@@ -128,6 +129,10 @@ export class VedioPlayerComponent {
         if (this.video.duration === this.currentTime) {
             this.onStop();
         }
+    }
+    public clearPlayer() {
+        this.video = this.videoElement.nativeElement;
+        this.isPlayed = false;
     }
 
     public onStop() {

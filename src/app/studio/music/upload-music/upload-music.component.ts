@@ -1,6 +1,7 @@
 import { Component, ViewEncapsulation, HostListener, Inject, ElementRef, ViewChild, Input } from '@angular/core';
 import { ComonService } from 'src/app/common/services/comon-service';
-import { mediaFile } from 'src/app/features/media-file';
+import { mediaFile, VisualizerModel } from 'src/app/features/media-file';
+import { Wave } from 'src/app/features/wave';
 
 @Component({
     selector: 'upload-music',
@@ -13,17 +14,23 @@ export class UploadMusicComponent {
     @ViewChild('fileEvent', { static: false })
     private fileEvent: ElementRef;
     private mediaFileList: mediaFile[] = [];
-    private lastMusic: any = null;
     private color = '3597ec';
-    public showFileList: boolean = false;
     @Input()
     private checked = false;
     private disabled = false;
     public screenHeight: string;
     public totalFile: number;
     public likeIcon: boolean = false;
+    public singleAudio: any;
+    public currentTime: number = 0;
+    public maxDuration: number = 0;
+    public minDuration: number = 0;
+    public isPlayed: boolean = false;
+    public canvas: any;
+    public canvHeight = 247;
+    public canvWidth = 700;
 
-    constructor(private comonService: ComonService) {
+    constructor(private comonService: ComonService, private waveService: Wave) {
         this.screenHeight = localStorage.getItem('windowHeight');
     }
 
@@ -80,7 +87,7 @@ export class UploadMusicComponent {
                         this.mediaFileList.push(mediaTrackList);
                         --fileCount;
                         if (fileCount === 0) {
-                            this.setLastMusic();
+                            this.loadMusic();
                         }
                     }, 100);
                 }
@@ -100,26 +107,51 @@ export class UploadMusicComponent {
                 this.mediaFileList.splice(i, 1);
             }
         }
-        this.setLastMusic();
+        this.waveService.stopStream();
+        this.onStop();
+        this.loadMusic();
     }
-    private setLastMusic() {
-        if (this.mediaFileList.length !== 0) {
-            this.lastMusic = this.mediaFileList[this.mediaFileList.length - 1].src;
+    private loadMusic() {
+        if (this.mediaFileList.length === 0) {
+            this.initAudio('');
         } else {
-            this.lastMusic = null;
+            this.initAudio(this.mediaFileList[0].src)
         }
-        this.setPhotoUploadFlag();
-        this.comonService.musicUploaded(this.mediaFileList);
-    }
-
-    private setPhotoUploadFlag() {
-        this.comonService.uploaded(this.mediaFileList.length === 0 ? false : true);
+        this.comonService.setLayout(this.mediaFileList.length === 0 ? false : true);
     }
 
     public playSelectedSong(index: any) {
+        this.onStop();
         let i = this.mediaFileList.findIndex(x => x.trackId === index);
-        let selectedSong: any[] = [];
-        selectedSong.push(this.mediaFileList[i]);
-        this.comonService.musicUploaded(selectedSong);
+        this.initAudio(this.mediaFileList[i].src);
+        this.onPlay();
+    }
+
+    public onPlay() {
+        this.singleAudio.play();
+        this.maxDuration = this.singleAudio.duration;
+        this.isPlayed = true;
+    }
+    public onPause() {
+        this.isPlayed = false;
+        this.singleAudio.pause();
+    }
+    public clearSingleAudio() {
+        this.singleAudio = new Audio();
+        this.isPlayed = false;
+    }
+    public onStop() {
+        this.singleAudio.pause();
+        this.singleAudio.currentTime = 0;
+        this.isPlayed = false;
+    }
+
+    private initAudio(src: any) {
+        this.singleAudio = new Audio();
+        this.singleAudio.id = 'audio';
+        this.singleAudio.src = src;
+        // this.singleAudio.addEventListener('timeupdate', this.getLapsTime.bind(this));
+        this.waveService = new Wave();
+        this.waveService.fromElement(this.singleAudio, "wave", VisualizerModel.dualbars_blocks);
     }
 }

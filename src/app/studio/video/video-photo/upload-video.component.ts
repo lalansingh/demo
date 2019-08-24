@@ -42,7 +42,7 @@ export class UploadVideoComponent {
                 reader.onload = (event: any) => {
                     let mediaTrackList = {};
                     mediaTrackList['trackId'] = i;
-                    mediaTrackList['src'] = event.target.result;
+                    mediaTrackList['src'] = 'http://clips.vorwaerts-gmbh.de/big_buck_bunny.mp4';//event.target.result;
                     mediaTrackList['mediaTitle'] = '';
                     mediaTrackList['posterSrc'] = 'mp3poster3.jpeg';
                     mediaTrackList['posterTitle'] = '';
@@ -71,12 +71,12 @@ export class UploadVideoComponent {
         } else {
             this.lastVideo = null;
         }
-        this.setPhotoUploadFlag();
+        this.setLayoutFlag();
         this.comonService.videoUploaded(this.mediaFileList);
     }
 
 
-    private setPhotoUploadFlag() {
-        this.comonService.uploaded(this.mediaFileList.length === 0 ? false : true);
+    private setLayoutFlag() {
+        this.comonService.setLayout(this.mediaFileList.length === 0 ? false : true);
     }
 }

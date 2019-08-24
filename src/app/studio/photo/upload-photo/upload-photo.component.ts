@@ -74,7 +74,7 @@ export class UploadPhotoComponent {
         } else {
             this.lastPhoto = null;
         }
-        this.setPhotoUploadFlag();
+        this.setLayoutFlag();
     }
     public removePreviewPhoto() {
         this.lastPhoto = null;
@@ -86,7 +86,7 @@ export class UploadPhotoComponent {
     public uploadFile(file: any) {
         this.fileUpload(file);
     }
-    private setPhotoUploadFlag() {
-        this.comonService.uploaded(this.urls.length === 0 ? false : true);
+    private setLayoutFlag() {
+        this.comonService.setLayout(this.urls.length === 0 ? false : true);
     }
 }

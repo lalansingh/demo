@@ -53,7 +53,6 @@ import { DragDropDirective } from './common/directives/drag-drop/drag-drop.direc
 import { AllMediaComponent } from './studio/all-media/all-media.component';
 import { StudioHomeComponent } from './studio/studio-home/studio-home.component';
 import { StudioGuidlineComponent } from './studio/studio-guidline/studio-guidline.component';
-import { AudioPlayerComponent } from './features/audio-player/audio-player.component';
 import { Wave } from './features/wave';
 import { VedioPlayerComponent } from './features/vedio-player/vedio-player.component';
 import { ImageSettingsLayoutComponent } from './studio/photo/image-settings-layout/image-settings-layout.component';
@@ -114,7 +113,6 @@ import { UpNextComponent } from './features/music-player/up-next/up-next.compone
     AllMediaComponent,
     StudioHomeComponent,
     StudioGuidlineComponent,
-    AudioPlayerComponent,
     VedioPlayerComponent,
     ImageSettingsLayoutComponent,
     PhotoSettingComponent,

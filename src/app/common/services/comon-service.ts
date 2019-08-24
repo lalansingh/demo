@@ -10,11 +10,13 @@ export class ComonService {
   @Output()
   public getWindowHeight: EventEmitter<number> = new EventEmitter();
   @Output()
-  public photoUploaded: EventEmitter<boolean> = new EventEmitter();
+  public changeLayout: EventEmitter<boolean> = new EventEmitter();
   @Output()
   public musicSrc: EventEmitter<any> = new EventEmitter();
   @Output()
   public videoSrc: EventEmitter<any> = new EventEmitter();
+  @Output()
+  public singleAudio: EventEmitter<any> = new EventEmitter();
 
   constructor() {
   }
@@ -29,14 +31,17 @@ export class ComonService {
   public setWindowHeight(height: number) {
     this.getWindowHeight.emit(height);
   }
-  public uploaded(isUploaded: boolean) {
-    this.photoUploaded.emit(isUploaded);
+  public setLayout(isUploaded: boolean) {
+    this.changeLayout.emit(isUploaded);
   }
 
   public musicUploaded(src: any) {
     this.musicSrc.emit(src);
   }
 
+  public singleAudioPlay(src: any) {
+    this.singleAudio.emit(src);
+  }
   public videoUploaded(src: any) {
     this.videoSrc.emit(src);
   }
