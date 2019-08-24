@@ -19,7 +19,6 @@ export class UploadMusicComponent {
     private checked = false;
     private disabled = false;
     public screenHeight: string;
-    public totalFile: number;
     public likeIcon: boolean = false;
     public singleAudio: any;
     public currentTime: number = 0;
@@ -29,6 +28,7 @@ export class UploadMusicComponent {
     public canvas: any;
     public canvHeight = 247;
     public canvWidth = 700;
+    public selectedTrackId: any;
 
     constructor(private comonService: ComonService, private waveService: Wave) {
         this.screenHeight = localStorage.getItem('windowHeight');
@@ -60,8 +60,7 @@ export class UploadMusicComponent {
     private fileUpload(files: any) {
         let fileCount: number = 0;
         if (files && files[0]) {
-            this.totalFile = files.length;
-            for (let i = 0; i < this.totalFile; i++) {
+            for (let i = 0; i < files.length; i++) {
                 var reader = new FileReader();
 
                 reader.onload = (event: any) => {
@@ -121,10 +120,19 @@ export class UploadMusicComponent {
     }
 
     public playSelectedSong(index: any) {
-        this.onStop();
-        let i = this.mediaFileList.findIndex(x => x.trackId === index);
-        this.initAudio(this.mediaFileList[i].src);
-        this.onPlay();
+        if (index === this.selectedTrackId) {
+            if (this.isPlayed) {
+                this.onPause();
+            } else {
+                this.onPlay();
+            }
+        } else {
+            this.onStop();
+            let i = this.mediaFileList.findIndex(x => x.trackId === index);
+            this.initAudio(this.mediaFileList[i].src);
+            this.onPlay();
+            this.selectedTrackId = index;
+        }
     }
 
     public onPlay() {

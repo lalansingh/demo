@@ -50,7 +50,9 @@
                     <div class="image" (click)="playSelectedSong(media.trackId)"
                         [style.background-image]="'url(../../../assets/music/poster/'+media.posterSrc+')'"
                         [style.background.repeat]="'no-repeat'">
-                        <i class="material-icons">audiotrack</i>
+                        <i class="material-icons" *ngIf="media.trackId !== selectedTrackId">audiotrack</i>
+                        <i class="material-icons" id="play" *ngIf="!isPlayed && media.trackId === selectedTrackId">play_circle_outline</i>
+                        <i class="material-icons" id="pause" *ngIf="isPlayed && media.trackId === selectedTrackId">pause_circle_outline</i>
                     </div>
                     <div class="song-title-details">
                         <span class="track">Track Name:<span class="file-text">{{media.mediaTitle}}</span></span>
@@ -71,7 +73,7 @@
         </div>
         <div class="music-preview" *ngIf="mediaFileList.length !== 0">
             <div class="left">
-                <a href="javascript:void()">{{totalFile}} File Successfully uploaded.</a>
+                <a href="javascript:void()">{{mediaFileList.length}} File Successfully uploaded.</a>
             </div>
             <div class="right">
                 <a href="javascript:void()" (click)="onRemoveFile()">Delete</a>
