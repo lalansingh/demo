@@ -149,6 +149,7 @@ export class MusicPlayerComponent implements OnDestroy {
         // this.waveService.fromElement(this.advAudio, "wave", VisualizerModel.bars);
     }
     ngOnDestroy() {
+        this.onStop();
         this.waveService.stopStream();
     }
     // public onRemoveFile(index: any) {
