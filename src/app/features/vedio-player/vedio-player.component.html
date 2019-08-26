@@ -26,10 +26,8 @@
                         <mat-card-content>
                             <div class="back-slider"></div>
                             <div class="buffer" [style.width.%]="bufferBarWidth"></div>
-                            <mat-slider class="example-margin" [disabled]="disabled" (change)="onSkip($event)"
-                                [invert]="invert" [max]="maxDuration" [min]="minDuration" [step]="00.01"
-                                [thumbLabel]="thumbLabel" [tickInterval]="tickInterval" [(ngModel)]="currentTime"
-                                [vertical]="vertical">
+                            <mat-slider class="example-margin" (change)="onSkip($event)" [max]="maxDuration"
+                                [min]="minDuration" [step]="00.01" [thumbLabel]="thumbLabel" [(ngModel)]="currentTime">
                             </mat-slider>
                         </mat-card-content>
                     </mat-card>
@@ -97,47 +95,47 @@
                             </div>
                         </div>
                     </div>
-                    <!-- <div class="control-section">
-                        <div class="control-section1">
-                            <i class="material-icons" id="rewind" (click)="onRewind()">fast_rewind</i>
-                            <i class="material-icons"
-                                [ngClass]="{'icon-desabled':!isPreviousAvailable,'icon-active':isPreviousAvailable}"
-                                id="previous" (click)="onPrevious()">skip_previous</i>
-                        </div>
-
-                        <div class="control-section2">
-                            <i class="material-icons play-pause" id="play" *ngIf="!isPlayed"
-                                (click)="onPlay()">play_circle_outline</i>
-                            <i class="material-icons play-pause" id="pause" *ngIf="isPlayed"
-                                (click)="onPause()">pause_circle_outline</i>
-                        </div>
-                        <div class="control-section3">
-                            <i class="material-icons" id="stop" (click)="onStop()">stop</i>
-                            <i class="material-icons" id="next"
-                                [ngClass]="{'icon-desabled':!isNextAvailable,'icon-active':isNextAvailable}"
-                                (click)="onNext()">skip_next</i>
-                            <i class="material-icons" id="forward" (click)="onForward()">fast_forward</i>
-                        </div>
-                        <div class="control-section4">
-                            <div>
-                                <i *ngIf="!isMute" class="material-icons" (click)="onVolume()">volume_up</i>
-                                <i *ngIf="isMute" class="material-icons" (click)="onVolume()">volume_off</i>
-                            </div>
-                            <div>
-                                <input type="range" id="volumeRaise" (change)="onVolumeRaise($event)"
-                                    min="{{minVolume}}" max="{{maxVolume}}" step="1" />
-                                <span>{{volumeRange*10}}</span>
-                            </div>
-                            <div>
-                                <i class="material-icons full-screen" (click)="toggleFullscreen()"
-                                    *ngIf="!isfullScreen">fullscreen</i>
-                                <i class="material-icons full-screen" (click)="toggleFullscreen()"
-                                    *ngIf="isfullScreen">fullscreen_exit</i>
-                            </div>
-                        </div>
-                    </div> -->
                 </div>
             </div>
+        </div>
+    </div>
+    <div class="bottom-menu" *ngIf="menuClicked">
+        <div class="more-details-menu">
+            <mat-tab-group animationDuration="0ms">
+                <mat-tab label="Up Next">
+                    <div class="up-next">
+                        <table matSort (matSortChange)="sortMediaData($event)">
+                            <tr>
+                                <th mat-header-cell mat-sort-header="title">Title</th>
+                                <th mat-header-cell mat-sort-header="time">Time</th>
+                                <th mat-header-cell mat-sort-header="publish">Publish</th>
+                            </tr>
+                            <tr *ngFor="let media of sortedMediaList" (click)="songSelected(media)"
+                                [ngClass]="{'active':media.trackId === activeRow}">
+                                <td>
+                                    <div class="title-image">
+                                        <div class="image"
+                                            [style.background-image]="'url(../../../assets/music/poster/'+media.posterSrc+')'"
+                                            [style.background.repeat]="'no-repeat'">
+                                        </div>
+                                        <div class="title-details">
+                                            <span class="track-title">{{media.mediaTitle}}</span>
+                                            <span class="track-sub-title">{{media.mediaSubTitle}}</span>
+                                        </div>
+                                    </div>
+                                </td>
+                                <td>{{media.time}}</td>
+                                <td>{{media.publish}}</td>
+                            </tr>
+                        </table>
+                    </div>
+                </mat-tab>
+                <mat-tab label="Recommended">Content 2</mat-tab>
+                <mat-tab label="More By @Bettoven">Content 3</mat-tab>
+                <mat-tab label="Download">Content 3</mat-tab>
+                <mat-tab label="Library">Content 3</mat-tab>
+                <mat-tab label="History">Content 3</mat-tab>
+            </mat-tab-group>
         </div>
     </div>
 </div>

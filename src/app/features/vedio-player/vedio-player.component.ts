@@ -1,5 +1,7 @@
 import { Component, ViewEncapsulation, ViewChild, ElementRef, Input, HostListener } from "@angular/core";
 import { ComonService } from "src/app/common/services/comon-service";
+import { mediaFile } from "../media-file";
+import { Sort } from "@angular/material/sort";
 
 @Component({
     selector: 'video-player',
@@ -39,7 +41,7 @@ export class VedioPlayerComponent {
     public minVolume: number = 0;
     public videoFileList: any = [];
     public videoHeight: string = null;
-    public videoWidth: string = '700px';
+    public videoWidth: string = '563px';
     public isfullScreen: boolean = false;
     @Input()
     public hideShowControl: boolean = false;
@@ -47,20 +49,11 @@ export class VedioPlayerComponent {
     public activeSpeed: string = '1x';
     public progressBar: number = 0;
     public totalDuration: string = '00:00';
-
-    autoTicks = false;
-    disabled = false;
-    invert = false;
-    max = 100;
-    min = 0;
-    showTicks = false;
-    step = 1;
-    thumbLabel = true;
-    value = 0;
-    vertical = false;
+    public thumbLabel = true;
+    public sortedMediaList: mediaFile[];
+    public activeRow: any;
 
     constructor(private comonService: ComonService) {
-
     }
 
     ngAfterViewInit() {
@@ -69,8 +62,9 @@ export class VedioPlayerComponent {
         // });
         this.comonService.videoSrc.subscribe(videoFileList => {
             this.videoFileList = videoFileList;
+            this.sortedMediaList = this.videoFileList.slice();
             if (videoFileList.length !== 0) {
-                this.initAudio(videoFileList[0]);
+                this.initVideo(videoFileList[0]);
                 // this.startBuffer();
             } else {
                 this.clearPlayer();
@@ -93,7 +87,7 @@ export class VedioPlayerComponent {
         }
 
     }
-    private initAudio(currentTrack: any) {
+    private initVideo(currentTrack: any) {
         this.progressBar = 0;
         this.fileDetails.trackId = currentTrack.trackId;
         this.fileDetails.url = currentTrack.src;
@@ -205,7 +199,7 @@ export class VedioPlayerComponent {
         if (this.isPreviousAvailable) {
             let songToBePlay = this.videoFileList[(index - 1)];
             this.onStop();
-            this.initAudio(songToBePlay);
+            this.initVideo(songToBePlay);
             this.onPlay();
         }
     }
@@ -214,7 +208,7 @@ export class VedioPlayerComponent {
         if (this.isNextAvailable) {
             let songToBePlay = this.videoFileList[(index + 1)];
             this.onStop();
-            this.initAudio(songToBePlay);
+            this.initVideo(songToBePlay);
             this.onPlay();
         }
     }
@@ -275,12 +269,12 @@ export class VedioPlayerComponent {
         // this.videoSection.nativeElement.webkitExitFullscreen();
         this.isfullScreen = !this.isfullScreen;
         if (!this.isfullScreen) {
-            this.videoWidth = '700px';
+            this.videoWidth = '563px';
             this.videoHeight = '';
         }
     }
     public exitFullScreen() {
-        this.videoWidth = '700px';
+        this.videoWidth = '563px';
         this.videoHeight = '';
         document.exitFullscreen();
         // if(document.exitFullscreen) {
@@ -314,5 +308,33 @@ export class VedioPlayerComponent {
         } else {
             this.isMute = false;
         }
+    }
+
+    public songSelected(songToBePlay: mediaFile) {
+        this.onStop();
+        this.initVideo(songToBePlay);
+        this.onPlay();
+        this.activeRow = songToBePlay.trackId;
+    }
+
+    public sortMediaData(sort: Sort) {
+        const data = this.videoFileList.slice();
+        if (!sort.active || sort.direction === '') {
+            this.sortedMediaList = data;
+            return;
+        }
+
+        this.sortedMediaList = data.sort((a: any, b: any) => {
+            const isAsc = sort.direction === 'asc';
+            switch (sort.active) {
+                case 'title': return this.compare(a.mediaTitle, b.mediaTitle, isAsc);
+                case 'time': return this.compare(a.time, b.time, isAsc);
+                case 'publish': return this.compare(a.publish, b.publish, isAsc);
+                default: return 0;
+            }
+        });
+    }
+    private compare(a: number | string, b: number | string, isAsc: boolean) {
+        return (a < b ? -1 : 1) * (isAsc ? 1 : -1);
     }
 }
