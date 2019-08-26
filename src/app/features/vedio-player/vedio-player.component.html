@@ -13,13 +13,26 @@
                         min="{{minDuration}}" max="{{maxDuration}}" step="0.000001" />
                     <span>{{lapsTime}}</span>
                 </div> -->
-                <div class='progress' (click)="setProgress($event)" #progressSlider>
+                <!-- <div class='progress' (click)="setProgress($event)" #progressSlider>
                     <div class='progress-buffer' [style.width.%]="bufferBarWidth"></div>
                     <div class='progress-filled' [style.width.%]="progressBarTime"></div>
                     <div class='progress-circle'>
                         <span [style.margin-left.%]="progressBarTime"></span>
                     </div>
                     <span>{{lapsTime}}</span>
+                </div> -->
+                <div class="mat-slider-bar">
+                    <mat-card>
+                        <mat-card-content>
+                            <div class="back-slider"></div>
+                            <div class="buffer" [style.width.%]="bufferBarWidth"></div>
+                            <mat-slider class="example-margin" [disabled]="disabled" (change)="onSkip($event)"
+                                [invert]="invert" [max]="maxDuration" [min]="minDuration" [step]="0.000001"
+                                [thumbLabel]="thumbLabel" [tickInterval]="tickInterval" [(ngModel)]="currentTime"
+                                [vertical]="vertical">
+                            </mat-slider>
+                        </mat-card-content>
+                    </mat-card>
                 </div>
                 <div class="player-layout">
                     <div class="play-control">

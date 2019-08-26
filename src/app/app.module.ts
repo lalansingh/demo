@@ -3,7 +3,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import {
   MatSidenavModule, MatToolbarModule, MatIconModule, MatListModule, MatButtonModule,
   MatCardModule, MatInputModule, MatAutocompleteModule,
-  MatTooltipModule, MatMenuModule, MatSlideToggleModule, MatSortModule, MatTabsModule
+  MatTooltipModule, MatMenuModule, MatSlideToggleModule, MatSortModule, MatTabsModule, MatSliderModule
 } from '@angular/material';
 import { NgModule } from '@angular/core';
 import { RouterModule } from '@angular/router';
@@ -149,6 +149,7 @@ import { UpNextComponent } from './features/music-player/up-next/up-next.compone
     MatSlideToggleModule,
     MatSortModule,
     MatTabsModule,
+    MatSliderModule,
     RouterModule.forRoot(routes, { useHash: true })
   ],
   exports: [MatListModule],

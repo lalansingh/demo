@@ -23,7 +23,7 @@ export class VedioPlayerComponent {
     public progressBarTime: number = 0;
 
     public currentTime: number = 0;
-    public maxDuration: number = 0;
+    public maxDuration: number = 100;
     public minDuration: number = 0;
     public isPlayed: boolean = false;
     public lapsTime: string;
@@ -46,6 +46,18 @@ export class VedioPlayerComponent {
     public bufferBarWidth: number = 0;
     public activeSpeed: string = '1x';
     public progressBar: number = 0;
+
+
+    autoTicks = false;
+    disabled = false;
+    invert = false;
+    max = 100;
+    min = 0;
+    showTicks = false;
+    step = 1;
+    thumbLabel = false;
+    value = 0;
+    vertical = false;
 
     constructor(private comonService: ComonService) {
 
@@ -96,6 +108,7 @@ export class VedioPlayerComponent {
         // this.video.addEventListener('fullscreenchange', this.onExitScap, false);
         this.videoSection.nativeElement.addEventListener('mouseenter', this.mouseenter);
         this.videoSection.nativeElement.addEventListener('mouseleave', this.mouseleave);
+
     }
 
     public mouseenter = () => {
@@ -186,7 +199,7 @@ export class VedioPlayerComponent {
         }
     }
     public onSkip(evnt) {
-        this.video.currentTime = evnt.currentTarget.valueAsNumber;
+        this.video.currentTime = evnt.value; // evnt.currentTarget.valueAsNumber;
         this.maxDuration = this.video.duration;
     }
     public setProgress(e) {
