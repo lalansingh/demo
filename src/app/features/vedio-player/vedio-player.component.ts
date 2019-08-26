@@ -46,7 +46,7 @@ export class VedioPlayerComponent {
     public bufferBarWidth: number = 0;
     public activeSpeed: string = '1x';
     public progressBar: number = 0;
-
+    public totalDuration: string = '00:00';
 
     autoTicks = false;
     disabled = false;
@@ -55,7 +55,7 @@ export class VedioPlayerComponent {
     min = 0;
     showTicks = false;
     step = 1;
-    thumbLabel = false;
+    thumbLabel = true;
     value = 0;
     vertical = false;
 
@@ -77,7 +77,22 @@ export class VedioPlayerComponent {
             }
         });
     }
+    private getTotalDuration(sec: any) {
+        let h = Math.floor(sec / 3600);
+        sec = sec % 3600;
 
+        let min = Math.floor(sec / 60).toString();
+        sec = Math.floor(sec % 60).toString();
+
+        if (sec.toString().length < 2) { sec = "0" + sec };
+        if (min.toString().length < 2) { min = "0" + min };
+        if (h > 0) {
+            this.totalDuration = h + ":" + min + ":" + sec;
+        } else {
+            this.totalDuration = min + ":" + sec;
+        }
+
+    }
     private initAudio(currentTrack: any) {
         this.progressBar = 0;
         this.fileDetails.trackId = currentTrack.trackId;
@@ -144,8 +159,12 @@ export class VedioPlayerComponent {
 
         if (sec.toString().length < 2) { sec = "0" + sec };
         if (min.toString().length < 2) { min = "0" + min };
+        if (h > 0) {
+            this.lapsTime = h + ":" + min + ":" + sec;
+        } else {
+            this.lapsTime = min + ":" + sec;
+        }
 
-        this.lapsTime = h + ":" + min + ":" + sec;
         if (this.video.duration === this.currentTime) {
             this.onStop();
         }
@@ -174,6 +193,7 @@ export class VedioPlayerComponent {
         this.maxDuration = this.video.duration;
         this.isPlayed = true;
         setTimeout(() => { this.hideShowControl = false; }, 2000);
+        this.getTotalDuration(this.video.duration);
     }
     public onPause() {
         this.isPlayed = false;

@@ -105,9 +105,18 @@
             height: 3px;
             background: #0199ff;
           }
-          .mat-slider-thumb {
-            background: #0199ff;
+          .mat-slider-thumb-label {
+            background: #fff;
           }
+          .mat-slider-thumb {
+            background: #fff;
+            border: 1px solid #fff;
+            // margin-right: -8px;
+          }
+          // .mat-slider-horizontal .mat-slider-wrapper {
+          //   margin-left: -8px;
+          //   margin-right: -7px;
+          // }
         }
         .progress {
           height: 3px;
@@ -199,7 +208,7 @@
               display: inline-flex;
               span {
                 font-size: 14px;
-                color: #848484;
+                color: #fff;
                 margin-left: 10px;
               }
               // .hifi {
@@ -332,7 +341,8 @@
               }
             }
             .track-list {
-              text-align: right;
+              display: inline-flex;
+              flex-direction: row-reverse;
               width: 48%;
               .track {
                 display: inline-flex;
