@@ -55,7 +55,9 @@ export class VedioPlayerComponent {
 
     constructor(private comonService: ComonService) {
     }
-
+    ngOnDestroy() {
+        this.clearPlayer();
+    }
     ngAfterViewInit() {
         // this.progressCircle.nativeElement.draggable({
         //     containment: 'parent'
@@ -164,8 +166,11 @@ export class VedioPlayerComponent {
         }
     }
     public clearPlayer() {
-        this.video = this.videoElement.nativeElement;
+        this.video.pause();
+        this.video.currentTime = 0;
         this.isPlayed = false;
+        this.progressBar = 0;
+        this.video = this.videoElement.nativeElement;
     }
 
     public onStop() {

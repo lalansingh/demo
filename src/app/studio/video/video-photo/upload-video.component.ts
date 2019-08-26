@@ -1,5 +1,6 @@
 import { Component, ViewEncapsulation, HostListener, Inject, ElementRef, ViewChild, Input } from '@angular/core';
 import { ComonService } from 'src/app/common/services/comon-service';
+import { mediaFile } from 'src/app/features/media-file';
 
 @Component({
     selector: 'upload-video',
@@ -11,6 +12,26 @@ export class UploadVideoComponent {
 
     @ViewChild('fileEvent', { static: false })
     private fileEvent: ElementRef;
+
+    @ViewChild('videoElement', { static: false })
+    public videoElement: ElementRef;
+    public singleVideo: HTMLVideoElement;
+
+    @ViewChild('videoSection', { static: false })
+    public videoSection: ElementRef;
+
+    public currentTime: number = 0;
+    public progressBarTime: number = 0;
+    public lapsTime: string;
+    public bufferBarWidth: number = 0;
+    public isPlayed: boolean = false;
+    public isfullScreen: boolean = false;
+    public hideShowControl: boolean = false;
+    public maxDuration: number = 100;
+    public minDuration: number = 0;
+    public selectedTrackId: any;
+    public totalDuration: string = '00:00'
+
     private mediaFileList = [];
     private lastVideo: any = null;
     private color = '3597ec';
@@ -18,6 +39,8 @@ export class UploadVideoComponent {
     private checked = false;
     private disabled = false;
     public screenHeight: string;
+    public videoHeight: string;
+    public videoWidth: string = '700px';
     constructor(private comonService: ComonService) {
         this.screenHeight = localStorage.getItem('windowHeight');
     }
@@ -32,26 +55,55 @@ export class UploadVideoComponent {
         this.fileUpload(event.target.files);
     }
 
+    private getTotalDuration(sec: any): string {
+        let h = Math.floor(sec / 3600);
+        sec = sec % 3600;
+
+        let min = Math.floor(sec / 60).toString();
+        sec = Math.floor(sec % 60).toString();
+
+        if (sec.toString().length < 2) { sec = "0" + sec };
+        if (min.toString().length < 2) { min = "0" + min };
+
+        if (h > 0) {
+            return h + ":" + min + ":" + sec;
+        } else {
+            return min + ":" + sec;
+        }
+    }
     private fileUpload(files: any) {
         let fileCount: number = 0;
         if (files && files[0]) {
-            var filesAmount = files.length;
-            for (let i = 0; i < filesAmount; i++) {
+            for (let i = 0; i < files.length; i++) {
                 var reader = new FileReader();
 
                 reader.onload = (event: any) => {
-                    let mediaTrackList = {};
-                    mediaTrackList['trackId'] = i;
-                    mediaTrackList['src'] = 'http://clips.vorwaerts-gmbh.de/big_buck_bunny.mp4';//event.target.result;
-                    mediaTrackList['mediaTitle'] = '';
-                    mediaTrackList['posterSrc'] = 'mp3poster3.jpeg';
-                    mediaTrackList['posterTitle'] = '';
-                    mediaTrackList['description'] = '';
-                    this.mediaFileList.push(mediaTrackList);
-                    --fileCount;
-                    if (fileCount === 0) {
-                        this.setLastMusic();
-                    }
+                    let videoTmp = this.videoElement.nativeElement;
+                    videoTmp.src = event.target.result;
+                    setTimeout(() => {
+                        let duration = this.getTotalDuration(videoTmp.duration);
+                        videoTmp.pause();
+                        videoTmp.currentTime = 0;
+                        let mediaTrackList: mediaFile = {
+                            trackId: i,
+                            mediaType: 'audio',
+                            mediaTitle: 'Symphony 3 - Postrol',
+                            mediaSubTitle: 'Track 01',
+                            description: 'Baron Gottfried van Swieten',
+                            src: event.target.result,
+                            posterSrc: '',
+                            posterTitle: '',
+                            time: '35 min',
+                            publish: '1 Aug, 2019',
+                            duration: duration
+                        }
+
+                        this.mediaFileList.push(mediaTrackList);
+                        --fileCount;
+                        if (fileCount === 0) {
+                            this.loadVideo();
+                        }
+                    }, 100);
                 }
 
                 reader.readAsDataURL(files[i]);
@@ -61,22 +113,122 @@ export class UploadVideoComponent {
     }
 
     public onRemoveFile(index: any) {
-        let i = this.mediaFileList.findIndex(x => x.trackId === index);
-        this.mediaFileList.splice(i, 1);
-        this.setLastMusic();
-    }
-    private setLastMusic() {
-        if (this.mediaFileList.length !== 0) {
-            this.lastVideo = this.mediaFileList[this.mediaFileList.length - 1].file;
+        if (index !== null && index !== undefined) {
+            let i = this.mediaFileList.findIndex(x => x.trackId === index);
+            this.mediaFileList.splice(i, 1);
         } else {
-            this.lastVideo = null;
+            for (let i = 0; i < this.mediaFileList.length;) {
+                this.mediaFileList.splice(i, 1);
+            }
         }
-        this.setLayoutFlag();
-        this.comonService.videoUploaded(this.mediaFileList);
+        this.onStop();
+        this.loadVideo();
+    }
+    private loadVideo() {
+        if (this.mediaFileList.length === 0) {
+            this.initVideo('');
+        } else {
+            this.initVideo(this.mediaFileList[0].src)
+        }
+        this.comonService.setLayout(this.mediaFileList.length === 0 ? false : true);
     }
 
+    public playSelectedSong(index: any) {
+        if (index === this.selectedTrackId) {
+            if (this.isPlayed) {
+                this.onPause();
+            } else {
+                this.onPlay();
+            }
+        } else {
+            this.onStop();
+            let i = this.mediaFileList.findIndex(x => x.trackId === index);
+            this.initVideo(this.mediaFileList[i].src);
+            this.onPlay();
+            this.selectedTrackId = index;
+        }
+    }
 
-    private setLayoutFlag() {
-        this.comonService.setLayout(this.mediaFileList.length === 0 ? false : true);
+    public onPlay() {
+        this.singleVideo.play();
+        this.maxDuration = this.singleVideo.duration;
+        this.isPlayed = true;
+        this.totalDuration = this.getTotalDuration(this.singleVideo.duration);
+    }
+    public onPause() {
+        this.isPlayed = false;
+        this.singleVideo.pause();
+    }
+
+    public onStop() {
+        this.singleVideo.pause();
+        this.singleVideo.currentTime = 0;
+        this.isPlayed = false;
+    }
+    public onSkip(evnt) {
+        this.singleVideo.currentTime = evnt.value; // evnt.currentTarget.valueAsNumber;
+        this.maxDuration = this.singleVideo.duration;
+    }
+
+    private initVideo(src: any) {
+        this.singleVideo = this.videoElement.nativeElement;
+        this.singleVideo.src = src;
+        this.singleVideo.addEventListener('timeupdate', this.getLapsTime.bind(this));
+        this.singleVideo.addEventListener('canplaythrough', this.startBuffer);
+        this.videoSection.nativeElement.addEventListener('mouseenter', this.mouseenter);
+        this.videoSection.nativeElement.addEventListener('mouseleave', this.mouseleave);
+
+    }
+    public mouseenter = () => {
+        this.hideShowControl = true;
+    }
+    public mouseleave = () => {
+        if (this.isPlayed) {
+            this.hideShowControl = false;
+        }
+    }
+
+    public onClickVideo() {
+        if (this.isfullScreen) {
+            if (this.hideShowControl) {
+                this.mouseleave();
+            } else {
+                this.mouseenter();
+            }
+        }
+    }
+    public startBuffer = () => {
+        var currentBuffer = this.singleVideo.buffered.end(0);
+        var maxduration = this.singleVideo.duration;
+        var perc = 100 * currentBuffer / maxduration;
+        this.bufferBarWidth = perc;
+        if (this.singleVideo.buffered.length === 0) return;
+        if (currentBuffer < maxduration) {
+            setTimeout(this.startBuffer, 500);
+        }
+    };
+    public getLapsTime(event) {
+        this.currentTime = event.target.currentTime;
+        let sec = event.target.currentTime;
+
+        this.progressBarTime = this.currentTime / this.singleVideo.duration * 100;
+
+        let h = Math.floor(sec / 3600);
+        sec = sec % 3600;
+
+        let min = Math.floor(sec / 60).toString();
+        sec = Math.floor(sec % 60).toString();
+
+        if (sec.toString().length < 2) { sec = "0" + sec };
+        if (min.toString().length < 2) { min = "0" + min };
+        if (h > 0) {
+            this.lapsTime = h + ":" + min + ":" + sec;
+        } else {
+            this.lapsTime = min + ":" + sec;
+        }
+
+        if (this.singleVideo.duration === this.currentTime) {
+            this.onStop();
+        }
     }
 }

@@ -19,8 +19,8 @@
     </div>
     <div class="video-secion space-sec-b-scroll" [style.height.px]="screenHeight - 236">
         <input type='file' #fileEvent (change)="onSelectFile($event)" multiple style="display:none">
-        <div class="video" appDragDrop (onFileDropped)="uploadFile($event)">
-            <video-player [hidden]="lastVideo === null"></video-player>
+        <div class="video" appDragDrop (onFileDropped)="uploadFile($event)" *ngIf="mediaFileList.length === 0">
+            <!-- <video-player [hidden]="lastVideo === null"></video-player> -->
             <div class="drag-drop" *ngIf="lastVideo === null">
                 <div>
                     <i class="material-icons" (click)="addMore()">video_call</i>
@@ -32,12 +32,49 @@
                 </div>
             </div>
         </div>
-        <div class="video-preview" *ngIf="lastVideo !== null">
+        <div class="video-player-upload" [hidden]="!(mediaFileList.length === 1)">
+            <div class="player user-select-none">
+                <div class="video-sec" #videoSection>
+                    <video #videoElement [style.height]="videoHeight" [style.width]="videoWidth"
+                        (click)="onClickVideo()"></video>
+                    <span class="sec-play-pause" [ngStyle]="{'display':hideShowControl?'block':'none'}">
+                        <i class="material-icons" id="play" *ngIf="!isPlayed" (click)="onPlay()">play_arrow</i>
+                        <i class="material-icons" id="pause" *ngIf="isPlayed"
+                            (click)="onPause()">pause_circle_filled</i>
+                    </span>
+                    <div class="video-control" [ngStyle]="{'display':hideShowControl?'block':'none'}">
+                        <div class="mat-slider-bar">
+                            <mat-card>
+                                <mat-card-content>
+                                    <div class="back-slider"></div>
+                                    <div class="buffer" [style.width.%]="bufferBarWidth"></div>
+                                    <mat-slider class="example-margin" (change)="onSkip($event)" [max]="maxDuration"
+                                        [min]="minDuration" [step]="00.01" [thumbLabel]="thumbLabel"
+                                        [(ngModel)]="currentTime">
+                                    </mat-slider>
+                                </mat-card-content>
+                            </mat-card>
+                        </div>
+                        <div class="player-layout">
+                            <div class="play-control">
+                                <div class="play-pause">
+                                    <i class="material-icons" *ngIf="!isPlayed" (click)="onPlay()">play_arrow</i>
+                                    <i class="material-icons" *ngIf="isPlayed" (click)="onPause()">pause</i>
+                                    <span>{{lapsTime}} / {{totalDuration}}</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="video-preview" *ngIf="mediaFileList.length !== 0">
             <div class="left">
-                <a href="javascript:void()">File Successfully uploaded.</a>
+                <a href="javascript:void()">{{mediaFileList.length}} File Successfully uploaded.</a>
             </div>
             <div class="right">
-                <a href="javascript:void()" (click)="onRemoveFile(0)">Delete</a>
+                <a href="javascript:void()" (click)="onRemoveFile()">Delete</a>
             </div>
         </div>
         <div style="display:inline-flex;"></div>
