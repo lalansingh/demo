@@ -1,6 +1,8 @@
 <div class="video-player">
     <div class="player user-select-none">
         <div class="video-sec" #videoSection>
+            <span class="left-video-sec" (dblclick)="onDblRewind()"> <i *ngIf="leftFastRewind" class="material-icons">fast_rewind</i></span>
+            <span class="right-video-sec" (dblclick)="onDblForward()"> <i *ngIf="rightFastForward" class="material-icons">fast_forward</i></span>
             <video #videoElement [style.height]="videoHeight" [style.width]="videoWidth"
                 (click)="onClickVideo()"></video>
             <span class="canvas-play-pause" [ngStyle]="{'display':hideShowControl?'block':'none'}">

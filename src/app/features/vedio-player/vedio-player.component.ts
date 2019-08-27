@@ -52,6 +52,8 @@ export class VedioPlayerComponent {
     public thumbLabel = true;
     public sortedMediaList: mediaFile[];
     public activeRow: any;
+    public leftFastRewind: boolean = false;
+    public rightFastForward: boolean = false;
 
     constructor(private comonService: ComonService) {
     }
@@ -294,7 +296,20 @@ export class VedioPlayerComponent {
     public onRewind() {
         this.video.currentTime -= 2;
     }
-
+    public onDblRewind() {
+        this.leftFastRewind = true;
+        this.onRewind();
+        setTimeout(() => {
+            this.leftFastRewind = false;
+        }, 1000);
+    }
+    public onDblForward() {
+        this.rightFastForward = true;
+        this.onForward()
+        setTimeout(() => {
+            this.rightFastForward = false;
+        }, 1000);
+    }
     public onVolume() {
         if (this.isMute) {
             this.isMute = false;
