@@ -114,8 +114,7 @@
                                 [ngClass]="{'active':media.trackId === activeRow}">
                                 <td>
                                     <div class="title-image">
-                                        <div class="image"
-                                            [style.background-image]="'url(../../../assets/music/poster/'+media.posterSrc+')'"
+                                        <div class="image" [style.background-image]="'url('+media.posterSrc+')'"
                                             [style.background.repeat]="'no-repeat'">
                                         </div>
                                         <div class="title-details">

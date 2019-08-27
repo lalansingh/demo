@@ -32,7 +32,7 @@
                 </div>
             </div>
         </div>
-        <div class="video-player-upload" [hidden]="!(mediaFileList.length === 1)">
+        <div class="video-player-upload" [hidden]="mediaFileList.length === 0">
             <div class="player user-select-none">
                 <div class="video-sec" #videoSection>
                     <video #videoElement [style.height]="videoHeight" [style.width]="videoWidth"
@@ -65,6 +65,35 @@
                             </div>
                         </div>
                     </div>
+                </div>
+            </div>
+        </div>
+        <div class="track-list-sec" *ngIf="mediaFileList.length > 1">
+            <div class="poster-sec" *ngFor="let media of mediaFileList">
+                <div class="details">
+                    <div class="image" (click)="playSelectedSong(media.trackId)"
+                        [style.background-image]="'url(../../../assets/music/poster/'+media.posterSrc+')'"
+                        [style.background.repeat]="'no-repeat'">
+                        <i class="material-icons" *ngIf="media.trackId !== selectedTrackId">audiotrack</i>
+                        <i class="material-icons" id="play"
+                            *ngIf="!isPlayed && media.trackId === selectedTrackId">play_circle_outline</i>
+                        <i class="material-icons" id="pause"
+                            *ngIf="isPlayed && media.trackId === selectedTrackId">pause_circle_outline</i>
+                    </div>
+                    <div class="song-title-details">
+                        <span class="track">Track Name:<span class="file-text">{{media.mediaTitle}}</span></span>
+                        <span class="artist">Artsist Name: {{media.mediaSubTitle}}</span>
+                        <span class="file-name">Uploaded Filename: {{media.description}}</span>
+                    </div>
+                    <div class="edit"><a href="javascript:void()">Edit</a></div>
+                </div>
+                <div class="time">
+                    <span class="duration">
+                        {{media.duration}}
+                    </span>
+                    <span class="delete">
+                        <a href="javascript:void()" (click)="onRemoveFile(media.trackId)">delete</a>
+                    </span>
                 </div>
             </div>
         </div>

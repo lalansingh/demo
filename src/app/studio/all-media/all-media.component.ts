@@ -20,7 +20,9 @@ export class AllMediaComponent {
     private audioFileList: mediaFile[] = [];
     private videoFileList: mediaFile[] = [];
     public audioSrc = '..//..//..//assets/music/';
+    public audioPosterSrc = '../../../assets/music/poster/';
     public videoSrc = '..//..//..//assets/video/';
+    public videoPosterSrc = '../../../assets/video/poster/';
 
     constructor(private comonService: ComonService) {
         this.screenHeight = localStorage.getItem('windowHeight');
@@ -52,7 +54,7 @@ export class AllMediaComponent {
             mediaSubTitle: 'Track 01',
             description: 'Baron Gottfried van Swieten',
             src: this.videoSrc + 'SampleVideo_1280x720_1mb.mp4',
-            posterSrc: '',
+            posterSrc: this.videoPosterSrc + 'test1.JPG',
             posterTitle: '',
             time: '35 min',
             publish: '1 Aug, 2019',
@@ -104,7 +106,7 @@ export class AllMediaComponent {
             mediaSubTitle: 'Track 01',
             description: 'Baron Gottfried van Swieten',
             src: this.audioSrc + 'file_example_MP3_700KB.mp3',
-            posterSrc: '',
+            posterSrc: this.audioPosterSrc + 'mp3poster1.jpg',
             posterTitle: '',
             time: '35 min',
             publish: '1 Aug, 2019',
@@ -124,7 +126,7 @@ export class AllMediaComponent {
             mediaSubTitle: 'Track 01',
             description: 'Baron Gottfried van Swieten',
             src: this.audioSrc + 'SampleAudio_0.4mb.mp3',
-            posterSrc: '',
+            posterSrc: this.audioPosterSrc + 'mp3poster3.jpeg',
             posterTitle: '',
             time: '35 min',
             publish: '1 Aug, 2019',
@@ -144,7 +146,7 @@ export class AllMediaComponent {
             mediaSubTitle: 'Track 01',
             description: 'Baron Gottfried van Swieten',
             src: this.audioSrc + 'SampleAudio_0.7mb.mp3',
-            posterSrc: '',
+            posterSrc: this.audioPosterSrc + 'mp3poster2.jpeg',
             posterTitle: '',
             time: '35 min',
             publish: '1 Aug, 2019',

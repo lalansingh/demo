@@ -91,11 +91,11 @@
                                     [ngClass]="{'active':'2x'=== activeSpeed}">2x
                                 </div>
                             </div>
-                           
+
                         </div>
                         <div *ngIf="showFileList" class="list-icon" (click)="menuClicked = !menuClicked"> <i
-                            class="material-icons">menu</i>
-                    </div>
+                                class="material-icons">menu</i>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -117,8 +117,7 @@
                                 [ngClass]="{'active':media.trackId === activeRow}">
                                 <td>
                                     <div class="title-image">
-                                        <div class="image"
-                                            [style.background-image]="'url(../../../assets/music/poster/'+media.posterSrc+')'"
+                                        <div class="image" [style.background-image]="'url('+media.posterSrc+')'"
                                             [style.background.repeat]="'no-repeat'">
                                         </div>
                                         <div class="title-details">
