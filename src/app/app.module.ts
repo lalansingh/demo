@@ -63,7 +63,7 @@ import { MusicSettingComponent } from './studio/music/music-setting/music-settin
 import { UploadMusicComponent } from './studio/music/upload-music/upload-music.component';
 import { VideoSettingsLayoutComponent } from './studio/video/video-settings-layout/video-settings-layout.component';
 import { VideoSettingComponent } from './studio/video/video-setting/video-setting.component';
-import { UploadVideoComponent } from './studio/video/video-photo/upload-video.component';
+import { UploadVideoComponent } from './studio/video/upload-video/upload-video.component';
 import { PodcastSettingsLayoutComponent } from './studio/podcast/podcast-settings-layout/podcast-settings-layout.component';
 import { PodcastSettingComponent } from './studio/podcast/podcast-setting/podcast-setting.component';
 import { UploadPodcastComponent } from './studio/podcast/upload-podcast/upload-podcast.component';

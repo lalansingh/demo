@@ -11,10 +11,10 @@ import { ImageSettingsLayoutComponent } from "../studio/photo/image-settings-lay
 import { UploadPhotoComponent } from "../studio/photo/upload-photo/upload-photo.component";
 import { UploadMusicComponent } from "../studio/music/upload-music/upload-music.component";
 import { MusicSettingsLayoutComponent } from "../studio/music/music-settings-layout/music-settings-layout.component";
-import { UploadVideoComponent } from "../studio/video/video-photo/upload-video.component";
 import { VideoSettingsLayoutComponent } from "../studio/video/video-settings-layout/video-settings-layout.component";
 import { UploadPodcastComponent } from "../studio/podcast/upload-podcast/upload-podcast.component";
 import { PodcastSettingsLayoutComponent } from "../studio/podcast/podcast-settings-layout/podcast-settings-layout.component";
+import { UploadVideoComponent } from "../studio/video/upload-video/upload-video.component";
 
 export const routes: Routes = [
     { path: '', redirectTo: '/space/all-thinking', pathMatch: 'full' },

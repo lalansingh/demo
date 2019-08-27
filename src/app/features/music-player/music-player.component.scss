@@ -537,6 +537,28 @@
           padding-left: 10px;
         }
       }
+      .rating {
+        display: inline-flex;
+        .rating-star {
+          display: inline-flex;
+          .material-icons {
+            font-size: 12px;
+            color: #6a6a6a;
+            height: 0px;
+            width: 10px;
+          }
+        }
+        .rating-share {
+          display: inline-flex;
+          margin-left: 10px;
+          .material-icons {
+            font-size: 12px;
+            color: #6a6a6a;
+            height: 0px;
+            width: 15px;
+          }
+        }
+      }
     }
   }
 }

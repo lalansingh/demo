@@ -109,6 +109,7 @@
                                 <th mat-header-cell mat-sort-header="title">Title</th>
                                 <th mat-header-cell mat-sort-header="time">Time</th>
                                 <th mat-header-cell mat-sort-header="publish">Publish</th>
+                                <th mat-header-cell mat-sort-header="publish">Rating</th>
                             </tr>
                             <tr *ngFor="let media of sortedMediaList" (click)="songSelected(media)"
                                 [ngClass]="{'active':media.trackId === activeRow}">
@@ -125,6 +126,22 @@
                                 </td>
                                 <td>{{media.time}}</td>
                                 <td>{{media.publish}}</td>
+                                <td>
+                                    <div class="rating">
+                                        <div class="rating-star">
+                                            <mat-icon class="material-icons">star</mat-icon>
+                                            <mat-icon class="material-icons">star</mat-icon>
+                                            <mat-icon class="material-icons">star</mat-icon>
+                                            <mat-icon class="material-icons">star</mat-icon>
+                                            <mat-icon class="material-icons">star</mat-icon>
+                                        </div>
+                                        <div class="rating-share">
+                                            <mat-icon class="material-icons">share</mat-icon>
+                                            <mat-icon class="material-icons">add_circle_outline</mat-icon>
+                                        </div>
+                                    </div>
+
+                                </td>
                             </tr>
                         </table>
                     </div>

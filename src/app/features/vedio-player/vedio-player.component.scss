@@ -1,7 +1,7 @@
 .video-player {
   margin: 0px;
   position: relative;
-  // border: 1px solid #d1d1d1;
+  border: 1px solid #d1d1d1;
   background: #ffffff 0% 0% no-repeat padding-box;
   .player {
     margin: 0px;
@@ -10,7 +10,8 @@
       background-position: center;
       background-size: cover;
       background-repeat: repeat;
-      border-radius: 10px;
+      height: 315px;
+      // border-radius: 10px;
       margin: 0;
       .video-hover-controls {
         height: 274px;
@@ -21,7 +22,8 @@
       }
       video {
         margin-top: 0px;
-        border-radius: 10px;
+        height: 317px;
+        // border-radius: 10px;
         margin-right: 0px;
         // width: 700px;
       }
@@ -582,6 +584,28 @@
         .title-details {
           display: inline-grid;
           padding-left: 10px;
+        }
+      }
+      .rating {
+        display: inline-flex;
+        .rating-star {
+          display: inline-flex;
+          .material-icons {
+            font-size: 12px;
+            color: #6a6a6a;
+            height: 0px;
+            width: 10px;
+          }
+        }
+        .rating-share {
+          display: inline-flex;
+          margin-left: 10px;
+          .material-icons {
+            font-size: 12px;
+            color: #6a6a6a;
+            height: 0px;
+            width: 15px;
+          }
         }
       }
     }
