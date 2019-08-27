@@ -1,5 +1,5 @@
 <div class="music-player-root user-select-none">
-    <div class="tag-header" *ngIf="likeIcon">
+    <div class="tag-header">
         <div class="lbl-first">
             <div class="first">
                 <i class="material-icons">cancel</i>
@@ -22,7 +22,7 @@
             [style.background.repeat]="'no-repeat'">
             <canvas id="wave" [style.height.px]="canvHeight" [style.width.px]="canvWidth"
                 style="border-radius:10px;"></canvas>
-            <span class="canvas-play-pause" *ngIf="isSongInitialized">
+            <span class="canvas-play-pause">
                 <i class="material-icons" id="play" *ngIf="!isPlayed" (click)="onPlay()">play_circle_outline</i>
                 <i class="material-icons" id="pause" *ngIf="isPlayed" (click)="onPause()">pause_circle_outline</i>
             </span>
@@ -93,8 +93,7 @@
                             </div>
 
                         </div>
-                        <div *ngIf="showFileList" class="list-icon" (click)="menuClicked = !menuClicked"> <i
-                                class="material-icons">menu</i>
+                        <div class="list-icon" (click)="menuClicked = !menuClicked"> <i class="material-icons">menu</i>
                         </div>
                     </div>
                 </div>
