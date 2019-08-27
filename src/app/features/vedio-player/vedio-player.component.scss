@@ -14,12 +14,12 @@
       // border-radius: 10px;
       margin: 0;
       .left-video-sec {
-        height: 100px;
+        height: 30%;
         width: 35%;
         text-align: right;
         // border: 1px solid #0199ff;
         position: absolute;
-        top: 28%;
+        top: 37%;
         .material-icons {
           color: #fff;
           font-size: 40px;
@@ -27,12 +27,12 @@
         }
       }
       .right-video-sec {
-        height: 100px;
+        height: 30%;
         width: 35%;
         // border: 1px solid #0199ff;
         position: absolute;
         right: 0;
-        top: 28%;
+        top: 37%;
         text-align: left;
         .material-icons {
           color: #fff;
@@ -64,7 +64,7 @@
         position: relative;
         left: 45%;
         float: left;
-        margin-top: 18%;
+        margin-top: 22%;
         .material-icons {
           font-size: 75px;
           color: blanchedalmond;
