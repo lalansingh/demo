@@ -1,6 +1,6 @@
-<div class="photo-upload">
-    <div class="photo-header">
-        <div class="photo-button" *ngIf="urls.length !== 0">
+<div class="podcast-upload">
+    <div class="podcast-header">
+        <div class="music-button" *ngIf="mediaFileList.length !== 0">
             <button mat-raised-button> <i class="material-icons">access_time</i>Schedule</button>
             <div class="publish-time">
                 <span class="lbl-publish">Publish Time:</span>
@@ -9,19 +9,31 @@
                     <mat-icon>expand_more</mat-icon>
                 </button>
             </div>
-            <button mat-raised-button>Publish to Contacts</button>
-            <button mat-raised-button>Publish to Believers</button>
-            <button mat-raised-button>Publish to Everyone</button>
+            <button class="btn-save" mat-raised-button>Save</button>
+            <button class="btn-publish" mat-raised-button>Publish</button>
         </div>
-        <div class="photo-title" *ngIf="urls.length === 0">
+        <div class="music-title" *ngIf="mediaFileList.length === 0">
             <span>Start Uploading and Publishing your Podcast with the World</span>
         </div>
     </div>
-    <div class="photo-secion space-sec-b-scroll" [style.height.px]="screenHeight - 236">
-        <div class="photo" appDragDrop (onFileDropped)="uploadFile($event)">
-            <i *ngIf="lastPhoto !== null" class="material-icons" (click)="removePreviewPhoto()">cancel</i>
-            <img [src]="lastPhoto" *ngIf="lastPhoto !== null">
-            <div class="drag-drop" *ngIf="lastPhoto === null">
+
+    <div class="music-secion space-sec-b-scroll" [style.height.px]="screenHeight - 236">
+        <div class="music-player" *ngIf="mediaFileList.length === 1">
+            <div class="player user-select-none">
+                <div class="canvas">
+                    <canvas id="wave" [style.height.px]="canvHeight" [style.width.px]="canvWidth"
+                        style="border-radius:10px;"></canvas>
+                    <span class="canvas-play-pause">
+                        <i class="material-icons" id="play" *ngIf="!isPlayed" (click)="onPlay()">play_circle_outline</i>
+                        <i class="material-icons" id="pause" *ngIf="isPlayed"
+                            (click)="onPause()">pause_circle_outline</i>
+                    </span>
+                </div>
+            </div>
+        </div>
+        <input type='file' #fileEvent (change)="onSelectFile($event)" multiple style="display:none">
+        <div class="music" appDragDrop (onFileDropped)="onFileDropped($event)" *ngIf="mediaFileList.length === 0">
+            <div class="drag-drop">
                 <div>
                     <i class="material-icons" (click)="addMore()">mic</i>
                 </div>
@@ -32,70 +44,90 @@
                 </div>
             </div>
         </div>
-        <div class="photo-preview">
-            <ng-template ngFor let-src [ngForOf]="urls">
-                <div class="image-sec">
-                    <i class="material-icons" (click)="onRemoveFile(src.id)">cancel</i>
-                    <img [src]="src.file" (click)="onClickPhoto(src.id)">
+        <div class="track-list-sec" *ngIf="mediaFileList.length > 1">
+            <div class="poster-sec" *ngFor="let media of mediaFileList">
+                <div class="details">
+                    <div class="image" (click)="playSelectedSong(media.trackId)"
+                        [style.background-image]="'url(../../../assets/music/poster/'+media.posterSrc+')'"
+                        [style.background.repeat]="'no-repeat'">
+                        <i class="material-icons" *ngIf="media.trackId !== selectedTrackId">audiotrack</i>
+                        <i class="material-icons" id="play"
+                            *ngIf="!isPlayed && media.trackId === selectedTrackId">play_circle_outline</i>
+                        <i class="material-icons" id="pause"
+                            *ngIf="isPlayed && media.trackId === selectedTrackId">pause_circle_outline</i>
+                    </div>
+                    <div class="song-title-details">
+                        <span class="track">Track Name:<span class="file-text">{{media.mediaTitle}}</span></span>
+                        <span class="artist">Artsist Name: {{media.mediaSubTitle}}</span>
+                        <span class="file-name">Uploaded Filename: {{media.description}}</span>
+                    </div>
+                    <div class="edit"><a href="javascript:void()">Edit</a></div>
                 </div>
-            </ng-template>
-            <div class="add-more">
-                <input type='file' #fileEvent (change)="onSelectFile($event)" multiple style="display:none">
-                <a (click)="addMore()"> <i class="material-icons">add_circle</i>
-                    <span>Add More Photos</span>
-                </a>
+                <div class="time">
+                    <span class="duration">
+                        {{media.duration}}
+                    </span>
+                    <span class="delete">
+                        <a href="javascript:void()" (click)="onRemoveFile(media.trackId)">delete</a>
+                    </span>
+                </div>
             </div>
+        </div>
+        <div class="music-preview" *ngIf="mediaFileList.length !== 0">
+            <div class="left">
+                <a href="javascript:void()">{{mediaFileList.length}} File Successfully uploaded.</a>
+            </div>
+            <div class="right">
+                <a href="javascript:void()" (click)="onRemoveFile()">Delete</a>
+            </div>
+        </div>
+        <div class="content display-inline">
+            <fieldset class="music-url">
+                <legend>Music URL</legend>
+            </fieldset>
+            <fieldset class="file-name">
+                <legend>File Name</legend>
+            </fieldset>
         </div>
         <div class="content">
             <fieldset>
                 <legend>+ Add Hashtags</legend>
-                <!-- <textarea></textarea> -->
             </fieldset>
         </div>
-        <div class="content">
-            <fieldset>
-                <legend>Description or Captions</legend>
+
+        <div class="content display-inline">
+            <fieldset class="title">
+                <legend>Title</legend>
+            </fieldset>
+            <fieldset class="playlist">
+                <legend>Music Playlist</legend>
             </fieldset>
         </div>
         <div class="content display-inline">
-            <fieldset>
-                <legend>Add Location</legend>
+            <fieldset class="artist">
+                <legend>Artist Name</legend>
             </fieldset>
-            <fieldset>
-                <legend>Tag People or Products</legend>
+            <fieldset class="type">
+                <legend>Typle</legend>
             </fieldset>
         </div>
         <div class="content">
-            <div class="advance-top">
-                <label>
-                    Advanced Settings
-                </label>
-            </div>
-            <div class="advance">
-                <fieldset>
-                    <legend>Description or Captions</legend>
-                </fieldset>
-                <fieldset>
-                    <legend>Description or Captions</legend>
-                </fieldset>
-                <div class="turned-off">
-                    <label>
-                        Monetise Image
-                        <span *ngIf="!checked">Turned off</span>
-                        <span *ngIf="checked">Turned on</span>
-                    </label>
-                    <mat-card>
-                        <mat-card-content>
-                            <section class="example-section">
-                                <mat-slide-toggle class="example-margin" [(ngModel)]="checked" [color]="color"
-                                    [checked]="checked" [disabled]="disabled">
-                                </mat-slide-toggle>
-                            </section>
-                        </mat-card-content>
-                    </mat-card>
-                    <i class="material-icons">info</i>
-                </div>
-            </div>
+            <fieldset class="description">
+                <legend>Description</legend>
+            </fieldset>
+        </div>
+        <div class="content display-inline">
+            <fieldset class="genre">
+                <legend>Genre</legend>
+            </fieldset>
+            <fieldset class="language">
+                <legend>Language</legend>
+            </fieldset>
+        </div>
+        <div class="content">
+            <fieldset class="writers">
+                <legend>Writers</legend>
+            </fieldset>
         </div>
     </div>
 </div>
