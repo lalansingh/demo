@@ -1,75 +1,140 @@
-.user-details {
-  border-top: 2mm groove rgba(199, 195, 201, 0.07);
-  padding-top: 10px;
-  .mat-card {
-    box-shadow: none;
-    padding: 0;
-    margin: 0;
-  }
-  .mat-card-avatar {
-    height: 50px;
-    width: 50px;
-    border-radius: unset;
-    flex-shrink: 0;
-    object-fit: cover;
-    .mat-card-image {
-      width: 100%;
-      margin: 6px;
-      border-radius: 10px;
-      height: 100%;
-    }
-  }
-  .mat-card-title {
-    margin-bottom: 8px;
-  }
-  .mat-card-subtitle {
-    margin-bottom: 8px;
-    &.small-text-subtitle {
-      font-size: 12px;
-    }
-    &:last-child {
-      margin-bottom: 0px;
-    }
-  }
-  .mat-card-header-text {
-    width: 73%;
-    .mat-card-title {
-      font-size: 20px;
-      font-weight: bold;
-      color: var(--title-cart-color);
-      a {
-        font-size: 15px;
-        color: var(--text-active-color);
-        text-decoration: none;
-        padding-left: 10px;
-      }
-    }
-    .mat-card-subtitle:first-child {
-      font-size: 15px;
-      color: var(--subtile-color);
-    }
-    .mat-card-subtitle:last-child {
-      font-size: 10px;
-      color: var(--subtile-color);
-      a {
-        font-size: 12px;
-        color: var(--text-active-color);
-        text-decoration: none;
-      }
-    }
-  }
-  .button-belive {
-    height: 30px;
-    border-radius: 15px !important;
-    line-height: 30px !important;
-    border: 1px solid var(--text-active-color) !important;
-    color: var(--text-active-color);
-    margin-top: 2% !important;
-    position: absolute;
-    right: 0;
-  }
+// .user-details {
+//   border-top: 2mm groove rgba(199, 195, 201, 0.07);
+//   padding-top: 10px;
+//   .mat-card {
+//     box-shadow: none;
+//     padding: 0;
+//     margin: 0;
+//   }
+//   .mat-card-avatar {
+//     height: 50px;
+//     width: 50px;
+//     border-radius: unset;
+//     flex-shrink: 0;
+//     object-fit: cover;
+//     .mat-card-image {
+//       width: 100%;
+//       margin: 6px;
+//       border-radius: 10px;
+//       height: 100%;
+//     }
+//   }
+//   .mat-card-title {
+//     margin-bottom: 8px;
+//   }
+//   .mat-card-subtitle {
+//     margin-bottom: 8px;
+//     &.small-text-subtitle {
+//       font-size: 12px;
+//     }
+//     &:last-child {
+//       margin-bottom: 0px;
+//     }
+//   }
+//   .mat-card-header-text {
+//     width: 73%;
+//     .mat-card-title {
+//       font-size: 20px;
+//       font-weight: bold;
+//       color: var(--title-cart-color);
+//       a {
+//         font-size: 15px;
+//         color: var(--text-active-color);
+//         text-decoration: none;
+//         padding-left: 10px;
+//       }
+//     }
+//     .mat-card-subtitle:first-child {
+//       font-size: 15px;
+//       color: var(--subtile-color);
+//     }
+//     .mat-card-subtitle:last-child {
+//       font-size: 10px;
+//       color: var(--subtile-color);
+//       a {
+//         font-size: 12px;
+//         color: var(--text-active-color);
+//         text-decoration: none;
+//       }
+//     }
+//   }
+//   .button-belive {
+//     height: 30px;
+//     border-radius: 15px !important;
+//     line-height: 30px !important;
+//     border: 1px solid var(--text-active-color) !important;
+//     color: var(--text-active-color);
+//     margin-top: 2% !important;
+//     position: absolute;
+//     right: 0;
+//   }
 
-  .button-belive mat-icon {
-    color: var(--text-active-color);
+//   .button-belive mat-icon {
+//     color: var(--text-active-color);
+//   }
+// }
+.divider-line {
+  border: 1px solid #ededed;
+  width: 100%;
+  margin: 10px 0px 10px 0px;
+}
+.user-details {
+  position: relative;
+  display: inline-flex;
+  width: 100%;
+  .profile {
+    width: 50%;
+    display: inline-flex;
+    .picture {
+      margin: 5px 9px 0px 0px;
+      .img-pic {
+        height: 50px;
+        width: 50px;
+      }
+    }
+    .info {
+      display: table-row;
+      .title {
+        font-size: 20px;
+        color: #4d4d4d;
+        font-weight: bold;
+        a {
+          text-decoration: none;
+          color: #3597ec;
+          font-size: 15px;
+          margin-left: 5px;
+        }
+      }
+      .sub-title {
+        font-size: 15px;
+        color: #818181;
+      }
+      .details {
+        font-size: 10px;
+        color: #818181;
+        a {
+          font-size: 12px;
+          color: #3597ec;
+          margin-right: 5px;
+        }
+      }
+    }
+  }
+  .action {
+    width: 50%;
+    text-align: right;
+    margin: 15px 0px 0px 0px;
+    .mat-raised-button {
+      border-radius: 13px;
+      border: 1px solid #3597ec;
+      height: 30px;
+      width: 100px;
+      line-height: 15px;
+      font-size: 15px;
+      color: #3597ec;
+      mat-icon {
+        color: #3597ec;
+      }
+    }
   }
 }

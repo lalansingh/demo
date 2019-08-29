@@ -53,50 +53,6 @@
         margin: 0;
         border-radius: 15px;
       }
-      .card-content-footer-action {
-        position: relative;
-        // display: flex;
-        margin: 0 -15px;
-        justify-content: space-between;
-        color: var(--content-span-color);
-        padding: 10px;
-        span {
-          margin-right: 60px;
-          mat-icon {
-            font-weight: bold;
-          }
-          span {
-            margin-top: 3px;
-            position: absolute;
-            color: var(--content-span-color);
-            font-size: 15px;
-            font-weight: bold;
-          }
-        }
-        .ratting {
-          right: 0;
-          position: absolute;
-          margin-right: 15px;
-          mat-icon {
-            margin: 0px;
-          }
-        }
-        .mat-star {
-          color: var(--content-span-color);
-          font-size: 25px;
-          margin-top: -3px;
-          margin-left: -12px;
-          position: absolute;
-        }
-        .rating-comment {
-          font-size: 12px !important;
-          position: absolute;
-          right: 0px;
-          width: 100%;
-          bottom: -9px;
-          margin-right: -22px;
-        }
-      }
     }
   }
 }

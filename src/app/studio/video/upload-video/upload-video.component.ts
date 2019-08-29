@@ -41,9 +41,26 @@ export class UploadVideoComponent {
     public screenHeight: string;
     public videoHeight: string;
     public videoWidth: string = '700px';
+
+    public sheet = document.createElement('style');
+    public prefs = ['webkit-slider-runnable-track', 'moz-range-track', 'ms-track'];
+
     constructor(private comonService: ComonService) {
         this.screenHeight = localStorage.getItem('windowHeight');
+        document.body.appendChild(this.sheet);
     }
+
+    // public rangeBarChange(el: any) {
+    //     let curVal = el.target.value;
+    //     let val = curVal;
+    //     let style = '';
+
+    //     for (var i = 0; i < this.prefs.length; i++) {
+    //         style += '.range {background: linear-gradient(to right, #37adbf 0%, #37adbf ' + val + '%,rgb(196, 196, 196) ' + val + '%, rgb(196, 196, 196) 100%)}';
+    //         style += '.range input::-' + this.prefs[i] + '{background: linear-gradient(to right, #37adbf 0%, #37adbf ' + val + '%, #b2b2b2 ' + val + '%, #b2b2b2 100%)}';
+    //     }
+    //     this.sheet.textContent = style;
+    // }
 
     public addMore() {
         this.fileEvent.nativeElement.click();

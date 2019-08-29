@@ -1,0 +1,49 @@
+.like-stars {
+  display: inline-flex;
+  position: relative;
+  width: 100%;
+  font-size: 15px;
+  font-weight: bold;
+  color: #6a6a6a;
+  justify-content: space-between;
+  padding-top: 10px;
+  .material-icons {
+    font-size: 15px;
+    height: 15px;
+    width: 15px;
+    margin-top: 2px;
+  }
+  .email {
+    display: inline-flex;
+  }
+  .comment {
+    display: inline-flex;
+  }
+  .like {
+    display: inline-flex;
+  }
+  .share {
+    display: inline-flex;
+  }
+  .stars {
+    display: table-row;
+    .top {
+      display: inline-flex;
+      .material-icons {
+        margin: 2px 0px 0px 0px;
+        height: 18px;
+        width: 18px;
+        font-size: 18px;
+      }
+      span {
+        color: #6a6a6a;
+        font-size: 18px;
+      }
+    }
+    .bottom {
+      font-size: 10px;
+      color: #6a6a6a;
+      text-align: center;
+    }
+  }
+}

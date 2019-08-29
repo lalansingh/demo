@@ -69,6 +69,7 @@ import { PodcastSettingComponent } from './studio/podcast/podcast-setting/podcas
 import { UploadPodcastComponent } from './studio/podcast/upload-podcast/upload-podcast.component';
 import { MusicPlayerComponent } from './features/music-player/music-player.component';
 import { UpNextComponent } from './features/music-player/up-next/up-next.component';
+import { LikeStarsComponent } from './common/like-stars/like-stars.component';
 
 @NgModule({
   declarations: [
@@ -127,7 +128,8 @@ import { UpNextComponent } from './features/music-player/up-next/up-next.compone
     PodcastSettingComponent,
     UploadPodcastComponent,
     MusicPlayerComponent,
-    UpNextComponent
+    UpNextComponent,
+    LikeStarsComponent
   ],
   imports: [
     BrowserModule,
