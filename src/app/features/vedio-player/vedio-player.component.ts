@@ -193,7 +193,7 @@ export class VedioPlayerComponent {
         this.video.play();
         this.maxDuration = this.video.duration;
         this.isPlayed = true;
-        setTimeout(() => { this.hideShowControl = false; }, 2000);
+        // setTimeout(() => { this.hideShowControl = false; }, 2000);
         this.getTotalDuration(this.video.duration);
     }
     public onPause() {

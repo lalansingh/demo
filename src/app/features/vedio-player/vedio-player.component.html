@@ -1,15 +1,26 @@
 <div class="video-player">
     <div class="player user-select-none">
         <div class="video-sec" #videoSection>
-            <span class="left-video-sec" (dblclick)="onDblRewind()"> <i *ngIf="leftFastRewind"
+            <div class="video-tag" *ngIf="!isfullScreen">
+                <div class="tuned">
+                    <i class="material-icons">cancel</i>
+                </div>
+                <div class="more">
+                    <i class="material-icons">control_point</i>
+                    <i class="material-icons">expand_more</i>
+                </div>
+            </div>
+            <!-- <span class="left-video-sec" (dblclick)="onDblRewind()"> <i *ngIf="leftFastRewind"
                     class="material-icons">fast_rewind</i></span>
             <span class="right-video-sec" (dblclick)="onDblForward()"> <i *ngIf="rightFastForward"
-                    class="material-icons">fast_forward</i></span>
+                    class="material-icons">fast_forward</i></span> -->
             <video #videoElement [style.height]="videoHeight" [style.width]="videoWidth"
                 (click)="onClickVideo()"></video>
             <span class="canvas-play-pause" [ngStyle]="{'display':hideShowControl?'block':'none'}">
+                <i class="material-icons" id="center-rewind" (click)="onRewind()">fast_rewind</i>
                 <i class="material-icons" id="play" *ngIf="!isPlayed" (click)="onPlay()">play_arrow</i>
-                <i class="material-icons" id="pause" *ngIf="isPlayed" (click)="onPause()">pause_circle_filled</i>
+                <i class="material-icons" id="pause" *ngIf="isPlayed" (click)="onPause()">pause</i>
+                <i class="material-icons" id="center-forward" (click)="onForward()">fast_forward</i>
             </span>
             <div class="video-control" [ngStyle]="{'display':hideShowControl?'block':'none'}">
                 <!-- <div class="seek">
@@ -93,7 +104,7 @@
                                     <i class="material-icons full-screen" (click)="toggleFullscreen()"
                                         *ngIf="isfullScreen">fullscreen_exit</i>
                                 </div>
-                                <div class="list-icon" (click)="menuClicked = !menuClicked"> <i
+                                <div class="list-icon" (click)="menuClicked = !menuClicked" *ngIf="!isfullScreen"> <i
                                         class="material-icons">menu</i>
                                 </div>
                             </div>
@@ -104,6 +115,31 @@
         </div>
     </div>
     <div class="bottom-menu" *ngIf="menuClicked">
+        <div class="tag-header">
+            <div class="lbl-first">
+                <div class="first">
+                    <span>10M Tuned</span>
+                </div>
+            </div>
+            <div class="lbl-second">
+                <a href="javascript:void()">#Classical #Symphonies #Music</a>
+            </div>
+            <div class="lbl-third">
+                <div class="third">
+                    <i class="material-icons">control_point</i>
+                    <span>Add to Playlist</span>
+                </div>
+            </div>
+        </div>
+        <div class="content">
+            <span class="title">The Electricity Tower Explained</span>
+            <p class="paragraph">The way to harness unlimited energy for planet harnessing the power of lightning. I
+                explain how read
+                <span class="more-less">
+                    more
+                </span>
+            </p>
+        </div>
         <div class="video-details-sec">
             <like-stars></like-stars>
             <user-details-footer></user-details-footer>
