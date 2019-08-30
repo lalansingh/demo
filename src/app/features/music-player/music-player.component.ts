@@ -47,6 +47,9 @@ export class MusicPlayerComponent implements OnDestroy {
             this.sortedMediaList = this.mediaList.slice();
             if (mediaFileList.length !== 0) {
                 this.songLoad(mediaFileList[0]);
+                if (mediaFileList[0].autoPlay) {
+                    this.onPlay();
+                }
             } else {
                 this.clearAudioPlayer();
             }
@@ -208,6 +211,7 @@ export class MusicPlayerComponent implements OnDestroy {
     }
 
     public clearAudioPlayer() {
+        this.onStop();
         this.advAudio = new Audio();
         this.isPlayed = false;
         this.waveService.stopStream();

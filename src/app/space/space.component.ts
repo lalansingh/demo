@@ -19,11 +19,16 @@ export class SpaceComponent {
     public videoPosterSrc = '../../../assets/video/poster/';
     public videoWidth: string = '597px';
     public videoHeight: string = '335px';
+    public mediaTypePlaying: string = '';
 
     constructor(private comonService: ComonService, @Inject(DOCUMENT) private document: Document) {
         // this.getScreenSize();
         this.comonService.lefSideMenuSelected('space');
         this.screenHeight = localStorage.getItem('windowHeight');
+
+        this.comonService.mediaTypePlayed.subscribe(type => {
+            this.mediaTypePlaying = type;
+        });
     }
 
     // @HostListener('window:resize', ['$event'])
@@ -32,7 +37,7 @@ export class SpaceComponent {
     //     this.comonService.setWindowHeight(this.document.documentElement.scrollHeight);
     // }
     public ngAfterViewInit() {
-        // this.initAudio();
+        this.initAudio();
         this.initVideo();
     }
 
@@ -61,7 +66,8 @@ export class SpaceComponent {
             posterTitle: '',
             time: '35 min',
             publish: '1 Aug, 2019',
-            duration: '12'
+            duration: '12',
+            autoPlay: false
         }
         this.videoFileList.push(videoTrackList);
 
@@ -76,7 +82,8 @@ export class SpaceComponent {
             posterTitle: '',
             time: '35 min',
             publish: '1 Aug, 2019',
-            duration: '12'
+            duration: '12',
+            autoPlay: false
         }
         this.videoFileList.push(videoTrackList1);
         let videoTrackList2: mediaFile = {
@@ -90,7 +97,8 @@ export class SpaceComponent {
             posterTitle: '',
             time: '35 min',
             publish: '1 Aug, 2019',
-            duration: '12'
+            duration: '12',
+            autoPlay: false
         }
         this.videoFileList.push(videoTrackList2);
 
@@ -113,7 +121,8 @@ export class SpaceComponent {
             posterTitle: '',
             time: '35 min',
             publish: '1 Aug, 2019',
-            duration: duration
+            duration: duration,
+            autoPlay: false
         }
         this.audioFileList.push(mediaTrackList);
 
@@ -133,7 +142,8 @@ export class SpaceComponent {
             posterTitle: '',
             time: '35 min',
             publish: '1 Aug, 2019',
-            duration: duration1
+            duration: duration1,
+            autoPlay: false
         }
         this.audioFileList.push(mediaTrackList1);
 
@@ -153,7 +163,8 @@ export class SpaceComponent {
             posterTitle: '',
             time: '35 min',
             publish: '1 Aug, 2019',
-            duration: duration2
+            duration: duration2,
+            autoPlay: false
         }
         this.audioFileList.push(mediaTrackList2);
 

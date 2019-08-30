@@ -13,7 +13,9 @@
 </div>
 <div class="right-layout-sec box-shadow">
     <creating-menu></creating-menu>
-    <video-player [videoWidth]="videoWidth" [videoHeight]="videoHeight"></video-player>
+    <music-player [hidden]="!(mediaTypePlaying === 'music')"></music-player>
+    <video-player [hidden]="!(mediaTypePlaying === 'video')" [videoWidth]="videoWidth" [videoHeight]="videoHeight">
+    </video-player>
     <div class="space-sec-c-scroll" [style.height.px]="screenHeight - 174">
         <creating></creating>
     </div>

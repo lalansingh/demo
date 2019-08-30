@@ -80,7 +80,8 @@ export class UploadMusicComponent {
                             posterTitle: '',
                             time: '35 min',
                             publish: '1 Aug, 2019',
-                            duration: duration
+                            duration: duration,
+                            autoPlay: false
                         }
 
                         this.mediaFileList.push(mediaTrackList);

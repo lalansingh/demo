@@ -17,6 +17,8 @@ export class ComonService {
   public videoSrc: EventEmitter<any> = new EventEmitter();
   @Output()
   public singleAudio: EventEmitter<any> = new EventEmitter();
+  @Output()
+  public mediaTypePlayed: EventEmitter<any> = new EventEmitter();
 
   constructor() {
   }
@@ -44,5 +46,8 @@ export class ComonService {
   }
   public videoUploaded(src: any) {
     this.videoSrc.emit(src);
+  }
+  public mediaPlay(type: any) {
+    this.mediaTypePlayed.emit(type)
   }
 }

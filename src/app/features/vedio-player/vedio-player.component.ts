@@ -53,7 +53,7 @@ export class VedioPlayerComponent {
     public hideShowControl: boolean = false;
     public bufferBarWidth: number = 0;
     public activeSpeed: string = '1x';
-    public progressBar: number = 0;
+    // public progressBar: number = 0;
     public totalDuration: string = '00:00';
     public thumbLabel = true;
     public sortedMediaList: mediaFile[];
@@ -77,7 +77,9 @@ export class VedioPlayerComponent {
             this.sortedMediaList = this.videoFileList.slice();
             if (videoFileList.length !== 0) {
                 this.initVideo(videoFileList[0]);
-                // this.startBuffer();
+                if (videoFileList[0].autoPlay) {
+                    this.onPlay();
+                }
             } else {
                 this.clearPlayer();
             }
@@ -100,7 +102,6 @@ export class VedioPlayerComponent {
 
     }
     private initVideo(currentTrack: any) {
-        this.progressBar = 0;
         this.fileDetails.trackId = currentTrack.trackId;
         this.fileDetails.url = currentTrack.src;
         this.fileDetails.mediaTitle = currentTrack.mediaTitle;
@@ -179,7 +180,6 @@ export class VedioPlayerComponent {
         this.video.pause();
         this.video.currentTime = 0;
         this.isPlayed = false;
-        this.progressBar = 0;
         this.video = this.videoElement.nativeElement;
     }
 
@@ -187,7 +187,6 @@ export class VedioPlayerComponent {
         this.video.pause();
         this.video.currentTime = 0;
         this.isPlayed = false;
-        this.progressBar = 0;
     }
     public onMoreControl() {
         if (this.isMoreControl) {
@@ -197,7 +196,6 @@ export class VedioPlayerComponent {
         }
     }
     public onPlay() {
-        this.progressBar = 1;
         this.video.play();
         this.maxDuration = this.video.duration;
         this.isPlayed = true;

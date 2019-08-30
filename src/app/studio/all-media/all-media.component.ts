@@ -60,7 +60,8 @@ export class AllMediaComponent {
             posterTitle: '',
             time: '35 min',
             publish: '1 Aug, 2019',
-            duration: '12'
+            duration: '12',
+            autoPlay: false
         }
         this.videoFileList.push(videoTrackList);
 
@@ -75,7 +76,8 @@ export class AllMediaComponent {
             posterTitle: '',
             time: '35 min',
             publish: '1 Aug, 2019',
-            duration: '12'
+            duration: '12',
+            autoPlay: false
         }
         this.videoFileList.push(videoTrackList1);
         let videoTrackList2: mediaFile = {
@@ -89,7 +91,8 @@ export class AllMediaComponent {
             posterTitle: '',
             time: '35 min',
             publish: '1 Aug, 2019',
-            duration: '12'
+            duration: '12',
+            autoPlay: false
         }
         this.videoFileList.push(videoTrackList2);
 
@@ -112,7 +115,8 @@ export class AllMediaComponent {
             posterTitle: '',
             time: '35 min',
             publish: '1 Aug, 2019',
-            duration: duration
+            duration: duration,
+            autoPlay: false
         }
         this.audioFileList.push(mediaTrackList);
 
@@ -132,7 +136,8 @@ export class AllMediaComponent {
             posterTitle: '',
             time: '35 min',
             publish: '1 Aug, 2019',
-            duration: duration1
+            duration: duration1,
+            autoPlay: false
         }
         this.audioFileList.push(mediaTrackList1);
 
@@ -152,7 +157,8 @@ export class AllMediaComponent {
             posterTitle: '',
             time: '35 min',
             publish: '1 Aug, 2019',
-            duration: duration2
+            duration: duration2,
+            autoPlay: false
         }
         this.audioFileList.push(mediaTrackList2);
 
