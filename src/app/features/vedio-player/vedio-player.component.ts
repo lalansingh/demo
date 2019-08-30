@@ -40,8 +40,14 @@ export class VedioPlayerComponent {
     public maxVolume: number = 10;
     public minVolume: number = 0;
     public videoFileList: any = [];
-    public videoHeight: string = null;
-    public videoWidth: string = '563px';
+    @Input()
+    public videoHeight: string;
+    @Input()
+    public videoWidth: string;
+
+    public prevVideoHeight: string;
+    public prevVideoWidth: string;
+
     public isfullScreen: boolean = false;
     @Input()
     public hideShowControl: boolean = false;
@@ -61,6 +67,8 @@ export class VedioPlayerComponent {
         this.clearPlayer();
     }
     ngAfterViewInit() {
+        this.prevVideoHeight = this.videoHeight;
+        this.prevVideoWidth = this.videoWidth;
         // this.progressCircle.nativeElement.draggable({
         //     containment: 'parent'
         // });
@@ -276,13 +284,13 @@ export class VedioPlayerComponent {
         // this.videoSection.nativeElement.webkitExitFullscreen();
         this.isfullScreen = !this.isfullScreen;
         if (!this.isfullScreen) {
-            this.videoWidth = '563px';
-            this.videoHeight = '';
+            this.videoWidth = this.prevVideoWidth;
+            this.videoHeight = this.prevVideoHeight;
         }
     }
     public exitFullScreen() {
-        this.videoWidth = '563px';
-        this.videoHeight = '';
+        this.videoWidth = this.prevVideoWidth;
+        this.videoHeight = this.prevVideoHeight;
         document.exitFullscreen();
         // if(document.exitFullscreen) {
         //     document.exitFullscreen();

@@ -11,9 +11,10 @@
         <thinking></thinking>
     </div>
 </div>
-<div class="right-layout-sec box-shadow" [style.height.px]="screenHeight - 86">
+<div class="right-layout-sec box-shadow">
     <creating-menu></creating-menu>
-    <div class="space-sec-c-scroll">
+    <video-player [videoWidth]="videoWidth" [videoHeight]="videoHeight"></video-player>
+    <div class="space-sec-c-scroll" [style.height.px]="screenHeight - 174">
         <creating></creating>
     </div>
 </div>

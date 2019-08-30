@@ -23,6 +23,8 @@ export class AllMediaComponent {
     public audioPosterSrc = '../../../assets/music/poster/';
     public videoSrc = '..//..//..//assets/video/';
     public videoPosterSrc = '../../../assets/video/poster/';
+    public videoWidth: string = '563px';
+    public videoHeight: string = '315px';
 
     constructor(private comonService: ComonService) {
         this.screenHeight = localStorage.getItem('windowHeight');
