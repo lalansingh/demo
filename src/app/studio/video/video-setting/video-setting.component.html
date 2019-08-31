@@ -1,100 +1,89 @@
 <div class="manage-header">
     <mat-nav-list>
-        <a mat-list-item class="active"><i class="material-icons">group_add</i> Audience</a>
+        <a mat-list-item class="active"><i class="material-icons">group_add</i> Detials</a>
         <a mat-list-item><i class="material-icons">bubble_chart</i> Editor</a>
         <a mat-list-item><i class="material-icons">cloud</i> Cloud</a>
         <a mat-list-item><i class="material-icons">assignment_turned_in</i> Guidlines</a>
     </mat-nav-list>
 </div>
 <div class="manage-section space-sec-c-scroll" [style.height.px]="screenHeight - 163">
-    <p>
-        Content Audience allows you to select your desired Audience to target your Content to increase the
-        reachability of your Content.
-    </p>
-    <div class="manage-forms">
-        <div class="age-gender">
-            <div class="content age">
-                <fieldset>
-                    <legend>Age</legend>
-                </fieldset>
+    <div class="suggested-thumnail">
+        <fieldset>
+            <legend>Suggested Thumbnail </legend>
+            <div class="thumbnail">
+                <img src="../../../assets/images/postcast.JPG" alt="Photo of a Shiba Inu">
+                <img src="../../../assets/images/postcast.JPG" alt="Photo of a Shiba Inu">
+                <img src="../../../assets/images/postcast.JPG" alt="Photo of a Shiba Inu">
             </div>
-            <div class="content gender">
-                <fieldset>
-                    <legend>Gender</legend>
-                </fieldset>
+        </fieldset>
+    </div>
+    <div class="track-cover">
+        <fieldset>
+            <legend>Selected Thumbnail</legend>
+            <div class="cover">
+                <i class="material-icons" (click)="addMore()">audiotrack</i><br>
+                <span>Select or Upload the Video Art</span><br>
+                <span>(Custom Thumbnail)</span>
+            </div>
+        </fieldset>
+    </div>
+    <div class="content-sec">
+        <div class="content">
+            <fieldset class="captions">
+                <legend>Captions</legend>
+            </fieldset>
+            <fieldset class="language">
+                <legend>Language</legend>
+            </fieldset>
+        </div>
+        <div class="content">
+            <fieldset class="visibility">
+                <legend>Visibility</legend>
+            </fieldset>
+            <fieldset class="playlist">
+                <legend>Video Playlist</legend>
+            </fieldset>
+        </div>
+        <div class="advance">
+            <label>
+                Advanced Settings
+            </label>
+        </div>
+        <div class="content">
+            <fieldset class="engagement">
+                <legend>Engagement</legend>
+            </fieldset>
+        </div>
+        <div class="content">
+            <fieldset class="rights">
+                <legend>Content Rights</legend>
+            </fieldset>
+            <div class="turned-off">
+                <div class="on-off"><span class="lbl-music">Monetise Music</span><br><span class="lbl-off">Turned
+                        off</span></div>
+                <div>
+                    <label class="switch">
+                        <input type="checkbox">
+                        <span class="slider round"></span>
+                    </label>
+                </div>
+                <div>
+                    <i class="material-icons">info</i>
+                </div>
             </div>
         </div>
-        <div class="location">
-            <div class="content">
-                <fieldset>
-                    <legend>Location</legend>
-                </fieldset>
-                <span>Select or Type to add Locations of Users to target your Content. </span>
-            </div>
+        <div class="content">
+            <fieldset class="age">
+                <legend>Age Restriction</legend>
+            </fieldset>
+            <fieldset class="embedding">
+                <legend>Embedding</legend>
+            </fieldset>
         </div>
-        <div class="location-selected">
-            <div class="content">
-                <fieldset>
-                    <span>Selected Location Names <div>|</div> Available Audience </span>
-                </fieldset>
-            </div>
-        </div>
-        <div class="language">
-            <div class="content">
-                <fieldset>
-                    <legend>Language</legend>
-                </fieldset>
-                <span>Select or Type to add Language of Users to target your Content. </span>
-            </div>
-        </div>
-        <div class="language-selected">
-            <div class="content">
-                <fieldset>
-                    <span>Selected Language Names <div>|</div> Available Location </span>
-                </fieldset>
-            </div>
-        </div>
-        <div class="device">
-            <div class="content">
-                <fieldset>
-                    <legend>Device</legend>
-                </fieldset>
-                <span>Select or Type the device of Users to target your Content. </span>
-            </div>
-        </div>
-        <div class="device-selected">
-            <div class="content">
-                <fieldset>
-                    <span>Selected Device Names <div>|</div> Available Location </span>
-                </fieldset>
-            </div>
-        </div>
-        <div class="manage-footer">
-            <p class="row1">
-                Include or Exclude your Contacts and Believers from your targeted Content Audience.
-            </p>
-            <span class="row2">
-                <button mat-raised-button>Contacts</button>
-                <button mat-raised-button>Believers</button>
-            </span>
-            <p class="row3">
-                Select to include your network by Clicking on either Contacts, Believers or both. Leave unselected
-                to exclude your Network.
-            </p>
-            <p class="row4">
-                <button mat-raised-button>Publish</button>
-            </p>
-            <p class="row5">
-                <button mat-raised-button>Total Audience for Content Reach</button>
-            </p>
-
+        <div class="content">
+            <fieldset class="branding">
+                <legend>Branding</legend>
+            </fieldset>
         </div>
     </div>
-    <p class="row6">
-        Using Content Audience increases your Content Reachability to the desired Audience. Use this to
-        generate Views to your Content.<br> Audience will not be able to Engage with Your Content, instead run
-        as an Ad to allow User Engagement and to display your content in the Focussed Space and with more
-        Advanced Targeting option to reach the right Audience. Click here to Run as Ad.
-        <br><a href="javascript:void()">Click here to Run as Ad</a>
-    </p>
 </div>
