@@ -18,42 +18,12 @@ $custom-typography: mat-typography-config(
   width: 105%;
   margin: 10px 0px 10px -18px;
 }
-.topSearch {
-  width: calc(100% - 400px);
-  overflow: hidden;
-  height: 40px;
-  // padding: 0 15px;
-  border: 1px solid var(--topsearch-border-color);
-  margin: 0 20px;
-  font-size: 16px;
-  border-radius: 20px;
-  box-shadow: var(--border-color) 0px 3px 6px;
-  .mat-form-field {
-    width: 100%;
-    top: -12px;
-    text-align: center;
-  }
-  .mat-form-field-appearance-legacy .mat-form-field-underline {
-    bottom: 0;
-    display: none;
-  }
-  .mat-form-field-label {
-    color: var(--label-color) !important;
-  }
-  .mat-focused .mat-form-field-label {
-    color: var(--label-color);
-  }
-}
+
 
 .mat-form-field-appearance-legacy .mat-form-field-label {
   color: var(--label-color) !important;
 }
 
-.mat-autocomplete-panel {
-  border-radius: 0px 0px 20px 20px !important;
-  margin-top: 6px;
-  background: var(--autocomplete-background-color);
-}
 .side-nav-container {
   // height: calc(100vh - 66px);
   background: var(--primary-color);

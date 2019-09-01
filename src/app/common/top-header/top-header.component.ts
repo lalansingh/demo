@@ -105,6 +105,7 @@ export class TopHeaderComponent implements OnInit {
     });
     if (stateList.length > 0) {
       this.topSearchElement.nativeElement.style.borderRadius = '20px 20px 0px 0px';
+      this.topSearchElement.nativeElement.style.borderBottom = '0px';
     } else {
       this.topSearchElement.nativeElement.style.borderRadius = '20px';
     }

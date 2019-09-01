@@ -18,12 +18,132 @@
         </mat-label>
         <input matInput placeholder="State" aria-label="State" (blur)="onTopSearchBlur()" [matAutocomplete]="auto"
           [formControl]="stateCtrl">
-        <mat-autocomplete #auto="matAutocomplete" (optionSelected)="onTopSearchItemSelected($event.option.value)">
-          <mat-option *ngFor="let state of filteredStates | async" [value]="state.name">
-            <img class="example-option-img" aria-hidden [src]="state.flag" height="25">
-            <span>{{state.name}}</span>
-            <!--| <small>Population: {{state.population}}</small> -->
-          </mat-option>
+        <mat-autocomplete #auto="matAutocomplete">
+          <mat-option disabled></mat-option>
+          <div class="result-section">
+            <div class="left-sec">
+              <div class="container">
+                <div class="top-hits">
+                  <div class="title">TOP HITS</div>
+                  <a href="javascript:void()">#Einstein</a>
+                  <a href="javascript:void()">List of Einsteins Inventions</a>
+                  <a href="javascript:void()">Inventions by Einstein</a>
+                </div>
+                <div class="people">
+                  <div class="title">
+                    <div class="title-text">PEOPLE (Contacts and Believers)</div>
+                    <div class="result-content">10 Results <a href="javascript:void()"> (Show All)</a></div>
+                  </div>
+                  <div class="people-details">
+                    <div class="profile">
+                      <div class="picture">
+                        <img class="img-pic" src="../../../assets/images/subscribers.png" alt="Photo of a Shiba Inu">
+                      </div>
+                      <div class="info">
+                        <div class="info-title">Leonardo da Vinci<a href="javascript:void()">@Leo</a></div>
+                        <div class="sub-title">Artist at University de France</div>
+                        <div class="details"><a>Paris, France</a>2 days ago (6 Apr 2019, 11:50am)</div>
+                      </div>
+                    </div>
+                    <div class="action">
+                      <mat-icon>forum</mat-icon>
+                      <mat-icon>call</mat-icon>
+                      <mat-icon>videocam</mat-icon>
+                    </div>
+                  </div>
+                  <div class="people-details">
+                    <div class="profile">
+                      <div class="picture">
+                        <img class="img-pic" src="../../../assets/images/subscribers.png" alt="Photo of a Shiba Inu">
+                      </div>
+                      <div class="info">
+                        <div class="info-title">Leonardo da Vinci<a href="javascript:void()">@Leo</a></div>
+                        <div class="sub-title">Artist at University de France</div>
+                        <div class="details"><a>Paris, France</a>2 days ago (6 Apr 2019, 11:50am)</div>
+                      </div>
+                    </div>
+                    <div class="action">
+                      <mat-icon>forum</mat-icon>
+                      <mat-icon>call</mat-icon>
+                      <mat-icon>videocam</mat-icon>
+                    </div>
+                  </div>
+                  <div class="people-details">
+                    <div class="profile">
+                      <div class="picture">
+                        <img class="img-pic" src="../../../assets/images/subscribers.png" alt="Photo of a Shiba Inu">
+                      </div>
+                      <div class="info">
+                        <div class="info-title">Leonardo da Vinci<a href="javascript:void()">@Leo</a></div>
+                        <div class="sub-title">Artist at University de France</div>
+                        <div class="details"><a>Paris, France</a>2 days ago (6 Apr 2019, 11:50am)</div>
+                      </div>
+                    </div>
+                    <div class="action">
+                      <mat-icon>forum</mat-icon>
+                      <mat-icon>call</mat-icon>
+                      <mat-icon>videocam</mat-icon>
+                    </div>
+                  </div>
+                </div>
+                <div class="websites">
+                  <div class="title">
+                    <div class="title-text">WEBSITES</div>
+                    <div class="result-content">10 Results <a href="javascript:void()"> (Show All)</a></div>
+                  </div>
+                  <a href="javascript:void()">https://en.wikipedia.org/wiki/Albert_Einstein</a>
+                  <a href="javascript:void()">https://www.biography.com/scientist/albert-einstein</a>
+                  <a href="javascript:void()">https://www.britannica.com/biography/Albert-Einstein</a>
+                </div>
+                <div class="articles">
+                  <div class="title">
+                    <div class="title-text">ARTICLES</div>
+                    <div class="result-content">10 Results <a href="javascript:void()"> (Show All)</a></div>
+                  </div>
+                  <a href="javascript:void()">List of Einsteins Inventions</a>
+                  <a href="javascript:void()">How Einstein Invented?</a>
+                  <a href="javascript:void()">Secret of Albert Einsteins Inventions</a>
+                </div>
+                <div class="ask-poll">
+                  <div class="title">
+                    <div class="title-text">ASKS & POLLS</div>
+                    <div class="result-content">10 Results <a href="javascript:void()"> (Show All)</a></div>
+                  </div>
+                  <a href="javascript:void()">What are Einstein’s best Invention?</a>
+                  <a href="javascript:void()">Is there a movie about Einstein?</a>
+                  <a href="javascript:void()">Vote: Einsteins best Invention?</a>
+                </div>
+              </div>
+            </div>
+            <div class="right-sec">
+              <div class="right-container">
+                <div class="photo">
+                  <div class="title">
+                    <div class="title-text">ASKS & POLLS</div>
+                    <div class="result-content">10 Results <a href="javascript:void()"> (Show All)</a></div>
+                  </div>
+                  <div class="media-files">
+                    <div class="media">
+                      <img mat-card-image src="../../../assets/images/media1.png" alt="Photo of a Shiba Inu">
+                      <span>#Eisntein #lifestory #inventions</span>
+                    </div>
+                    <div class="media">
+                      <img mat-card-image src="../../../assets/images/media1.png" alt="Photo of a Shiba Inu">
+                      <span>#Eisntein #lifestory #inventions</span>
+                    </div>
+                    <div class="media">
+                      <img mat-card-image src="../../../assets/images/media1.png" alt="Photo of a Shiba Inu">
+                      <span>#Eisntein #lifestory #inventions</span>
+                    </div>
+                    <div class="media">
+                      <img mat-card-image src="../../../assets/images/media1.png" alt="Photo of a Shiba Inu">
+                      <span>#Eisntein #lifestory #inventions</span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
         </mat-autocomplete>
       </mat-form-field>
     </div>
@@ -40,7 +160,7 @@
     <button mat-raised-button class="mar-r-6" [matMenuTriggerFor]="menuBookmark">
       <mat-icon>turned_in_not</mat-icon>
     </button>
-    <button mat-raised-button class="mar-r-6" (click)="themeChange()" >
+    <button mat-raised-button class="mar-r-6" (click)="themeChange()">
       <mat-icon>brightness_4</mat-icon>
     </button>
     <button mat-raised-button class="mar-r-6" [matMenuTriggerFor]="menuLogout">
