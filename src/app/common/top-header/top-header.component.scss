@@ -478,6 +478,84 @@
           }
         }
       }
+      .music {
+        display: inline-grid;
+        padding-bottom: 20px;
+        width: 100%;
+        .title {
+          background: #d5d5d6;
+          display: inline-flex;
+          justify-content: space-between;
+          padding: 3px 5px 3px 15px;
+          margin-bottom: 7px;
+          .title-text {
+            font-size: 20px;
+            color: #707070;
+          }
+          .result-content {
+            font-size: 15px;
+            color: #707070;
+            a {
+              text-decoration: none;
+              cursor: pointer;
+              color: #3597ec;
+            }
+          }
+        }
+        .media-files {
+          display: inline-flex;
+          justify-content: space-between;
+          .media {
+            border-radius: 5px;
+            border: 1px solid #dedada;
+            position: relative;
+            width: 200px;
+            .container-sec {
+              padding: 0px 5px 3px 6px;
+              .raiting {
+                display: inline-flex;
+                justify-content: space-between;
+                width: 100%;
+                .watched {
+                  font-size: 10px;
+                  color: #a0a0a0;
+                }
+                .stars {
+                  mat-icon {
+                    color: #707070;
+                    font-size: 10px;
+                    height: 10px;
+                    width: 10px;
+                  }
+                }
+              }
+              .music-sec {
+                display: inline-flex;
+                .poster {
+                  img {
+                    width: 60px;
+                    height: 40px;
+                    margin: 0;
+                  }
+                }
+                .details-content {
+                  display: grid;
+                  margin-left: 10px;
+                  .title-details {
+                    font-size: 15px;
+                    color: #4d4d4d;
+                  }
+                  a {
+                    font-size: 10px;
+                    color: #3597ec;
+                    cursor: pointer;
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
     }
   }
 }
