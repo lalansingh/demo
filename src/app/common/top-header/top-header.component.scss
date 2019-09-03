@@ -177,6 +177,15 @@
     width: 100%;
     top: -12px;
     text-align: center;
+    .input-class {
+      width: 97%;
+      text-align: left;
+      font-size: 35px;
+      color: #707070;
+    }
+    mat-label {
+      display: inline-flex !important;
+    }
   }
   .mat-form-field-appearance-legacy .mat-form-field-underline {
     bottom: 0;
@@ -188,10 +197,13 @@
   .mat-focused .mat-form-field-label {
     color: var(--label-color);
   }
+  // .mat-form-field-label-wrapper {
+  //   margin-top: 3px !important;
+  // }
 }
 .mat-autocomplete-panel {
   border-radius: 0px 0px 20px 20px !important;
-  margin-top: 6px;
+  margin-top: -13px !important;
   border: 1px solid #3597ec !important;
   border-top: none !important;
   margin-left: -1px;
@@ -228,6 +240,7 @@
           background: #d5d5d6;
           font-size: 20px;
           color: #707070;
+          font-weight: bold;
           padding: 3px 5px 3px 15px;
         }
         a {
@@ -249,6 +262,7 @@
           .title-text {
             font-size: 20px;
             color: #707070;
+            font-weight: bold;
           }
           .result-content {
             font-size: 15px;
@@ -330,6 +344,7 @@
           .title-text {
             font-size: 20px;
             color: #707070;
+            font-weight: bold;
           }
           .result-content {
             font-size: 15px;
@@ -368,6 +383,7 @@
           .title-text {
             font-size: 20px;
             color: #707070;
+            font-weight: bold;
           }
           .result-content {
             font-size: 15px;
@@ -418,6 +434,7 @@
           .title-text {
             font-size: 20px;
             color: #707070;
+            font-weight: bold;
           }
           .result-content {
             font-size: 15px;
@@ -491,6 +508,7 @@
           .title-text {
             font-size: 20px;
             color: #707070;
+            font-weight: bold;
           }
           .result-content {
             font-size: 15px;
