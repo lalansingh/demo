@@ -4,6 +4,7 @@ import { Observable } from 'rxjs';
 import { startWith, map } from 'rxjs/operators';
 import { ISpace, StateData, SpaceData } from './top-header.modle';
 import { ThemeService } from '../theme/theme.service';
+import { MatAutocompleteTrigger } from '@angular/material';
 
 export interface State {
   flag: string;
@@ -25,6 +26,7 @@ export class TopHeaderComponent implements OnInit {
   @ViewChild('spaceSearchElement', { static: false })
   spaceSearchElement: ElementRef;
 
+  @ViewChild(MatAutocompleteTrigger, { static: false }) trigger: MatAutocompleteTrigger;
   // Top Search
   stateCtrl = new FormControl();
   filteredStates: Observable<State[]>;
@@ -34,7 +36,8 @@ export class TopHeaderComponent implements OnInit {
   public filteredSpace: Observable<ISpace[]>;
   public space: ISpace[] = SpaceData;
 
-  constructor(private themeService: ThemeService) {
+  constructor(private themeService: ThemeService, element: ElementRef) {
+    console.log(element);
   }
   private isTopSearchLoaded: boolean = false;
   private isSpaceSearchLoaded: boolean = false;
@@ -51,11 +54,20 @@ export class TopHeaderComponent implements OnInit {
   }
 
   ngAfterViewInit() {
-    this.topSearchElement.nativeElement.querySelector('.mat-form-field-infix')
-      .addEventListener('click', this.onTopSearchClicked.bind(this));
+    // this.topSearchElement.nativeElement.querySelector('.mat-form-field-infix')
+    //   .addEventListener('click', this.onTopSearchClicked.bind(this));
     // .addEventListener('click', this.onTopSearchClicked.bind(this));
     this.spaceSearchElement.nativeElement.querySelector('.mat-form-field-infix')
       .addEventListener('click', this.onSpaceSearchClicked.bind(this));
+
+    this.trigger.autocomplete.closed.subscribe(e => {
+      this.topSearchElement.nativeElement.style.borderRadius = '20px';
+      this.topSearchElement.nativeElement.style.borderBottomColor = '#3597ec';
+    });
+    this.trigger.autocomplete.opened.subscribe(e => {
+      this.topSearchElement.nativeElement.style.borderRadius = '20px 20px 0px 0px';
+      this.topSearchElement.nativeElement.style.borderBottomColor = '#fff';
+    });
   }
   ngOnInit() {
 
@@ -65,13 +77,13 @@ export class TopHeaderComponent implements OnInit {
         startWith(''),
         map(state => {
           let res = state ? this._filterStates(state) : this.states.slice();
-          if (this.isTopSearchLoaded) {
-            if (res.length > 0) {
-              this.topSearchElement.nativeElement.style.borderRadius = '20px 20px 0px 0px';
-            } else {
-              this.topSearchElement.nativeElement.style.borderRadius = '20px';
-            }
-          }
+          // if (this.isTopSearchLoaded) {
+          //   if (res.length > 0) {
+          //     this.topSearchElement.nativeElement.style.borderRadius = '20px 20px 0px 0px';
+          //   } else {
+          //     this.topSearchElement.nativeElement.style.borderRadius = '20px';
+          //   }
+          // }
           this.isTopSearchLoaded = true;
           return res;
         })
@@ -99,16 +111,7 @@ export class TopHeaderComponent implements OnInit {
 
   // Top Search
   public onTopSearchClicked(): void {
-    let stateList;
-    this.filteredStates.subscribe(x => {
-      stateList = x
-    });
-    if (stateList.length > 0) {
-      this.topSearchElement.nativeElement.style.borderRadius = '20px 20px 0px 0px';
-      this.topSearchElement.nativeElement.style.borderBottom = '0px';
-    } else {
-      this.topSearchElement.nativeElement.style.borderRadius = '20px';
-    }
+    this.topSearchElement.nativeElement.style.borderRadius = '20px';
   }
   public onTopSearchItemSelected(selectedItem: string) {
     this.topSearchElement.nativeElement.style.borderRadius = '20px';
