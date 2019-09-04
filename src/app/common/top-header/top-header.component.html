@@ -14,12 +14,12 @@
     </button>
     <div class="topSearch" #topSearchElement>
       <div class="search-input">
-        <div class="search-placeholder" *ngIf="isPlaceholder">
+        <label class="search-placeholder" *ngIf="isPlaceholder" for="top-search">
           <span class="placeholder">Type to search the web or tap the mic..</span>
           <mat-icon>mic</mat-icon>
-        </div>
+        </label>
         <input type="text" (blur)="searchContent ?isPlaceholder = false:isPlaceholder = true"
-          (focus)="isPlaceholder = false" name="search" [(ngModel)]="searchContent" [matAutocomplete]="auto">
+          (focus)="isPlaceholder = false" id="top-search" [(ngModel)]="searchContent" [matAutocomplete]="auto">
       </div>
       <div class="search-autocomplete">
         <mat-autocomplete #auto="matAutocomplete">
