@@ -35,6 +35,8 @@ export class TopHeaderComponent implements OnInit {
   public spaceCtrl = new FormControl();
   public filteredSpace: Observable<ISpace[]>;
   public space: ISpace[] = SpaceData;
+  public isPlaceholder: boolean = true;
+  public searchContent: string;
 
   constructor(private themeService: ThemeService, element: ElementRef) {
     console.log(element);
@@ -61,11 +63,11 @@ export class TopHeaderComponent implements OnInit {
       .addEventListener('click', this.onSpaceSearchClicked.bind(this));
 
     this.trigger.autocomplete.closed.subscribe(e => {
-      this.topSearchElement.nativeElement.style.borderRadius = '20px';
+      this.topSearchElement.nativeElement.style.borderRadius = '35px';
       this.topSearchElement.nativeElement.style.borderBottomColor = '#3597ec';
     });
     this.trigger.autocomplete.opened.subscribe(e => {
-      this.topSearchElement.nativeElement.style.borderRadius = '20px 20px 0px 0px';
+      this.topSearchElement.nativeElement.style.borderRadius = '27px 27px 0px 0px';
       this.topSearchElement.nativeElement.style.borderBottomColor = '#fff';
     });
   }

@@ -13,11 +13,15 @@
       <mat-icon>public</mat-icon>
     </button>
     <div class="topSearch" #topSearchElement>
-      <mat-form-field floatLabel="never">
-        <mat-label>Type to search the web or tap the mic.. <mat-icon>mic</mat-icon>
-        </mat-label>
-        <input class="input-class" matInput placeholder="State" aria-label="State" [matAutocomplete]="auto"
-          [formControl]="stateCtrl">
+      <div class="search-input">
+        <div class="search-placeholder" *ngIf="isPlaceholder">
+          <span class="placeholder">Type to search the web or tap the mic..</span>
+          <mat-icon>mic</mat-icon>
+        </div>
+        <input type="text" (blur)="searchContent ?isPlaceholder = false:isPlaceholder = true"
+          (focus)="isPlaceholder = false" name="search" [(ngModel)]="searchContent" [matAutocomplete]="auto">
+      </div>
+      <div class="search-autocomplete">
         <mat-autocomplete #auto="matAutocomplete">
           <mat-option disabled></mat-option>
           <div class="result-section">
@@ -383,7 +387,14 @@
             </div>
           </div>
         </mat-autocomplete>
-      </mat-form-field>
+      </div>
+      <!-- <mat-form-field floatLabel="never">
+        <mat-label>Type to search the web or tap the mic.. <mat-icon>mic</mat-icon>
+        </mat-label>
+        <input class="input-class" matInput placeholder="State" aria-label="State" [matAutocomplete]="auto"
+          [formControl]="stateCtrl">
+        
+      </mat-form-field> -->
     </div>
 
     <button mat-raised-button class="mar-r-6" [matMenuTriggerFor]="menuIncognito">
