@@ -38,7 +38,7 @@ export class TopHeaderComponent implements OnInit {
   public isPlaceholder: boolean = true;
   public searchContent: string;
 
-  constructor(private themeService: ThemeService, element: ElementRef) {
+  constructor(private themeService: ThemeService, private element: ElementRef) {
     console.log(element);
   }
   private isTopSearchLoaded: boolean = false;
@@ -65,8 +65,10 @@ export class TopHeaderComponent implements OnInit {
     this.trigger.autocomplete.closed.subscribe(e => {
       this.topSearchElement.nativeElement.style.borderRadius = '35px';
       this.topSearchElement.nativeElement.style.borderBottomColor = '#3597ec';
+      this.element.nativeElement.nextSibling.classList.remove('blur');
     });
     this.trigger.autocomplete.opened.subscribe(e => {
+      this.element.nativeElement.nextSibling.classList.add('blur');
       this.topSearchElement.nativeElement.style.borderRadius = '27px 27px 0px 0px';
       this.topSearchElement.nativeElement.style.borderBottomColor = '#fff';
     });
