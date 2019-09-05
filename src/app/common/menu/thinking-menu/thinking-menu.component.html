@@ -1,6 +1,6 @@
 <div class="custom-nav-list">
     <!-- Ui Responsive Menu -->
-    <nav class="ui-responsive-nav" role="navigation" fxShow="true" fxHide.gt-md>
+    <!-- <nav class="ui-responsive-nav" role="navigation" fxShow="true" fxHide.gt-md>
         <ul>
             <li><a href="#">
                     &nbsp;<mat-icon>menu</mat-icon>
@@ -24,20 +24,39 @@
                 </ul>
             </li>
         </ul>
-    </nav>
-    <mat-nav-list fxShow="true" fxHide.lt-lg>
-        <a mat-list-item [ngClass]="{'active':('allthinking'=== thinkingNav)}" [routerLink]="['/space/all-thinking']"
-            (click)="onClickThingingMenu('allthinking')"> All</a>
-        <a mat-list-item> @theName</a>
-        <a mat-list-item [ngClass]="{'active':('note'=== thinkingNav)}" [routerLink]="['/space/note']"
-            (click)="onClickThingingMenu('note')"> Notes</a>
-        <a mat-list-item (click)="onClickThingingMenu('Photos')" [ngClass]="{'active':('Photos'=== thinkingNav)}">
-            Photos</a>
-        <a mat-list-item (click)="onClickThingingMenu('Articles')" [ngClass]="{'active':('Articles'=== thinkingNav)}">
-            Articles</a>
-        <a mat-list-item (click)="onClickThingingMenu('Jobs')" [ngClass]="{'active':('Jobs'=== thinkingNav)}"> Jobs</a>
-        <a mat-list-item (click)="onClickThingingMenu('Asks')" [ngClass]="{'active':('Asks'=== thinkingNav)}"> Asks</a>
-        <a mat-list-item (click)="onClickThingingMenu('Teams')" [ngClass]="{'active':('Teams'=== thinkingNav)}">
-            Teams</a>
-    </mat-nav-list>
+    </nav> -->
+    <div class="top-menu-sec">
+        <mat-nav-list>
+            <a mat-list-item [ngClass]="{'active':('allthinking'=== thinkingNav)}"
+                [routerLink]="['/space/all-thinking']" (click)="onClickThingingMenu('allthinking')"> All</a>
+            <a mat-list-item> @theName</a>
+            <a mat-list-item [ngClass]="{'active':('note'=== thinkingNav)}" [routerLink]="['/space/note']"
+                (click)="onClickThingingMenu('note')"> Notes</a>
+            <a mat-list-item (click)="onClickThingingMenu('Photos')" [ngClass]="{'active':('Photos'=== thinkingNav)}">
+                Photos</a>
+            <a mat-list-item (click)="onClickThingingMenu('Articles')"
+                [ngClass]="{'active':('Articles'=== thinkingNav)}">
+                Articles</a>
+            <a mat-list-item (click)="onClickThingingMenu('Jobs')" [ngClass]="{'active':('Jobs'=== thinkingNav)}">
+                Jobs</a>
+            <a mat-list-item (click)="onClickThingingMenu('Asks')" [ngClass]="{'active':('Asks'=== thinkingNav)}">
+                Asks</a>
+            <a mat-list-item (click)="onClickThingingMenu('Teams')" [ngClass]="{'active':('Teams'=== thinkingNav)}">
+                Teams</a>
+        </mat-nav-list>
+    </div>
+    <div class="search-menu-sec">
+        <div class="search-box">
+            <mat-icon>search</mat-icon>
+            <input class="input-box" type="text" name="search" placeholder="Search People or Creations">
+        </div>
+        <mat-nav-list>
+            <a mat-list-item class="active">All</a>
+            <a mat-list-item> Latest</a>
+            <a mat-list-item> Recommended</a>
+            <a mat-list-item> Trending</a>
+            <a mat-list-item> Contacts</a>
+            <a mat-list-item> Believers</a>
+        </mat-nav-list>
+    </div>
 </div>

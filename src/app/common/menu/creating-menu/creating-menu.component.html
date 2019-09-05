@@ -1,5 +1,5 @@
 <!-- Ui Responsive Menu -->
-<div class="ui-responsive-menu-music" fxShow="true" fxHide.gt-md>
+<!-- <div class="ui-responsive-menu-music" fxShow="true" fxHide.gt-md>
     <div style="display:inline-flex">
         <nav class="ui-responsive-nav" role="navigation">
             <ul>
@@ -51,9 +51,9 @@
             </div>
         </div>
     </div>
-</div>
-<div class="custom-nav-list-music-header" fxShow="true" fxHide.lt-lg>
-    <div class="search-sec">
+</div> -->
+<div class="custom-nav-list-music-header">
+    <!-- <div class="search-sec">
         <div class="search mar-t-b-auto">
             <mat-form-field floatLabel="never">
                 <mat-label>Start Creating</mat-label>
@@ -61,32 +61,35 @@
                 <input type="search" matInput>
             </mat-form-field>
         </div>
-    </div>
+    </div> -->
     <div style="display:inline;">
         <mat-nav-list>
-            <a mat-list-item class="active"> Treanding</a>
-            <a mat-list-item> Contacts</a>
-            <a mat-list-item> Believers</a>
+            <a mat-list-item class="active"> All</a>
+            <a mat-list-item> Videos</a>
+            <a mat-list-item> Live</a>
+            <a mat-list-item> Virtual&nbsp;Reality</a>
+            <a mat-list-item> Music</a>
+            <a mat-list-item> Postcasts</a>
+            <a mat-list-item>
+                <div>
+                    <mat-icon>add_circle_outline</mat-icon>
+                </div>
+            </a>
         </mat-nav-list>
     </div>
 </div>
-<div class="custom-nav-list-music" fxShow="true" fxHide.lt-lg>
+<div class="custom-nav-list-music">
+    <div class="search-box">
+        <mat-icon>search</mat-icon>
+        <input class="input-box" type="text" name="search" placeholder="What are you thinking?">
+    </div>
+    <div class="icon-prefix">
+        <mat-icon>filter_list</mat-icon>
+    </div>
     <mat-nav-list>
-        <a mat-list-item>
-            <div class="icon-prefix">
-                <mat-icon>filter_list</mat-icon>
-            </div>
-        </a>
-        <a mat-list-item class="active"> All</a>
-        <a mat-list-item> Videos</a>
-        <a mat-list-item> Live</a>
-        <a mat-list-item> Virtual&nbsp;Reality</a>
-        <a mat-list-item> Music</a>
-        <a mat-list-item> Postcasts</a>
-        <a mat-list-item>
-            <div>
-                <mat-icon>add_circle_outline</mat-icon>
-            </div>
-        </a>
+        <a mat-list-item class="active">All</a>
+        <a mat-list-item> Recommended</a>
+        <a mat-list-item> Featured</a>
+        <a mat-list-item> Believers</a>
     </mat-nav-list>
 </div>

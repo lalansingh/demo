@@ -1,64 +1,25 @@
-.thinking-today-post {
-  padding: 1px 0px 10px 0px;
-  .mat-form-field {
-    width: calc(100% - 20px);
-    padding: 0 10px;
-    .mat-card-avatar {
-      height: 30px;
-      width: 30px;
-      border-radius: unset;
-      flex-shrink: 0;
-      object-fit: cover;
-      .mat-card-image {
-        width: 100%;
-        margin: 0;
-        height: 100%;
-        margin-bottom: -6px;
-        border-radius: 8px;
-      }
-    }
-  }
-}
-.search-think {
-  padding: 10px;
-  // background-color: #f7f7f7;
-  // border-top: 1px solid rgba(0, 0, 0, 0.12);
-  // border-bottom: 1px solid rgba(0, 0, 0, 0.12);
-  .search-image {
-    width: 30px;
-    height: 30px;
-    border-radius: 10px;
-  }
-  .icon-sufix {
-    position: relative;
-    // margin-left: -25px;
-    margin-top: -28px;
-    float: right;
-  }
-  .icon-prefix {
-    position: sticky;
-    margin-bottom: -31px;
+.search-box {
+  display: inline-flex;
+  height: 30px;
+  border-radius: 20px;
+  border: 1px solid #3597ec;
+  width: 97%;
+  margin: 10px;
+  mat-icon {
+    height: 15px;
+    width: 20px;
+    font-size: 15px;
+    margin-top: 8px;
+    color: #4d4d4d;
     margin-left: 5px;
-    width: 30px;
   }
-  .search-box {
-    border-radius: 7px;
-    width: 100%;
-    border: 0px solid;
-    text-align: left;
-    background-color: var(--mar-button-color);
-    height: 28px;
-    text-align: center;
-    margin-top: -3px;
-    border: 1px solid var(--border-color);
-    // padding-right: 30px;
-    // padding-left: 30px;
-    // box-shadow: 0 3px 1px -2px rgba(0, 0, 0, 0.2), 0 2px 2px 0 rgba(0, 0, 0, 0.14), 0 1px 5px 0 rgba(0, 0, 0, 0.12);
-  }
-  .search-box::placeholder {
-    font-family: FontAwesome;
-    font-family: "Calibri", sans-serif !important;
-    font-weight: 400;
-    font-size: 16px;
+  .input-box {
+    width: 94%;
+    border: none;
+    outline: none;
+    &::placeholder {
+      font-size: 15px;
+      color: #bebebe;
+    }
   }
 }

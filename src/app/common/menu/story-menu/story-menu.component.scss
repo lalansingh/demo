@@ -10,7 +10,7 @@
     }
     a.mat-list-item {
       border-bottom: 2px solid var(--primary-color);
-      height: 22px;
+      height: 34px;
       &.active {
         color: var(--text-active-color);
         border-bottom: 4px solid var(--text-active-color);
@@ -44,7 +44,7 @@
     flex-direction: row;
     a.mat-list-item {
       // border-bottom: 2px solid #fff;
-      height: 46px;
+      height: 49px;
       &.active {
         color: var(--text-active-color);
         background: var(--rgba-inactive-background);
